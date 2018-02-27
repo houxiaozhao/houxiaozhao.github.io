@@ -1,0 +1,842 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ionic,优化," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="ionic-native-transitions 下载 npm install ionic-native-transitions –save  安装 cordova plugin add https://github.com/Telerik-Verified-Plugins/NativePageTransitions   引入   如果是ios9，页面切换抖动，则安装 cordova plugin">
+<meta name="keywords" content="ionic,优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ionic优化">
+<meta property="og:url" content="http://yoursite.com/2017/05/09/ionic优化/index.html">
+<meta property="og:site_name" content="候小召的小站">
+<meta property="og:description" content="ionic-native-transitions 下载 npm install ionic-native-transitions –save  安装 cordova plugin add https://github.com/Telerik-Verified-Plugins/NativePageTransitions   引入   如果是ios9，页面切换抖动，则安装 cordova plugin">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-05-09T10:01:07.576Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ionic优化">
+<meta name="twitter:description" content="ionic-native-transitions 下载 npm install ionic-native-transitions –save  安装 cordova plugin add https://github.com/Telerik-Verified-Plugins/NativePageTransitions   引入   如果是ios9，页面切换抖动，则安装 cordova plugin">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/09/ionic优化/"/>
+
+
+
+
+
+  <title>ionic优化 | 候小召的小站</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c4a9757a763b43bffb12f4ea283e9101";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">候小召的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">随便写点什么</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/ionic优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="houxiaozhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494329141324&di=0dc0f4807efea43bf625bca6fec3c7a2&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2F1e4e6f041fd4df92b0c9fd09c5e254a5248f2789.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="候小召的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ionic优化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T17:04:59+08:00">
+                2017-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端技术/ionic/" itemprop="url" rel="index">
+                    <span itemprop="name">ionic</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ionic-native-transitions"><a href="#ionic-native-transitions" class="headerlink" title="ionic-native-transitions"></a>ionic-native-transitions</h1><ol>
+<li><p>下载</p>
+<p>npm install ionic-native-transitions –save</p>
+</li>
+<li><p>安装</p>
+<p>cordova plugin add <a href="https://github.com/Telerik-Verified-Plugins/NativePageTransitions" target="_blank" rel="noopener">https://github.com/Telerik-Verified-Plugins/NativePageTransitions</a> </p>
+</li>
+<li><p>引入</p>
+<script src="lib/ionic-native-transitions/dist/ionic-native-transitions.js"></script>
+</li>
+<li><p>如果是ios9，页面切换抖动，则安装</p>
+<p>cordova plugin add cordova-plugin-wkwebvie</p>
+</li>
+<li><p>注入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'yourApp'</span>, [ </span><br><span class="line">    <span class="string">'ionic-native-transitions'</span> </span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">.config(<span class="function"><span class="keyword">function</span>(<span class="params">$ionicNativeTransitionsProvider</span>)</span>&#123; </span><br><span class="line">    $ionicNativeTransitionsProvider.setDefaultOptions(&#123; </span><br><span class="line">        duration: <span class="number">400</span>, <span class="comment">// in milliseconds (ms), default 400, </span></span><br><span class="line">        slowdownfactor: <span class="number">4</span>, <span class="comment">// overlap views (higher number is more) or no overlap (1), default 4 </span></span><br><span class="line">        iosdelay: <span class="number">-1</span>, <span class="comment">// ms to wait for the iOS webview to update before animation kicks in, default -1 </span></span><br><span class="line">        androiddelay: <span class="number">-1</span>, <span class="comment">// same as above but for Android, default -1 </span></span><br><span class="line">        winphonedelay: <span class="number">-1</span>, <span class="comment">// same as above but for Windows Phone, default -1, </span></span><br><span class="line">        fixedPixelsTop: <span class="number">0</span>, <span class="comment">// the number of pixels of your fixed header, default 0 (iOS and Android) </span></span><br><span class="line">        fixedPixelsBottom: <span class="number">0</span> <span class="comment">// the number of pixels of your fixed footer (f.i. a tab bar), default 0 (iOS and Android) </span></span><br><span class="line">        triggerTransitionEvent: <span class="string">'$ionicView.afterEnter'</span>, <span class="comment">// internal ionic-native-transitions option </span></span><br><span class="line">        backInOppositeDirection: <span class="literal">false</span> <span class="comment">// Takes over default back transition and state back transition to use the opposite direction transition to go back </span></span><br><span class="line">    &#125;); </span><br><span class="line">   $ionicNativeTransitionsProvider.setDefaultTransition(&#123; </span><br><span class="line">        type: <span class="string">'slide'</span>, </span><br><span class="line">        direction: <span class="string">'left'</span> </span><br><span class="line">    &#125;); </span><br><span class="line">  $ionicNativeTransitionsProvider.setDefaultBackTransition(&#123; </span><br><span class="line">        type: <span class="string">'slide'</span>, </span><br><span class="line">        direction: <span class="string">'right'</span> </span><br><span class="line">    &#125;); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他参考<a href="https://github.com/shprink/ionic-native-transitions" target="_blank" rel="noopener">https://github.com/shprink/ionic-native-transitions</a> </p>
+</li>
+</ol>
+<h1 id="删除默认滚动条"><a href="#删除默认滚动条" class="headerlink" title="删除默认滚动条"></a>删除默认滚动条</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.config(<span class="function"><span class="keyword">function</span>(<span class="params">$ionicConfigProvider</span>) </span>&#123;</span><br><span class="line">  $ionicConfigProvider.scrolling.jsScrolling(<span class="literal">false</span>);</span><br><span class="line"> </span><br><span class="line">  <span class="comment">// Or for only a single platform, use</span></span><br><span class="line">  <span class="comment">// if( ionic.Platform.isAndroid() ) &#123;</span></span><br><span class="line">    <span class="comment">// $ionicConfigProvider.scrolling.jsScrolling(false);</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="使用缓存"><a href="#使用缓存" class="headerlink" title="使用缓存"></a>使用缓存</h1><ol>
+<li><p>安装</p>
+<p>bower install –save angular-cache</p>
+</li>
+<li><p>注入</p>
+<p>angular.module(‘myApp’, [‘angular-cache’])</p>
+</li>
+<li><p>使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.controller(<span class="string">'Posts'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">CacheFactory</span>) </span>&#123;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> (!CacheFactory.get(<span class="string">'postCache'</span>)) &#123;</span><br><span class="line">  CacheFactory.createCache(<span class="string">'postCache'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> postCache = CacheFactory.get(<span class="string">'postCache'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Cache a post</span></span><br><span class="line">postCache.put(id, data);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Delete from cache</span></span><br><span class="line">postCache.remove(id);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Get a post</span></span><br><span class="line">$scope.post = postCache.get(id);</span><br><span class="line"> </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>详情请看<a href="https://github.com/jmdobry/angular-cache" target="_blank" rel="noopener">https://github.com/jmdobry/angular-cache</a></p>
+</li>
+</ol>
+<h1 id="使用Crosswalk-WebView"><a href="#使用Crosswalk-WebView" class="headerlink" title="使用Crosswalk WebView"></a>使用Crosswalk WebView</h1><ol>
+<li><p>安装</p>
+<p>cordova plugin add cordova-plugin-crosswalk-webview</p>
+</li>
+<li><p>如果使用了第一步优化，在config.xml加入</p>
+<preference name="CrosswalkAnimatable" value="true">
+
+</preference></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ionic/" rel="tag"># ionic</a>
+          
+            <a href="/tags/优化/" rel="tag"># 优化</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/09/meteor代码风格/" rel="next" title="meteor代码风格">
+                <i class="fa fa-chevron-left"></i> meteor代码风格
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/09/angular和ionic代码级别优化/" rel="prev" title="angular和ionic代码级别优化">
+                angular和ionic代码级别优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494329141324&di=0dc0f4807efea43bf625bca6fec3c7a2&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2F1e4e6f041fd4df92b0c9fd09c5e254a5248f2789.jpg"
+               alt="houxiaozhao" />
+          <p class="site-author-name" itemprop="name">houxiaozhao</p>
+           
+              <p class="site-description motion-element" itemprop="description">我欲修仙,法力无边.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3255548707/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/houxiaozhao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.wugeek.com:88/" title="Wugeek" target="_blank">Wugeek</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ionic-native-transitions"><span class="nav-number">1.</span> <span class="nav-text">ionic-native-transitions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除默认滚动条"><span class="nav-number">2.</span> <span class="nav-text">删除默认滚动条</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用缓存"><span class="nav-number">3.</span> <span class="nav-text">使用缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Crosswalk-WebView"><span class="nav-number">4.</span> <span class="nav-text">使用Crosswalk WebView</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">houxiaozhao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
