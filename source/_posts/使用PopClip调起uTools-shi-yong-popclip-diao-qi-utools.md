@@ -25,7 +25,7 @@ actions:
 
 选择上边文字，然后点击`install Extension "Utools"`
 如果没有弹出popclip菜单，就把上边内容复制到其他位置再试。
-![image](/upload/2022/04/image.png)
+![image](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/KyGHW6.png)
 
 如果打开uTools的快捷键不是 opt+空格，需要替换popclip.pressKey的内容
 具体查看

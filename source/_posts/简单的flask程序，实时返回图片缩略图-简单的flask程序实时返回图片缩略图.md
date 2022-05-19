@@ -60,9 +60,8 @@ if __name__ == '__main__':
     app.run()
 
 ```
-![image.png](/upload/2022/03/image-729f7471edcb4b7e8a52cf8e9eac56be.png)
+![image-729f7471edcb4b7e8a52cf8e9eac56be](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/1MU1GY.png)其他
 
-### 其他
 #### requirements.txt
 ```
 gunicorn

@@ -17,7 +17,7 @@ tags:
 1. 把全局坐标系下的点坐标转为圆柱体的相对坐标
 2. 判断点坐标(x,z)是否在(0,0)为中心圆柱的半径为半径的圆内
 3. 判断点坐标的y的绝对值是否大于圆柱高度的一半
-![Untitled.png](/upload/2022/03/Untitled-11a4d6852f534fb8b514552f6260d175.png)![Untitled 1.png](/upload/2022/03/Untitled%201-a107af0b1fd14a6481bc01ac4e76f4c4.png)
+![Untitled.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/xtt4T3.png)![Untitled 1.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/ZCr5BF.png)
 
 ```jsx
 //v:待检测点

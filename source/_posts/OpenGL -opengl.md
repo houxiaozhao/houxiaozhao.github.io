@@ -33,8 +33,8 @@ tags:
 同样是颜色信息，在顶点着色器中，得到的是**顶点的颜色**，而在片元着色器中，得到的是**片元的颜色**——也就是说，如果三角形的三个顶点颜色是不同的，片元的颜色就是根据这三个顶点的颜色进行**插值**后的，也可以通俗地理解为，是渐变的。
 
 # 矩阵变换
-![image.png](/upload/2022/03/image-c3f1730f89af4813ba6cc71ff618e3d1.png)
-![image.png](/upload/2022/03/image-8a3061c391724c9eb8b9512f6ac61458.png)
+![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/cxL6Ec.png)
+![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/vFl3fr.png)
 一个物体的三维坐标向量，乘以模型视图矩阵后，能够得到它在试图坐标系中的位置，也就是它相对于摄像机的坐标位置
 
 ## **1. 和角度相关的函数**
@@ -42,21 +42,21 @@ tags:
 下面是一个和角度相关的函数，他们的用法我们度熟悉。
 
 
-![image.png](/upload/2022/03/image-d0beb12c9f804892a781e672201b4886.png)
+![image-d0beb12c9f804892a781e672201b4886](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/EVPugD.png)![image.png]()
 
 ## **2. 数学函数**
 
 这类主要是对指数对数幂函数的操作
-![image.png](/upload/2022/03/image-be7ef0ad747d4eada167df7434d51a29.png)
+![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/Zmm29y.png)
 
 ## **3. 常用函数**
 
 这里是常用函数，和js中的内置函数很像，需要牢记。
 
-![image.png](/upload/2022/03/image-dfed7d4c71ae4f868c996f799ca1e7e6.png)
+![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/ktbw5h.png)
 
 ## **4. 几何函数**
 
 这是与长度、距离、向量等相关的函数
 
-![image.png](/upload/2022/03/image-2311d353452a4a84981649a0db56b7b5.png)
+![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/UjDJNN.png)

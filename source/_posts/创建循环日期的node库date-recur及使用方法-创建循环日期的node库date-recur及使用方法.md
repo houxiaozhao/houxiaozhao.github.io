@@ -14,13 +14,15 @@ tags:
 
 # 效果
 ## 按天循环
-![image.png](/upload/2022/03/image-902ef3af9f8b417ba567573f5e587a32.png)
+![image-902ef3af9f8b417ba567573f5e587a32](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/xbk20M.png)
+
 ## 按周循环
-![image.png](/upload/2022/03/image-3f3830e6cce94cbcb24cf5e92e844d41.png)
+
+![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/1LA6HN.png)
 ## 按月循环
-![image.png](/upload/2022/03/image-f5afb72baf1c4563b041661e38ef52cd.png)
+![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/MMHBMR.png)
 ## 按年循环
-![image.png](/upload/2022/03/image-8bdd7d99c0e844ea9e806f67ce759ee9.png)
+![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/iUorMi.png)
 
 # 介绍date-recur
 创建一个循环日期并查询它以查看它是否落在特定日期。

@@ -3,15 +3,15 @@ title: vue中动态绑定的文本中加入跳转链接处理方式
 date: 2022-02-17 18:45:19.037
 updated: 2022-03-08 13:16:16.481
 url: /archives/vue-zhong-dong-tai-bang-ding-de-wen-ben-zhong-jia-ru-tiao-zhuan-lian-jie-chu-li-fang-shi
-categories: 
-tags: 
-- vue
+categories:
+tags:
+  - vue
 ---
 
 > 业务中有一块是通知中心，其中的通知文本中有的文字是可以点击跳转到其他页面的。但是又不想使用富文本渲染。遂采用以下实现方式
 
-- v-html渲染
-- a标签标识可跳转链接
+- v-html 渲染
+- a 标签标识可跳转链接
 - dataset 设置参数
 
 ```javascript
@@ -47,4 +47,5 @@ a {
 </style>
 
 ```
-![image.png](/upload/2022/03/image-2bbf4edc81fc4b8a9672f47a91005a6a.png)
+
+![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/0gpmgb.png)
