@@ -48,4 +48,4 @@ a {
 
 ```
 
-![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/0gpmgb.png)
+![image.png](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2022/05/20/0gpmgb.png)

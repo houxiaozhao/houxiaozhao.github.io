@@ -86,7 +86,7 @@ avatar:
 disable_top_img: false
 
 # The banner image of home page
-index_img: https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/OM8LQM.jpg
+index_img: https://service-7hs1bz9h-1256201397.sh.apigw.tencentcs.com/release/
 
 # If the banner of page not setting, it will show the top_img
 default_top_img:

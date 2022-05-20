@@ -3,61 +3,68 @@ title: 创建循环日期的node库date-recur及使用方法
 date: 2022-02-14 17:07:47.801
 updated: 2022-03-04 19:14:54.389
 url: /archives/创建循环日期的node库date-recur及使用方法
-categories: 
-tags: 
-- vue
-- nodejs
+categories:
+tags:
+  - vue
+  - nodejs
 ---
 
-> 因为在业务中周期性的任务，用到的该node库，记录一下备忘。
+> 因为在业务中周期性的任务，用到的该 node 库，记录一下备忘。
 > 业务需求是创建周期性的任务。比如每天，每隔几天，每周的周几，每月的几号，每年几月几号，以这些描述生成一系列的日期。
 
 # 效果
+
 ## 按天循环
-![image-902ef3af9f8b417ba567573f5e587a32](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/xbk20M.png)
+
+![image-902ef3af9f8b417ba567573f5e587a32](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2022/05/20/xbk20M.png)
 
 ## 按周循环
 
-![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/1LA6HN.png)
-## 按月循环
-![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/MMHBMR.png)
-## 按年循环
-![image.png](https://houxiaozhao-blog.oss-cn-beijing.aliyuncs.com/uPic/iUorMi.png)
+![image.png](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2022/05/20/1LA6HN.png)
 
-# 介绍date-recur
+## 按月循环
+
+![image.png](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2022/05/20/MMHBMR.png)
+
+## 按年循环
+
+![image.png](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2022/05/20/iUorMi.png)
+
+# 介绍 date-recur
+
 创建一个循环日期并查询它以查看它是否落在特定日期。
 使用方法详见[npm date-recur](https://www.npmjs.com/package/date-recur)
+
 ## 这里举几个例子
+
 ```javascript
- const r = recur(start, end);//限定开始和结束日期
-  // r.setDailyInterval(1); // 每天
-  // r.setDailyInterval(2); //每两天
-  // r.setDaysOfWeek(1)//每周一
-  // r.setDaysOfWeek([1, 2]); //每周一周二
-  // r.setWeeklyInterval(2).setDaysOfWeek(1); //每隔一周周一
-  // r.setWeeklyInterval(3).setDaysOfWeek([1, 3]); //每三周周一周三
-  // r.setDaysOfMonth(1); //每月一号
-  // r.setMonthlyInterval(2).setDaysOfMonth([1, 3, 4]); //每两个月的一号
-  // r.setYearlyInterval(2).setDaysOfMonth([3, 19]).setMonthsOfYear([11]); //每两年的11月的3号和19号
- 
+const r = recur(start, end); //限定开始和结束日期
+// r.setDailyInterval(1); // 每天
+// r.setDailyInterval(2); //每两天
+// r.setDaysOfWeek(1)//每周一
+// r.setDaysOfWeek([1, 2]); //每周一周二
+// r.setWeeklyInterval(2).setDaysOfWeek(1); //每隔一周周一
+// r.setWeeklyInterval(3).setDaysOfWeek([1, 3]); //每三周周一周三
+// r.setDaysOfMonth(1); //每月一号
+// r.setMonthlyInterval(2).setDaysOfMonth([1, 3, 4]); //每两个月的一号
+// r.setYearlyInterval(2).setDaysOfMonth([3, 19]).setMonthsOfYear([11]); //每两年的11月的3号和19号
 ```
-上面的只是创建了一个recur对象，还需要使用matches方法判断一个日期是否落入该recur对象设定的日期内。
-接下来从start到end的时间遍历一遍，挨个判断是否落入该recur对象中。
-### args含义 [1, [], []]
+
+上面的只是创建了一个 recur 对象，还需要使用 matches 方法判断一个日期是否落入该 recur 对象设定的日期内。
+接下来从 start 到 end 的时间遍历一遍，挨个判断是否落入该 recur 对象中。
+
+### args 含义 [1, [], []]
+
 - 第一个元素代表每隔多久，一天，两天，一个月，一周
 - 第二个元素
-	- 每天:为空
-	- 每周：周几
-	- 每月：几号
-	- 每年：几月
+  - 每天:为空
+  - 每周：周几
+  - 每月：几号
+  - 每年：几月
 - 第三个元素只有是每年时有代表：几号 ，和第二个元素结合就是几月几号
+
 ```javascript
-export function generateRecurDate(
-  start: string,
-  end: string,
-  measure: 'day' | 'week' | 'month' | 'year',
-  ...args: any[]
-) {
+export function generateRecurDate(start: string, end: string, measure: 'day' | 'week' | 'month' | 'year', ...args: any[]) {
   const r = recur(start, end);
   switch (measure) {
     case 'day':
@@ -70,9 +77,7 @@ export function generateRecurDate(
       r.setMonthlyInterval(args[0]).setDaysOfMonth(args[1]);
       break;
     case 'year':
-      r.setYearlyInterval(args[0])
-        .setDaysOfMonth(args[1])
-        .setMonthsOfYear(args[2]);
+      r.setYearlyInterval(args[0]).setDaysOfMonth(args[1]).setMonthsOfYear(args[2]);
       break;
     default:
       break;
@@ -83,14 +88,7 @@ export function generateRecurDate(
     if (r.matches(time.toDate())) {
       dates.push(time.format('YYYY-MM-DD'));
     }
-    if (
-      time.isBetween(
-        moment(new Date(start)),
-        moment(new Date(end)),
-        'day',
-        '[]',
-      )
-    ) {
+    if (time.isBetween(moment(new Date(start)), moment(new Date(end)), 'day', '[]')) {
       match(time.add(1, 'day'));
     }
   }
@@ -99,9 +97,9 @@ export function generateRecurDate(
 ```
 
 前端实现
-```vue
 
-        <el-form ref="form" :model="cycleTimeForm" label-width="120px">
+```vue
+<el-form ref="form" :model="cycleTimeForm" label-width="120px">
           <el-form-item label="执行时间：">
             <el-time-select
                 v-model="cycleTimeForm.time"
@@ -209,6 +207,7 @@ export function generateRecurDate(
           </el-form-item>
         </el-form>
 ```
+
 ```
 cycleTimeForm: {
         time: '',
