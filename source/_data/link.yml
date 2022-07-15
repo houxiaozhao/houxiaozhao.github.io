@@ -1,0 +1,31 @@
+- class_name: 常用组件
+  class_desc: 个人开发常用的网站
+  link_list:
+    - name: Github
+      link: https://github.com/
+      avatar: https://avatars.githubusercontent.com/u/9919
+      descr: 交友网站
+    - name: Vue2
+      link: https://cn.vuejs.org/
+      avatar: https://cn.vuejs.org/images/logo.svg
+      descr: 渐进式 JavaScript 框架
+    - name: Vue3
+      link: https://v3.cn.vuejs.org/
+      avatar: https://cn.vuejs.org/images/logo.svg
+      descr: 渐进式 JavaScript 框架
+    - name: 菜鸟教程
+      link: https://www.runoob.com/
+      avatar: https://www.runoob.com/wp-content/themes/runoob/assets/img/runoob-logo.png
+      descr: 我是菜鸟
+    - name: element
+      link: https://element.eleme.cn/#/zh-CN
+      avatar: https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2022/07/15/4gAk9E.png
+      descr: 饿了别叫妈，叫饿了么
+    - name: eggjs
+      link: https://www.eggjs.org/zh-CN
+      avatar: https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2022/07/15/d4iAiY.png
+      descr: 一个Node.js后端框架
+    - name: nest
+      link: https://docs.nestjs.cn/
+      avatar: https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2022/07/15/dnRx5Q.png
+      descr: 又一个Node.js后端框架
