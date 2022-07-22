@@ -30,14 +30,15 @@ function randomCover() {
     let num
 
     if (theme.cover && theme.cover.default_cover) {
-        if (!Array.isArray(theme.cover.default_cover)) {
-            cover = theme.cover.default_cover
-            return cover
-        } else {
-            num = Math.floor(Math.random() * theme.cover.default_cover.length)
-            cover = theme.cover.default_cover[num]
-            return cover + '?time=' + Math.random()
-        }
+        return `https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-${parseInt(Math.random()*617,10)+1}.jpg`;
+        // if (!Array.isArray(theme.cover.default_cover)) {
+        //     cover = theme.cover.default_cover
+        //     return cover
+        // } else {
+        //     num = Math.floor(Math.random() * theme.cover.default_cover.length)
+        //     cover = theme.cover.default_cover[num]
+        //     return cover + '?time=' + Math.random()
+        // }
     } else {
         cover = theme.default_top_img || 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
         return cover
