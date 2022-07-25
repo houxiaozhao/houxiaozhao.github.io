@@ -155,7 +155,7 @@ post_meta:
 # wordcount (字數統計)
 # see https://butterfly.js.org/posts/ceeb73f/#字數統計
 wordcount:
-  enable: false
+  enable: true
   post_wordcount: true
   min2read: true
   total_wordcount: true
@@ -483,7 +483,7 @@ theme_color:
 # The position of site info, eg: 300px/300em/300rem/10% (主頁標題距離頂部距離)
 index_site_info_top:
 # The height of top_img, eg: 300px/300em/300rem (主頁top_img高度)
-index_top_img_height: 400px
+index_top_img_height: 600px
 
 # The user interface setting of category and tag page (category和tag頁的UI設置)
 # index - same as Homepage UI (index 值代表 UI將與首頁的UI一樣)
