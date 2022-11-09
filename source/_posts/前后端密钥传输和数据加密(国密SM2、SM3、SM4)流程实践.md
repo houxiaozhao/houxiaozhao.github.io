@@ -24,7 +24,7 @@ SM4 分组密码算法是我国自主设计的分组对称密码算法，用于�
 
 ## 密钥传输流程
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/200849/1667819170117-82f5dc89-06b7-432e-9e01-89a7b7d10c71.png#averageHue=%23f5f5f5&clientId=u78c57c42-d3e7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=469&id=u01e9c5f8&margin=%5Bobject%20Object%5D&name=image.png&originHeight=938&originWidth=1166&originalType=binary&ratio=1&rotation=0&showTitle=false&size=75440&status=done&style=none&taskId=u26610db8-06ea-4cf2-8d00-a52e7f69ffd&title=&width=583)
+![n4jnbc](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2022/11/09/n4jnbc.png)
 
 ## **前端到后端加密传输**
 
