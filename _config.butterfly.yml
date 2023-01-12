@@ -89,7 +89,7 @@ avatar:
 disable_top_img: false
 
 # The banner image of home page
-index_img: https://w.wallhaven.cc/full/yx/wallhaven-yx8q3g.jpg
+index_img: https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/01/12/M0b0Vl.jpg
 
 # If the banner of page not setting, it will show the top_img
 default_top_img:
