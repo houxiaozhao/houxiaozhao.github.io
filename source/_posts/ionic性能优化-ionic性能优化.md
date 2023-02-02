@@ -1,14 +1,16 @@
 ---
 title: ionic性能优化
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2017-01-18 11:58:21.0
 updated: 2022-03-08 10:43:23.794
 url: /archives/ionic性能优化
-categories: 
-tags: 
-- cordova ionic
+categories:
+tags:
+  - cordova ionic
 ---
-
-
 
 # ionic-native-transitions
 
@@ -33,7 +35,7 @@ tags:
 5. 注入
 
    ```javascript
-   angular.module('yourApp', ['ionic-native-transitions'])
+   angular.module("yourApp", ["ionic-native-transitions"]);
    ```
 
 6. 配置

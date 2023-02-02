@@ -1,5 +1,9 @@
 ---
 title: 创建循环日期的node库date-recur及使用方法
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2022-02-14 17:07:47.801
 updated: 2022-03-04 19:14:54.389
 url: /archives/创建循环日期的node库date-recur及使用方法
@@ -64,19 +68,19 @@ const r = recur(start, end); //限定开始和结束日期
 - 第三个元素只有是每年时有代表：几号 ，和第二个元素结合就是几月几号
 
 ```javascript
-export function generateRecurDate(start: string, end: string, measure: 'day' | 'week' | 'month' | 'year', ...args: any[]) {
+export function generateRecurDate(start: string, end: string, measure: "day" | "week" | "month" | "year", ...args: any[]) {
   const r = recur(start, end);
   switch (measure) {
-    case 'day':
+    case "day":
       r.setDailyInterval(args[0]);
       break;
-    case 'week':
+    case "week":
       r.setWeeklyInterval(args[0]).setDaysOfWeek(args[1]);
       break;
-    case 'month':
+    case "month":
       r.setMonthlyInterval(args[0]).setDaysOfMonth(args[1]);
       break;
-    case 'year':
+    case "year":
       r.setYearlyInterval(args[0]).setDaysOfMonth(args[1]).setMonthsOfYear(args[2]);
       break;
     default:
@@ -86,10 +90,10 @@ export function generateRecurDate(start: string, end: string, measure: 'day' | '
   match(moment(new Date(start)));
   function match(time) {
     if (r.matches(time.toDate())) {
-      dates.push(time.format('YYYY-MM-DD'));
+      dates.push(time.format("YYYY-MM-DD"));
     }
-    if (time.isBetween(moment(new Date(start)), moment(new Date(end)), 'day', '[]')) {
-      match(time.add(1, 'day'));
+    if (time.isBetween(moment(new Date(start)), moment(new Date(end)), "day", "[]")) {
+      match(time.add(1, "day"));
     }
   }
   return dates;

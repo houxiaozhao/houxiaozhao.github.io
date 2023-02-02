@@ -1,14 +1,16 @@
 ---
 title: 绿色版chrome安装包制作教程
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-02-25 15:16:06.0
 updated: 2022-03-08 10:43:13.659
 url: /archives/绿色版chrome安装包制作教程
-categories: 
-tags: 
-- chrome
+categories:
+tags:
+  - chrome
 ---
-
-
 
 ## 教程
 

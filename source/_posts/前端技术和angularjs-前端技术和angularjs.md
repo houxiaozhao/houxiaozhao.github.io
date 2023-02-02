@@ -1,14 +1,16 @@
 ---
 title: 前端技术和angularjs
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2017-06-03 12:02:10.0
 updated: 2022-03-08 10:43:14.1
 url: /archives/前端技术和angularjs
-categories: 
-tags: 
-- 前端
+categories:
+tags:
+  - 前端
 ---
-
-
 
 ### 前端技术栈
 

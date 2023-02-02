@@ -1,14 +1,16 @@
 ---
 title: angularjs和ionic性能优化（2）
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2017-01-18 11:59:21.0
 updated: 2022-03-08 11:35:26.22
 url: /archives/angularjs和ionic性能优化2
-categories: 
-tags: 
-- angular
+categories:
+tags:
+  - angular
 ---
-
-
 
 # angular 性能优化
 
@@ -56,9 +58,9 @@ tags:
 1. 使用原生滚动方式
 
 ```javascript
-angular.module('yourModule').config(function($ionicConfigProvider) {
-  $ionicConfigProvider.scrolling.jsScrolling(false)
-})
+angular.module("yourModule").config(function ($ionicConfigProvider) {
+  $ionicConfigProvider.scrolling.jsScrolling(false);
+});
 ```
 
 ​ 参考:http://blog.ionic.io/native-scrolling-in-ionic-a-tale-in-rhyme/
@@ -67,9 +69,7 @@ angular.module('yourModule').config(function($ionicConfigProvider) {
 
 ```html
 <ion-content>
-  <ion-item collection-repeat="item in items">
-    {{item}}
-  </ion-item>
+  <ion-item collection-repeat="item in items"> {{item}} </ion-item>
 </ion-content>
 ```
 
@@ -81,9 +81,7 @@ angular.module('yourModule').config(function($ionicConfigProvider) {
 
 ```html
 <ion-content ng-controller="MyController">
-  <ion-list>
-    .... ....
-  </ion-list>
+  <ion-list> .... .... </ion-list>
 
   <ion-infinite-scroll on-infinite="loadMore()" distance="1%"> </ion-infinite-scroll>
 </ion-content>
@@ -94,17 +92,17 @@ angular.module('yourModule').config(function($ionicConfigProvider) {
 4. 缓存试图
 
    ```javascript
-   angular.module('yourModule').config(function($ionicConfigProvider) {
-     $ionicConfigProvider.views.maxCache(5)
-   })
+   angular.module("yourModule").config(function ($ionicConfigProvider) {
+     $ionicConfigProvider.views.maxCache(5);
+   });
    ```
 
    ```javascript
-   $stateProvider.state('myState', {
+   $stateProvider.state("myState", {
      cache: false,
-     url: '/myUrl',
-     templateUrl: 'my-template.html'
-   })
+     url: "/myUrl",
+     templateUrl: "my-template.html",
+   });
    ```
 
    ```html
@@ -114,14 +112,14 @@ angular.module('yourModule').config(function($ionicConfigProvider) {
 5. 试图缓存事件
 
    ```javascript
-   $scope.$on('$ionicView.loaded', function() {})
-   $scope.$on('$ionicView.enter', function() {})
-   $scope.$on('$ionicView.leave', function() {})
-   $scope.$on('$ionicView.beforeEnter', function() {})
-   $scope.$on('$ionicView.beforeLeave', function() {})
-   $scope.$on('$ionicView.afterEnter', function() {})
-   $scope.$on('$ionicView.afterLeave', function() {})
-   $scope.$on('$ionicView.unloaded', function() {})
+   $scope.$on("$ionicView.loaded", function () {});
+   $scope.$on("$ionicView.enter", function () {});
+   $scope.$on("$ionicView.leave", function () {});
+   $scope.$on("$ionicView.beforeEnter", function () {});
+   $scope.$on("$ionicView.beforeLeave", function () {});
+   $scope.$on("$ionicView.afterEnter", function () {});
+   $scope.$on("$ionicView.afterLeave", function () {});
+   $scope.$on("$ionicView.unloaded", function () {});
    ```
 
    正确使用事件加载数据可以优化程序

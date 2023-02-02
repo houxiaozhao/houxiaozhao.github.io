@@ -1,14 +1,16 @@
 ---
 title: React Native 简介
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2017-05-05 15:54:18.0
 updated: 2022-03-08 10:43:26.688
 url: /archives/reactnative简介
-categories: 
-tags: 
-- ReactNative Ionic
+categories:
+tags:
+  - ReactNative Ionic
 ---
-
-
 
 # react native 开发 IOS 手机应用基本方法及其与 IONIC 开发的对比
 
@@ -115,20 +117,20 @@ let 和 const
   ```javascript
   //不存在变量提升
   // var 的情况
-  console.log(foo) // 输出undefined
-  var foo = 2
+  console.log(foo); // 输出undefined
+  var foo = 2;
 
   // let 的情况
-  console.log(bar) // 报错ReferenceError
-  let bar = 2
+  console.log(bar); // 报错ReferenceError
+  let bar = 2;
   ```
 
   ```javascript
   //暂时性死区
-  var tmp = 123
+  var tmp = 123;
   if (true) {
-    tmp = 'abc' //报错
-    let tmp
+    tmp = "abc"; //报错
+    let tmp;
   }
   ```
 
@@ -154,18 +156,18 @@ let 和 const
 
 ```javascript
 //之前定义html字符串
-$('#result').append('There are <b>' + basket.count + '</b> ' + 'items in your basket, ' + '<em>' + basket.onSale + '</em> are on sale!')
+$("#result").append("There are <b>" + basket.count + "</b> " + "items in your basket, " + "<em>" + basket.onSale + "</em> are on sale!");
 //使用模版字符串，在字符串中可以嵌入变量
-$('#result').append(`
+$("#result").append(`
   There are <b>${basket.count}</b> items
    in your basket, <em>${basket.onSale}</em>
   are on sale!
-`)
+`);
 //可以调用函数
 function fn() {
-  return 'Hello World'
+  return "Hello World";
 }
-;`foo ${fn()} bar` // foo Hello World bar
+`foo ${fn()} bar`; // foo Hello World bar
 ```
 
 遍历器：为不同的数据结构提供统一的访问机制。
@@ -237,16 +239,16 @@ react 与 angularjs 的最大的区别
 #### ajax 方式：
 
 ```javascript
-var xhr = new XMLHttpRequest()
-xhr.open('GET', url)
-xhr.responseType = 'json'
-xhr.onload = function() {
-  console.log(xhr.response)
-}
-xhr.onerror = function() {
-  console.log('Oops, error')
-}
-xhr.send()
+var xhr = new XMLHttpRequest();
+xhr.open("GET", url);
+xhr.responseType = "json";
+xhr.onload = function () {
+  console.log(xhr.response);
+};
+xhr.onerror = function () {
+  console.log("Oops, error");
+};
+xhr.send();
 ```
 
 #### angularjs 方式：
@@ -254,12 +256,12 @@ xhr.send()
 ```javascript
 $http
   .get(url)
-  .success(function(data) {
-    console.log(data)
+  .success(function (data) {
+    console.log(data);
   })
-  .error(function(err) {
-    console.log(err)
-  })
+  .error(function (err) {
+    console.log(err);
+  });
 ```
 
 #### Fetch 方式
@@ -268,35 +270,35 @@ $http
 
 ```javascript
 fetch(url)
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(e => console.log('Oops, error', e))
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((e) => console.log("Oops, error", e));
 ```
 
 - 普通回调
 
 ```javascript
 fetch(url)
-  .then(function(response) {
-    return response.json()
+  .then(function (response) {
+    return response.json();
   })
-  .then(function(data) {
-    console.log(data)
+  .then(function (data) {
+    console.log(data);
   })
-  .catch(function(e) {
-    console.log('Oops, error')
-  })
+  .catch(function (e) {
+    console.log("Oops, error");
+  });
 ```
 
 - async/await 终极优化
 
 ```javascript
 try {
-  let response = await fetch(url)
-  let data = response.json()
-  console.log(data)
+  let response = await fetch(url);
+  let data = response.json();
+  console.log(data);
 } catch (e) {
-  console.log('Oops, error', e)
+  console.log("Oops, error", e);
 }
 // 注：这段代码如果想运行，外面需要包一个 async function
 ```
@@ -309,26 +311,26 @@ try {
 - 在父组件中指定，在组件的生命周期中不会改变
 
 ```jsx
-import React, { Component } from 'react'
-import { AppRegistry, Text, View } from 'react-native'
+import React, { Component } from "react";
+import { AppRegistry, Text, View } from "react-native";
 //自定义组件
 class Greeting extends Component {
   render() {
-    return <Text>Hello {this.props.hh}!</Text>
+    return <Text>Hello {this.props.hh}!</Text>;
   }
 }
 class LotsOfGreetings extends Component {
   render() {
     return (
-      <View style={{ alignItems: 'center' }}>
+      <View style={{ alignItems: "center" }}>
         <Greeting name="Rexxar" hh="asd" />
         <Greeting name="Jaina" />
         <Greeting name="Valeera" />
       </View>
-    )
+    );
   }
 }
-AppRegistry.registerComponent('LotsOfGreetings', () => LotsOfGreetings)
+AppRegistry.registerComponent("LotsOfGreetings", () => LotsOfGreetings);
 ```
 
 #### 状态 state
@@ -347,25 +349,25 @@ AppRegistry.registerComponent('LotsOfGreetings', () => LotsOfGreetings)
 - TextInput 组件 有一个 onChangeText 的属性。(状态)
 
   ```jsx
-  import React, { Component } from 'react'
-  import { AppRegistry, Text, TextInput, View } from 'react-native'
+  import React, { Component } from "react";
+  import { AppRegistry, Text, TextInput, View } from "react-native";
 
   class PizzaTranslator extends Component {
     constructor(props) {
-      super(props)
-      this.state = { text: '' }
+      super(props);
+      this.state = { text: "" };
     }
 
     render() {
       return (
         <View style={{ padding: 10 }}>
-          <TextInput style={{ height: 40 }} placeholder="Type here to translate!" onChangeText={text => this.setState({ text })} />
+          <TextInput style={{ height: 40 }} placeholder="Type here to translate!" onChangeText={(text) => this.setState({ text })} />
           <Text>{this.state.text}</Text>
         </View>
-      )
+      );
     }
   }
-  AppRegistry.registerComponent('PizzaTranslator', () => PizzaTranslator)
+  AppRegistry.registerComponent("PizzaTranslator", () => PizzaTranslator);
   ```
 
 ## 9. ionic 简单介绍

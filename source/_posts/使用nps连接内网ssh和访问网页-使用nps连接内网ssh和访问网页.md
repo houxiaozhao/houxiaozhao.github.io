@@ -1,5 +1,9 @@
 ---
 title: 使用nps连接内网ssh和访问网页
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2022-01-19 10:33:46.494
 updated: 2022-03-04 19:16:53.9
 url: /archives/使用nps连接内网ssh和访问网页
@@ -44,13 +48,13 @@ vim /etc/nps/conf/nps.conf
 **docker-compose.yml**
 
 ```yml
-version: '3'
+version: "3"
 services:
   eapinpc:
     image: ${NPC_IMAGE}
     container_name: eapinpc
     restart: always
-    network_mode: 'host'
+    network_mode: "host"
     command:
       - -server
       - ${NPC_SERVICE}

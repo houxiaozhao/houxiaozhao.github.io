@@ -1,14 +1,16 @@
 ---
 title: vue-cli3使用和Cordova集成记录
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-08-11 15:38:56.0
 updated: 2022-03-08 11:34:53.49
 url: /archives/vue-cli3使用和cordova集成记录
-categories: 
-tags: 
-- App Vue Cordova
+categories:
+tags:
+  - App Vue Cordova
 ---
-
-
 
 ### 1. 安装
 
@@ -145,20 +147,20 @@ module.exports = {
 所有在`mian.js`中判断当前平台添加`cordova.js`
 
 ```javascript
-if (window.location.protocol === 'file:' || window.location.port === '3000') {
-  var cordovaScript = document.createElement('script')
-  cordovaScript.setAttribute('type', 'text/javascript')
-  cordovaScript.setAttribute('src', 'cordova.js')
-  document.body.appendChild(cordovaScript)
+if (window.location.protocol === "file:" || window.location.port === "3000") {
+  var cordovaScript = document.createElement("script");
+  cordovaScript.setAttribute("type", "text/javascript");
+  cordovaScript.setAttribute("src", "cordova.js");
+  document.body.appendChild(cordovaScript);
 }
 ```
 
 安装`vue-cordova`这个插件，可以更方便访问 Cordova 的方法和属性
 
 ```javascript
-Vue.cordova.on('deviceready', () => {
-  console.log('Cordova : device is ready !')
-})
+Vue.cordova.on("deviceready", () => {
+  console.log("Cordova : device is ready !");
+});
 ```
 
 PS :写的时候参考了 cli/vue3 的官网，发现已经有了中文翻译了?。就在半个月前还没有，抠配置配了好长时间。各位还是去官网看教程吧，写的很详细。[cli vue3 地址点此](https://cli.vuejs.org/zh/)

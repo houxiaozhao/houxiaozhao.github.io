@@ -1,14 +1,16 @@
 ---
 title: VUE环境配置
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-03-07 17:03:36.0
 updated: 2022-03-08 10:42:49.192
 url: /archives/vue环境配置
-categories: 
-tags: 
-- vue
+categories:
+tags:
+  - vue
 ---
-
-
 
 # 安装 vue
 
@@ -28,7 +30,7 @@ tags:
 
    <!--more-->
 
-2. 运行`npm run dev` 打开浏览器http://localhost:8080
+2. 运行`npm run dev` 打开浏览器 http://localhost:8080
 
 # 配置
 
@@ -70,8 +72,8 @@ tags:
 2. 在 main.js 中导入并应用
 
    ```javascript
-   import axios from 'axios'
-   Vue.prototype.$http = axios
+   import axios from "axios";
+   Vue.prototype.$http = axios;
    ```
 
 ### muse-ui
@@ -81,10 +83,10 @@ tags:
 2. 加载*main.js*
 
    ```javascript
-   import Vue from 'vue'
-   import MuseUI from 'muse-ui'
-   import 'muse-ui/dist/muse-ui.css'
-   Vue.use(MuseUI)
+   import Vue from "vue";
+   import MuseUI from "muse-ui";
+   import "muse-ui/dist/muse-ui.css";
+   Vue.use(MuseUI);
    ```
 
 3. 图标显示
@@ -100,13 +102,13 @@ tags:
 2. 引入 css
 
    ```javascript
-   import 'mdui/dist/css/mdui.css'
+   import "mdui/dist/css/mdui.css";
    ```
 
 3. 在需要用 mdui api 时，引入
 
    ```javascript
-   import mdui from 'mdui'
+   import mdui from "mdui";
    ```
 
 ### 开发环境和生产环境
@@ -131,11 +133,11 @@ tags:
    ```javascript
    new webpack.DefinePlugin({
      PRODUCTION: JSON.stringify(true),
-     VERSION: JSON.stringify('5fa3b9'),
+     VERSION: JSON.stringify("5fa3b9"),
      BROWSER_SUPPORTS_HTML5: true,
-     TWO: '1+1',
-     'typeof window': JSON.stringify('object')
-   })
+     TWO: "1+1",
+     "typeof window": JSON.stringify("object"),
+   });
    ```
 
    参考https://segmentfault.com/a/1190000006952432
@@ -163,14 +165,14 @@ tags:
 6. 配置 axios 请求拦截器，如果 localStorage 里有 token 则在头部加入 Authorization
 
    ```javascript
-   http.interceptors.request.use(config => {
+   http.interceptors.request.use((config) => {
      if (localStorage.token) {
        config.headers = {
-         Authorization: `Bearer ${localStorage.token}`
-       }
+         Authorization: `Bearer ${localStorage.token}`,
+       };
      }
-     return config
-   })
+     return config;
+   });
    ```
 
    ​

@@ -1,16 +1,20 @@
 ---
-title: Node js错误处理最佳实践 
+title: Node js错误处理最佳实践
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2021-04-07 11:22:18.0
 updated: 2022-03-08 11:31:44.181
 url: /archives/nodejs错误处理最佳实践
-categories: 
-tags: 
-- nodejs
+categories:
+tags:
+  - nodejs
 ---
 
-# Node.js错误处理最佳实践
+# Node.js 错误处理最佳实践
 
-## 使用Promise捕获错误
+## 使用 Promise 捕获错误
 
 ```jsx
 let func = function (n) {
@@ -25,7 +29,7 @@ func(2)
   })
   .then((res) => {
     console.log(res);
-    throw new Error('Error');
+    throw new Error("Error");
   })
   .then((res) => {
     console.log(res);
@@ -35,11 +39,11 @@ func(2)
     console.log(err);
   })
   .finally(() => {
-    console.log('结束');
+    console.log("结束");
   });
 ```
 
-## 使用async/await捕获错误
+## 使用 async/await 捕获错误
 
 ```jsx
 let func = function (n) {
@@ -53,15 +57,15 @@ async function asyncTask() {
     console.log(valueA);
     const valueB = await func(valueA);
     console.log(valueB);
-    throw new Error('Error');
+    throw new Error("Error");
     const valueC = await func(valueB);
     console.log(valueC);
-    return valueC
-} catch (err) {
+    return valueC;
+  } catch (err) {
     console.log(err);
   } finally {
-    console.log('结束');
+    console.log("结束");
   }
 }
-asyncTask()
+asyncTask();
 ```

@@ -1,14 +1,16 @@
 ---
 title: nodejs和Thinkjs
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-04-04 12:50:34.0
 updated: 2022-03-08 10:43:24.182
 url: /archives/nodejs和thinkjs
-categories: 
-tags: 
-- nodejs Thinkjs
+categories:
+tags:
+  - nodejs Thinkjs
 ---
-
-
 
 # Node.js
 
@@ -16,9 +18,9 @@ tags:
 
 **Node.js**：简单的说 Node.js 就是运行在服务端的 JavaScript。
 
-[Node.js 安装配置](https:://github.com/younghz/Markdown 'Markdown') （介绍在 window 和 Linux 上的安装 Node.js 的方法）
+[Node.js 安装配置](https:://github.com/younghz/Markdown "Markdown") （介绍在 window 和 Linux 上的安装 Node.js 的方法）
 
-[Node.js 官方文档](http://nodejs.cn/ 'Markdown')
+[Node.js 官方文档](http://nodejs.cn/ "Markdown")
 
   <!--more-->
 
@@ -26,7 +28,7 @@ tags:
 
 - Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。
 
-- Node.js 使用了一个**事件驱动、非阻塞式 I/O 的模型**，使其轻量又高效。[事件驱动与异步 IO 的讲解](https://blog.csdn.net/m0_37886429/article/details/78292300 'Markdown')
+- Node.js 使用了一个**事件驱动、非阻塞式 I/O 的模型**，使其轻量又高效。[事件驱动与异步 IO 的讲解](https://blog.csdn.net/m0_37886429/article/details/78292300 "Markdown")
 
 - Node.js 的**包管理器 npm**，是全球最大的开源库生态系统。
 
@@ -34,7 +36,7 @@ tags:
 
 **认识包管理器 npm**（npm 已经在安装 Node.js 的时候安装好了）
 
-当我们在 Node.js 上开发时，会用到很多别人写的 JavaScript 代码。如果我们需要使用别人写的某个包，每次都根据名称搜索一下官方文档，下载代码，解压，再使用，非常繁琐。于是一个集中管理的工具应运而生：大家都把自己开发的模块打包后放到[npm](https://www.npmjs.com/browse/depended 'Markdown')官网上，如果要使用，直接通过 npm 安装就可以直接使用，不管代码存在哪，应该从哪下载。
+当我们在 Node.js 上开发时，会用到很多别人写的 JavaScript 代码。如果我们需要使用别人写的某个包，每次都根据名称搜索一下官方文档，下载代码，解压，再使用，非常繁琐。于是一个集中管理的工具应运而生：大家都把自己开发的模块打包后放到[npm](https://www.npmjs.com/browse/depended "Markdown")官网上，如果要使用，直接通过 npm 安装就可以直接使用，不管代码存在哪，应该从哪下载。
 
 更重要的是，如果我们要使用模块 A，而模块 A 又依赖于模块 B，模块 B 又依赖于其他的模块，那么 npm 可以根据依赖关系，把所有依赖的包都下载下来并管理起来。否则，靠我们自己手动管理，肯定是麻烦又容易出错。
 
@@ -80,9 +82,9 @@ console.log('Server running at http://127.0.0.1:8888/');
 
 **Express 和 Koa（典型框架）**
 
-Express：轻量灵活的的 node.js 框架，可以快速的搭建应用，使用广泛。[Express 官方文档](http://expressjs.jser.us/ 'Markdown')
+Express：轻量灵活的的 node.js 框架，可以快速的搭建应用，使用广泛。[Express 官方文档](http://expressjs.jser.us/ "Markdown")
 
-Koa：由 Express 原版人马打造，致力于成为 web 应用和 API 开发领域中的一个更小、更富有表现力、更健壮的基石。通过利用 async 函数，koa 帮你丢弃回调函数，并有力的增强错误处理。[koa 官方文档](https://koa.bootcss.com/ 'Markdown')
+Koa：由 Express 原版人马打造，致力于成为 web 应用和 API 开发领域中的一个更小、更富有表现力、更健壮的基石。通过利用 async 函数，koa 帮你丢弃回调函数，并有力的增强错误处理。[koa 官方文档](https://koa.bootcss.com/ "Markdown")
 
 Express 和 Koa 是 node.js 最基础的两个后端框架。因为构建一个 app 仍需要些很多脚手架代码，于是在他们基础上出现了很多其他框架来减少编写这类代码。（例如：ThinkJS，egg.js 等）
 

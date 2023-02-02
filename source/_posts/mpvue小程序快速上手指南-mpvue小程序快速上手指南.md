@@ -1,14 +1,16 @@
 ---
 title: mpvue小程序快速上手指南
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-09-22 11:58:59.0
 updated: 2022-03-08 11:33:21.197
 url: /archives/mpvue小程序快速上手指南
-categories: 
-tags: 
-- 小程序
+categories:
+tags:
+  - 小程序
 ---
-
-
 
 > 需要了解一些原生小程序开发流程，主要是接口调用方式和目录结构。
 
@@ -44,10 +46,10 @@ $ npm run dev
     `main.js`
 
     ```javascript
-    import Vue from 'vue'
-    import App from './index'
-    const app = new Vue(App)
-    app.$mount()
+    import Vue from "vue";
+    import App from "./index";
+    const app = new Vue(App);
+    app.$mount();
     ```
 
     `index.vue`
@@ -58,13 +60,13 @@ $ npm run dev
     </template>
     <script>
       export default {
-        name: 'index',
+        name: "index",
         data() {
-          return {}
+          return {};
         },
         mounted() {},
-        methods: {}
-      }
+        methods: {},
+      };
     </script>
     ```
 
@@ -118,7 +120,7 @@ $ npm run dev
 ## 设置全局变量`getApp();`
 
 ```javascript
-Vue.prototype.globalData = getApp()
+Vue.prototype.globalData = getApp();
 ```
 
 ## 引入 flyio 网络库
@@ -143,13 +145,13 @@ Vue.prototype.globalData = getApp()
 
     ```javascript
     this.$http
-      .get('https://www.apiopen.top/journalismApi')
-      .then(res => {
-        console.log(res)
+      .get("https://www.apiopen.top/journalismApi")
+      .then((res) => {
+        console.log(res);
       })
-      .catch(err => {
-        console.log(err)
-      })
+      .catch((err) => {
+        console.log(err);
+      });
     ```
 
 ## 引入 weui.css
@@ -183,79 +185,74 @@ Vue.prototype.globalData = getApp()
       ```html
       <template>
         <div>
-          <button open-type="getUserInfo" type="primary" lang="zh_CN" @getuserinfo="onGotUserInfo">
-            授权
-          </button>
+          <button open-type="getUserInfo" type="primary" lang="zh_CN" @getuserinfo="onGotUserInfo">授权</button>
         </div>
       </template>
       <script>
-        const app = getApp()
+        const app = getApp();
         export default {
-          name: 'index',
+          name: "index",
           data() {
             return {
-              canIUse: wx.canIUse('button.open-type.getUserInfo')
-            }
+              canIUse: wx.canIUse("button.open-type.getUserInfo"),
+            };
           },
           methods() {},
           mounted() {
             wx.getUserInfo({
-              success: res => {
-                console.log('获取用户信息.....', res)
-                this.globalData.userinfo = res.userInfo
+              success: (res) => {
+                console.log("获取用户信息.....", res);
+                this.globalData.userinfo = res.userInfo;
                 wx.switchTab({
-                  url: './../../pages/index/main' // 这个地方很奇怪，写 url: 'pages/index/main'，会报错，不能跳到首页
-                })
+                  url: "./../../pages/index/main", // 这个地方很奇怪，写 url: 'pages/index/main'，会报错，不能跳到首页
+                });
               },
-              fail: res => {
-                console.log('没有获取用户信息')
+              fail: (res) => {
+                console.log("没有获取用户信息");
                 if (this.canIUse) {
-                  console.log('没有用户信息')
+                  console.log("没有用户信息");
                   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
                   // 所以此处加入 callback 以防止这种情况
-                  app.userInfoReadyCallback = res => {
-                    console.log('回调里得到用户信息', res.userInfo)
-                    this.globalData.userinfo = res.userInfo
+                  app.userInfoReadyCallback = (res) => {
+                    console.log("回调里得到用户信息", res.userInfo);
+                    this.globalData.userinfo = res.userInfo;
                     wx.switchTab({
-                      url: 'pages/index/main'
-                    })
-                  }
+                      url: "pages/index/main",
+                    });
+                  };
                 } else {
-                  console.log('低版本微信')
+                  console.log("低版本微信");
                   // 在没有 open-type=getUserInfo 版本的兼容处理
                   wx.getUserInfo({
-                    success: res => {
-                      console.log('得到用户信息', res.userInfo)
-                      this.globalData.userinfo = res.userInfo
+                    success: (res) => {
+                      console.log("得到用户信息", res.userInfo);
+                      this.globalData.userinfo = res.userInfo;
                       wx.switchTab({
-                        url: 'pages/index/main'
-                      })
-                    }
-                  })
+                        url: "pages/index/main",
+                      });
+                    },
+                  });
                 }
-              }
-            })
+              },
+            });
           },
           methods: {
-            onGotUserInfo: function(e) {
-              console.log('用户授权中得到用户信息', e.mp.detail.userInfo)
-              this.globalData.userinfo = e.mp.detail.userInfo
+            onGotUserInfo: function (e) {
+              console.log("用户授权中得到用户信息", e.mp.detail.userInfo);
+              this.globalData.userinfo = e.mp.detail.userInfo;
               wx.switchTab({
-                url: '../../pages/index/main'
-              })
-            }
-          }
-        }
+                url: "../../pages/index/main",
+              });
+            },
+          },
+        };
       </script>
       ```
 
       ![](https://i.loli.net/2018/09/22/5ba5bca695921.png)
 
       ```html
-      <button open-type="getUserInfo" lang="zh_CN" @getuserinfo="onGotUserInfo">
-        授权
-      </button>
-      这里的原生小程序应该写bindgetuserinfo="onGotUserInfo" mpvue 中使用 @getuserinfo="onGotUserInfo"
+      <button open-type="getUserInfo" lang="zh_CN" @getuserinfo="onGotUserInfo">授权</button> 这里的原生小程序应该写bindgetuserinfo="onGotUserInfo" mpvue 中使用 @getuserinfo="onGotUserInfo"
       ```
 
    2. 第二种方式
@@ -280,8 +277,8 @@ Vue.prototype.globalData = getApp()
 
    ```javascript
    wx.navigateTo({
-     url: '/pages/index/index2/main?id=111'
-   })
+     url: "/pages/index/index2/main?id=111",
+   });
    ```
 
    通过`this.$root.$mp.query`接收参数

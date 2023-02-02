@@ -1,14 +1,16 @@
 ---
 title: Hybrid App 开发过程(Vue+Android)基于JavaScript的混合式APP开发
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2019-05-04 12:54:10.0
 updated: 2022-03-08 10:43:21.393
 url: /archives/hybridapp开发过程vueandroid基于javascript的混合式app开发
-categories: 
-tags: 
-- App Vue Cordova
+categories:
+tags:
+  - App Vue Cordova
 ---
-
-
 
 ### 准备开发环境
 

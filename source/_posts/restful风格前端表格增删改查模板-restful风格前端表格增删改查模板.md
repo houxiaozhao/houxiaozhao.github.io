@@ -1,21 +1,25 @@
 ---
 title: restful风格前端表格增删改查模板
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2020-05-15 11:16:26.0
 updated: 2022-03-08 11:32:25.715
 url: /archives/restful风格前端表格增删改查模板
-categories: 
-tags: 
-- 前端
-- restful
+categories:
+tags:
+  - 前端
+  - restful
 ---
 
-# restful风格前端表格增删改查模板
+# restful 风格前端表格增删改查模板
 
-## restful风格前端表格增删改查模板
+## restful 风格前端表格增删改查模板
 
-> 基于 vue d2-admin element-ui配合上篇文章js代码生成器,只需要简单的修改即可实现快速页面开发。
+> 基于 vue d2-admin element-ui 配合上篇文章 js 代码生成器,只需要简单的修改即可实现快速页面开发。
 
-### vue模板
+### vue 模板
 
 ```
 <template>
@@ -224,12 +228,12 @@ export default {
 
 - Query:
 
-    ```json
-    {  "currentPage":1,  "pageSize":10,  "search":"" ,"order":""}
-    ```
+  ```json
+  { "currentPage": 1, "pageSize": 10, "search": "", "order": "" }
+  ```
 
 - 返回数据
 
-    ```json
-    {    "errno": 0,    "errmsg": "",    "data": {        "pageSize": 10,        "currentPage": 1,        "count": 4,        "totalPages": 1,        "data": []    }}
-    ```
+  ```json
+  { "errno": 0, "errmsg": "", "data": { "pageSize": 10, "currentPage": 1, "count": 4, "totalPages": 1, "data": [] } }
+  ```

@@ -1,15 +1,17 @@
 ---
 title: python3 flask 使用Mysql数据库
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-08-25 11:52:27.0
 updated: 2022-03-08 11:33:59.592
 url: /archives/python3flask使用mysql数据库
-categories: 
-tags: 
-- python
-- flask
+categories:
+tags:
+  - python
+  - flask
 ---
-
-
 
 # python3 flask 使用 Mysql 数据库
 
@@ -215,47 +217,44 @@ tags:
     from app.error import bad_request
     ```
 
-
     @bp.route('/users', methods=['GET'])
     def get_users():
-        limit = min(request.args.get('limit', 10, int), 100)
-        offset = (request.args.get('page', 1, int) - 1) * request.args.get('limit', 10, int)
-        return jsonify([user.to_dict() for user in User.query.limit(limit).offset(offset).all()])
-
+    limit = min(request.args.get('limit', 10, int), 100)
+    offset = (request.args.get('page', 1, int) - 1) \* request.args.get('limit', 10, int)
+    return jsonify([user.to_dict() for user in User.query.limit(limit).offset(offset).all()])
 
     @bp.route('/users/<int:id>', methods=['GET'])
     def get_user(id):
-        return jsonify(User.query.get_or_404(id).to_dict())
-
+    return jsonify(User.query.get_or_404(id).to_dict())
 
     @bp.route('/users', methods=['POST'])
     def add_user():
-        data = request.get_json() or {}
-        if 'username' not in data:
-            return bad_request('错误的参数')
-        user = User(username=data['username'])
-        db.session.add(user)
-        db.session.commit()
-        return jsonify(user.to_dict())
-
+    data = request.get_json() or {}
+    if 'username' not in data:
+    return bad_request('错误的参数')
+    user = User(username=data['username'])
+    db.session.add(user)
+    db.session.commit()
+    return jsonify(user.to_dict())
 
     @bp.route('/users/<int:id>', methods=['PUT'])
     def update_user(id):
-        user = User.query.get_or_404(id)
-        data = request.get_json() or {}
-        if 'username' not in data:
-            return bad_request('错误的参数')
-        setattr(user, 'username', data['username'])
-        db.session.commit()
-        return jsonify(user.to_dict())
-
+    user = User.query.get_or_404(id)
+    data = request.get_json() or {}
+    if 'username' not in data:
+    return bad_request('错误的参数')
+    setattr(user, 'username', data['username'])
+    db.session.commit()
+    return jsonify(user.to_dict())
 
     @bp.route('/users/<int:id>', methods=['DELETE'])
     def delete_user(id):
-        user = User.query.get_or_404(id)
-        db.session.delete(user)
-        db.session.commit()
-        return jsonify({'message': 'ok'})
+    user = User.query.get_or_404(id)
+    db.session.delete(user)
+    db.session.commit()
+    return jsonify({'message': 'ok'})
+
+    ```
 
     ```
 

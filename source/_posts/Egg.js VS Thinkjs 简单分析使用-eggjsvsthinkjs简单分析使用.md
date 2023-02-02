@@ -1,15 +1,17 @@
 ---
 title: Egg.js VS Thinkjs 简单分析使用
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-10-09 19:00:22.0
 updated: 2022-03-08 11:33:04.882
 url: /archives/eggjsvsthinkjs简单分析使用
-categories: 
-tags: 
-- nodejs Thinkjs
-- eggjs
+categories:
+tags:
+  - nodejs Thinkjs
+  - eggjs
 ---
-
-
 
 @[toc](Egg.js VS Thinkjs 简单分析使用)
 
@@ -61,16 +63,16 @@ $ thinkjs model <model-name> [module-name]
 
   ```javascript
   module.exports = {
-    keys: 'my-cookie-secret-key'
-  }
+    keys: "my-cookie-secret-key",
+  };
   // 或
-  exports.keys = 'my-cookie-secret-key'
+  exports.keys = "my-cookie-secret-key";
   // 或
-  module.exports = appInfo => {
+  module.exports = (appInfo) => {
     return {
-      keys: 'my-cookie-secret-key'
-    }
-  }
+      keys: "my-cookie-secret-key",
+    };
+  };
   ```
 
 - 支持多环境配置
@@ -92,10 +94,10 @@ $ thinkjs model <model-name> [module-name]
 
   ```javascript
   module.exports = {
-    keys: 'my-cookie-secret-key'
-  }
+    keys: "my-cookie-secret-key",
+  };
   // 或
-  exports.keys = 'my-cookie-secret-key'
+  exports.keys = "my-cookie-secret-key";
   ```
 
 - 支持多环境配置
@@ -114,9 +116,9 @@ Egg.js 和 Thinkjs 都用扩展 Koa 对象，app,request,response,context
 
 ```javascript
 // app.js
-module.exports = app => {
-  app.cache = new Cache()
-}
+module.exports = (app) => {
+  app.cache = new Cache();
+};
 ```
 
 controller 中使用 `this.ctx.app` `this.ctx` `this.ctx.request` `this.ctx.response`
@@ -136,29 +138,29 @@ controller 中使用 `this.ctx` `this.ctx.req` `this.ctx.res`
 ```javascript
 // middleware/log.js
 const defaultOptions = {
-  consoleExecTime: true // 是否打印执行时间的配置
-}
+  consoleExecTime: true, // 是否打印执行时间的配置
+};
 module.exports = (options = {}) => {
   // 合并传递进来的配置
-  options = Object.assign({}, defaultOptions, options)
+  options = Object.assign({}, defaultOptions, options);
   return (ctx, next) => {
     if (!options.consoleExecTime) {
-      return next() // 如果不需要打印执行时间，直接调用后续执行逻辑
+      return next(); // 如果不需要打印执行时间，直接调用后续执行逻辑
     }
-    const startTime = Date.now()
-    let err = null
+    const startTime = Date.now();
+    let err = null;
     // 调用 next 统计后续执行逻辑的所有时间
     return next()
-      .catch(e => {
-        err = e // 这里先将错误保存在一个错误对象上，方便统计出错情况下的执行时间
+      .catch((e) => {
+        err = e; // 这里先将错误保存在一个错误对象上，方便统计出错情况下的执行时间
       })
       .then(() => {
-        const endTime = Date.now()
-        console.log(`request exec time: ${endTime - startTime}ms`)
-        if (err) return Promise.reject(err) // 如果后续执行逻辑有错误，则将错误返回
-      })
-  }
-}
+        const endTime = Date.now();
+        console.log(`request exec time: ${endTime - startTime}ms`);
+        if (err) return Promise.reject(err); // 如果后续执行逻辑有错误，则将错误返回
+      });
+  };
+};
 ```
 
 #### Egg.js
@@ -168,12 +170,12 @@ module.exports = (options = {}) => {
 ```javascript
 module.exports = {
   // 配置需要的中间件，数组顺序即为中间件的加载顺序
-  middleware: ['log'],
+  middleware: ["log"],
   // 配置 log 中间件的配置
   log: {
-    consoleExecTime: true
-  }
-}
+    consoleExecTime: true,
+  },
+};
 ```
 
 #### Thinkjs
@@ -183,13 +185,13 @@ module.exports = {
 ```javascript
 module.exports = [
   {
-    handle: 'log', // 中间件处理函数
+    handle: "log", // 中间件处理函数
     options: {
       // 当前中间件需要的配置
-      consoleExecTime: true
-    }
-  }
-]
+      consoleExecTime: true,
+    },
+  },
+];
 ```
 
 ## Controller
@@ -201,34 +203,34 @@ module.exports = [
 ```javascript
 // base_controller.js
 // 使用this.success()方法统一对外输出,参考thinkjs返回
-'use strict'
-const { Controller } = require('egg')
+"use strict";
+const { Controller } = require("egg");
 class BaseController extends Controller {
   success(data) {
     this.ctx.body = {
       errno: 0,
-      errmsg: '',
-      data
-    }
+      errmsg: "",
+      data,
+    };
   }
   fail(msg, no) {
     this.ctx.body = {
       errno: no || 400,
-      errmsg: msg || '内部错误'
-    }
+      errmsg: msg || "内部错误",
+    };
   }
 }
-module.exports = BaseController
+module.exports = BaseController;
 ```
 
 ```javascript
 // controller
-const Controller = require('./../../core/base.controller.js')
+const Controller = require("./../../core/base.controller.js");
 module.exports = class extends Controller {
   async getUser() {
-    this.success({ username: 'hou' })
+    this.success({ username: "hou" });
   }
-}
+};
 ```
 
 controller 生效还要添加路由,比 Thinkjs 麻烦。
@@ -243,13 +245,13 @@ module.exports = app => {
 #### Thinkjs
 
 ```javascript
-const Base = require('./../base')
+const Base = require("./../base");
 module.exports = class extends Base {
   //比egg.js多了一个Action,让框架自动识别为controller.通多think-router中间件实现
   async getUserAction() {
-    this.success({ username: 'hou' })
+    this.success({ username: "hou" });
   }
-}
+};
 ```
 
 红红火火恍恍惚惚，让 egg.js 的 controller 集成自定义的一个基类。强行使他们写法一致！😄
@@ -261,10 +263,10 @@ module.exports = class extends Base {
 #### Egg.js
 
 ```javascript
-module.exports = app => {
-  const { router, controller } = app
-  router.get('/v1/user/getUser', controller.v1.user.getUser)
-}
+module.exports = (app) => {
+  const { router, controller } = app;
+  router.get("/v1/user/getUser", controller.v1.user.getUser);
+};
 ```
 
 #### Thinkjs
@@ -277,10 +279,10 @@ module.exports = app => {
 
 ```javascript
 // app/router.js
-module.exports = app => {
+module.exports = (app) => {
   // 注意这里是resources方法。
-  app.router.resources('topics', '/api/v2/topics', app.controller.topics)
-}
+  app.router.resources("topics", "/api/v2/topics", app.controller.topics);
+};
 ```
 
 映射关系
@@ -299,7 +301,7 @@ module.exports = app => {
 
 ```javascript
 // router.js
-module.exports = [['/user/:id?', 'rest']]
+module.exports = [["/user/:id?", "rest"]];
 ```
 
 通过自定义路由，将 `/user/:id` 相关的请求指定为 REST Controller，然后就可以对其访问了。
@@ -318,17 +320,17 @@ module.exports = [['/user/:id?', 'rest']]
 
 ```javascript
 // service/user.js
-const Service = require('egg').Service
+const Service = require("egg").Service;
 module.exports = class extends Service {
   async find(id) {
-    return { username: 'hou', id: id }
+    return { username: "hou", id: id };
   }
-}
+};
 ```
 
 ```javascript
 // controller.js
-this.ctx.service.user.find(11111)
+this.ctx.service.user.find(11111);
 ```
 
 #### Thinkjs
@@ -337,14 +339,14 @@ this.ctx.service.user.find(11111)
 // service/user.js
 module.exports = class extends think.Service {
   find(id) {
-    return { username: 'hou', id: id }
+    return { username: "hou", id: id };
   }
-}
+};
 ```
 
 ```javascript
 // controller
-think.service('user').find(11111)
+think.service("user").find(11111);
 ```
 
 ## 插件/适配器？？？？
@@ -363,28 +365,28 @@ $ npm i egg-mysql --save
 // config/plugin.js
 exports.mysql = {
   enable: true,
-  package: 'egg-mysql'
-}
+  package: "egg-mysql",
+};
 // config/config.default.js
 exports.mysql = {
   // 单数据库信息配置
   client: {
     // host
-    host: 'mysql.com',
+    host: "mysql.com",
     // 端口号
-    port: '3306',
+    port: "3306",
     // 用户名
-    user: 'test_user',
+    user: "test_user",
     // 密码
-    password: 'test_password',
+    password: "test_password",
     // 数据库名
-    database: 'test'
+    database: "test",
   },
   // 是否加载到 app 上，默认开启
   app: true,
   // 是否加载到 agent 上，默认关闭
-  agent: false
-}
+  agent: false,
+};
 ```
 
 #### Thinkjs（适配器）https://thinkjs.org/zh-cn/doc/3.0/adapter.html
@@ -400,24 +402,24 @@ $ npm i think-model-mysql --save
 ```javascript
 // config/adapter.js
 exports.model = {
-  type: 'mysql',
+  type: "mysql",
   common: {
     logConnect: isDev,
     logSql: isDev,
-    logger: msg => think.logger.info(msg)
+    logger: (msg) => think.logger.info(msg),
   },
   mysql: {
     handle: mysql,
-    database: '',
-    prefix: 'think_',
-    encoding: 'utf8',
-    host: '127.0.0.1',
-    port: '',
-    user: 'root',
-    password: 'root',
-    dateStrings: true
-  }
-}
+    database: "",
+    prefix: "think_",
+    encoding: "utf8",
+    host: "127.0.0.1",
+    port: "",
+    user: "root",
+    password: "root",
+    dateStrings: true,
+  },
+};
 ```
 
 ## 定时任务
@@ -429,13 +431,13 @@ exports.model = {
 ```javascript
 module.exports = {
   schedule: {
-    interval: '1m', // 1 分钟间隔
-    type: 'all' // 指定所有的 worker 都需要执行
+    interval: "1m", // 1 分钟间隔
+    type: "all", // 指定所有的 worker 都需要执行
   },
   async task(ctx) {
-    console.log('触发定时任务')
-  }
-}
+    console.log("触发定时任务");
+  },
+};
 ```
 
 #### Thinkjs
@@ -446,13 +448,13 @@ module.exports = {
 // src/config/crontab.js
 module.exports = [
   {
-    interval: '10s',
-    type: 'all',
+    interval: "10s",
+    type: "all",
     handle: () => {
-      console.log('触发定时任务')
-    }
-  }
-]
+      console.log("触发定时任务");
+    },
+  },
+];
 ```
 
 ## 多进行和进程间通信
@@ -466,35 +468,35 @@ module.exports = [
 
 ```javascript
 // agent.js 监听消息队列
-'use strict'
-const mqtt = require('mqtt')
-module.exports = agent => {
-  const client = mqtt.connect('mqtt://test.mosquitto.org')
-  client.on('connect', function() {
-    console.log('链接成功')
-    client.subscribe('asdasdasd')
-  })
-  client.on('message', function(topic, message) {
-    console.log(message.toString())
-    agent.messenger.sendToApp('shoudaoxiaoxi', message.toString()) // 发给所有app进程
-    agent.messenger.sendRandom('shoudaoxiaoxi', message.toString()) // 发给随机一个app进程
-  })
-}
+"use strict";
+const mqtt = require("mqtt");
+module.exports = (agent) => {
+  const client = mqtt.connect("mqtt://test.mosquitto.org");
+  client.on("connect", function () {
+    console.log("链接成功");
+    client.subscribe("asdasdasd");
+  });
+  client.on("message", function (topic, message) {
+    console.log(message.toString());
+    agent.messenger.sendToApp("shoudaoxiaoxi", message.toString()); // 发给所有app进程
+    agent.messenger.sendRandom("shoudaoxiaoxi", message.toString()); // 发给随机一个app进程
+  });
+};
 ```
 
 ```javascript
 //app.js 接收agent进程发送的消息
-module.exports = app => {
-  app.messenger.on('shoudaoxiaoxi', msg => {
-    app.logger.info(msg)
+module.exports = (app) => {
+  app.messenger.on("shoudaoxiaoxi", (msg) => {
+    app.logger.info(msg);
     // 创建一个匿名上下文来访问服务
-    const ctx = app.createAnonymousContext()
+    const ctx = app.createAnonymousContext();
     ctx.runInBackground(async () => {
-      await ctx.service.source.update() //直接访问service
-      app.lastUpdateBy = msg
-    })
-  })
-}
+      await ctx.service.source.update(); //直接访问service
+      app.lastUpdateBy = msg;
+    });
+  });
+};
 ```
 
 #### Thinkjs

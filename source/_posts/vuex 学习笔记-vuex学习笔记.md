@@ -1,14 +1,16 @@
 ---
 title: vuex 学习笔记
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-03-07 19:08:42.0
 updated: 2022-03-08 10:42:20.704
 url: /archives/vuex学习笔记
-categories: 
-tags: 
-- Vue vuex
+categories:
+tags:
+  - Vue vuex
 ---
-
-
 
 - state
 
@@ -37,9 +39,9 @@ tags:
   // mapGetters 辅助函数 将 store 中的 getter 映射到局部计算属性
   ```
 
-- mutation 
+- mutation
 
-  用于修改state 状态
+  用于修改 state 状态
 
   ```javascript
   increment (state, n) {
@@ -48,13 +50,13 @@ tags:
   store.commit('increment', 10)
   ```
 
-  `mapMutations`  辅助函数将组件的方法映射为store.commit调用
+  `mapMutations` 辅助函数将组件的方法映射为 store.commit 调用
 
   ```javascript
    methods: {
       ...mapMutations([
         'increment', // 将 `this.increment()` 映射为 `this.$store.commit('increment')`
-  
+
         // `mapMutations` 也支持载荷：
         'incrementBy' // 将 `this.incrementBy(amount)` 映射为 `this.$store.commit('incrementBy', amount)`
       ]),
@@ -66,78 +68,78 @@ tags:
 
 - action
 
-  提交mutation 间接变更状态
+  提交 mutation 间接变更状态
 
-  保护一些常用业务操作，通过提交mutation 改变业务中的状态
+  保护一些常用业务操作，通过提交 mutation 改变业务中的状态
 
-  mutation  中则只包含更改state 的方法
+  mutation 中则只包含更改 state 的方法
 
   可以有异步操作
 
   ```javascript
   const store = new Vuex.Store({
     state: {
-      count: 0
+      count: 0,
     },
     mutations: {
-      increment (state) {
-        state.count++
-      }
+      increment(state) {
+        state.count++;
+      },
     },
     actions: {
-      increment (context) {
-        context.commit('increment')
-      }
-    }
-  })
+      increment(context) {
+        context.commit("increment");
+      },
+    },
+  });
   // 调用方式
-  store.dispatch('increment')
+  store.dispatch("increment");
   ```
 
-   `mapActions` 辅助函数将组件的 methods 映射为 `store.dispatch` 调用 
+  `mapActions`  辅助函数将组件的 methods 映射为  `store.dispatch`  调用
 
-  action 可以返回一个promise
+  action 可以返回一个 promise
 
-- modules 
+- modules
 
-  把store 分割为模块
+  把 store 分割为模块
 
   ```javascript
   // A.js
   export default {
-    namespaced:true,
+    namespaced: true,
     state: {},
     mutations: {},
     actions: {},
-    getters: {}
+    getters: {},
   };
   ```
 
   ```javascript
   // B.js
   export default {
-    namespaced:true,
+    namespaced: true,
     state: {},
     mutations: {},
     actions: {},
-    getters: {}
+    getters: {},
   };
   ```
 
   ```javascript
   // store.js
-  import moduleA from './A.js';
-  import moduleB from './B.js';
+  import moduleA from "./A.js";
+  import moduleB from "./B.js";
   const store = new Vuex.Store({
     modules: {
-       moduleA,
-       moduleB
-    }
-  })
+      moduleA,
+      moduleB,
+    },
+  });
   ```
 
   ```javascript
-  this.$store.state.XX.XX
-  this.$store.getters['XX/XX']
-  this.$store.commit('XX/XX',data)
+  this.$store.state.XX.XX;
+  this.$store.getters["XX/XX"];
+  this.$store.commit("XX/XX", data);
   ```

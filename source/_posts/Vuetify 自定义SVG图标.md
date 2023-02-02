@@ -1,7 +1,7 @@
 ---
 title: Vuetify 自定义SVG图标
 copyright_author: houxiaozhao
-copyright_author_href: https:demontaste.com
+copyright_author_href: https://github.com/houxiaozhao
 copyright_url: https://demontaste.com
 copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2022-07-20 16:52:30

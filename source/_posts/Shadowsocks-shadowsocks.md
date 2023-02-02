@@ -1,11 +1,15 @@
 ---
 title: Shadowsocks
+copyright_author: houxiaozhao
+copyright_author_href: https://github.com/houxiaozhao
+copyright_url: https://demontaste.com
+copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2021-08-20 11:16:26.0
 updated: 2022-03-08 11:26:53.493
 url: /archives/shadowsocks
-categories: 
-tags: 
-- 不可描述
+categories:
+tags:
+  - 不可描述
 ---
 
 # Shadowsocks
@@ -16,7 +20,7 @@ chmod +x shadowsocks-all.sh
 sudo ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 ```
 
-最后一步输完，你应该会看到下图中内容──是要你选择需要安装的Shadowsocks版本。这里选择 4) shadowsocks-libev
+最后一步输完，你应该会看到下图中内容 ── 是要你选择需要安装的 Shadowsocks 版本。这里选择 4) shadowsocks-libev
 
 ![https://smalin.cn/assets/img/shadowsocks.e7c80b5a.jpeg](https://smalin.cn/assets/img/shadowsocks.e7c80b5a.jpeg)
 
@@ -32,7 +36,7 @@ sudo ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 
 ![https://smalin.cn/assets/img/shadowsocks3.6fe63d36.jpeg](https://smalin.cn/assets/img/shadowsocks3.6fe63d36.jpeg)
 
-设置完成后，会提示你是否需要安装 simple-obfs。这是 ss 的一个插件工具，可以起到混淆的作用，防止IP和端口被嗅探到，建议选 y 安装。
+设置完成后，会提示你是否需要安装 simple-obfs。这是 ss 的一个插件工具，可以起到混淆的作用，防止 IP 和端口被嗅探到，建议选 y 安装。
 
 ![https://smalin.cn/assets/img/shadowsocks4.07f0839f.jpeg](https://smalin.cn/assets/img/shadowsocks4.07f0839f.jpeg)
 
@@ -44,7 +48,7 @@ sudo ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 
 ![https://smalin.cn/assets/img/shadowsocks6.387d31fa.jpeg](https://smalin.cn/assets/img/shadowsocks6.387d31fa.jpeg)
 
-记住红色的内容，也就是服务器IP、服务器ss端口、你设的密码、混淆方式和加密方式。
+记住红色的内容，也就是服务器 IP、服务器 ss 端口、你设的密码、混淆方式和加密方式。
 
 ## **[#](https://smalin.cn/views/article/Linux/shadowsocks.html#%E6%A3%80%E6%9F%A5%E5%92%8C%E9%85%8D%E7%BD%AE-shadowsocks)检查和配置 Shadowsocks**
 
@@ -52,7 +56,7 @@ sudo ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 
 `/etc/init.d/shadowsocks-libev status`
 
-如果出现类似 `Shadowsocks-libev is running...` 的字样，说明已经开始正常运行了。
+如果出现类似  `Shadowsocks-libev is running...`  的字样，说明已经开始正常运行了。
 
 修改相关配置
 
@@ -62,6 +66,6 @@ sudo ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 
 相比服务器端的安装，客户端的安装就简单了许多。首先，在**[这个页面](https://shadowsocks.org/en/download/clients.html)**找到并下载自己操作系统对应的客户端。
 
-打开客户端，在「服务器设定」里新增服务器。然后依次填入服务器IP、服务器端口、你设的密码和加密方式。
+打开客户端，在「服务器设定」里新增服务器。然后依次填入服务器 IP、服务器端口、你设的密码和加密方式。
 
 ![https://smalin.cn/assets/img/shadowsocks7.7885095c.jpeg](https://smalin.cn/assets/img/shadowsocks7.7885095c.jpeg)
