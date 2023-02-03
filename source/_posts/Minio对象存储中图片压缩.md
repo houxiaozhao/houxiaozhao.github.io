@@ -47,6 +47,7 @@ console.timeEnd(job.id + "流处理时间");
 2. sharp 添加 sequentialRead: true，这样可以让 sharp 顺序读取图片
 3. 使用队列，将图片压缩的任务放到队列中，然后再从队列中取出任务，进行压缩，这样可以让压缩图片的任务不会阻塞其他任务
 4. 不使用 docker 部署 minio，而是直接使用 minio 的二进制文件，这样可以减少网络延迟
+5. 适当提高 bull 的并发数，这样可以让队列中的任务更快的被处理
 
 ## Minio 部署和配置
 
@@ -104,6 +105,7 @@ module.exports = {
   },
   quality: 30, // 图片质量
   cover: false, // 是否覆盖原图,默认不覆盖在原图名字后面加上_mini
+  bull_concurrency: 1, // bull任务并发数
 };
 ```
 
