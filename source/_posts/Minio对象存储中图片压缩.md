@@ -59,24 +59,32 @@ console.timeEnd(job.id + "流处理时间");
 MINIO_ROOT_USER=username MINIO_ROOT_PASSWORD=password minio server /data/minio --console-address ":9001"
 ```
 
-### Minio 配置通知 Notification
+### 使用 minio 中的 listenBucketNotification 功能监听
 
-1. 点击`Add Notification Target`
+不需要配置通知，直接使用 listenBucketNotification 功能监听
+
+```javascript
+let poller = minioClient.listenBucketNotification(config.minio.bucket, "", "", ["s3:ObjectCreated:Put"]);
+```
+
+### ~~Minio 配置通知 Notification~~
+
+1. ~~点击`Add Notification Target`~~
    ![tDIPYO](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/02/03/tDIPYO.png)
-2. 有很多通知类型，我们选择`Webhook`
+2. ~~有很多通知类型，我们选择`Webhook`~~
    ![E43e23](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/02/03/E43e23.png)
-3. 填写`Webhook`的地址，这里填写的是 Nodejs 服务的地址,其他留空即可
+3. ~~填写`Webhook`的地址，这里填写的是 Nodejs 服务的地址,其他留空即可~~
    ![zlIxax](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/02/03/zlIxax.png)
-4. 保存
+4. ~~保存~~
 
 ### 创建和配置存储桶
 
 1. 点击`Create Bucket`
    ![gwYWn3](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/02/03/gwYWn3.png)
 2. 起一个名字，其他不用改
-3. 创建成功后，点击刚创建的存储桶，然后点击`Event`,最后点击`Subscribe to Event`
+3. ~~创建成功后，点击刚创建的存储桶，然后点击`Event`,最后点击`Subscribe to Event`~~
    ![k1Zbnd](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/02/03/k1Zbnd.png)
-4. RAN 里选择 webhook,其他看情况修改,最后点击`Save`
+4. ~~RAN 里选择 webhook,其他看情况修改,最后点击`Save`~~
    ![9NzU5c](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/02/03/9NzU5c.png)
 
 ## Nodejs 服务部署和配置
