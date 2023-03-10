@@ -2,7 +2,7 @@
 title: 使用nps连接内网ssh和访问网页
 copyright_author: houxiaozhao
 copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://demontaste.com
+copyright_url: https://100042.xyz
 copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2022-01-19 10:33:46.494
 updated: 2022-03-04 19:16:53.9

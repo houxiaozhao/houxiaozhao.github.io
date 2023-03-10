@@ -2,7 +2,7 @@
 title: 前后端密钥传输和数据加密(国密SM2、SM3、SM4)流程实践
 copyright_author: houxiaozhao
 copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://demontaste.com
+copyright_url: https://100042.xyz
 copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2022-11-09 08:40:46
 tags:
