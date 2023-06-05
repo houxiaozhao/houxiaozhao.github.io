@@ -11,10 +11,12 @@ menu:
   #   Movie: /movies/ || fas fa-video
   常用网站: /link/ || fas fa-link
   About: /about/ || fas fa-heart
+  ChatGPT: https://chat.100042.xyz/ || fas fa-comment
+  Bing: https://bing.100042.xyz/ || fas fa-comment
   文档 || fa fa-book:
     Cesium: http://81.70.243.137/cesium/
     Three.js: http://81.70.243.137/three.js/docs/
-    ChatGPT: https://chat.100042.xyz/
+    aiLabel: http://81.70.243.137/aiLabel/
 
 # Code Blocks (代碼相關)
 # --------------------------------------
