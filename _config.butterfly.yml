@@ -6,6 +6,7 @@ menu:
   首页: / || fas fa-home
   档案: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
+  收藏: /utils/ || fas fa-tags
   # List||fas fa-list:
   #   Music: /music/ || fas fa-music
   #   Movie: /movies/ || fas fa-video
