@@ -8,6 +8,7 @@ date: 2023-01-12 18:22:05
 tags:
   - 后端
   - nodejs
+  - strapi
 ---
 
 > 官网介绍：开源的 Headless CMS，100%  的 javascript  和完全可定制化
