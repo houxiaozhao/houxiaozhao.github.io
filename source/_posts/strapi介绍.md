@@ -31,7 +31,7 @@ tags:
 3.  内置的权限系统，全部数据都由权限系统控制
 4.  插件化，内置基本插件：内容管理器，api 文档，媒体库，角色权限等
 5.  自定义 API，可以使用 JavaScript 自定义 API
-6.  支持多种数据库![image](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/P4maOg7YjYXVOWNX/img/ba02f997-6384-4260-a0ed-a087dff9c758.png)
+6.  支持多种数据库![e5AmI6](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/e5AmI6.png)
 
 ### 快速开始
 
@@ -46,7 +46,7 @@ tags:
 
 #### 注册管理员用户  
 
-![image](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/P4maOg7YjYXVOWNX/img/c98f93fd-9e6b-423c-950e-ce09b129c6d9.png)
+![W2OpTh](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/W2OpTh.png)
 
 #### 构建内容
 

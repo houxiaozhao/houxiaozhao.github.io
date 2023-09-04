@@ -38,7 +38,7 @@ tags:
 
   hexo server
 
-![image](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/1Lk3lbMrLdM3Om96/img/64cfe5e1-7d34-4b54-9d45-eba3b424d986.png)
+![qE8uZj](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/qE8uZj.png)
 
 #### 配置网站信息
 
@@ -62,15 +62,15 @@ tags:
 
 也可以上传到 github 上，利用 github page 做一个免费的网站
 
-1.  创建一个仓库名字是<username>.github.io ​![image](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/1Lk3lbMrLdM3Om96/img/57a09234-253c-4ef8-aef9-e55e29f207c5.png)
-2.  然后在 setting->pages 中设置![image](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/1Lk3lbMrLdM3Om96/img/d3d8b72a-fd22-4a13-a6f0-2275fe066f35.png)
+1.  创建一个仓库名字是<username>.github.io ![vmx7ie](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/vmx7ie.png)
+2.  然后在 setting->pages 中设置![uQacfl](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/uQacfl.png)
 3.  把静态网页传到 github 上。
 4.  [**https://<username>.github.io/**](https://houxiaozhao.github.io/)
 5.  **进阶：**
 
     1.  **使用 github 的 workflow 功能自动编译生成，变以后自动更新静态页面到其他分支，然后在 pages 设置其他分支**
-    2.  **因为 github 经常会不通。可以使用**cloudflare**进行加速。利用 cloudflare pages 功能，直接自动部署到 cloudflare 上。会给一个免费的域名可以访问**<username>-github-io.pages.dev **​**![image](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/1Lk3lbMrLdM3Om96/img/1c57e13a-f327-45b6-a352-defae216a226.png)
-    3.  **使用自己的域名 DNS 配置 CNAME 到免费域名**![image](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/1Lk3lbMrLdM3Om96/img/359ada81-3a43-4c01-bf5f-9b6914b8027e.png)
+    2.  **因为 github 经常会不通。可以使用**cloudflare**进行加速。利用 cloudflare pages 功能，直接自动部署到 cloudflare 上。会给一个免费的域名可以访问**<username>-github-io.pages.dev **​**![saaCp9](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/saaCp9.png)
+    3.  **使用自己的域名 DNS 配置 CNAME 到免费域名**![FENI8H](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/FENI8H.png)
 
 #### 使用主题
 
@@ -87,4 +87,4 @@ tags:
 
     theme: next
 
-![image](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/1Lk3lbMrLdM3Om96/img/0664c578-344e-4c4d-9185-c851793254e7.png)
+![OCcFnT](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/OCcFnT.png)
