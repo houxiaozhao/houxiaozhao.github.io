@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>houxiaozhao部落格 - 我欲修仙，法力无边</title><meta name="keywords" content="前段,Node.js,Web,JavaScript"><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="houxiaozhao部落格">
+<meta property="og:url" content="https://blog.100042.xyz/page/5/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/14978325">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="前段,Node.js,Web,JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/14978325"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.100042.xyz/page/5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'houxiaozhao部落格',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-12-01 02:22:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">57</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/utils/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 常用网站</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://temp-email.100042.xyz/"><i class="fa-fw fas fa-envelope"></i><span> 临时邮箱</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://gh-proxy.100042.xyz/"><i class="fa-fw fas fa-link"></i><span> GitHub代理</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/cesium/"><span> Cesium</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/three.js/docs/"><span> Three.js</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/aiLabel/"><span> aiLabel</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/01/12/M0b0Vl.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">houxiaozhao部落格</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/utils/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 常用网站</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://temp-email.100042.xyz/"><i class="fa-fw fas fa-envelope"></i><span> 临时邮箱</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://gh-proxy.100042.xyz/"><i class="fa-fw fas fa-link"></i><span> GitHub代理</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/cesium/"><span> Cesium</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/three.js/docs/"><span> Three.js</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/aiLabel/"><span> aiLabel</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">houxiaozhao部落格</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2018/08/25/python3%20flask%20%E4%BD%BF%E7%94%A8Mysql%E6%95%B0%E6%8D%AE%E5%BA%93-python3flask%E4%BD%BF%E7%94%A8mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" title="python3 flask 使用Mysql数据库"><img class="post_bg" src="https://th.wallhaven.cc/lg/vq/vqmg9l.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="python3 flask 使用Mysql数据库"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/08/25/python3%20flask%20%E4%BD%BF%E7%94%A8Mysql%E6%95%B0%E6%8D%AE%E5%BA%93-python3flask%E4%BD%BF%E7%94%A8mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" title="python3 flask 使用Mysql数据库">python3 flask 使用Mysql数据库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-08-25T11:52:27.000Z" title="发表于 2018-08-25 11:52:27">2018-08-25</time></span></div><div class="content">python3 flask 使用 Mysql 数据库
+创建 flask 基本项目结构
+12from flask import Flaskapp = Flask(__name__)
+
+
+
+安装flask-sqlalchemy
+1pip install flask-sqlalchemy
+
+导入配置
+123456from flask_sqlalchemy import SQLAlchemyapp.config[&#x27;SQLALCHEMY_DATABASE_URI&#x27;] = &#x27;mysql+pymysql://root:root@localhost/hhh&#x27;app.config[&#x27;SQLALCHEMY_COMMIT_ON_TEARDOWN&#x27;] = Trueapp.config[&#x27;SQLALCHEMY_TRACK_MODIFICATIONS&#x27;] = Truedb = SQLAlchemy(app)
+
+python3 不再支持 MySQKdb,连接 mysql 数据库需要使用 pymysql
+安装 pymysql
+pip in ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2018/08/11/vue-cli3%E4%BD%BF%E7%94%A8%E5%92%8CCordova%E9%9B%86%E6%88%90%E8%AE%B0%E5%BD%95-vue-cli3%E4%BD%BF%E7%94%A8%E5%92%8Ccordova%E9%9B%86%E6%88%90%E8%AE%B0%E5%BD%95/" title="vue-cli3使用和Cordova集成记录"><img class="post_bg" src="https://th.wallhaven.cc/lg/zy/zyxvwj.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue-cli3使用和Cordova集成记录"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/08/11/vue-cli3%E4%BD%BF%E7%94%A8%E5%92%8CCordova%E9%9B%86%E6%88%90%E8%AE%B0%E5%BD%95-vue-cli3%E4%BD%BF%E7%94%A8%E5%92%8Ccordova%E9%9B%86%E6%88%90%E8%AE%B0%E5%BD%95/" title="vue-cli3使用和Cordova集成记录">vue-cli3使用和Cordova集成记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-08-11T15:38:56.000Z" title="发表于 2018-08-11 15:38:56">2018-08-11</time></span></div><div class="content">1. 安装安装过程很简单
+123npm install -g @vue/cli# ORyarn global add @vue/cli
+
+  
+
+安装后使用vue --version查看是否安装成功
+2. 创建项目123vue create demo# ORvue ui #使用ui界面进行创建
+
+选项
+
+默认
+手动选择
+
+我们选择手动选择功能，具体选择如下
+1234567? Please pick a preset: Manually select features? Check the features needed for your project: Babel, Router, Vuex, CSS Pre-processors, Linter? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): LESS? Pick a linter / formatter config: Prettier? Pick additional lint features ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2018/04/04/nodejs%E5%92%8CThinkjs-nodejs%E5%92%8Cthinkjs/" title="nodejs和Thinkjs"><img class="post_bg" src="https://th.wallhaven.cc/lg/3l/3l9ody.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nodejs和Thinkjs"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/04/04/nodejs%E5%92%8CThinkjs-nodejs%E5%92%8Cthinkjs/" title="nodejs和Thinkjs">nodejs和Thinkjs</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-04-04T12:50:34.000Z" title="发表于 2018-04-04 12:50:34">2018-04-04</time></span></div><div class="content">Node.jsNode.js 简述Node.js：简单的说 Node.js 就是运行在服务端的 JavaScript。
+Node.js 安装配置 （介绍在 window 和 Linux 上的安装 Node.js 的方法）
+Node.js 官方文档
+  
+
+官方文档介绍：
+
+Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。
+
+Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。事件驱动与异步 IO 的讲解
+
+Node.js 的包管理器 npm，是全球最大的开源库生态系统。
+​
+
+
+认识包管理器 npm（npm 已经在安装 Node.js 的时候安装好了）
+当我们在 Node.js 上开发时，会用到很多别人写的 JavaScript 代码。如果我们需要使用别人写的某个包，每次都根据名称搜索一下官方文档，下载代码，解压，再使用，非常繁琐。于是一个集中管理的工具应运而生：大家都把自己开发的模块打包后放到npm官网上，如果要使用，直接通过 npm 安装就可以直接使用，不管代码存在哪，应该从哪下载。
+更重要的是，如果我们要 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2018/03/25/angular%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E3%80%81%E6%8C%87%E4%BB%A4%E3%80%81%E6%9C%8D%E5%8A%A1%E3%80%81%E8%BF%87%E6%BB%A4%E5%99%A8-angular%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%8C%87%E4%BB%A4%E6%9C%8D%E5%8A%A1%E8%BF%87%E6%BB%A4%E5%99%A8/" title="angular常用方法、指令、服务、过滤器"><img class="post_bg" src="https://th.wallhaven.cc/lg/kx/kx9jpq.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="angular常用方法、指令、服务、过滤器"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/25/angular%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E3%80%81%E6%8C%87%E4%BB%A4%E3%80%81%E6%9C%8D%E5%8A%A1%E3%80%81%E8%BF%87%E6%BB%A4%E5%99%A8-angular%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%8C%87%E4%BB%A4%E6%9C%8D%E5%8A%A1%E8%BF%87%E6%BB%A4%E5%99%A8/" title="angular常用方法、指令、服务、过滤器">angular常用方法、指令、服务、过滤器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-03-25T15:50:50.000Z" title="发表于 2018-03-25 15:50:50">2018-03-25</time></span></div><div class="content">angular 方法1. 拷贝数组或对象1angular.copy(source, [destination]);
+
+2. 选择一个元素1angular.element(element); //jqLite
+
+  
+
+3. 比较值是否相等1angular.equals(o1, o2); //返回值：boolean
+
+4. 迭代对象1angular.forEach(obj, iterator, [context]); //iteeator是一个方法function(value,key,[obj])&#123;处理代码&#125;
+
+5. 把 json 字符串转换为对象1angular.fromJson(json);
+
+6.把对象转换为 json 字符串1angular.toJson(obj, pretty); //pretty为ture时，输出字符串有换行符和空格。如果设置为一个整数，JSON输出将包含许多空间每缩进（默认为2）
+
+7. 判断是否为数组、时间、DOM 元素、函数、数字、对象、字符串、未定义、12345678angular.isArray(value);angular.is ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2018/03/23/%E5%88%A4%E5%AE%9A%20this%20%E5%88%B0%E5%BA%95%E6%8C%87%E5%90%91%E5%93%AA%E4%B8%AA%E5%AF%B9%E8%B1%A1-%E5%88%A4%E5%AE%9Athis%E5%88%B0%E5%BA%95%E6%8C%87%E5%90%91%E5%93%AA%E4%B8%AA%E5%AF%B9%E8%B1%A1/" title="判定 this 到底指向哪个对象"><img class="post_bg" src="https://th.wallhaven.cc/lg/2y/2yexgg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="判定 this 到底指向哪个对象"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/23/%E5%88%A4%E5%AE%9A%20this%20%E5%88%B0%E5%BA%95%E6%8C%87%E5%90%91%E5%93%AA%E4%B8%AA%E5%AF%B9%E8%B1%A1-%E5%88%A4%E5%AE%9Athis%E5%88%B0%E5%BA%95%E6%8C%87%E5%90%91%E5%93%AA%E4%B8%AA%E5%AF%B9%E8%B1%A1/" title="判定 this 到底指向哪个对象">判定 this 到底指向哪个对象</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-03-23T09:36:16.000Z" title="发表于 2018-03-23 09:36:16">2018-03-23</time></span></div><div class="content">判定 this现在，我们可以按照优先顺序来总结一下从函数调用的调用点来判定 this 的规则了。按照这个顺序来问问题，然后在第一个规则适用的地方停下。
+  
+
+
+函数是通过 new 被调用的吗（new 绑定）？如果是，this 就是新构建的对象。var bar &#x3D; new foo()
+函数是通过 call 或 apply 被调用（明确绑定），甚至是隐藏在 bind 硬绑定 之中吗？如果是，this 就是那个被明确指定的对象。var bar &#x3D; foo.call( obj2 )
+函数是通过环境对象（也称为拥有者或容器对象）被调用的吗（隐含绑定）？如果是，this 就是那个环境对象。var bar &#x3D; obj1.foo()
+否则，使用默认的 this（默认绑定）。如果在 strict mode 下，就是 undefined，否则是 global 对象。var bar &#x3D; foo()
+
+以上，就是理解对于普通的函数调用来说的 this 绑定规则 所需的全部。是的……几乎是全部
+摘自：You-Dont-Know-JS
+用作备忘
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2018/03/07/Flex%E5%B8%83%E5%B1%80%E5%92%8CGrids%20%E5%B8%83%E5%B1%80-flex%E5%B8%83%E5%B1%80%E5%92%8Cgrids%E5%B8%83%E5%B1%80/" title="Flex布局和Grids 布局"><img class="post_bg" src="https://th.wallhaven.cc/lg/3l/3lkrqy.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Flex布局和Grids 布局"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/07/Flex%E5%B8%83%E5%B1%80%E5%92%8CGrids%20%E5%B8%83%E5%B1%80-flex%E5%B8%83%E5%B1%80%E5%92%8Cgrids%E5%B8%83%E5%B1%80/" title="Flex布局和Grids 布局">Flex布局和Grids 布局</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-03-07T19:08:42.000Z" title="发表于 2018-03-07 19:08:42">2018-03-07</time></span></div><div class="content">Flex 布局
+Flex 是弹性布局，使用display:flex或display: inline-flex指定为 flex 布局
+默认 水平的是主轴，垂直的是交叉轴
+容器的属性（属性第一个为默认值）
+flex-direction 主轴方向 row | row-reverse | column | column-reverse
+flex-wrap 项目换行方式 nowrap | wrap | wrap-reverse
+flex–flow 以上两个属性的缩写
+justify-content 项目在主轴的对齐方式 flex-start | flex-end | center | space-between | space-around
+align-items 项目在交叉轴对齐方式 flex-start | flex-end | center | baseline | stretch
+align-content 多跟 轴线 的对齐方式，只有一根轴线则不起作用 flex-start | flex-end | center | space-between | space-around | str ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2018/03/07/vuex%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-vuex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="vuex 学习笔记"><img class="post_bg" src="https://th.wallhaven.cc/lg/yx/yxjppd.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vuex 学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/07/vuex%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-vuex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="vuex 学习笔记">vuex 学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-03-07T19:08:42.000Z" title="发表于 2018-03-07 19:08:42">2018-03-07</time></span></div><div class="content">
+state
+记录所有数据和状态的，跨页面使用的
+
+getters
+store 里的计算属性
+12345678910111213141516&#123;    state:&#123;        aaa:2    &#125;,    getters:&#123;        // 通过$store.getters.aaacheng2访问        aaacheng2:state=&gt;&#123;            return state.aaa*2        &#125;,		// 通过$store.getters.aaacheng(6)访问        aaacheng:(state)=&gt;(n)=&gt;&#123;			return state.aaa*n        &#125;    &#125;&#125;// mapGetters 辅助函数 将 store 中的 getter 映射到局部计算属性
+
+mutation
+用于修改 state 状态
+1234increment (state, n) &#123;	state.count += n ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2018/03/07/VUE%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="VUE环境配置"><img class="post_bg" src="https://th.wallhaven.cc/lg/85/85xg5k.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VUE环境配置"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/07/VUE%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="VUE环境配置">VUE环境配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-03-07T17:03:36.000Z" title="发表于 2018-03-07 17:03:36">2018-03-07</time></span></div><div class="content">安装 vue
+在 vue官网，使用 cli 命令行脚手架创建基本项目
+123456789# 全局安装 vue-clinpm install --global vue-cli# 创建一个基于 webpack 模板的新项目vue init webpack my-project# 安装依赖，走你cd my-project# 或者 yarnnpm installnpm run dev
+
+
+
+运行npm run dev 打开浏览器 http://localhost:8080
+
+
+配置开发环境 vscode
+使用 eslint 规范代码质量
+
+vscode 安装插件 eslint
+
+配置代码格式化规则 eslint
+12345678910111213&quot;eslint.autoFixOnSave&quot;: true,&quot;eslint.validate&quot;: [  &quot;javascript&quot;,  &quot;javascriptreact&quot;,  &#123;    &quot;language&quot;: &quot;html&quot;,   ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2018/03/07/electron%20%E4%B8%AD%E4%BD%BF%E7%94%A8autobahn%20%E4%B8%8D%E5%B7%A5%E4%BD%9C%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-electron%E4%B8%AD%E4%BD%BF%E7%94%A8autobahn%E4%B8%8D%E5%B7%A5%E4%BD%9C%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="electron 中使用autobahn 不工作问题记录"><img class="post_bg" src="https://th.wallhaven.cc/lg/1p/1pjeg3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="electron 中使用autobahn 不工作问题记录"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/07/electron%20%E4%B8%AD%E4%BD%BF%E7%94%A8autobahn%20%E4%B8%8D%E5%B7%A5%E4%BD%9C%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-electron%E4%B8%AD%E4%BD%BF%E7%94%A8autobahn%E4%B8%8D%E5%B7%A5%E4%BD%9C%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="electron 中使用autobahn 不工作问题记录">electron 中使用autobahn 不工作问题记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-03-07T17:03:36.000Z" title="发表于 2018-03-07 17:03:36">2018-03-07</time></span></div><div class="content">在 authbahn 源代码中if (global.process &amp;&amp; global.process.versions.node) {判断当前的运行环境为 node 环境，但实际上 electron 中使用的还是 web。所以暂时删除掉判断，直接进入 else，为浏览器环境。目前可以正常运行，不知道以后会不会出现其他问题。
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2018/02/25/%E7%BB%BF%E8%89%B2%E7%89%88chrome%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B-%E7%BB%BF%E8%89%B2%E7%89%88chrome%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B/" title="绿色版chrome安装包制作教程"><img class="post_bg" src="https://th.wallhaven.cc/lg/9d/9d685d.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="绿色版chrome安装包制作教程"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/02/25/%E7%BB%BF%E8%89%B2%E7%89%88chrome%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B-%E7%BB%BF%E8%89%B2%E7%89%88chrome%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B/" title="绿色版chrome安装包制作教程">绿色版chrome安装包制作教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-02-25T15:16:06.000Z" title="发表于 2018-02-25 15:16:06">2018-02-25</time></span></div><div class="content">教程
+Google Chrome 下载地址https://api.shuax.com/tools/getchrome
+插件下载https://shuax.com/portfolio/greenchrome/
+便携化教程 https://bbs.kafan.cn/thread-1696230-1-1.html
+安装包制作工具 http://www.jz5u.com/Soft/apply/other/170453.html
+安装包制作教程 https://www.cnblogs.com/wuhuacong/p/6101853.html
+
+制作绿色版 Chrome
+下载 google Chrome 离线安装包
+解压该安装包.exe，再解压.7z 得到 chrome-bin
+修改文件夹名称为 Chrome
+下载插件 得到 greenChrome ,解压。
+把文件夹内的 GreenChrome.ini 和 winmm.dll 一块放在 Chrome 文件夹下。（自行选择 64 位或 32 位与第一步下载的离线安装包对应。已经下载好的是 64 位 Chrome 安装包）
+把文件夹内的 favico ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/6/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">houxiaozhao</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">57</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/09/26/uniapp%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E7%9A%84MD5/" title="uniapp 的 Android 端获取照片的MD5"><img src="https://th.wallhaven.cc/lg/jx/jx5q6w.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="uniapp 的 Android 端获取照片的MD5"/></a><div class="content"><a class="title" href="/2023/09/26/uniapp%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E7%9A%84MD5/" title="uniapp 的 Android 端获取照片的MD5">uniapp 的 Android 端获取照片的MD5</a><time datetime="2023-09-26T18:22:05.000Z" title="发表于 2023-09-26 18:22:05">2023-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/06/strapi%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BB%8Econtroll%E4%B8%AD/" title="strapi 从 controller 中上传文件"><img src="https://th.wallhaven.cc/lg/vq/vqg1z5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="strapi 从 controller 中上传文件"/></a><div class="content"><a class="title" href="/2023/07/06/strapi%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BB%8Econtroll%E4%B8%AD/" title="strapi 从 controller 中上传文件">strapi 从 controller 中上传文件</a><time datetime="2023-07-06T18:22:05.000Z" title="发表于 2023-07-06 18:22:05">2023-07-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/27/%E5%8D%8E%E4%B8%BA%E6%91%84%E5%83%8F%E5%A4%B4%E6%8A%93%E6%8B%8D%E5%9B%BE%E7%89%87/" title="如何使用 Python 抓取华为摄像头的抓拍图片"><img src="https://th.wallhaven.cc/lg/gp/gp8553.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何使用 Python 抓取华为摄像头的抓拍图片"/></a><div class="content"><a class="title" href="/2023/06/27/%E5%8D%8E%E4%B8%BA%E6%91%84%E5%83%8F%E5%A4%B4%E6%8A%93%E6%8B%8D%E5%9B%BE%E7%89%87/" title="如何使用 Python 抓取华为摄像头的抓拍图片">如何使用 Python 抓取华为摄像头的抓拍图片</a><time datetime="2023-06-27T17:26:22.000Z" title="发表于 2023-06-27 17:26:22">2023-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/03/Minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" title="使用Nodejs对Minio对象存储中图片压缩"><img src="https://th.wallhaven.cc/lg/1p/1pjddg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用Nodejs对Minio对象存储中图片压缩"/></a><div class="content"><a class="title" href="/2023/02/03/Minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" title="使用Nodejs对Minio对象存储中图片压缩">使用Nodejs对Minio对象存储中图片压缩</a><time datetime="2023-02-03T09:39:18.000Z" title="发表于 2023-02-03 09:39:18">2023-02-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/02/Nodejs%E4%B8%ADBuffer%E5%92%8CStream%E4%BA%92%E8%BD%AC/" title="Nodejs中Buffer和Stream互转"><img src="https://th.wallhaven.cc/lg/zy/zy8ydj.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nodejs中Buffer和Stream互转"/></a><div class="content"><a class="title" href="/2023/02/02/Nodejs%E4%B8%ADBuffer%E5%92%8CStream%E4%BA%92%E8%BD%AC/" title="Nodejs中Buffer和Stream互转">Nodejs中Buffer和Stream互转</a><time datetime="2023-02-02T16:16:20.000Z" title="发表于 2023-02-02 16:16:20">2023-02-02</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/App-Vue-Cordova/" style="font-size: 1.2em; color: #999da3">App Vue Cordova</a> <a href="/tags/Flex-Grids-%E5%B8%83%E5%B1%80/" style="font-size: 1.1em; color: #999">Flex Grids 布局</a> <a href="/tags/InfluxDB/" style="font-size: 1.1em; color: #999">InfluxDB</a> <a href="/tags/Nodejs/" style="font-size: 1.2em; color: #999da3">Nodejs</a> <a href="/tags/ReactNative-Ionic/" style="font-size: 1.1em; color: #999">ReactNative Ionic</a> <a href="/tags/Vue-vuex/" style="font-size: 1.1em; color: #999">Vue vuex</a> <a href="/tags/angular/" style="font-size: 1.2em; color: #999da3">angular</a> <a href="/tags/api/" style="font-size: 1.1em; color: #999">api</a> <a href="/tags/cesium/" style="font-size: 1.3em; color: #99a1ac">cesium</a> <a href="/tags/chrome/" style="font-size: 1.1em; color: #999">chrome</a> <a href="/tags/cordova-ionic/" style="font-size: 1.1em; color: #999">cordova ionic</a> <a href="/tags/docker/" style="font-size: 1.1em; color: #999">docker</a> <a href="/tags/eggjs/" style="font-size: 1.2em; color: #999da3">eggjs</a> <a href="/tags/emqx/" style="font-size: 1.1em; color: #999">emqx</a> <a href="/tags/flask/" style="font-size: 1.2em; color: #999da3">flask</a> <a href="/tags/javascript/" style="font-size: 1.3em; color: #99a1ac">javascript</a> <a href="/tags/minio/" style="font-size: 1.1em; color: #999">minio</a> <a href="/tags/nestjs/" style="font-size: 1.1em; color: #999">nestjs</a> <a href="/tags/node/" style="font-size: 1.3em; color: #99a1ac">node</a> <a href="/tags/nodejs/" style="font-size: 1.5em; color: #99a9bf">nodejs</a> <a href="/tags/nodejs-Thinkjs/" style="font-size: 1.2em; color: #999da3">nodejs Thinkjs</a> <a href="/tags/opengl/" style="font-size: 1.1em; color: #999">opengl</a> <a href="/tags/pillow/" style="font-size: 1.1em; color: #999">pillow</a> <a href="/tags/postman/" style="font-size: 1.1em; color: #999">postman</a> <a href="/tags/python/" style="font-size: 1.2em; color: #999da3">python</a> <a href="/tags/python-%E5%8D%8E%E4%B8%BA%E6%91%84%E5%83%8F%E5%A4%B4/" style="font-size: 1.1em; color: #999">python, 华为摄像头</a> <a href="/tags/qq/" style="font-size: 1.1em; color: #999">qq</a> <a href="/tags/restful/" style="font-size: 1.1em; color: #999">restful</a> <a href="/tags/strapi/" style="font-size: 1.2em; color: #999da3">strapi</a> <a href="/tags/swagger/" style="font-size: 1.1em; color: #999">swagger</a> <a href="/tags/threejs/" style="font-size: 1.2em; color: #999da3">threejs</a> <a href="/tags/uniapp/" style="font-size: 1.1em; color: #999">uniapp</a> <a href="/tags/vue/" style="font-size: 1.4em; color: #99a5b6">vue</a> <a href="/tags/%E4%B8%8D%E5%8F%AF%E6%8F%8F%E8%BF%B0/" style="font-size: 1.1em; color: #999">不可描述</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 1.1em; color: #999">内网穿透</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.4em; color: #99a5b6">前端</a> <a href="/tags/%E5%8A%A0%E5%AF%86/" style="font-size: 1.1em; color: #999">加密</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.2em; color: #999da3">后端</a> <a href="/tags/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">图片处理</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.1em; color: #999">小程序</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By houxiaozhao</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        window.typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (false) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div></body></html>
