@@ -1,0 +1,367 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>houxiaozhao部落格 - 我欲修仙，法力无边</title><meta name="keywords" content="前段,Node.js,Web,JavaScript"><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="houxiaozhao部落格">
+<meta property="og:url" content="https://blog.100042.xyz/page/4/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/14978325">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="前段,Node.js,Web,JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/14978325"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.100042.xyz/page/4/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'houxiaozhao部落格',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-05-10 03:00:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/utils/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 常用网站</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://temp-email.100042.xyz/"><i class="fa-fw fas fa-envelope"></i><span> 临时邮箱</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://gh-proxy.100042.xyz/"><i class="fa-fw fas fa-link"></i><span> GitHub代理</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/cesium/"><span> Cesium</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/three.js/docs/"><span> Three.js</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/aiLabel/"><span> aiLabel</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/01/12/M0b0Vl.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">houxiaozhao部落格</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/utils/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 常用网站</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://temp-email.100042.xyz/"><i class="fa-fw fas fa-envelope"></i><span> 临时邮箱</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://gh-proxy.100042.xyz/"><i class="fa-fw fas fa-link"></i><span> GitHub代理</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/cesium/"><span> Cesium</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/three.js/docs/"><span> Three.js</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/aiLabel/"><span> aiLabel</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">houxiaozhao部落格</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2021/04/27/cesium%20%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B0%8F%E4%BE%8B%E5%AD%90-cesium%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B0%8F%E4%BE%8B%E5%AD%9003832ba5e601446a931b3f5e0692b6fcmd/" title="cesium 的几个小例子"><img class="post_bg" src="https://th.wallhaven.cc/lg/qz/qzdxd5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cesium 的几个小例子"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/27/cesium%20%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B0%8F%E4%BE%8B%E5%AD%90-cesium%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B0%8F%E4%BE%8B%E5%AD%9003832ba5e601446a931b3f5e0692b6fcmd/" title="cesium 的几个小例子">cesium 的几个小例子</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-27T10:56:59.000Z" title="发表于 2021-04-27 10:56:59">2021-04-27</time></span></div><div class="content">cesium 的几个小例子houxiaozhao&#x2F;cesium-demo
+安装使用前先安装 cesium
+1npm install cesium
+
+其他依赖包括（非必要，为了方便和好看）不需要安装，已经包含在仓库内
+
+vue
+echarts
+element
+
+使用anywhere 或其他静态文件服务器
+1anywhere
+
+效果
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/04/14/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3eggjs%E5%92%8Cswagger%E9%85%8D%E5%90%88-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3eggjs%E5%92%8Cswagger%E9%85%8D%E5%90%88/" title="接口文档eggjs和swagger配合"><img class="post_bg" src="https://th.wallhaven.cc/lg/d6/d6pqdo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="接口文档eggjs和swagger配合"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/14/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3eggjs%E5%92%8Cswagger%E9%85%8D%E5%90%88-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3eggjs%E5%92%8Cswagger%E9%85%8D%E5%90%88/" title="接口文档eggjs和swagger配合">接口文档eggjs和swagger配合</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-14T10:56:56.000Z" title="发表于 2021-04-14 10:56:56">2021-04-14</time></span></div><div class="content">接口文档 eggjs 和 swagger 配合
+好运盈后台接口文档管理采用 Swagger 自动化生成发布。使用 egg-swagger 插件配合 egg 开发框架使用 https://github.com/Yanshijie-EL/egg-swagger-doc
+
+Swagger 介绍Swagger 是一款 RESTFUL 接口的文档在线自动生成+功能测试功能软件。Swagger 是一个规范和完整的框架,用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。目标是使客户端和文件系统作为服务器以同样的速度来更新文件的方法,参数和模型紧密集成到服务器。
+使用方法
+安装 egg-swagger-doc
+1npm i egg-swagger-doc --save
+
+在 app&#x2F;文件夹下新建 contract 文件夹
+
+添加配置
+1config.swaggerdoc = &#123;    dirScanner: &#x27;./app/controller&#x27;,    apiInfo: &#123;      title: &#x27;好运盈&#x27;,   ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/04/07/Node%20js%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%20-nodejs%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="Node js错误处理最佳实践"><img class="post_bg" src="https://th.wallhaven.cc/lg/x6/x61eqv.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Node js错误处理最佳实践"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/07/Node%20js%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%20-nodejs%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="Node js错误处理最佳实践">Node js错误处理最佳实践</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-07T11:22:18.000Z" title="发表于 2021-04-07 11:22:18">2021-04-07</time></span></div><div class="content">Node.js 错误处理最佳实践使用 Promise 捕获错误123456789101112131415161718192021222324let func = function (n) &#123;  return new Promise((resolve, reject) =&gt; &#123;    resolve(n * n);  &#125;);&#125;;func(2)  .then((res) =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .then((res) =&gt; &#123;    console.log(res);    throw new Error(&quot;Error&quot;);  &#125;)  .then((res) =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .catch((err) =&gt; &#123;    console.log(err);  &#125;) ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/03/04/%E5%9F%BA%E4%BA%8E%20nestjs%20mongoose%20jwt%20%E7%9A%84%20restful%20%E6%A8%A1%E6%9D%BF%E7%A8%8B%E5%BA%8F%20%E7%94%A8%E4%BA%8E%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%A8%8B%E5%BA%8F-%E5%9F%BA%E4%BA%8Enestjsmongoosejwt%E7%9A%84restful%E6%A8%A1%E6%9D%BF%E7%A8%8B%E5%BA%8F%E7%94%A8%E4%BA%8E%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%A8%8B%E5%BA%8F790ee79f745f41d8b43d2e28ebade4a2md/" title="基于 nestjs mongoose jwt 的 restful 模板程序 用于快速搭建服务端程序"><img class="post_bg" src="https://th.wallhaven.cc/lg/2y/2yed86.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于 nestjs mongoose jwt 的 restful 模板程序 用于快速搭建服务端程序"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/04/%E5%9F%BA%E4%BA%8E%20nestjs%20mongoose%20jwt%20%E7%9A%84%20restful%20%E6%A8%A1%E6%9D%BF%E7%A8%8B%E5%BA%8F%20%E7%94%A8%E4%BA%8E%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%A8%8B%E5%BA%8F-%E5%9F%BA%E4%BA%8Enestjsmongoosejwt%E7%9A%84restful%E6%A8%A1%E6%9D%BF%E7%A8%8B%E5%BA%8F%E7%94%A8%E4%BA%8E%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%A8%8B%E5%BA%8F790ee79f745f41d8b43d2e28ebade4a2md/" title="基于 nestjs mongoose jwt 的 restful 模板程序 用于快速搭建服务端程序">基于 nestjs mongoose jwt 的 restful 模板程序 用于快速搭建服务端程序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-04T10:48:14.000Z" title="发表于 2021-03-04 10:48:14">2021-03-04</time></span></div><div class="content">基于 nestjs mongoose jwt 的 restful 模板程序 用于快速搭建服务端程序houxiaozhao&#x2F;template
+涉及技术框架
+nestjs 服务框架
+mongoose 操作数据库的库
+typegoose 使用类定义数据模型
+nestjs-typegoose
+mongoose-paginate 分页插件
+
+
+jwt 生成验证 token
+swagger 文档生成
+
+配置文件nestjs-config 管理配置文件
+12/env//src/config/
+
+Redis 缓存基本用法12345678910// controller@HttpCache(ARTICLE, 60)@UseInterceptors(HttpCacheInterceptor)// moduleimport &#123; CacheModule &#125; from &#x27;src/common/processors/cache/cache.module&#x27;;@Module(&#123;  imports: [CacheModule]&#125;)
+
+功能
+ 用户登陆 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/05/15/restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF-restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF/" title="restful风格前端表格增删改查模板"><img class="post_bg" src="https://th.wallhaven.cc/lg/vq/vq9pw5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="restful风格前端表格增删改查模板"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/15/restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF-restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF/" title="restful风格前端表格增删改查模板">restful风格前端表格增删改查模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-15T11:16:26.000Z" title="发表于 2020-05-15 11:16:26">2020-05-15</time></span></div><div class="content">restful 风格前端表格增删改查模板restful 风格前端表格增删改查模板
+基于 vue d2-admin element-ui 配合上篇文章 js 代码生成器,只需要简单的修改即可实现快速页面开发。
+
+vue 模板12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210310410510610710810911011111211311411511611711811912012112212312412512612712812913013113213313413513613713813914014114214314414514614714814915015115215315415515615715815916016116216316416516 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2019/10/16/postman%E6%A8%A1%E6%8B%9Fqq%E7%99%BB%E5%BD%95/" title="postman模拟qq登录"><img class="post_bg" src="https://th.wallhaven.cc/lg/ex/exomxr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="postman模拟qq登录"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/10/16/postman%E6%A8%A1%E6%8B%9Fqq%E7%99%BB%E5%BD%95/" title="postman模拟qq登录">postman模拟qq登录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-16T10:07:26.000Z" title="发表于 2019-10-16 10:07:26">2019-10-16</time></span></div><div class="content">
+登录 pc 端的 QQ 客户端 使用 chrome 浏览器，打开 qq 空间，使用快速登陆方式。安装 postman 扩展 获取当前电脑登录用户信息 在 Network 总找到https://localhost.ptlogin2.qq.com:4301/pt_get_uins开头的地址。
+
+请求本地 4301 服务，获取信息。 在 postman 中模拟这一请求
+
+然后会保存大概 20 个 cookies，这些 cookies 好像有用。 这一部，好像没什么用~~~
+
+获取用户头像信息network 中https://ssl.ptlogin2.qq.com/getface?开头的地址
+
+获取 clientkey 在选中 network 中的 Preserve Log 清空所有请求 点击需要登录的用户头像，进行登录 |找到第一个请求，或者是 pt_get_st 在 postman 中模拟这一请求 可以看的 cookies 中多了两个，其中就有 clientkey |
+
+跳转到已登陆状态 在 network 中 jump 开头的地址。 可以看的在响应头中 set 了很多的 cookie在 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2019/08/14/wugeek%E5%9B%A2%E9%98%9F%E5%88%9B%E4%B8%9A%E8%B7%AF%E5%BE%84/" title="Wugeek 团队创业路径"><img class="post_bg" src="https://th.wallhaven.cc/lg/l8/l8m9xp.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Wugeek 团队创业路径"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/08/14/wugeek%E5%9B%A2%E9%98%9F%E5%88%9B%E4%B8%9A%E8%B7%AF%E5%BE%84/" title="Wugeek 团队创业路径">Wugeek 团队创业路径</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-14T12:23:24.000Z" title="发表于 2019-08-14 12:23:24">2019-08-14</time></span></div><div class="content">介绍
+名称：Wugeek(物集客)
+地点：河北邯郸
+域名：http://www.wugeek.com/
+logo：云上的章鱼（技术寓意为云计算、物联网、大数据，章鱼保罗）
+
+
+
+
+历程（大体方向：物联网云平台）
+基于云计算、大数据、物联网等技术的平台及其相关软硬件产品
+
+第一阶段：探索技术，探索方向（2016）
+第一次团队合影（2016-7-1）
+
+
+
+
+第二次团队合影（2016-12-1）
+
+
+
+
+调研过国内国外物联网平台
+
+国内
+
+
+
+国外
+
+
+
+
+
+成果
+
+物联网云平台架构图
+
+智能书柜
+第一个完整的由上到下跑通的项目（前端、后端、通信、树莓派、硬件） 使用讯飞语音开发套件实现语音开门。 这个书柜项目完成了技术的的集成和检验技术可行性；奠定了团队后期创业几年的技术 S4T(stack for things)；
+
+S4T-wifi 人员轨迹分析
+S4T 内部的具体应用 为了将整个 S4T 整个体系和各个模块与硬件结合验证平台功能性，决定使用 3 教现有的硬件设施 1 至 4 楼的无线 AP 设备采集的 wifi 上网信息，通过数据展示，分析并展示人员运动的轨迹信息；实现硬件采集，数 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2019/05/04/Hybrid%20App%20%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B(Vue+Android)%E5%9F%BA%E4%BA%8EJavaScript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8FAPP%E5%BC%80%E5%8F%91-hybridapp%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8Bvueandroid%E5%9F%BA%E4%BA%8Ejavascript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8Fapp%E5%BC%80%E5%8F%91/" title="Hybrid App 开发过程(Vue+Android)基于JavaScript的混合式APP开发"><img class="post_bg" src="https://th.wallhaven.cc/lg/7p/7p2j33.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hybrid App 开发过程(Vue+Android)基于JavaScript的混合式APP开发"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/05/04/Hybrid%20App%20%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B(Vue+Android)%E5%9F%BA%E4%BA%8EJavaScript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8FAPP%E5%BC%80%E5%8F%91-hybridapp%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8Bvueandroid%E5%9F%BA%E4%BA%8Ejavascript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8Fapp%E5%BC%80%E5%8F%91/" title="Hybrid App 开发过程(Vue+Android)基于JavaScript的混合式APP开发">Hybrid App 开发过程(Vue+Android)基于JavaScript的混合式APP开发</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-05-04T12:54:10.000Z" title="发表于 2019-05-04 12:54:10">2019-05-04</time></span></div><div class="content">准备开发环境
+前端开发环境
+
+Node.js LTS
+@vue&#x2F;cli
+cordova
+yarn 推荐
+
+
+编辑器 VS code(墙裂推荐)
+各种插件
+
+
+
+
+
+
+
+
+Android 环境（需要编译 Android 软件）
+安装 JDK
+设置环境变量
+
+
+安装 SDK?Android Studio - 设置环境变量https://blog.csdn.net/pupilxiaoming/article/details/77801398
+
+
+
+###项目搭建
+
+使用脚手架生成基础项目
+
+cordova 项目
+cordova create demo
+cordova platform add android
+cordova run android
+目录结构
+www 存放网页代码
+plugins 插件
+platforms 平台
+res 资源
+
+
+调试chrome://inspect/#devices
+
+
+vue 项目
+vue create demo
+yarn
+npm run serve
+目录结构
+public 静态资源
+src 源码
+
+
+安装一个 UI 框架 Vuetify
+yarn ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2019/03/07/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" title="时序数据库"><img class="post_bg" src="https://th.wallhaven.cc/lg/2y/2ykkgx.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="时序数据库"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/03/07/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" title="时序数据库">时序数据库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-03-07T15:00:01.000Z" title="发表于 2019-03-07 15:00:01">2019-03-07</time></span></div><div class="content">前言我之前的节点数据是全都存到 mongoDB 中的。偶然的机会，发现了 InfluxDB 这种时序数据库。于是花了点时间简单使用一些，看看是否能替换 mongoDB 存储历史数据。
+InfluxDB 简介InfluxDB 是一个开源时序数据库。适合处理分析资源数据监控相关数据。
+https://docs.influxdata.com/influxdb/v1.6/
+  
+
+安装目前最新版本为 v1.6。
+安装 InfluxDB 的方式很简单(Ubuntu)
+$ curl -sL &lt;https://repos.influxdata.com/influxdb.key&gt; | sudo apt-key add -
+$ source /etc/lsb-release
+$ echo &quot;deb &lt;https://repos.influxdata.com/$&#123;DISTRIB_ID,,&#125;&gt; $&#123;DISTRIB_CODENAME&#125; stable&quot; | sudo tee /etc/apt/sources.list.d/inf ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2018/10/09/Egg.js%20VS%20Thinkjs%20%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E4%BD%BF%E7%94%A8-eggjsvsthinkjs%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E4%BD%BF%E7%94%A8/" title="Egg.js VS Thinkjs 简单分析使用"><img class="post_bg" src="https://th.wallhaven.cc/lg/gp/gp8z6l.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Egg.js VS Thinkjs 简单分析使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/10/09/Egg.js%20VS%20Thinkjs%20%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E4%BD%BF%E7%94%A8-eggjsvsthinkjs%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E4%BD%BF%E7%94%A8/" title="Egg.js VS Thinkjs 简单分析使用">Egg.js VS Thinkjs 简单分析使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-10-09T19:00:22.000Z" title="发表于 2018-10-09 19:00:22">2018-10-09</time></span></div><div class="content">@[toc](Egg.js VS Thinkjs 简单分析使用)
+命令行脚手架Egg.js12345$ npm i egg-init -g$ egg-init egg-example --type=simple$ cd egg-example$ npm i$ npm run dev
+
+打开浏览器访问 http://127.0.0.1:7001/
+  
+
+Thinkjs12345$ npm install -g think-cli$ thinkjs new demo;$ cd demo;$ npm install;$ npm start;
+
+打开浏览器访问 http://127.0.0.1:8360/
+从创建项目的脚手架来看两者基本一致，但是 think-cli 支持 使用命令行创建 controller、service、model 等
+123$ thinkjs controller &lt;controller-name&gt; [module-name]$ thinkjs service &lt;service-name&gt; [module-name]$ thinkjs mode ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">houxiaozhao</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/10/%E7%B3%BB%E7%BB%9F%E7%A6%BB%E7%BA%BFlicense%E9%AA%8C%E8%AF%81%E7%9A%84%E6%96%B9%E6%B3%95/" title="系统离线license验证的方法"><img src="https://th.wallhaven.cc/lg/2y/2ye18x.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="系统离线license验证的方法"/></a><div class="content"><a class="title" href="/2024/05/10/%E7%B3%BB%E7%BB%9F%E7%A6%BB%E7%BA%BFlicense%E9%AA%8C%E8%AF%81%E7%9A%84%E6%96%B9%E6%B3%95/" title="系统离线license验证的方法">系统离线license验证的方法</a><time datetime="2024-05-10T10:12:17.000Z" title="发表于 2024-05-10 10:12:17">2024-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/26/uniapp%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E7%9A%84MD5/" title="uniapp 的 Android 端获取照片的MD5"><img src="https://th.wallhaven.cc/lg/zy/zyxvwj.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="uniapp 的 Android 端获取照片的MD5"/></a><div class="content"><a class="title" href="/2023/09/26/uniapp%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E7%9A%84MD5/" title="uniapp 的 Android 端获取照片的MD5">uniapp 的 Android 端获取照片的MD5</a><time datetime="2023-09-26T18:22:05.000Z" title="发表于 2023-09-26 18:22:05">2023-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/06/strapi%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BB%8Econtroll%E4%B8%AD/" title="strapi 从 controller 中上传文件"><img src="https://th.wallhaven.cc/lg/7p/7p2j33.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="strapi 从 controller 中上传文件"/></a><div class="content"><a class="title" href="/2023/07/06/strapi%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BB%8Econtroll%E4%B8%AD/" title="strapi 从 controller 中上传文件">strapi 从 controller 中上传文件</a><time datetime="2023-07-06T18:22:05.000Z" title="发表于 2023-07-06 18:22:05">2023-07-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/27/%E5%8D%8E%E4%B8%BA%E6%91%84%E5%83%8F%E5%A4%B4%E6%8A%93%E6%8B%8D%E5%9B%BE%E7%89%87/" title="如何使用 Python 抓取华为摄像头的抓拍图片"><img src="https://th.wallhaven.cc/lg/rr/rr282m.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何使用 Python 抓取华为摄像头的抓拍图片"/></a><div class="content"><a class="title" href="/2023/06/27/%E5%8D%8E%E4%B8%BA%E6%91%84%E5%83%8F%E5%A4%B4%E6%8A%93%E6%8B%8D%E5%9B%BE%E7%89%87/" title="如何使用 Python 抓取华为摄像头的抓拍图片">如何使用 Python 抓取华为摄像头的抓拍图片</a><time datetime="2023-06-27T17:26:22.000Z" title="发表于 2023-06-27 17:26:22">2023-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/03/Minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" title="使用Nodejs对Minio对象存储中图片压缩"><img src="https://th.wallhaven.cc/lg/5g/5gdql7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用Nodejs对Minio对象存储中图片压缩"/></a><div class="content"><a class="title" href="/2023/02/03/Minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" title="使用Nodejs对Minio对象存储中图片压缩">使用Nodejs对Minio对象存储中图片压缩</a><time datetime="2023-02-03T09:39:18.000Z" title="发表于 2023-02-03 09:39:18">2023-02-03</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/App-Vue-Cordova/" style="font-size: 1.2em; color: #999da3">App Vue Cordova</a> <a href="/tags/Flex-Grids-%E5%B8%83%E5%B1%80/" style="font-size: 1.1em; color: #999">Flex Grids 布局</a> <a href="/tags/InfluxDB/" style="font-size: 1.1em; color: #999">InfluxDB</a> <a href="/tags/Nodejs/" style="font-size: 1.2em; color: #999da3">Nodejs</a> <a href="/tags/ReactNative-Ionic/" style="font-size: 1.1em; color: #999">ReactNative Ionic</a> <a href="/tags/Vue-vuex/" style="font-size: 1.1em; color: #999">Vue vuex</a> <a href="/tags/angular/" style="font-size: 1.2em; color: #999da3">angular</a> <a href="/tags/api/" style="font-size: 1.1em; color: #999">api</a> <a href="/tags/cesium/" style="font-size: 1.3em; color: #99a1ac">cesium</a> <a href="/tags/chrome/" style="font-size: 1.1em; color: #999">chrome</a> <a href="/tags/cordova-ionic/" style="font-size: 1.1em; color: #999">cordova ionic</a> <a href="/tags/docker/" style="font-size: 1.1em; color: #999">docker</a> <a href="/tags/eggjs/" style="font-size: 1.2em; color: #999da3">eggjs</a> <a href="/tags/emqx/" style="font-size: 1.1em; color: #999">emqx</a> <a href="/tags/flask/" style="font-size: 1.2em; color: #999da3">flask</a> <a href="/tags/javascript/" style="font-size: 1.3em; color: #99a1ac">javascript</a> <a href="/tags/minio/" style="font-size: 1.1em; color: #999">minio</a> <a href="/tags/nestjs/" style="font-size: 1.1em; color: #999">nestjs</a> <a href="/tags/node/" style="font-size: 1.3em; color: #99a1ac">node</a> <a href="/tags/nodejs/" style="font-size: 1.5em; color: #99a9bf">nodejs</a> <a href="/tags/nodejs-Thinkjs/" style="font-size: 1.2em; color: #999da3">nodejs Thinkjs</a> <a href="/tags/opengl/" style="font-size: 1.1em; color: #999">opengl</a> <a href="/tags/pillow/" style="font-size: 1.1em; color: #999">pillow</a> <a href="/tags/postman/" style="font-size: 1.1em; color: #999">postman</a> <a href="/tags/python/" style="font-size: 1.2em; color: #999da3">python</a> <a href="/tags/python-%E5%8D%8E%E4%B8%BA%E6%91%84%E5%83%8F%E5%A4%B4/" style="font-size: 1.1em; color: #999">python, 华为摄像头</a> <a href="/tags/qq/" style="font-size: 1.1em; color: #999">qq</a> <a href="/tags/restful/" style="font-size: 1.1em; color: #999">restful</a> <a href="/tags/strapi/" style="font-size: 1.2em; color: #999da3">strapi</a> <a href="/tags/swagger/" style="font-size: 1.1em; color: #999">swagger</a> <a href="/tags/threejs/" style="font-size: 1.2em; color: #999da3">threejs</a> <a href="/tags/uniapp/" style="font-size: 1.1em; color: #999">uniapp</a> <a href="/tags/vue/" style="font-size: 1.4em; color: #99a5b6">vue</a> <a href="/tags/%E4%B8%8D%E5%8F%AF%E6%8F%8F%E8%BF%B0/" style="font-size: 1.1em; color: #999">不可描述</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 1.1em; color: #999">内网穿透</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.4em; color: #99a5b6">前端</a> <a href="/tags/%E5%8A%A0%E5%AF%86/" style="font-size: 1.1em; color: #999">加密</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.2em; color: #999da3">后端</a> <a href="/tags/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">图片处理</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.1em; color: #999">小程序</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By houxiaozhao</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        window.typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (false) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div></body></html>

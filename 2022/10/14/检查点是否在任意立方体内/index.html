@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>检查点是否在任意立方体内 | houxiaozhao部落格</title><meta name="keywords" content="javascript"><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="立方体由 p0,p1,p2,p3 定义  1234567891011121314151617181920212223242526272829303132333435class Vector3 &amp;#123;  constructor(x &#x3D; 0, y &#x3D; 0, z &#x3D; 0) &amp;#123;    this.x &#x3D; x;    this.y &#x3D; y;    this.z &#x3D; z;  &amp;#125;  s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="检查点是否在任意立方体内">
+<meta property="og:url" content="https://blog.100042.xyz/2022/10/14/%E6%A3%80%E6%9F%A5%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E4%BB%BB%E6%84%8F%E7%AB%8B%E6%96%B9%E4%BD%93%E5%86%85/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="立方体由 p0,p1,p2,p3 定义  1234567891011121314151617181920212223242526272829303132333435class Vector3 &amp;#123;  constructor(x &#x3D; 0, y &#x3D; 0, z &#x3D; 0) &amp;#123;    this.x &#x3D; x;    this.y &#x3D; y;    this.z &#x3D; z;  &amp;#125;  s">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://th.wallhaven.cc/lg/kx/kx996m.jpg">
+<meta property="article:published_time" content="2022-10-14T18:26:22.000Z">
+<meta property="article:modified_time" content="2024-05-10T03:00:36.927Z">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://th.wallhaven.cc/lg/kx/kx996m.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.100042.xyz/2022/10/14/%E6%A3%80%E6%9F%A5%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E4%BB%BB%E6%84%8F%E7%AB%8B%E6%96%B9%E4%BD%93%E5%86%85/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '检查点是否在任意立方体内',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-05-10 03:00:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/utils/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 常用网站</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://temp-email.100042.xyz/"><i class="fa-fw fas fa-envelope"></i><span> 临时邮箱</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://gh-proxy.100042.xyz/"><i class="fa-fw fas fa-link"></i><span> GitHub代理</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/cesium/"><span> Cesium</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/three.js/docs/"><span> Three.js</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/aiLabel/"><span> aiLabel</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://th.wallhaven.cc/lg/kx/kx996m.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">houxiaozhao部落格</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/utils/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 常用网站</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://temp-email.100042.xyz/"><i class="fa-fw fas fa-envelope"></i><span> 临时邮箱</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://gh-proxy.100042.xyz/"><i class="fa-fw fas fa-link"></i><span> GitHub代理</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/cesium/"><span> Cesium</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/three.js/docs/"><span> Three.js</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/aiLabel/"><span> aiLabel</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">检查点是否在任意立方体内</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-14T18:26:22.000Z" title="发表于 2022-10-14 18:26:22">2022-10-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-10T03:00:36.927Z" title="更新于 2024-05-10 03:00:36">2024-05-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">198</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>立方体由 p0,p1,p2,p3 定义<br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2022/10/14/iHioGf.png" alt="iHioGf"></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Vector3</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">x = <span class="number">0</span>, y = <span class="number">0</span>, z = <span class="number">0</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = x;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">y</span> = y;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">z</span> = z;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">sub</span>(<span class="params">v</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> -= v.<span class="property">x</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">y</span> -= v.<span class="property">y</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">z</span> -= v.<span class="property">z</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">dot</span>(<span class="params">v</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">x</span> * v.<span class="property">x</span> + <span class="variable language_">this</span>.<span class="property">y</span> * v.<span class="property">y</span> + <span class="variable language_">this</span>.<span class="property">z</span> * v.<span class="property">z</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">boxTest</span>(<span class="params">p0, p1, p2, p3, pv</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> i = p1.<span class="title function_">sub</span>(p0);</span><br><span class="line">  <span class="keyword">const</span> j = p2.<span class="title function_">sub</span>(p0);</span><br><span class="line">  <span class="keyword">const</span> k = p3.<span class="title function_">sub</span>(p0);</span><br><span class="line">  <span class="keyword">const</span> v = pv.<span class="title function_">sub</span>(p0);</span><br><span class="line">  <span class="keyword">if</span> (v.<span class="title function_">dot</span>(i) &gt; <span class="number">0</span> &amp;&amp; v.<span class="title function_">dot</span>(i) &lt; i.<span class="title function_">dot</span>(i) &amp;&amp; v.<span class="title function_">dot</span>(j) &gt; <span class="number">0</span> &amp;&amp; v.<span class="title function_">dot</span>(j) &lt; j.<span class="title function_">dot</span>(j) &amp;&amp; v.<span class="title function_">dot</span>(k) &gt; <span class="number">0</span> &amp;&amp; v.<span class="title function_">dot</span>(k) &lt; k.<span class="title function_">dot</span>(k)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> p0 = <span class="keyword">new</span> <span class="title class_">Vector3</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="title class_">Vector3</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="title class_">Vector3</span>(<span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">const</span> p3 = <span class="keyword">new</span> <span class="title class_">Vector3</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pv = <span class="keyword">new</span> <span class="title class_">Vector3</span>(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">boxTest</span>(p0, p1, p2, p3, pv));</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/houxiaozhao">houxiaozhao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://100042.xyz">https://100042.xyz</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">此文章版权归houxiaozhao所有，如有转载，请注明来自原作者</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/javascript/">javascript</a></div><div class="post_share"><div class="social-share" data-image="https://th.wallhaven.cc/lg/kx/kx996m.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/09/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AF%86%E9%92%A5%E4%BC%A0%E8%BE%93%E5%92%8C%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86(%E5%9B%BD%E5%AF%86SM2%E3%80%81SM3%E3%80%81SM4)%E6%B5%81%E7%A8%8B%E5%AE%9E%E8%B7%B5/"><img class="prev-cover" src="https://th.wallhaven.cc/lg/yx/yxjezk.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">前后端密钥传输和数据加密(国密SM2、SM3、SM4)流程实践</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/07/%E6%A3%80%E6%9F%A5%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E4%BB%BB%E6%84%8F%E5%9C%86%E6%9F%B1%E4%BD%93%E5%86%85/"><img class="next-cover" src="https://th.wallhaven.cc/lg/2y/2ye67g.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">检查点是否在任意圆柱体内</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2019/08/14/wugeek%E5%9B%A2%E9%98%9F%E5%88%9B%E4%B8%9A%E8%B7%AF%E5%BE%84/" title="Wugeek 团队创业路径"><img class="cover" src="https://th.wallhaven.cc/lg/l8/l8m9xp.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-08-14</div><div class="title">Wugeek 团队创业路径</div></div></a></div><div><a href="/2022/09/07/%E6%A3%80%E6%9F%A5%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E4%BB%BB%E6%84%8F%E5%9C%86%E6%9F%B1%E4%BD%93%E5%86%85/" title="检查点是否在任意圆柱体内"><img class="cover" src="https://th.wallhaven.cc/lg/2y/2ye67g.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-07</div><div class="title">检查点是否在任意圆柱体内</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">houxiaozhao</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/10/%E7%B3%BB%E7%BB%9F%E7%A6%BB%E7%BA%BFlicense%E9%AA%8C%E8%AF%81%E7%9A%84%E6%96%B9%E6%B3%95/" title="系统离线license验证的方法"><img src="https://th.wallhaven.cc/lg/2y/2ye18x.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="系统离线license验证的方法"/></a><div class="content"><a class="title" href="/2024/05/10/%E7%B3%BB%E7%BB%9F%E7%A6%BB%E7%BA%BFlicense%E9%AA%8C%E8%AF%81%E7%9A%84%E6%96%B9%E6%B3%95/" title="系统离线license验证的方法">系统离线license验证的方法</a><time datetime="2024-05-10T10:12:17.000Z" title="发表于 2024-05-10 10:12:17">2024-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/26/uniapp%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E7%9A%84MD5/" title="uniapp 的 Android 端获取照片的MD5"><img src="https://th.wallhaven.cc/lg/zy/zyxvwj.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="uniapp 的 Android 端获取照片的MD5"/></a><div class="content"><a class="title" href="/2023/09/26/uniapp%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E7%9A%84MD5/" title="uniapp 的 Android 端获取照片的MD5">uniapp 的 Android 端获取照片的MD5</a><time datetime="2023-09-26T18:22:05.000Z" title="发表于 2023-09-26 18:22:05">2023-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/06/strapi%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BB%8Econtroll%E4%B8%AD/" title="strapi 从 controller 中上传文件"><img src="https://th.wallhaven.cc/lg/7p/7p2j33.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="strapi 从 controller 中上传文件"/></a><div class="content"><a class="title" href="/2023/07/06/strapi%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BB%8Econtroll%E4%B8%AD/" title="strapi 从 controller 中上传文件">strapi 从 controller 中上传文件</a><time datetime="2023-07-06T18:22:05.000Z" title="发表于 2023-07-06 18:22:05">2023-07-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/27/%E5%8D%8E%E4%B8%BA%E6%91%84%E5%83%8F%E5%A4%B4%E6%8A%93%E6%8B%8D%E5%9B%BE%E7%89%87/" title="如何使用 Python 抓取华为摄像头的抓拍图片"><img src="https://th.wallhaven.cc/lg/rr/rr282m.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何使用 Python 抓取华为摄像头的抓拍图片"/></a><div class="content"><a class="title" href="/2023/06/27/%E5%8D%8E%E4%B8%BA%E6%91%84%E5%83%8F%E5%A4%B4%E6%8A%93%E6%8B%8D%E5%9B%BE%E7%89%87/" title="如何使用 Python 抓取华为摄像头的抓拍图片">如何使用 Python 抓取华为摄像头的抓拍图片</a><time datetime="2023-06-27T17:26:22.000Z" title="发表于 2023-06-27 17:26:22">2023-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/03/Minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" title="使用Nodejs对Minio对象存储中图片压缩"><img src="https://th.wallhaven.cc/lg/5g/5gdql7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用Nodejs对Minio对象存储中图片压缩"/></a><div class="content"><a class="title" href="/2023/02/03/Minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" title="使用Nodejs对Minio对象存储中图片压缩">使用Nodejs对Minio对象存储中图片压缩</a><time datetime="2023-02-03T09:39:18.000Z" title="发表于 2023-02-03 09:39:18">2023-02-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By houxiaozhao</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div></div></body></html>

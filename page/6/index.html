@@ -1,0 +1,337 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>houxiaozhao部落格 - 我欲修仙，法力无边</title><meta name="keywords" content="前段,Node.js,Web,JavaScript"><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="houxiaozhao部落格">
+<meta property="og:url" content="https://blog.100042.xyz/page/6/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/14978325">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="前段,Node.js,Web,JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/14978325"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.100042.xyz/page/6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'houxiaozhao部落格',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-05-10 03:00:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/utils/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 常用网站</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://temp-email.100042.xyz/"><i class="fa-fw fas fa-envelope"></i><span> 临时邮箱</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://gh-proxy.100042.xyz/"><i class="fa-fw fas fa-link"></i><span> GitHub代理</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/cesium/"><span> Cesium</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/three.js/docs/"><span> Three.js</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/aiLabel/"><span> aiLabel</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/01/12/M0b0Vl.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">houxiaozhao部落格</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/utils/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 常用网站</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://temp-email.100042.xyz/"><i class="fa-fw fas fa-envelope"></i><span> 临时邮箱</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://gh-proxy.100042.xyz/"><i class="fa-fw fas fa-link"></i><span> GitHub代理</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/cesium/"><span> Cesium</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/three.js/docs/"><span> Three.js</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="http://81.70.243.137/aiLabel/"><span> aiLabel</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">houxiaozhao部落格</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2018/02/25/%E7%BB%BF%E8%89%B2%E7%89%88chrome%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B-%E7%BB%BF%E8%89%B2%E7%89%88chrome%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B/" title="绿色版chrome安装包制作教程"><img class="post_bg" src="https://th.wallhaven.cc/lg/p9/p92mke.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="绿色版chrome安装包制作教程"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/02/25/%E7%BB%BF%E8%89%B2%E7%89%88chrome%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B-%E7%BB%BF%E8%89%B2%E7%89%88chrome%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B/" title="绿色版chrome安装包制作教程">绿色版chrome安装包制作教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-02-25T15:16:06.000Z" title="发表于 2018-02-25 15:16:06">2018-02-25</time></span></div><div class="content">教程
+Google Chrome 下载地址https://api.shuax.com/tools/getchrome
+插件下载https://shuax.com/portfolio/greenchrome/
+便携化教程 https://bbs.kafan.cn/thread-1696230-1-1.html
+安装包制作工具 http://www.jz5u.com/Soft/apply/other/170453.html
+安装包制作教程 https://www.cnblogs.com/wuhuacong/p/6101853.html
+
+制作绿色版 Chrome
+下载 google Chrome 离线安装包
+解压该安装包.exe，再解压.7z 得到 chrome-bin
+修改文件夹名称为 Chrome
+下载插件 得到 greenChrome ,解压。
+把文件夹内的 GreenChrome.ini 和 winmm.dll 一块放在 Chrome 文件夹下。（自行选择 64 位或 32 位与第一步下载的离线安装包对应。已经下载好的是 64 位 Chrome 安装包）
+把文件夹内的 favico ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2017/10/23/%E7%89%A9%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AEMQTT&amp;WAMP-%E7%89%A9%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AEmqttwamp/" title="物联网通信协议MQTT&amp;WAMP"><img class="post_bg" src="https://th.wallhaven.cc/lg/jx/jx5yq5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="物联网通信协议MQTT&amp;WAMP"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/10/23/%E7%89%A9%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AEMQTT&amp;WAMP-%E7%89%A9%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AEmqttwamp/" title="物联网通信协议MQTT&amp;WAMP">物联网通信协议MQTT&amp;WAMP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-10-23T12:12:17.000Z" title="发表于 2017-10-23 12:12:17">2017-10-23</time></span></div><div class="content">物联网通信协议 MQTT&amp;WAMP一、物联网层次结构1.百度云架构
+  
+
+2.技术层架构
+百度云、腾讯云、阿里云和其他物联网云厂商等，基本完全支持：MQTT+HTTP+WEBSOCKET+CoAP
+二、MQTT：http://mqtt.org/
+MQTT 是什么
+
+应用场景
+
+如何实现 MQTT 应用实例：安装 mqtt 服务：常用的 Rabbitmq 开启 mqtt 服务；安装 emqtt；
+使用 MQTT 测试客户端进行简单测试
+自己动手编程，实现 mqtt 收发
+1234567recv1:mosquitto_sub -h localhost -u wugeek -P 111111 -t &quot;xingtai&quot;recv2:mosquitto_sub -h localhost -u wugeek -P 111111 -t &quot;handan&quot;send:mosquitto_pub -h localhost -u wugeek -P 111111 -t &quot;xingtai&quot; -m &quot;hello邢台&quot;mosqu ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2017/06/03/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%92%8Cangularjs-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%92%8Cangularjs/" title="前端技术和angularjs"><img class="post_bg" src="https://th.wallhaven.cc/lg/2y/2ykdvg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端技术和angularjs"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/06/03/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%92%8Cangularjs-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%92%8Cangularjs/" title="前端技术和angularjs">前端技术和angularjs</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-06-03T12:02:10.000Z" title="发表于 2017-06-03 12:02:10">2017-06-03</time></span></div><div class="content">前端技术栈
+浏览器&#x2F;渲染引擎
+
+IE
+chrome
+firefox
+Safari
+QQ&#x2F;360???????
+
+
+前端核心
+
+HTML&#x2F;HTML5,
+
+
+DOM 树
+元素
+属性
+
+
+JavaScript
+
+原型（prototype）
+Scope
+JSON https://baike.baidu.com/item/JSON/2462549?fr=aladdin
+AJAX
+Promise(解决回调函数嵌套过多的问题)
+http://callbackhell.com/
+http://liubin.org/promises-book/
+
+
+
+
+CSS
+
+使用浏览器调试样式
+
+
+
+
+编辑器
+
+sublime text 3
+WebStorm
+VSCode（推荐！！）
+
+
+构建工具&#x2F;生成器
+
+
+Yeoman http://yeoman.io/generators/
+Grunt
+gulp&#x2F;&#x2F;在用
+webpack&#x2F;&#x2F;在用
+
+
+调试
+
+Developer Tools
+Firebug
+
+
+包管理
+
+npm
+bower
+
+
+框架和 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2017/05/05/React%20Native%20%E7%AE%80%E4%BB%8B-reactnative%E7%AE%80%E4%BB%8B/" title="React Native 简介"><img class="post_bg" src="https://th.wallhaven.cc/lg/l8/l8mrgl.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="React Native 简介"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/05/05/React%20Native%20%E7%AE%80%E4%BB%8B-reactnative%E7%AE%80%E4%BB%8B/" title="React Native 简介">React Native 简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-05-05T15:54:18.000Z" title="发表于 2017-05-05 15:54:18">2017-05-05</time></span></div><div class="content">react native 开发 IOS 手机应用基本方法及其与 IONIC 开发的对比1. react-native 介绍react-native 是一款基于 js 框架 React.js 来开发 IOS 和 Android 原生 App 的开源框架，
+Learn once,write anywhere
+  
+
+
+NR 和 react.js 关系
+RN 和 react.js 公用一些抽象层，比如语法标签等，但还是有许多差异，而且目标平台不同。
+
+案例：http://reactnative.cn/cases.html
+
+ionic 与 RN：ionic 是 webview，NR 是以 js 方式开发的原生应用
+
+
+2. 搭建开发环境macOS &#x3D;&gt;iOS
+
+安装 Homebrew&#x3D;&#x3D;dpkg
+1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+
+安装 node
+1brew install ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2017/01/18/angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%882%EF%BC%89-angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%962/" title="angularjs和ionic性能优化（2）"><img class="post_bg" src="https://th.wallhaven.cc/lg/2y/2yee5y.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="angularjs和ionic性能优化（2）"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/01/18/angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%882%EF%BC%89-angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%962/" title="angularjs和ionic性能优化（2）">angularjs和ionic性能优化（2）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-01-18T11:59:21.000Z" title="发表于 2017-01-18 11:59:21">2017-01-18</time></span></div><div class="content">angular 性能优化
+使用$watchCollection(obj, listener)，不要使用$watch()或者$watchGroup();
+
+使用 one-time binding
+1&#123;&#123;::user.first_name&#125;&#125;
+
+
+
+使用 Track by以前的用法ng-repeat=&quot;user in users&quot;修改后的用法ng-repeat=&quot;user in users track by user.id&quot;如果 users 有 id 的话或者ng-repeat=&quot;user in users track by $index&quot;如果没有 id
+
+不要使用 console.log(),而是用$log
+The $log service has several log levels .info .debug and .error.
+
+禁用 dubug
+123456angular.module(&#x27;yourModule&#x27;).config(function($compil ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2017/01/18/ionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-ionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="ionic性能优化"><img class="post_bg" src="https://th.wallhaven.cc/lg/5g/5gdw85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ionic性能优化"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/01/18/ionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-ionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="ionic性能优化">ionic性能优化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-01-18T11:58:21.000Z" title="发表于 2017-01-18 11:58:21">2017-01-18</time></span></div><div class="content">ionic-native-transitions
+下载
+npm install ionic-native-transitions –save
+
+安装
+cordova plugin add https://github.com/Telerik-Verified-Plugins/NativePageTransitions
+
+
+引入
+
+
+如果是 ios9，页面切换抖动，则安装
+cordova plugin add cordova-plugin-wkwebvie
+
+注入
+1angular.module(&quot;yourApp&quot;, [&quot;ionic-native-transitions&quot;]);
+
+配置
+123456789101112131415161718192021.config(function($ionicNativeTransitionsProvider)&#123;    $ionicNativeTransitionsProvider.setDefaultOptions(&#123;        duration: 400, // in millise ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2017/01/04/%E8%8B%8F%E5%B9%95%E9%81%AE-%E8%8B%8F%E5%B9%95%E9%81%AE/" title="苏幕遮"><img class="post_bg" src="https://th.wallhaven.cc/lg/yx/yxmo5k.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="苏幕遮"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/01/04/%E8%8B%8F%E5%B9%95%E9%81%AE-%E8%8B%8F%E5%B9%95%E9%81%AE/" title="苏幕遮">苏幕遮</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-01-04T10:27:10.000Z" title="发表于 2017-01-04 10:27:10">2017-01-04</time></span></div><div class="content">独恋飞蛾1情已逝，缘未了。欲罢不能，何时是拂晓。痴望情思路迢迢，只身孤影，独有恋曲过今朝。人已死，心未缈。风絮满城，何处无寂寥。静闻空心雨潇潇，谁为梦魇？唯有飞蛾火中烧。
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2017/01/04/%E6%84%BF%E5%8C%96%E4%BD%9C%E9%9B%84%E9%B9%B0%EF%BC%8C%E9%A3%9E%E5%90%91%E5%A4%A9%E7%A9%BA-%E6%84%BF%E5%8C%96%E4%BD%9C%E9%9B%84%E9%B9%B0%E9%A3%9E%E5%90%91%E5%A4%A9%E7%A9%BA/" title="愿化作雄鹰，飞向天空"><img class="post_bg" src="https://th.wallhaven.cc/lg/9d/9d6w1w.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="愿化作雄鹰，飞向天空"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/01/04/%E6%84%BF%E5%8C%96%E4%BD%9C%E9%9B%84%E9%B9%B0%EF%BC%8C%E9%A3%9E%E5%90%91%E5%A4%A9%E7%A9%BA-%E6%84%BF%E5%8C%96%E4%BD%9C%E9%9B%84%E9%B9%B0%E9%A3%9E%E5%90%91%E5%A4%A9%E7%A9%BA/" title="愿化作雄鹰，飞向天空">愿化作雄鹰，飞向天空</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-01-04T10:12:46.000Z" title="发表于 2017-01-04 10:12:46">2017-01-04</time></span></div><div class="content">12345678910111213141516171819202122232425262728293031323334353637脸上的泪痕是曾经的懵懂心中的坚韧从今天萌生抚摸胸口她送的伤痛为什么嘴边还会残留着笑容再见，至今还在做的梦我想去追寻人生无悔的彩虹不论是否能够拥抱成功都无愧于她的别赠现在，我要忘记她给的痛用实际完成对未来的憧憬让瞬间的生命化为永恒这永恒中不会再有她的生命泰山巅峰刺骨的寒冷阻止不了一心征服的雄鹰他的骨子里有对信念的虔诚他的眼中只会有天空
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">houxiaozhao</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/10/%E7%B3%BB%E7%BB%9F%E7%A6%BB%E7%BA%BFlicense%E9%AA%8C%E8%AF%81%E7%9A%84%E6%96%B9%E6%B3%95/" title="系统离线license验证的方法"><img src="https://th.wallhaven.cc/lg/2y/2ye18x.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="系统离线license验证的方法"/></a><div class="content"><a class="title" href="/2024/05/10/%E7%B3%BB%E7%BB%9F%E7%A6%BB%E7%BA%BFlicense%E9%AA%8C%E8%AF%81%E7%9A%84%E6%96%B9%E6%B3%95/" title="系统离线license验证的方法">系统离线license验证的方法</a><time datetime="2024-05-10T10:12:17.000Z" title="发表于 2024-05-10 10:12:17">2024-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/26/uniapp%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E7%9A%84MD5/" title="uniapp 的 Android 端获取照片的MD5"><img src="https://th.wallhaven.cc/lg/zy/zyxvwj.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="uniapp 的 Android 端获取照片的MD5"/></a><div class="content"><a class="title" href="/2023/09/26/uniapp%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E7%9A%84MD5/" title="uniapp 的 Android 端获取照片的MD5">uniapp 的 Android 端获取照片的MD5</a><time datetime="2023-09-26T18:22:05.000Z" title="发表于 2023-09-26 18:22:05">2023-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/06/strapi%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BB%8Econtroll%E4%B8%AD/" title="strapi 从 controller 中上传文件"><img src="https://th.wallhaven.cc/lg/7p/7p2j33.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="strapi 从 controller 中上传文件"/></a><div class="content"><a class="title" href="/2023/07/06/strapi%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BB%8Econtroll%E4%B8%AD/" title="strapi 从 controller 中上传文件">strapi 从 controller 中上传文件</a><time datetime="2023-07-06T18:22:05.000Z" title="发表于 2023-07-06 18:22:05">2023-07-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/27/%E5%8D%8E%E4%B8%BA%E6%91%84%E5%83%8F%E5%A4%B4%E6%8A%93%E6%8B%8D%E5%9B%BE%E7%89%87/" title="如何使用 Python 抓取华为摄像头的抓拍图片"><img src="https://th.wallhaven.cc/lg/rr/rr282m.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何使用 Python 抓取华为摄像头的抓拍图片"/></a><div class="content"><a class="title" href="/2023/06/27/%E5%8D%8E%E4%B8%BA%E6%91%84%E5%83%8F%E5%A4%B4%E6%8A%93%E6%8B%8D%E5%9B%BE%E7%89%87/" title="如何使用 Python 抓取华为摄像头的抓拍图片">如何使用 Python 抓取华为摄像头的抓拍图片</a><time datetime="2023-06-27T17:26:22.000Z" title="发表于 2023-06-27 17:26:22">2023-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/03/Minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" title="使用Nodejs对Minio对象存储中图片压缩"><img src="https://th.wallhaven.cc/lg/5g/5gdql7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用Nodejs对Minio对象存储中图片压缩"/></a><div class="content"><a class="title" href="/2023/02/03/Minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" title="使用Nodejs对Minio对象存储中图片压缩">使用Nodejs对Minio对象存储中图片压缩</a><time datetime="2023-02-03T09:39:18.000Z" title="发表于 2023-02-03 09:39:18">2023-02-03</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/App-Vue-Cordova/" style="font-size: 1.2em; color: #999da3">App Vue Cordova</a> <a href="/tags/Flex-Grids-%E5%B8%83%E5%B1%80/" style="font-size: 1.1em; color: #999">Flex Grids 布局</a> <a href="/tags/InfluxDB/" style="font-size: 1.1em; color: #999">InfluxDB</a> <a href="/tags/Nodejs/" style="font-size: 1.2em; color: #999da3">Nodejs</a> <a href="/tags/ReactNative-Ionic/" style="font-size: 1.1em; color: #999">ReactNative Ionic</a> <a href="/tags/Vue-vuex/" style="font-size: 1.1em; color: #999">Vue vuex</a> <a href="/tags/angular/" style="font-size: 1.2em; color: #999da3">angular</a> <a href="/tags/api/" style="font-size: 1.1em; color: #999">api</a> <a href="/tags/cesium/" style="font-size: 1.3em; color: #99a1ac">cesium</a> <a href="/tags/chrome/" style="font-size: 1.1em; color: #999">chrome</a> <a href="/tags/cordova-ionic/" style="font-size: 1.1em; color: #999">cordova ionic</a> <a href="/tags/docker/" style="font-size: 1.1em; color: #999">docker</a> <a href="/tags/eggjs/" style="font-size: 1.2em; color: #999da3">eggjs</a> <a href="/tags/emqx/" style="font-size: 1.1em; color: #999">emqx</a> <a href="/tags/flask/" style="font-size: 1.2em; color: #999da3">flask</a> <a href="/tags/javascript/" style="font-size: 1.3em; color: #99a1ac">javascript</a> <a href="/tags/minio/" style="font-size: 1.1em; color: #999">minio</a> <a href="/tags/nestjs/" style="font-size: 1.1em; color: #999">nestjs</a> <a href="/tags/node/" style="font-size: 1.3em; color: #99a1ac">node</a> <a href="/tags/nodejs/" style="font-size: 1.5em; color: #99a9bf">nodejs</a> <a href="/tags/nodejs-Thinkjs/" style="font-size: 1.2em; color: #999da3">nodejs Thinkjs</a> <a href="/tags/opengl/" style="font-size: 1.1em; color: #999">opengl</a> <a href="/tags/pillow/" style="font-size: 1.1em; color: #999">pillow</a> <a href="/tags/postman/" style="font-size: 1.1em; color: #999">postman</a> <a href="/tags/python/" style="font-size: 1.2em; color: #999da3">python</a> <a href="/tags/python-%E5%8D%8E%E4%B8%BA%E6%91%84%E5%83%8F%E5%A4%B4/" style="font-size: 1.1em; color: #999">python, 华为摄像头</a> <a href="/tags/qq/" style="font-size: 1.1em; color: #999">qq</a> <a href="/tags/restful/" style="font-size: 1.1em; color: #999">restful</a> <a href="/tags/strapi/" style="font-size: 1.2em; color: #999da3">strapi</a> <a href="/tags/swagger/" style="font-size: 1.1em; color: #999">swagger</a> <a href="/tags/threejs/" style="font-size: 1.2em; color: #999da3">threejs</a> <a href="/tags/uniapp/" style="font-size: 1.1em; color: #999">uniapp</a> <a href="/tags/vue/" style="font-size: 1.4em; color: #99a5b6">vue</a> <a href="/tags/%E4%B8%8D%E5%8F%AF%E6%8F%8F%E8%BF%B0/" style="font-size: 1.1em; color: #999">不可描述</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 1.1em; color: #999">内网穿透</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.4em; color: #99a5b6">前端</a> <a href="/tags/%E5%8A%A0%E5%AF%86/" style="font-size: 1.1em; color: #999">加密</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.2em; color: #999da3">后端</a> <a href="/tags/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">图片处理</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.1em; color: #999">小程序</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By houxiaozhao</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        window.typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (false) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div></body></html>
