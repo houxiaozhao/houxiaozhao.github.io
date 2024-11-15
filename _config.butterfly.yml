@@ -15,7 +15,7 @@ menu:
   # ChatGPT: https://chat.100042.xyz/ || fas fa-comment
   # Bing: https://bing.100042.xyz/ || fas fa-comment
   临时邮箱: https://email.cdtools.click || fas fa-envelope
-  GitHub代理: https://gh-proxy.100042.xyz/ || fas fa-link
+  GitHub代理: https://gh-proxy.cdtools.click/ || fas fa-link
   文档 || fa fa-book:
     Cesium: http://81.70.243.137/cesium/
     Three.js: http://81.70.243.137/three.js/docs/
@@ -416,7 +416,7 @@ footer:
 
 # Baidu Analytics
 # https://tongji.baidu.com/web/welcome/login
-baidu_analytics:
+baidu_analytics: 7fdd626d87b4c2ab5afee04e5fcd0b9d
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
@@ -442,7 +442,7 @@ google_adsense:
   enable: false
   auto_ads: true
   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
-  client:
+  client: ca-pub-3594081485685271
   enable_page_level_ads: true
 
 # Insert ads manually (手動插入廣告)
