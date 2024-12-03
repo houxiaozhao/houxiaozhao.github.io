@@ -1,11 +1,35 @@
 ---
-title: nodejs和Thinkjs
+title: Node.js与ThinkJS框架开发指南：构建高效Web应用
 date: 2018-04-04 12:50:34.0
-updated: 2022-03-08 10:43:24.182
-url: /archives/nodejs和thinkjs
 categories:
+  - 后端开发
+  - JavaScript
 tags:
-  - nodejs Thinkjs
+  - Node.js
+  - ThinkJS
+  - JavaScript
+  - Web开发
+  - 服务器端编程
+  - npm
+  - 事件驱动
+  - 非阻塞IO
+keywords:
+  - Node.js开发教程
+  - ThinkJS框架入门
+  - JavaScript服务器端开发
+  - Node.js性能优化
+  - ThinkJS项目结构
+  - npm包管理器
+  - Node.js事件驱动
+  - 非阻塞IO模型
+  - Web应用开发
+  - 服务器端JavaScript
+  - Node.js中间件
+  - ThinkJS路由配置
+  - Node.js模块化开发
+  - V8引擎运行环境
+  - 高性能Web框架
+description: "本文深入探讨Node.js和ThinkJS框架的核心特性与实践应用。从Node.js的基础概念、事件驱动模型到npm包管理，再到ThinkJS框架的项目结构、路由配置和中间件机制，为开发者提供全面的技术指南。文章详细介绍了基于Chrome V8引擎的JavaScript运行环境，非阻塞式I/O模型的实现原理，以及如何利用ThinkJS框架快速构建高效的Web应用。通过实例讲解和最佳实践，帮助开发者掌握Node.js服务器端开发技术，提高开发效率和应用性能。"
 ---
 
 # Node.js
@@ -259,7 +283,7 @@ exports.model = {
     port: 27017,
     user: '',
     password: '',
-    database: 'manannan', // 数据库名称
+    database: '', // 数据库名称
     options: ''
   }
 };
@@ -594,6 +618,7 @@ exports.model = {
     connectionLimit: 1, // 连接池的连接个数，默认为 1
     prefix: '', // 数据表前缀，如果一个数据库里有多个项目，那项目之间的数据表可以通过前缀来区分
   }
+}
 ```
 
 **创建模型文件**

@@ -1,12 +1,97 @@
 ---
-title: Egg.js VS Thinkjs 简单分析使用
+title: Egg.js与ThinkJS框架对比：Node.js企业级开发实践分析
 date: 2018-10-09 19:00:22.0
-updated: 2022-03-08 11:33:04.882
-url: /archives/eggjsvsthinkjs简单分析使用
 categories:
+  - Node.js开发
+  - 后端框架
+  - 技术选型
 tags:
-  - nodejs Thinkjs
-  - eggjs
+  - Egg.js
+  - ThinkJS
+  - Node.js
+  - Koa
+  - 中间件
+  - MVC框架
+  - 企业级应用
+  - 性能优化
+  - 开发效率
+  - 框架对比
+keywords:
+  - Egg.js框架
+  - ThinkJS框架
+  - Node.js开发框架
+  - Koa中间件
+  - MVC架构
+  - 企业级Node.js
+  - 框架性能对比
+  - Node.js最佳实践
+  - 服务端开发
+  - 中间件机制
+  - 开发脚手架
+  - 配置管理
+  - 控制器开发
+  - 多进程架构
+  - 开发效率提升
+description: |
+  本文深入对比分析了Node.js生态中两大重要的企业级开发框架：Egg.js和ThinkJS。通过实际开发经验，从多个维度详细探讨了两个框架的异同点：
+
+  1. 开发工具链对比：
+     - 命令行脚手架功能对比
+     - 项目初始化流程分析
+     - 开发辅助工具集成情况
+     - 代码生成能力评估
+
+  2. 框架核心特性：
+     - 配置系统设计理念
+     - 多环境配置支持
+     - Koa对象扩展机制
+     - 中间件加载机制
+     - Controller设计模式
+     - 多进程架构实现
+
+  3. 开发体验分析：
+     - 项目结构组织
+     - 配置文件管理
+     - API设计风格
+     - 开发调试便利性
+     - 代码复用能力
+
+  4. 企业实践价值：
+     - 框架稳定性评估
+     - 性能优化特性
+     - 扩展能力对比
+     - 维护成本分析
+     - 社区支持情况
+
+  This article provides an in-depth comparative analysis of two major enterprise-level development frameworks in the Node.js ecosystem: Egg.js and ThinkJS. Based on practical development experience, it examines the similarities and differences between these frameworks across multiple dimensions:
+
+  1. Development Toolchain:
+     - Command-line scaffold functionality
+     - Project initialization process
+     - Development tool integration
+     - Code generation capabilities
+
+  2. Core Framework Features:
+     - Configuration system design
+     - Multi-environment support
+     - Koa object extensions
+     - Middleware loading mechanism
+     - Controller design patterns
+     - Multi-process architecture
+
+  3. Development Experience:
+     - Project structure organization
+     - Configuration file management
+     - API design style
+     - Development debugging convenience
+     - Code reuse capabilities
+
+  4. Enterprise Practice Value:
+     - Framework stability assessment
+     - Performance optimization features
+     - Extension capabilities
+     - Maintenance cost analysis
+     - Community support status
 ---
 
 @[toc](Egg.js VS Thinkjs 简单分析使用)
@@ -510,7 +595,7 @@ module.exports = app => {
 #### Egg.js
 
 - 官方支持 mysql.
-- 支持 ORM 框架[sequelize](http://docs.sequelizejs.com/)。还没有用到就不提了。
+- 支持 ORM 框架[sequelize](http://docs.sequelizejs.com/)。还没有用到过，就不提了。
 - mongo
   - https://github.com/eggjs/egg-mongoose
   - https://github.com/brickyang/egg-mongo-native

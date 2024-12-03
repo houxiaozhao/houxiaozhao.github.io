@@ -1,11 +1,39 @@
 ---
-title: 前端技术和angularjs
+title: 现代前端技术栈与AngularJS开发实践
 date: 2017-06-03 12:02:10.0
-updated: 2022-03-08 10:43:14.1
-url: /archives/前端技术和angularjs
 categories:
+  - 前端开发
+  - JavaScript框架
+  - Web技术
 tags:
-  - 前端
+  - AngularJS
+  - 前端技术栈
+  - JavaScript
+  - HTML5
+  - CSS3
+  - 构建工具
+  - 开发框架
+  - 调试工具
+keywords:
+  - 前端开发
+  - AngularJS教程
+  - JavaScript框架
+  - 前端技术栈
+  - 构建工具
+  - 包管理工具
+  - UI框架
+  - 数据可视化
+  - 开发调试
+  - Webpack
+  - Gulp
+  - npm
+  - Bower
+  - 前端框架选择
+  - Web开发工具
+description: |
+  本文全面介绍了现代前端开发技术栈和AngularJS框架的实践应用。首先梳理了前端开发的核心技术，包括主流浏览器和渲染引擎、HTML5/DOM/JavaScript/CSS等基础知识。重点讲解了开发工具链，涵盖了VSCode、WebStorm等编辑器，Webpack、Gulp等构建工具，以及npm、Bower等包管理工具。在框架选择方面，详细对比了jQuery、AngularJS、React、Vue等主流框架的特点，并介绍了Bootstrap、Ionic等UI框架和Echarts等数据可视化工具。文章第二部分专注于AngularJS的实践应用，包括项目搭建、作用域管理($scope/$rootScope)、页面传参、错误处理、过滤器使用等核心概念，并推荐了一系列实用的AngularJS插件，如smart-table、ngDialog、ui.bootstrap等。
+
+  This article provides a comprehensive overview of modern frontend development technology stack and practical applications of AngularJS framework. It begins with core frontend technologies, including mainstream browsers and rendering engines, HTML5/DOM/JavaScript/CSS fundamentals. The article emphasizes development toolchains, covering editors like VSCode and WebStorm, build tools such as Webpack and Gulp, and package managers including npm and Bower. In terms of framework selection, it compares popular frameworks like jQuery, AngularJS, React, and Vue, while introducing UI frameworks like Bootstrap and Ionic, and data visualization tools like Echarts. The second part focuses on AngularJS implementation, covering project setup, scope management ($scope/$rootScope), page parameter passing, error handling, filter usage, and other core concepts. It also recommends practical AngularJS plugins such as smart-table, ngDialog, and ui.bootstrap, providing developers with valuable insights for frontend development.
 ---
 
 ### 前端技术栈

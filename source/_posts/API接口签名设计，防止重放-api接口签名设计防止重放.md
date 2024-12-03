@@ -1,13 +1,83 @@
 ---
-title: API接口签名设计，防止重放
+title: API安全防护：接口签名验证与防重放攻击实现
 date: 2022-03-09 15:04:07.111
-updated: 2022-03-10 17:22:44.535
-url: /archives/api接口签名设计防止重放
 categories:
+  - API安全
+  - 后端开发
+  - 系统架构
 tags:
-  - node
-  - api
-  - 签名
+  - API签名
+  - 安全防护
+  - JavaScript
+  - Node.js
+  - Redis
+  - 加密算法
+  - 防重放攻击
+  - 中间件开发
+  - Web安全
+  - 接口设计
+keywords:
+  - API接口安全
+  - 数据签名验证
+  - 防重放机制
+  - MD5加密
+  - HMAC-SHA512
+  - 请求验证
+  - 时间戳验证
+  - Redis缓存
+  - 接口防护
+  - 安全中间件
+  - 参数排序
+  - 签名算法
+  - 加密实现
+  - Token验证
+  - 请求防篡改
+description: |
+  本文详细介绍了API接口安全防护的完整解决方案，重点阐述了接口签名验证和防重放攻击的具体实现方法。文章从实际应用场景出发，提供了前后端完整的代码实现。
+
+  在接口签名设计方面，文章详细说明了以下核心内容：
+  1. 签名参数的构成：包括请求路径(path)、查询参数(query)、请求体(body)、时间戳(timestamp)和随机字符串(nocestr)
+  2. 签名算法的实现流程：
+     - 参数合并与排序（包括嵌套JSON的递归排序）
+     - MD5初步加密
+     - 使用用户token进行HMAC-SHA512加密
+  3. HTTP请求头的规范设置，包含sign、timestamp、nocestr等关键信息
+
+  在防重放攻击实现方面，文章提供了完整的解决方案：
+  1. 基于Redis的签名存储机制
+  2. 时间戳有效期验证（60秒超时限制）
+  3. 请求唯一性校验
+  4. 中间件级别的统一处理方案
+
+  文章还提供了详细的代码示例，包括：
+  - 随机字符串生成函数
+  - 对象属性递归排序算法
+  - 前端签名实现
+  - 后端验签中间件
+  - Redis防重放实现
+
+  This article provides a comprehensive solution for API interface security protection, focusing on signature verification and replay attack prevention. Based on real application scenarios, it offers complete code implementation for both frontend and backend.
+
+  Regarding interface signature design, the article details the following core contents:
+  1. Signature parameter composition: including request path, query parameters, request body, timestamp, and random string (nocestr)
+  2. Signature algorithm implementation process:
+     - Parameter merging and sorting (including recursive sorting of nested JSON)
+     - Initial MD5 encryption
+     - HMAC-SHA512 encryption using user token
+  3. HTTP header specification settings, including key information like sign, timestamp, and nocestr
+
+  For replay attack prevention, the article provides a complete solution:
+  1. Redis-based signature storage mechanism
+  2. Timestamp validity verification (60-second timeout limit)
+  3. Request uniqueness validation
+  4. Middleware-level unified processing solution
+
+  The article also provides detailed code examples, including:
+  - Random string generation function
+  - Recursive sorting algorithm for object properties
+  - Frontend signature implementation
+  - Backend signature verification middleware
+  - Redis-based replay prevention implementation
 ---
 
 > 为了保证 api 接口安全，防止数据被篡改，需要设计 api 签名机制。以下为签名过程

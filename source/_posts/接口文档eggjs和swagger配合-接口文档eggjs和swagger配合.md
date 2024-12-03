@@ -1,12 +1,41 @@
 ---
-title: 接口文档eggjs和swagger配合
+title: Egg.js 与 Swagger 集成：构建自动化 API 文档系统
 date: 2021-04-14 10:56:56.0
-updated: 2022-03-08 11:31:32.885
-url: /archives/接口文档eggjs和swagger配合
 categories:
+  - 后端开发
+  - API文档
+  - Node.js
 tags:
-  - eggjs
-  - swagger
+  - Egg.js
+  - Swagger
+  - RESTful API
+  - API文档
+  - Node.js
+  - YApi
+  - 自动化工具
+  - 接口管理
+  - JavaScript
+  - 后端开发
+keywords:
+  - Swagger集成
+  - Egg.js框架
+  - API文档生成
+  - RESTful接口
+  - 文档自动化
+  - egg-swagger-doc
+  - YApi平台
+  - 接口测试
+  - 文档管理
+  - 代码生成
+  - 接口规范
+  - 开发效率
+  - 接口描述
+  - 文档更新
+  - 自动化工具
+description: |
+  本文详细介绍了如何在 Egg.js 框架中集成 Swagger 实现 API 文档的自动化生成和管理。文章涵盖了完整的实现流程，包括 Swagger 的安装配置、注释规范、文档生成等核心内容。主要特性包括：使用 egg-swagger-doc 插件实现接口文档自动生成、通过代码注释定义 API 信息、配置 Swagger UI 在线文档界面、集成 YApi 平台进行文档同步、自动生成接口调用代码等。文章还详细说明了如何通过注释定义接口参数、响应格式，以及如何使用 contract 文件定义数据模型。通过这套解决方案，开发团队可以实现接口文档的实时更新，提高开发效率和协作质量。
+
+  This article provides a detailed guide on integrating Swagger with the Egg.js framework to achieve automated API documentation generation and management. The article covers the complete implementation process, including Swagger installation and configuration, comment specifications, and document generation. Key features include: using the egg-swagger-doc plugin for automatic API documentation generation, defining API information through code comments, configuring Swagger UI for online documentation interface, integrating with the YApi platform for document synchronization, and automatically generating interface calling code. The article also explains in detail how to define interface parameters and response formats through comments, and how to use contract files to define data models. Through this solution, development teams can achieve real-time updates of interface documentation, improving development efficiency and collaboration quality.
 ---
 
 # 接口文档 eggjs 和 swagger 配合

@@ -1,11 +1,33 @@
 ---
 title: vue-cli3使用和Cordova集成记录
 date: 2018-08-11 15:38:56.0
-updated: 2022-03-08 11:34:53.49
-url: /archives/vue-cli3使用和cordova集成记录
 categories:
+  - 前端开发
+  - 混合应用开发
 tags:
-  - App Vue Cordova
+  - Vue.js
+  - Cordova
+  - 混合开发
+  - Vue CLI
+  - 移动应用
+  - 跨平台开发
+  - 前端工程化
+  - Android开发
+keywords:
+  - Vue CLI 3教程
+  - Cordova集成Vue
+  - 混合应用开发
+  - Vue项目配置
+  - Cordova Android打包
+  - Vue移动应用开发
+  - 跨平台应用开发
+  - Vue工程化实践
+  - Cordova项目结构
+  - 前端工程化配置
+description: |
+  本文详细记录了Vue CLI 3的使用方法以及与Cordova的集成过程。文章涵盖了从Vue CLI 3的安装、项目创建、配置设置，到与Cordova的集成步骤，以及最终实现Android应用打包的完整流程。对于想要使用Vue.js开发移动应用的开发者来说，这是一份实用的技术指南，包含了项目结构说明、配置文件解析和实际开发中的注意事项。
+
+  This article provides a comprehensive guide on using Vue CLI 3 and integrating it with Cordova. It covers everything from Vue CLI 3 installation, project creation, configuration settings, to Cordova integration steps and Android application packaging. For developers looking to develop mobile applications with Vue.js, this is a practical technical guide that includes project structure explanation, configuration file analysis, and important considerations in actual development.
 ---
 
 ### 1. 安装

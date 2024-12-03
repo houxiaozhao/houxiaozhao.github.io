@@ -1,14 +1,43 @@
 ---
-title: 系统离线license验证的方法
+title: 基于RSA和AES的系统离线License验证方案实现
 date: 2024-05-10 10:12:17.0
-url: /archives/系统离线license验证的方法
 categories:
+  - 系统开发
+  - 安全认证
+  - Node.js开发
 tags:
-  - 物联网 MQTT WAMP
+  - License验证
+  - 系统安全
+  - 加密算法
+  - Node.js
+  - RSA加密
+  - AES加密
+  - 私有化部署
+  - 离线验证
+keywords:
+  - 离线License验证
+  - RSA加密验证
+  - AES加密实现
+  - 数字签名
+  - 私钥签名
+  - 公钥验签
+  - Node-RSA
+  - 系统授权
+  - 安全验证
+  - 密钥对生成
+  - License生成
+  - 离线部署
+  - 系统安全
+  - 授权管理
+  - 加密方案
+description: |
+  本文详细介绍了一种基于RSA和AES加密的系统离线License验证方案。该方案专门解决私有化部署环境下的系统授权问题，重点关注完全离线环境下的License验证实现。文章首先阐述了方案需要解决的核心问题，包括离线验证支持、验证准确性保证、授权限制条件设置以及设备绑定等关键要素。接着深入讲解了基于私钥签名和公钥验签的实现原理，详细说明了License生成过程中的加密步骤，包括自定义信息加密、私钥签名等具体操作。文章还提供了完整的Node.js实现代码，包括密钥对生成、License生成和验证三个核心模块的详细代码实现。每个代码片段都配有清晰的注释说明，便于开发者理解和实施。同时，文章还提供了完整的源代码仓库链接，方便读者进一步学习和参考。
+
+  This article presents a comprehensive offline License verification solution based on RSA and AES encryption algorithms. The solution specifically addresses system authorization issues in private deployment environments, focusing on License verification implementation in completely offline environments. The article first outlines the core problems the solution needs to address, including offline verification support, verification accuracy assurance, authorization restriction settings, and device binding. It then delves into the implementation principles based on private key signing and public key verification, detailing the encryption steps in the License generation process, including custom information encryption and private key signing. The article also provides complete Node.js implementation code, covering three core modules: key pair generation, License generation, and verification. Each code snippet is accompanied by clear comments for developers' understanding and implementation. Additionally, the article includes a link to the complete source code repository for further learning and reference. The solution effectively balances security requirements with practical implementation considerations, making it suitable for various private deployment scenarios requiring offline License verification.
 ---
 
 > 为了解决系统私有化部署，完全离线的情况下，如何验证 license 的问题。 需要考虑以下几个方面：
->
+
 > 1. 系统需要支持离线验证，即在没有网络连接的情况下也能进行 license 验证。
 > 2. 需要保证 license 验证的准确性，防止被篡改或伪造。
 > 3. 需要考虑 license 的过期时间、使用次数等限制条件，并确保在离线情况下也能进行验证。

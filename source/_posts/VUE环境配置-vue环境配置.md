@@ -1,11 +1,31 @@
 ---
-title: VUE环境配置
+title: Vue开发环境搭建与配置教程
 date: 2018-03-07 17:03:36.0
-updated: 2022-03-08 10:42:49.192
-url: /archives/vue环境配置
 categories:
+  - 前端开发
+  - Vue.js
 tags:
-  - vue
+  - Vue
+  - 前端开发
+  - Node.js
+  - webpack
+  - VSCode
+  - 开发环境
+keywords:
+  - Vue开发环境配置
+  - Vue CLI安装教程
+  - Vue项目搭建
+  - VSCode配置Vue
+  - webpack模板配置
+  - Vue开发工具
+  - 前端开发环境
+  - Node.js环境搭建
+  - ESLint配置
+  - Vue项目初始化
+description: |
+  本文详细介绍了Vue.js开发环境的完整配置流程，包括Vue CLI的安装、webpack项目模板的使用、VSCode编辑器的配置以及ESLint代码规范工具的设置。适合前端开发者快速搭建Vue.js开发环境，提高开发效率。文章涵盖了从环境准备到项目初始化的全过程，是Vue.js开发环境配置的实用指南。
+
+  This article provides a comprehensive guide on setting up a Vue.js development environment, including Vue CLI installation, webpack template usage, VSCode editor configuration, and ESLint code standardization tool setup. It helps front-end developers quickly establish a Vue.js development environment and improve development efficiency. The article covers the entire process from environment preparation to project initialization, serving as a practical guide for Vue.js development environment configuration.
 ---
 
 # 安装 vue

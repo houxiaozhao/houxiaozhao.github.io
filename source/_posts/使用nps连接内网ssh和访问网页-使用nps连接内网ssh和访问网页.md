@@ -1,11 +1,39 @@
 ---
-title: 使用nps连接内网ssh和访问网页
+title: NPS内网穿透：SSH远程连接与Web访问实践方案
 date: 2022-01-19 10:33:46.494
-updated: 2022-03-04 19:16:53.9
-url: /archives/使用nps连接内网ssh和访问网页
 categories:
+  - 网络技术
+  - 系统运维
+  - 安全访问
 tags:
+  - NPS
   - 内网穿透
+  - SSH远程
+  - Web代理
+  - Docker部署
+  - 网络安全
+  - 系统配置
+  - 远程访问
+keywords:
+  - NPS服务器
+  - NPC客户端
+  - 内网穿透
+  - SSH连接
+  - TCP隧道
+  - SOCKS代理
+  - Docker部署
+  - 远程访问
+  - Web代理
+  - 网络配置
+  - 安全访问
+  - SwitchyOmega
+  - 浏览器代理
+  - 网络穿透
+  - 系统运维
+description: |
+  本文详细介绍了使用NPS（NPS/NPC）实现内网穿透的完整解决方案。首先讲解了NPS服务端的安装部署过程，包括下载、安装、配置文件修改等关键步骤。接着详细说明了NPC客户端的部署方法，提供了传统安装和Docker容器化两种部署方案，并提供了完整的docker-compose配置文件示例。文章重点阐述了TCP隧道和SOCKS代理的配置过程，包括端口设置、目标配置等具体操作步骤。最后介绍了通过SwitchyOmega浏览器插件配置代理访问内网网站的方法，包括情景模式创建和自动切换规则设置。每个配置步骤都配有详细的截图说明，便于读者实际操作。
+
+  This article provides a comprehensive guide to implementing internal network penetration using NPS (NPS/NPC). It begins with a detailed explanation of the NPS server installation and deployment process, including downloading, installation, and configuration file modifications. The article then details the NPC client deployment methods, offering both traditional installation and Docker containerization approaches, complete with docker-compose configuration file examples. It focuses on the configuration process of TCP tunnels and SOCKS proxies, including port settings and target configurations. The guide concludes with instructions on configuring proxy access to intranet websites using the SwitchyOmega browser plugin, covering scenario mode creation and automatic switching rule settings. Each configuration step is accompanied by detailed screenshots for practical implementation. The article serves as a complete reference for setting up secure remote access to internal networks, making it valuable for system administrators and network engineers.
 ---
 
 ## 安装 NPS

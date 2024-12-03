@@ -1,7 +1,99 @@
 ---
-title: Hexo博客框架介绍和使用部署
+title: Hexo静态博客搭建与部署：从本地开发到云端发布
 date: 2023-01-30 17:15:06
+categories:
+  - 静态博客
+  - 网站搭建
+  - 技术教程
 tags:
+  - Hexo
+  - Node.js
+  - 静态网站
+  - GitHub Pages
+  - Cloudflare
+  - 博客搭建
+  - 网站部署
+  - 主题定制
+  - 静态生成器
+  - 开发教程
+keywords:
+  - Hexo博客框架
+  - 静态网站生成器
+  - GitHub Pages部署
+  - Cloudflare加速
+  - Node.js博客
+  - 静态页面生成
+  - 博客主题配置
+  - 自动化部署
+  - 域名配置
+  - 网站性能优化
+  - 博客系统搭建
+  - 开源博客框架
+  - 个人网站搭建
+  - 静态内容部署
+  - 网站自动化
+description: |
+  本文详细介绍了基于Node.js的Hexo静态博客框架的搭建与部署流程，从本地开发到云端发布的全过程：
+
+  1. Hexo框架核心特性：
+     - 高效的静态页面生成能力
+     - 基于Node.js的技术架构
+     - 强大的插件扩展系统
+     - 灵活的主题定制功能
+     - 便捷的部署集成方案
+
+  2. 环境搭建与基础配置：
+     - Node.js环境准备
+     - Hexo命令行工具安装
+     - 项目初始化流程
+     - 依赖包管理
+     - 本地开发服务器配置
+     - 网站基本信息设置
+
+  3. 内容创作与管理：
+     - 文章创建与编辑
+     - Markdown语法支持
+     - 静态资源管理
+     - 文章分类与标签
+     - 页面布局设置
+
+  4. 部署与优化策略：
+     - GitHub Pages配置
+     - 自动化部署工作流
+     - Cloudflare CDN加速
+     - 自定义域名绑定
+     - 性能优化方案
+
+  This article provides a comprehensive guide to setting up and deploying a Hexo static blog, from local development to cloud publishing:
+
+  1. Hexo Framework Core Features:
+     - Efficient static page generation
+     - Node.js-based architecture
+     - Powerful plugin extension system
+     - Flexible theme customization
+     - Convenient deployment integration
+
+  2. Environment Setup and Basic Configuration:
+     - Node.js environment preparation
+     - Hexo CLI tool installation
+     - Project initialization process
+     - Dependency management
+     - Local development server setup
+     - Website basic information settings
+
+  3. Content Creation and Management:
+     - Article creation and editing
+     - Markdown syntax support
+     - Static resource management
+     - Article categories and tags
+     - Page layout settings
+
+  4. Deployment and Optimization Strategies:
+     - GitHub Pages configuration
+     - Automated deployment workflow
+     - Cloudflare CDN acceleration
+     - Custom domain binding
+     - Performance optimization solutions
 ---
 
 > 官网介绍：快速、简介且高效的博客框架
@@ -79,7 +171,7 @@ tags:
     cd hexo
     git clone https://github.com/theme-next/hexo-theme-next themes/next
 
-2.  配置主题  _config.yml
+2.  配置主题    _config.yml
 
     theme: next
 

@@ -2,6 +2,28 @@
 title: Vuetify 自定义SVG图标
 date: 2022-07-20 16:52:30
 tags:
+  - Vuetify
+  - SVG
+  - Vue.js
+  - 前端开发
+  - UI组件
+  - 图标定制
+  - Vite
+keywords:
+  - Vuetify SVG图标
+  - Vue.js自定义图标
+  - Vuetify图标系统
+  - SVG图标集成
+  - vite-plugin-svg-icons
+  - Vue组件库
+  - 前端UI框架
+  - Material Design
+  - 图标管理
+  - 前端开发技术
+description: |
+  这篇技术文章详细介绍了如何在Vuetify框架中实现SVG图标的自定义功能。文章涵盖了使用vite-plugin-svg-icons插件进行SVG图标配置、Vuetify框架中的图标系统集成，以及实际开发中的最佳实践。对于需要在Vue.js项目中自定义Material Design风格图标的开发者来说，本文提供了完整的技术实现方案和实用建议。
+
+  This technical article provides a comprehensive guide on implementing custom SVG icons in the Vuetify framework. It covers SVG icon configuration using vite-plugin-svg-icons plugin, integration with Vuetify's icon system, and best practices in actual development. For developers looking to customize Material Design style icons in their Vue.js projects, this article offers complete technical implementation solutions and practical recommendations.
 ---
 
 # Vuetify 自定义 SVG 图标

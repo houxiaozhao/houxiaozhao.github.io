@@ -18,12 +18,10 @@ nav:
 
 menu:
   首页: / || fas fa-home
-  档案: /archives/ || fas fa-archive
-  标签: /tags/ || fas fa-tags
-  收藏: /utils/ || fas fa-star
-  # List||fas fa-list:
-  #   Music: /music/ || fas fa-music
-  #   Movie: /movies/ || fas fa-video
+  页面 || fas fa-file:
+    档案: /archives/ || fas fa-archive
+    标签: /tags/ || fas fa-tags
+    分类: /categories/ || fas fa-tags
   常用网站: /link/ || fas fa-link
   About: /about/ || fas fa-heart
   临时邮箱: https://email.cdtools.click || fas fa-envelope

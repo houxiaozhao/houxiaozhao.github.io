@@ -1,7 +1,39 @@
 ---
-title: 前后端密钥传输和数据加密(国密SM2、SM3、SM4)流程实践
+title: 国密算法实践：基于SM2/SM3/SM4的前后端加密通信方案
 date: 2022-11-09 08:40:46
+categories:
+  - 网络安全
+  - 加密技术
+  - 系统开发
 tags:
+  - 国密算法
+  - SM2加密
+  - SM3哈希
+  - SM4加密
+  - 数据安全
+  - 密钥传输
+  - JavaScript加密
+  - HTTPS
+keywords:
+  - 国密算法实现
+  - SM2非对称加密
+  - SM3哈希算法
+  - SM4对称加密
+  - 前后端加密
+  - 密钥交换
+  - 数据完整性
+  - 防篡改验证
+  - 密文传输
+  - 安全通信
+  - 加密实践
+  - 重放攻击防护
+  - SSL/TLS
+  - 数据加密
+  - Web安全
+description: |
+  本文详细介绍了使用国密算法SM2、SM3、SM4实现前后端安全通信的完整方案。首先阐述了三种密码算法的特点：SM2作为非对称加密算法用于数字签名和密钥交换，SM3作为哈希算法确保数据完整性，SM4作为对称加密算法保护数据机密性。文章重点展示了双向加密传输的具体实现流程：在前端到后端通信中，采用SM3计算数据哈希值并与明文拼接，再使用SM2公钥加密传输；在后端到前端通信中，使用类似方式处理数据，但改用SM4的CBC模式进行加密。每个流程都配有详细的代码示例，包括加密、解密、完整性校验等关键步骤。最后讨论了系统安全性的补充措施，如HTTPS部署、防重放攻击等实践建议。
+
+  This article presents a comprehensive implementation of secure communication between frontend and backend using China's national cryptographic algorithms: SM2, SM3, and SM4. It begins by explaining the characteristics of these three algorithms: SM2 for asymmetric encryption, digital signatures, and key exchange; SM3 for hash functions ensuring data integrity; and SM4 for symmetric encryption protecting data confidentiality. The article focuses on demonstrating the bidirectional encryption process: in frontend-to-backend communication, it calculates data hash using SM3, concatenates it with plaintext, and encrypts using SM2 public key; in backend-to-frontend communication, it follows a similar process but uses SM4 in CBC mode for encryption. Each process is accompanied by detailed code examples, including encryption, decryption, and integrity verification steps. The article concludes with additional security measures such as HTTPS deployment and replay attack prevention, providing practical recommendations for enhancing system security.
 ---
 
 ## **加密算法介绍**

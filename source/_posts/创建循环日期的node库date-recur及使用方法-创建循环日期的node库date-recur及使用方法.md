@@ -1,12 +1,41 @@
 ---
-title: 创建循环日期的node库date-recur及使用方法
+title: Node.js 日期循环库：使用 date-recur 实现周期性任务调度
 date: 2022-02-14 17:07:47.801
-updated: 2022-03-04 19:14:54.389
-url: /archives/创建循环日期的node库date-recur及使用方法
 categories:
+  - 前端开发
+  - Node.js
+  - 时间处理
 tags:
-  - vue
-  - nodejs
+  - Vue.js
+  - Node.js
+  - Date-recur
+  - 日期处理
+  - 任务调度
+  - Element UI
+  - 时间选择
+  - 周期任务
+  - 前端开发
+  - JavaScript
+keywords:
+  - 循环日期
+  - 周期任务
+  - date-recur库
+  - 日期生成
+  - 时间调度
+  - Vue组件
+  - Element UI
+  - 日期选择器
+  - 时间选择器
+  - 定时任务
+  - 日期处理
+  - 前端实现
+  - 日期循环
+  - 时间管理
+  - 任务规划
+description: |
+  本文详细介绍了如何使用 date-recur 库在 Node.js 环境下实现周期性任务的日期生成功能。文章展示了该库的核心功能，包括按天、按周、按月、按年创建循环日期，并提供了完整的前端实现方案。主要内容包括：date-recur 库的基本使用方法，如设置每日、每周、每月、每年的循环间隔；结合 Vue.js 和 Element UI 实现的用户界面，包括时间选择、日期范围选择、循环设置等功能；以及一个封装好的 generateRecurDate 函数，用于生成指定时间范围内的所有符合条件的日期。文章通过实际的业务场景，展示了如何处理周期性任务的日期生成需求，并提供了完整的代码实现和使用示例。
+
+  This article provides a comprehensive guide on implementing periodic task scheduling using the date-recur library in Node.js. It demonstrates the library's core functionalities, including creating recurring dates on daily, weekly, monthly, and yearly bases, along with a complete frontend implementation. The content covers: basic usage of the date-recur library for setting daily, weekly, monthly, and yearly intervals; a user interface implementation using Vue.js and Element UI, featuring time selection, date range picking, and recurrence settings; and a wrapped generateRecurDate function for generating all matching dates within a specified time range. Through practical business scenarios, the article shows how to handle periodic task date generation requirements, providing complete code implementation and usage examples. The solution integrates seamlessly with modern frontend frameworks and offers a flexible approach to handling recurring date patterns in web applications.
 ---
 
 > 因为在业务中周期性的任务，用到的该 node 库，记录一下备忘。

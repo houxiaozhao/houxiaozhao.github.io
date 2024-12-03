@@ -1,11 +1,39 @@
 ---
-title: 绿色版chrome安装包制作教程
+title: Chrome浏览器绿色版制作：从下载到打包的详细步骤
 date: 2018-02-25 15:16:06.0
-updated: 2022-03-08 10:43:13.659
-url: /archives/绿色版chrome安装包制作教程
 categories:
+  - 软件教程
+  - 浏览器定制
+  - 工具分享
 tags:
-  - chrome
+  - Chrome浏览器
+  - 绿色软件
+  - 便携版
+  - Setup Factory
+  - 软件打包
+  - 浏览器定制
+  - GreenChrome
+  - 软件安装
+keywords:
+  - Chrome绿色版
+  - 便携版Chrome
+  - 浏览器定制
+  - GreenChrome插件
+  - Setup Factory打包
+  - Chrome便携化
+  - 软件打包教程
+  - 浏览器优化
+  - Chrome安装包
+  - 绿色软件制作
+  - 浏览器设置
+  - 软件便携化
+  - Chrome定制版
+  - 离线安装包
+  - 软件封装
+description: |
+  本文详细介绍了制作Chrome浏览器绿色便携版的完整流程。首先提供了所需资源的下载链接，包括Chrome离线安装包、GreenChrome插件等。接着详细说明了绿色版Chrome的制作步骤，从安装包解压、文件配置到插件整合的每个环节。文章还包含了浏览器首页设置的具体操作方法。重点介绍了使用Setup Factory制作安装包的详细过程，包括软件安装、注册、项目创建、文件配置等关键步骤，并提供了图文说明。最后展示了如何设置安装包图标、生成最终的便携版安装程序。整个教程注重实用性和可操作性，帮助用户轻松创建个性化的Chrome便携版。
+
+  This article provides a detailed guide on creating a portable version of Google Chrome browser. It begins with providing download links for necessary resources, including Chrome offline installer and GreenChrome plugin. The article then explains the step-by-step process of creating a portable Chrome version, covering everything from package extraction and file configuration to plugin integration. It includes specific instructions for setting up the browser's homepage. The main focus is on the detailed process of creating an installation package using Setup Factory, including software installation, registration, project creation, and file configuration, complete with visual instructions. Finally, it demonstrates how to set up the installation package icon and generate the final portable installation program. The entire tutorial emphasizes practicality and operability, helping users easily create a personalized portable version of Chrome.
 ---
 
 ## 教程

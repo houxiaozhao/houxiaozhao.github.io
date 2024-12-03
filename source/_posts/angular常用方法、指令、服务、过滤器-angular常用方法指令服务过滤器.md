@@ -1,11 +1,38 @@
 ---
-title: angular常用方法、指令、服务、过滤器
+title: Angular核心功能详解：方法、指令、服务与过滤器
 date: 2018-03-25 15:50:50.0
-updated: 2022-03-08 11:34:37.027
-url: /archives/angular常用方法指令服务过滤器
 categories:
+  - 前端开发
+  - Angular开发
 tags:
-  - angular
+  - Angular
+  - JavaScript
+  - 前端框架
+  - Web开发
+  - 指令系统
+  - 服务注入
+  - 过滤器
+  - DOM操作
+keywords:
+  - Angular方法
+  - Angular指令
+  - Angular服务
+  - Angular过滤器
+  - ngRepeat指令
+  - ngModel绑定
+  - 依赖注入
+  - 数据操作
+  - DOM事件处理
+  - 表单验证
+  - 数组操作
+  - 对象操作
+  - 数据过滤
+  - 日期格式化
+  - JSON处理
+description: |
+  本文系统性地介绍了Angular框架中最常用且重要的核心功能组件。详细讲解了Angular中的基础方法，包括数组和对象的拷贝（angular.copy）、DOM元素选择（angular.element）、值比较（angular.equals）、对象迭代（angular.forEach）、JSON转换（angular.fromJson/toJson）以及类型判断等实用工具方法。深入探讨了Angular的指令系统，涵盖了事件处理（ng-click、ng-dblclick、ng-blur、ng-focus）、条件渲染（ng-if、ng-show/hide）、列表渲染（ng-repeat）、表单控制（ng-model、ng-submit）等常用指令的使用方法和最佳实践。同时详细说明了Angular内置服务（$http、$interval、$timeout、$filter等）的功能特点和使用场景，以及内置过滤器（date、currency、filter、orderBy等）的实际应用，为开发者提供了全面的Angular功能参考指南。
+
+  This article provides a comprehensive overview of Angular's core functional components. It thoroughly explains Angular's fundamental methods, including array and object copying (angular.copy), DOM element selection (angular.element), value comparison (angular.equals), object iteration (angular.forEach), JSON conversion (angular.fromJson/toJson), and type checking utilities. The article delves deep into Angular's directive system, covering event handling (ng-click, ng-dblclick, ng-blur, ng-focus), conditional rendering (ng-if, ng-show/hide), list rendering (ng-repeat), form control (ng-model, ng-submit), and their best practices. It also details Angular's built-in services ($http, $interval, $timeout, $filter) and their use cases, along with built-in filters (date, currency, filter, orderBy) and their practical applications. This guide serves as a comprehensive reference for developers working with Angular's core functionalities, providing detailed examples and implementation guidelines for each feature discussed.
 ---
 
 # angular 方法

@@ -1,11 +1,71 @@
 ---
-title: mpvue小程序快速上手指南
+title: mpvue微信小程序开发入门：从环境搭建到实战应用
 date: 2018-09-22 11:58:59.0
-updated: 2022-03-08 11:33:21.197
-url: /archives/mpvue小程序快速上手指南
 categories:
+  - 前端开发
+  - 小程序开发
+  - Vue.js
 tags:
-  - 小程序
+  - mpvue
+  - 微信小程序
+  - Vue.js
+  - JavaScript
+  - 前端框架
+  - WeUI
+  - Flyio
+  - 小程序开发
+  - 用户授权
+  - 组件开发
+keywords:
+  - mpvue开发
+  - 微信小程序开发
+  - Vue.js框架
+  - mpvue教程
+  - 小程序框架
+  - 微信开发
+  - 前端开发
+  - WeUI组件库
+  - Flyio网络请求
+  - 小程序授权
+  - 页面路由
+  - 组件开发
+  - 微信登录
+  - 底部导航
+  - Font Awesome
+description: |
+  本文详细介绍了使用mpvue框架进行微信小程序开发的全过程，涵盖了从环境搭建到实际应用的各个关键环节。文章系统地讲解了以下核心内容：
+
+  开发环境搭建：
+  1. 全局安装vue-cli并创建mpvue项目
+  2. 项目依赖配置和开发环境启动
+  3. 项目目录结构说明和最佳实践
+
+  功能实现详解：
+  1. 底部导航栏的配置和自定义
+  2. 全局变量的设置和使用方法
+  3. Flyio网络库的集成和接口调用
+  4. WeUI组件库的引入和使用
+  5. 用户登录授权的两种实现方式
+  6. 页面路由和参数传递的处理
+  7. Font Awesome图标的集成方案
+
+  This article provides an in-depth guide to developing WeChat Mini Programs using the mpvue framework, covering the entire process from environment setup to practical application. The article systematically explains the following core content:
+
+  Development Environment Setup:
+  1. Global installation of vue-cli and mpvue project creation
+  2. Project dependency configuration and development environment startup
+  3. Project directory structure explanation and best practices
+
+  Feature Implementation Details:
+  1. Bottom navigation bar configuration and customization
+  2. Global variable setup and usage methods
+  3. Flyio network library integration and API calls
+  4. WeUI component library implementation
+  5. Two approaches to user login authorization
+  6. Page routing and parameter passing
+  7. Font Awesome icon integration solution
+
+  The guide includes practical code examples, common pitfalls to avoid, and optimization techniques for better development efficiency.
 ---
 
 > 需要了解一些原生小程序开发流程，主要是接口调用方式和目录结构。

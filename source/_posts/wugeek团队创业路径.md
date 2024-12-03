@@ -1,7 +1,50 @@
 ---
-title: Wugeek 团队创业路径
+title: Wugeek物联网创业之路：从技术探索到行业应用的发展历程
 date: 2019-8-14 12:23:24
-tags: javascript
+updated: 2023-06-05 12:23:24
+categories:
+  - 创业故事
+  - 物联网
+  - 技术创新
+tags:
+  - 物联网平台
+  - 云计算
+  - 大数据
+  - 创业历程
+  - IoT
+  - 智能硬件
+  - 技术创新
+  - 行业应用
+  - 团队建设
+  - 商业模式
+keywords:
+  - Wugeek物联网
+  - IoT云平台
+  - 物联网创业
+  - 智能书柜
+  - S4T技术架构
+  - WiFi人员轨迹
+  - 物联网解决方案
+  - 创业团队发展
+  - 技术探索
+  - 行业应用实践
+  - 物联网创新
+  - 智能硬件开发
+  - 云计算应用
+  - 大数据分析
+  - 商业模式转型
+description: |
+  本文详细记录了Wugeek（物集客）团队在物联网领域的创业历程，展现了从技术探索到行业应用的完整发展过程。团队立足于河北邯郸，专注于云计算、大数据和物联网技术的创新与应用。
+
+  文章重点介绍了团队在不同发展阶段的关键里程碑：从2016年初期的技术探索阶段，团队深入研究了国内外物联网平台，开发了完整的物联网云平台架构。期间成功实现了智能书柜项目，这是一个集成前端、后端、通信、树莓派和硬件的完整解决方案，并开发了基于WiFi的人员轨迹分析系统，验证了S4T（Stack for Things）技术框架的可行性。
+
+  2017年，团队进入行业深耕阶段，通过承接外包项目深入了解行业需求，进行了大量的市场调研和用户走访。团队成员，包括开发人员在内，共计走访了69个小区、物业和业委会，建立了直接的用户反馈渠道，确保产品开发始终围绕实际需求展开。
+
+  This article chronicles the entrepreneurial journey of the Wugeek team in the IoT sector, documenting their evolution from technical exploration to industry application. Based in Handan, Hebei, the team focuses on innovation and application in cloud computing, big data, and Internet of Things technologies.
+
+  The article highlights key milestones across different development phases: Starting in 2016 with technical exploration, the team conducted extensive research on domestic and international IoT platforms, developing a comprehensive IoT cloud platform architecture. They successfully implemented the Smart Bookshelf project, a complete solution integrating frontend, backend, communication, Raspberry Pi, and hardware components, and developed a WiFi-based personnel tracking analysis system, validating their S4T (Stack for Things) technical framework.
+
+  In 2017, the team entered a phase of industry immersion, gaining deep insights into industry needs through outsourcing projects and extensive market research. Team members, including developers, visited 69 residential communities, property management companies, and resident committees, establishing direct user feedback channels to ensure product development remained focused on actual needs.
 ---
 
 # 介绍
