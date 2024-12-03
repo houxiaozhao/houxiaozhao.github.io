@@ -1,9 +1,5 @@
 ---
 title: mpvue小程序快速上手指南
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-09-22 11:58:59.0
 updated: 2022-03-08 11:33:21.197
 url: /archives/mpvue小程序快速上手指南

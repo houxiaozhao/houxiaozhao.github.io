@@ -1,10 +1,6 @@
 ---
 title: openEuler系统安装配置-docker安装-docker显卡环境安装
 date: 2024-10-24 10:00:00.0
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 tags:
   - openEuler
   - docker

@@ -1,9 +1,5 @@
 ---
 title: 使用PopClip调起uTools
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2022-04-15 12:20:14.332
 updated: 2022-04-15 12:23:53.505
 url: /archives/shi-yong-popclip-diao-qi-utools

@@ -1,9 +1,5 @@
 ---
 title: threejs 世界坐标系转其他对象本地坐标系方法
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2021-07-07 11:13:17.0
 updated: 2022-03-08 11:27:28.881
 url: /archives/threejs世界坐标系转其他对象本地坐标系方法

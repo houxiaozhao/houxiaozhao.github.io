@@ -1,9 +1,5 @@
 ---
 title: API接口签名设计，防止重放
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2022-03-09 15:04:07.111
 updated: 2022-03-10 17:22:44.535
 url: /archives/api接口签名设计防止重放

@@ -1,9 +1,5 @@
 ---
 title: 系统离线license验证的方法
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2024-05-10 10:12:17.0
 url: /archives/系统离线license验证的方法
 categories:

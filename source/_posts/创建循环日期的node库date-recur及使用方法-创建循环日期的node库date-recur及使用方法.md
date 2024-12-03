@@ -1,9 +1,5 @@
 ---
 title: 创建循环日期的node库date-recur及使用方法
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2022-02-14 17:07:47.801
 updated: 2022-03-04 19:14:54.389
 url: /archives/创建循环日期的node库date-recur及使用方法

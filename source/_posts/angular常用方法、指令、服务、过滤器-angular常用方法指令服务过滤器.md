@@ -1,9 +1,5 @@
 ---
 title: angular常用方法、指令、服务、过滤器
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-03-25 15:50:50.0
 updated: 2022-03-08 11:34:37.027
 url: /archives/angular常用方法指令服务过滤器

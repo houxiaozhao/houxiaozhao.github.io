@@ -1,10 +1,6 @@
 ---
 title: strapi 从 controller 中上传文件
 date: 2023-07-06 18:22:05
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 tags:
   - 后端
   - nodejs

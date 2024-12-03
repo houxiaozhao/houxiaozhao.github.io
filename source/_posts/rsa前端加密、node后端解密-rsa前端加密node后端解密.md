@@ -1,9 +1,5 @@
 ---
 title: rsa前端加密、node后端解密
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2022-03-09 16:59:10.381
 updated: 2022-03-10 17:19:26.017
 url: /archives/rsa前端加密node后端解密

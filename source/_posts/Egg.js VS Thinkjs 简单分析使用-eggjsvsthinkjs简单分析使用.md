@@ -1,9 +1,5 @@
 ---
 title: Egg.js VS Thinkjs 简单分析使用
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-10-09 19:00:22.0
 updated: 2022-03-08 11:33:04.882
 url: /archives/eggjsvsthinkjs简单分析使用

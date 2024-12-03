@@ -1,9 +1,5 @@
 ---
 title: strapi介绍
-copyright_author: houxiaozhao
-copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://cdtools.click
-copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2023-01-12 18:22:05
 tags:
   - 后端
