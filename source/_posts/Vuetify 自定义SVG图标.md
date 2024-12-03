@@ -2,7 +2,7 @@
 title: Vuetify 自定义SVG图标
 copyright_author: houxiaozhao
 copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://100042.xyz
+copyright_url: https://cdtools.click
 copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2022-07-20 16:52:30
 tags:
@@ -114,7 +114,7 @@ tags:
        iconfont: "md", // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
        values: (() => {
          const icons = {}; //处理图标，配置到vuetify
-         ids.forEach((id) => {
+         ids.forEach(id => {
            icons[id.substr(5)] = {
              component: SvgIcon,
              props: {

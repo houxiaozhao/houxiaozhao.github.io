@@ -2,7 +2,7 @@
 title: vue-cli3使用和Cordova集成记录
 copyright_author: houxiaozhao
 copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://100042.xyz
+copyright_url: https://cdtools.click
 copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-08-11 15:38:56.0
 updated: 2022-03-08 11:34:53.49

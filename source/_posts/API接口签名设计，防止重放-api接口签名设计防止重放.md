@@ -2,7 +2,7 @@
 title: API接口签名设计，防止重放
 copyright_author: houxiaozhao
 copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://100042.xyz
+copyright_url: https://cdtools.click
 copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2022-03-09 15:04:07.111
 updated: 2022-03-10 17:22:44.535
@@ -65,13 +65,13 @@ function sortObject(obj) {
     const sortData = {}; // 排序后的对象
     Object.keys(obj)
       .sort()
-      .forEach((key) => {
+      .forEach(key => {
         if (Object.prototype.toString.call(obj[key]) === "[object Object]") {
           // console.log(obj[key], '对象');
           sortData[key] = sortObject(obj[key]);
         } else if (Array.isArray(obj[key])) {
           console.log(obj[key], "数组");
-          sortData[key] = obj[key].map((e) => {
+          sortData[key] = obj[key].map(e => {
             return sortObject(e);
           });
         } else if (typeof obj[key] === "number") {

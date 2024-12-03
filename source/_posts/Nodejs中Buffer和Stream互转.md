@@ -2,7 +2,7 @@
 title: Nodejs中Buffer和Stream互转
 copyright_author: houxiaozhao
 copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://100042.xyz
+copyright_url: https://cdtools.click
 copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2023-02-02 16:16:20
 tags:
@@ -16,7 +16,7 @@ function streamToBuffer(stream) {
   return new Promise((resolve, reject) => {
     let buffers = [];
     stream.on("error", reject);
-    stream.on("data", (data) => buffers.push(data));
+    stream.on("data", data => buffers.push(data));
     stream.on("end", () => resolve(Buffer.concat(buffers)));
   });
 }

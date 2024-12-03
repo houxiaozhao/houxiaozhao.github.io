@@ -2,7 +2,7 @@
 title: VUE环境配置
 copyright_author: houxiaozhao
 copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://100042.xyz
+copyright_url: https://cdtools.click
 copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-03-07 17:03:36.0
 updated: 2022-03-08 10:42:49.192
@@ -165,7 +165,7 @@ tags:
 6. 配置 axios 请求拦截器，如果 localStorage 里有 token 则在头部加入 Authorization
 
    ```javascript
-   http.interceptors.request.use((config) => {
+   http.interceptors.request.use(config => {
      if (localStorage.token) {
        config.headers = {
          Authorization: `Bearer ${localStorage.token}`,

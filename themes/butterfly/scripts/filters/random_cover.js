@@ -29,8 +29,6 @@ hexo.extend.filter.register('before_post_render', data => {
 
   // If cover is not set, use random cover
   if (!coverVal) {
-    console.log('randomCoverFn', randomCoverFn());
-
     const randomCover = randomCoverFn()
     data.cover = randomCover
     coverVal = randomCover // update coverVal

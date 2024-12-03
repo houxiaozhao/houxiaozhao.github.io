@@ -2,7 +2,7 @@
 title: 物联网通信协议MQTT&WAMP
 copyright_author: houxiaozhao
 copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://100042.xyz
+copyright_url: https://cdtools.click
 copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2017-10-23 12:12:17.0
 updated: 2022-03-08 10:43:16.186

@@ -2,7 +2,7 @@
 title: Egg.js VS Thinkjs 简单分析使用
 copyright_author: houxiaozhao
 copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://100042.xyz
+copyright_url: https://cdtools.click
 copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2018-10-09 19:00:22.0
 updated: 2022-03-08 11:33:04.882
@@ -68,7 +68,7 @@ $ thinkjs model <model-name> [module-name]
   // 或
   exports.keys = "my-cookie-secret-key";
   // 或
-  module.exports = (appInfo) => {
+  module.exports = appInfo => {
     return {
       keys: "my-cookie-secret-key",
     };
@@ -116,7 +116,7 @@ Egg.js 和 Thinkjs 都用扩展 Koa 对象，app,request,response,context
 
 ```javascript
 // app.js
-module.exports = (app) => {
+module.exports = app => {
   app.cache = new Cache();
 };
 ```
@@ -151,7 +151,7 @@ module.exports = (options = {}) => {
     let err = null;
     // 调用 next 统计后续执行逻辑的所有时间
     return next()
-      .catch((e) => {
+      .catch(e => {
         err = e; // 这里先将错误保存在一个错误对象上，方便统计出错情况下的执行时间
       })
       .then(() => {
@@ -263,7 +263,7 @@ module.exports = class extends Base {
 #### Egg.js
 
 ```javascript
-module.exports = (app) => {
+module.exports = app => {
   const { router, controller } = app;
   router.get("/v1/user/getUser", controller.v1.user.getUser);
 };
@@ -279,7 +279,7 @@ module.exports = (app) => {
 
 ```javascript
 // app/router.js
-module.exports = (app) => {
+module.exports = app => {
   // 注意这里是resources方法。
   app.router.resources("topics", "/api/v2/topics", app.controller.topics);
 };
@@ -406,7 +406,7 @@ exports.model = {
   common: {
     logConnect: isDev,
     logSql: isDev,
-    logger: (msg) => think.logger.info(msg),
+    logger: msg => think.logger.info(msg),
   },
   mysql: {
     handle: mysql,
@@ -470,7 +470,7 @@ module.exports = [
 // agent.js 监听消息队列
 "use strict";
 const mqtt = require("mqtt");
-module.exports = (agent) => {
+module.exports = agent => {
   const client = mqtt.connect("mqtt://test.mosquitto.org");
   client.on("connect", function () {
     console.log("链接成功");
@@ -486,8 +486,8 @@ module.exports = (agent) => {
 
 ```javascript
 //app.js 接收agent进程发送的消息
-module.exports = (app) => {
-  app.messenger.on("shoudaoxiaoxi", (msg) => {
+module.exports = app => {
+  app.messenger.on("shoudaoxiaoxi", msg => {
     app.logger.info(msg);
     // 创建一个匿名上下文来访问服务
     const ctx = app.createAnonymousContext();

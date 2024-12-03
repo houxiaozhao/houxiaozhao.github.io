@@ -26,8 +26,6 @@ menu:
   #   Movie: /movies/ || fas fa-video
   常用网站: /link/ || fas fa-link
   About: /about/ || fas fa-heart
-  # ChatGPT: https://chat.100042.xyz/ || fas fa-comment
-  # Bing: https://bing.100042.xyz/ || fas fa-comment
   临时邮箱: https://email.cdtools.click || fas fa-envelope
   GitHub代理: https://gh-proxy.cdtools.click/ || fas fa-link
   文档 || fa fa-book:

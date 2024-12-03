@@ -2,7 +2,7 @@
 title: React Native 简介
 copyright_author: houxiaozhao
 copyright_author_href: https://github.com/houxiaozhao
-copyright_url: https://100042.xyz
+copyright_url: https://cdtools.click
 copyright_info: 此文章版权归houxiaozhao所有，如有转载，请注明来自原作者
 date: 2017-05-05 15:54:18.0
 updated: 2022-03-08 10:43:26.688
@@ -270,9 +270,9 @@ $http
 
 ```javascript
 fetch(url)
-  .then((response) => response.json())
-  .then((data) => console.log(data))
-  .catch((e) => console.log("Oops, error", e));
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(e => console.log("Oops, error", e));
 ```
 
 - 普通回调
@@ -361,7 +361,7 @@ AppRegistry.registerComponent("LotsOfGreetings", () => LotsOfGreetings);
     render() {
       return (
         <View style={{ padding: 10 }}>
-          <TextInput style={{ height: 40 }} placeholder="Type here to translate!" onChangeText={(text) => this.setState({ text })} />
+          <TextInput style={{ height: 40 }} placeholder="Type here to translate!" onChangeText={text => this.setState({ text })} />
           <Text>{this.state.text}</Text>
         </View>
       );
