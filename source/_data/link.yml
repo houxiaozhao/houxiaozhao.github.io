@@ -1,3 +1,11 @@
+- class_name: 友情链接
+  class_desc: 🤝
+  link_list:
+    - name: Linux do
+      link: https://linux.do/
+      avatar: https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/QfGTOA.png
+      descr: 新的理想社区
+
 - class_name: 图片工具
   class_desc: 🖼️
   link_list:
