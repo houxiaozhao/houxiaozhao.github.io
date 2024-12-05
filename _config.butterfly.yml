@@ -11,7 +11,7 @@
 
 nav:
   # Navigation bar logo image
-  logo:
+  logo: https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png
   display_title: true
   # Whether to fix navigation bar
   fixed: false
@@ -60,7 +60,7 @@ social:
 # Image Settings
 # --------------------------------------
 
-favicon: /img/favicon.png
+favicon: /img/favicon.ico
 
 avatar:
   img: https://avatars.githubusercontent.com/u/14978325
