@@ -110,6 +110,8 @@ deploy:
 sitemap:
   path: sitemap.xml
   rel: true
+  tags: false
+  categories: false
 
 # RSS Feed
 feed:
