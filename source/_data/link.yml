@@ -30,6 +30,9 @@
     - name: PDF转扫描件
       link: https://scan.cdtools.click
       descr: 能够让 PDF 看起来就像是扫描件一样的纯前端网站
+    - name: PDF合并工具
+      link: https://merge-pdf.cdtools.click
+      descr: 在线PDF合并工具 - 快速、免费、安全的文档处理解决方案
 
 - class_name: 开发工具
   class_desc: ⚙️
