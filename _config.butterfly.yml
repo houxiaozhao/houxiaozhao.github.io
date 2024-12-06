@@ -741,6 +741,8 @@ site_verification:
   #   content: codeva-oI2ANkeBCU
   - name: 360-site-verification
     content: a6c492636fc82ec828a619d6198ef6cb
+  - name: sogou_site_verification
+    content: cngArbvZHn
 
 # --------------------------------------
 # Beautify / Effect

@@ -68,7 +68,10 @@
       descr: WGS-84 至 CGCS2000 坐标转换器
     - name: 静谧空间
       link: https://peace.cdtools.click
-      descr: 静谧空间(peace.cdtools.click)为您提供优质的白噪声、双耳节拍、自然环境声和冥想音频。包括白噪声、双耳节拍、蓝噪声、棕噪声、瀑布声等多种助眠音效，帮助您放松身心，改善睡眠质量。
+      descr: 静谧空间为您提供优质的白噪声、双耳节拍、自然环境声和冥想音频。包括白噪声、双耳节拍、蓝噪声、棕噪声、瀑布声等多种助眠音效，帮助您放松身心，改善睡眠质量。
+    - name: 火车座位靠窗查询工具
+      link: https://seat.cdtools.click
+      descr: 火车座位靠窗查询工具，帮助您查询火车座位是否靠窗。
 
 - class_name: 个人站点
   class_desc: 👤
