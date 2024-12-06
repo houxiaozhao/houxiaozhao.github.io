@@ -737,8 +737,10 @@ ad:
 site_verification:
   # - name: google-site-verification
   #   content: xxxxxx
-  - name: baidu-site-verification
-    content: codeva-oI2ANkeBCU
+  # - name: baidu-site-verification
+  #   content: codeva-oI2ANkeBCU
+  - name: 360-site-verification
+    content: a6c492636fc82ec828a619d6198ef6cb
 
 # --------------------------------------
 # Beautify / Effect
