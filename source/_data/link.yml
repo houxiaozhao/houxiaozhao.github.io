@@ -23,6 +23,9 @@
     - name: 图片分割工具
       link: https://cut.cdtools.click
       descr: 专业的图片分割工具，支持朋友圈九宫格切图，完全免费且无限制使用。注重隐私保护，本地处理，永不上传。
+    - name: 图片移除背景
+      link: https://removebg.cdtools.click
+      descr: 快速移除图片背景，支持批量处理。完全本地处理，无需上传，保护隐私。
 
 - class_name: PDF工具
   class_desc: 📄
