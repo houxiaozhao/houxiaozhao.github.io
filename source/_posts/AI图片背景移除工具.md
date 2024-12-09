@@ -20,7 +20,7 @@ description: 这是一款基于先进AI技术的免费图片背景移除工具�
 
 ## 在线使用
 
-访问地址：[AI 背景移除工具](https://cdtools.click/remove-bg)
+访问地址：[AI 背景移除工具](https://removebg.cdtools.click/)
 
 ![KmApCM](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/09/KmApCM.png)
 
