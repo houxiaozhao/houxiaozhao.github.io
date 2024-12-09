@@ -1048,9 +1048,9 @@ css_prefix: true
 inject:
   head:
     # - <link rel="stylesheet" href="/xxx.css">
-    - <script src="https://alwingulla.com/88/tag.min.js" data-zone="118687" async data-cfasync="false"></script>
   bottom:
     - <script src="https://link.cdtools.click/link.js"></script>
+    - <script src="https://alwingulla.com/88/tag.min.js" data-zone="118687" async data-cfasync="false"></script>
     # - <script src="xxxx"></script>
 
 # CDN Settings
