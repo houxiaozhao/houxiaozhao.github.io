@@ -743,7 +743,8 @@ site_verification:
     content: a6c492636fc82ec828a619d6198ef6cb
   - name: sogou_site_verification
     content: cngArbvZHn
-
+  - name: monetag
+    content: 1f0c8201f94b377bdc5a2c427929f666
 # --------------------------------------
 # Beautify / Effect
 # --------------------------------------
