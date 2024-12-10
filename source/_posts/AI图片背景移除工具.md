@@ -10,7 +10,25 @@ tags:
   - 人工智能
   - 设计工具
   - 免费工具
-keywords: AI背景移除, 图片处理工具, 在线抠图工具, 免费背景移除, 智能抠图, background removal tool, AI image processing, free background remover, WebGPU acceleration, local processing, privacy-focused, batch processing, real-time preview, no registration required, image segmentation, product photography, portrait background removal, e-commerce tools
+keywords:
+  - AI背景移除
+  - 图片处理工具
+  - 在线抠图工具
+  - 免费背景移除
+  - 智能抠图
+  - background removal tool
+  - AI image processing
+  - free background remover
+  - WebGPU acceleration
+  - local processing
+  - privacy-focused
+  - batch processing
+  - real-time preview
+  - no registration required
+  - image segmentation
+  - product photography
+  - portrait background removal
+  - e-commerce tools
 description: 这是一款基于先进AI技术的免费图片背景移除工具，无需注册即可使用。采用WebGPU加速和本地处理技术，确保极致性能和隐私安全。支持批量处理、实时预览、智能边缘检测，完美保留细节。适用于电商产品图、人像处理、动物图片等多种场景。工具采用RMBG-1.4模型，具备强大的图像分割能力，可精确处理复杂边缘。全程本地运算，保护用户数据安全。This is a cutting-edge AI-powered background removal tool that's completely free and requires no registration. Utilizing WebGPU acceleration and local processing, it ensures optimal performance while maintaining privacy. Features include batch processing, real-time preview, and intelligent edge detection with perfect detail preservation. Ideal for e-commerce product photos, portraits, and animal images. Powered by the RMBG-1.4 model, it offers precise image segmentation and complex edge processing. All computations are performed locally to ensure data security.
 ---
 
