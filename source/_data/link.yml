@@ -69,15 +69,22 @@
     - name: 学生证生成器
       link: https://studentid.cdtools.click
       descr: 用户可以自定义学生证信息，并通过交互式界面实时预览效果。
-    - name: 国家2000坐标系转换
-      link: https://cgcs2000.cdtools.click
-      descr: WGS-84 至 CGCS2000 坐标转换器
     - name: 静谧空间
       link: https://peace.cdtools.click
       descr: 静谧空间为您提供优质的白噪声、双耳节拍、自然环境声和冥想音频。包括白噪声、双耳节拍、蓝噪声、棕噪声、瀑布声等多种助眠音效，帮助您放松身心，改善睡眠质量。
     - name: 火车座位靠窗查询工具
       link: https://seat.cdtools.click
       descr: 火车座位靠窗查询工具，帮助您查询火车座位是否靠窗。
+
+- class_name: 坐标工具
+  class_desc: 🛠️
+  link_list:
+    - name: 国家2000坐标系转换
+      link: https://cgcs2000.cdtools.click
+      descr: WGS-84 至 CGCS2000 坐标转换器
+    - name: UTM和WGS84坐标转换工具
+      link: https://utm.cdtools.click
+      descr: 这是一款专业的UTM和WGS84坐标转换工具，支持双向快速转换UTM（通用横轴墨卡托）坐标与WGS84（GPS）坐标。
 
 - class_name: 个人站点
   class_desc: 👤
