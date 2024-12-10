@@ -1050,7 +1050,6 @@ inject:
     # - <link rel="stylesheet" href="/xxx.css">
   bottom:
     - <script src="https://link.cdtools.click/link.js"></script>
-    - <script src="https://alwingulla.com/88/tag.min.js" data-zone="118687" async data-cfasync="false"></script>
     # - <script src="xxxx"></script>
 
 # CDN Settings
