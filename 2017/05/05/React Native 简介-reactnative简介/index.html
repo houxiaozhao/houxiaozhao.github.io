@@ -1,0 +1,407 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>React Native vs Ionic 移动应用开发对比与实践 | houxiaozhao部落格</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="本文深入探讨了React Native和Ionic这两大主流移动应用开发框架的特点、优势及应用场景。通过详细对比它们在性能、开发效率、用户体验等方面的差异，为开发者在选择适合自己项目的跨平台开发工具时提供了valuable insights。文章不仅介绍了React Native的&quot;Learn once, write anywhere&quot;理念和原生渲染优势，还分析了Ionic基于Web技术的Hybr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native vs Ionic 移动应用开发对比与实践">
+<meta property="og:url" content="https://cdtools.click/2017/05/05/React%20Native%20%E7%AE%80%E4%BB%8B-reactnative%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="本文深入探讨了React Native和Ionic这两大主流移动应用开发框架的特点、优势及应用场景。通过详细对比它们在性能、开发效率、用户体验等方面的差异，为开发者在选择适合自己项目的跨平台开发工具时提供了valuable insights。文章不仅介绍了React Native的&quot;Learn once, write anywhere&quot;理念和原生渲染优势，还分析了Ionic基于Web技术的Hybr">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-105.jpg">
+<meta property="article:published_time" content="2017-05-05T15:54:18.000Z">
+<meta property="article:modified_time" content="2024-12-12T02:33:58.247Z">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="移动开发">
+<meta property="article:tag" content="跨平台开发">
+<meta property="article:tag" content="React Native">
+<meta property="article:tag" content="Ionic">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="Mobile App Development">
+<meta property="article:tag" content="Front-end Technology">
+<meta property="article:tag" content="Cross-platform Framework">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-105.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/2017/05/05/React%20Native%20%E7%AE%80%E4%BB%8B-reactnative%E7%AE%80%E4%BB%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'React Native vs Ionic 移动应用开发对比与实践',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-105.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a><a class="nav-page-title" href="/"><span class="site-name">React Native vs Ionic 移动应用开发对比与实践</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">React Native vs Ionic 移动应用开发对比与实践</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-05-05T15:54:18.000Z" title="发表于 2017-05-05 15:54:18">2017-05-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-12T02:33:58.247Z" title="更新于 2024-12-12 02:33:58">2024-12-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">移动应用开发</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="react-native-开发-IOS-手机应用基本方法及其与-IONIC-开发的对比"><a href="#react-native-开发-IOS-手机应用基本方法及其与-IONIC-开发的对比" class="headerlink" title="react native 开发 IOS 手机应用基本方法及其与 IONIC 开发的对比"></a>react native 开发 IOS 手机应用基本方法及其与 IONIC 开发的对比</h1><h2 id="1-react-native-介绍"><a href="#1-react-native-介绍" class="headerlink" title="1. react-native 介绍"></a>1. react-native 介绍</h2><p>react-native 是一款基于 js 框架 React.js 来开发 IOS 和 Android 原生 App 的开源框架，</p>
+<p>Learn once,write anywhere</p>
+  <span id="more"></span>
+
+<ul>
+<li><p>NR 和 react.js 关系</p>
+<p>RN 和 react.js 公用一些抽象层，比如语法标签等，但还是有许多差异，而且目标平台不同。</p>
+</li>
+<li><p>案例：<a target="_blank" rel="noopener" href="http://reactnative.cn/cases.html">http://reactnative.cn/cases.html</a></p>
+</li>
+<li><p>ionic 与 RN：ionic 是 webview，NR 是以 js 方式开发的原生应用</p>
+</li>
+</ul>
+<h2 id="2-搭建开发环境"><a href="#2-搭建开发环境" class="headerlink" title="2. 搭建开发环境"></a>2. 搭建开发环境</h2><p>macOS &#x3D;&gt;iOS</p>
+<ul>
+<li><p>安装 Homebrew&#x3D;&#x3D;dpkg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 node</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 yarn</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 react-native-cli</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 Xcode</p>
+<p>App Store 下载</p>
+</li>
+<li><p>安装 Watchman（非必需）(监视文件系统变更)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install watchman</span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+</ul>
+<h2 id="3-Hello-World"><a href="#3-Hello-World" class="headerlink" title="3. Hello World"></a>3. Hello World</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">react-native init myapp</span><br><span class="line">cd myapp</span><br><span class="line">react-native run-ios</span><br></pre></td></tr></table></figure>
+
+<p>packager</p>
+<p><img src="http://i1.piimg.com/567571/6a6e6c2842de1261.png"><img src="http://p1.bpimg.com/567571/bc237af092afadf1.png"></p>
+<p>修改 index.ios.js 文件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">Component</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AppRegistry</span>, <span class="title class_">Text</span> ,<span class="title class_">View</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;react-native&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyApp</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      	<span class="tag">&lt;<span class="name">Text</span>&gt;</span>Hello world!&#123;this.props.sss&#125;<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">AppRegistry</span>.<span class="title function_">registerComponent</span>(<span class="string">&#x27;myapp&#x27;</span>, <span class="function">() =&gt;</span> <span class="title class_">MyApp</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-ES6-语法-ECMAScript6"><a href="#4-ES6-语法-ECMAScript6" class="headerlink" title="4. ES6 语法(ECMAScript6)"></a>4. ES6 语法(ECMAScript6)</h2><h4 id="ES-与-JS-的关系"><a href="#ES-与-JS-的关系" class="headerlink" title="ES 与 JS 的关系"></a>ES 与 JS 的关系</h4><p>ES 是标准</p>
+<p>JS 是实现</p>
+<h4 id="常用："><a href="#常用：" class="headerlink" title="常用："></a>常用：</h4><p>let 和 const</p>
+<ul>
+<li><p>let 用来声明变量。只在所在的代码块内有效。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不存在变量提升</span></span><br><span class="line"><span class="comment">// var 的情况</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo); <span class="comment">// 输出undefined</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// let 的情况</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(bar); <span class="comment">// 报错ReferenceError</span></span><br><span class="line"><span class="keyword">let</span> bar = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//暂时性死区</span></span><br><span class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  tmp = <span class="string">&quot;abc&quot;</span>; <span class="comment">//报错</span></span><br><span class="line">  <span class="keyword">let</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+<li><p>const 定义常量</p>
+</li>
+</ul>
+<p>模版字符串&#96;&#96;（反引号）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//之前定义html字符串</span></span><br><span class="line">$(<span class="string">&quot;#result&quot;</span>).<span class="title function_">append</span>(<span class="string">&quot;There are &lt;b&gt;&quot;</span> + basket.<span class="property">count</span> + <span class="string">&quot;&lt;/b&gt; &quot;</span> + <span class="string">&quot;items in your basket, &quot;</span> + <span class="string">&quot;&lt;em&gt;&quot;</span> + basket.<span class="property">onSale</span> + <span class="string">&quot;&lt;/em&gt; are on sale!&quot;</span>);</span><br><span class="line"><span class="comment">//使用模版字符串，在字符串中可以嵌入变量</span></span><br><span class="line">$(<span class="string">&quot;#result&quot;</span>).<span class="title function_">append</span>(<span class="string">`</span></span><br><span class="line"><span class="string">  There are &lt;b&gt;<span class="subst">$&#123;basket.count&#125;</span>&lt;/b&gt; items</span></span><br><span class="line"><span class="string">   in your basket, &lt;em&gt;<span class="subst">$&#123;basket.onSale&#125;</span>&lt;/em&gt;</span></span><br><span class="line"><span class="string">  are on sale!</span></span><br><span class="line"><span class="string">`</span>);</span><br><span class="line"><span class="comment">//可以调用函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">`foo <span class="subst">$&#123;fn()&#125;</span> bar`</span>; <span class="comment">// foo Hello World bar</span></span><br></pre></td></tr></table></figure>
+
+<p>遍历器：为不同的数据结构提供统一的访问机制。</p>
+<p>​ 任何数据结构只要部署 Iterator 接口，都可以被遍历（Array，Object，Map，Set）</p>
+<p>​ for … of …循环</p>
+<p>引入了类 class 关键词</p>
+<p>Module（模块）常用！！</p>
+<p>react native 必须用的</p>
+<ul>
+<li><p>import ( ) from ()&#x2F;export</p>
+</li>
+<li><p>class () extends ()</p>
+</li>
+<li><p>(Data)&#x3D;&gt;{</p>
+</li>
+<li><p>}</p>
+</li>
+<li><p>function(data){</p>
+</li>
+<li><p>}</p>
+</li>
+<li><p>…（扩展运算符）</p>
+<p>扩展语法允许在需要多个参数（用于函数调用）或多个元素（用于数组文本）或多个变量（用于解构分配）的位置扩展表达式。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_operator">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_operator</a></p>
+</li>
+</ul>
+<p>浏览器不支持？Babel 转码器</p>
+<h2 id="5-JSX-语法"><a href="#5-JSX-语法" class="headerlink" title="5. JSX 语法"></a>5. JSX 语法</h2><p>将 xml 结构的语法嵌入到 js 中</p>
+<p>React 的核心机制之一就是可以在内存中创建虚拟 DOM 元素。React 利用虚拟 DOM 来减少对实际 DOM 的操作从而提升性能</p>
+<p>JSX 就是将 Javascript 和 XML 结合的一种格式。React 发明了 JSX，利用 HTML 语法来创建 DOM。</p>
+<p>当遇到&lt;时，jsx 就当 html 解析</p>
+<p>当遇到{时，jsx 就当 javascript 解析</p>
+<p>react 与 angularjs 的最大的区别</p>
+<ul>
+<li>增强 html</li>
+<li>增强 js</li>
+</ul>
+<p>解释上边的 hello world</p>
+<ul>
+<li>引入 react 和 react-native 基础包</li>
+<li>定义一个组件（类）</li>
+<li>渲染方法 render()</li>
+<li>返回 jsx 语句</li>
+<li>使用 AppRegistry 将 MyApp 注册到应用中（根容器）</li>
+</ul>
+<h2 id="6-Flex-布局"><a href="#6-Flex-布局" class="headerlink" title="6. Flex 布局"></a>6. Flex 布局</h2><p>基本的样式属性</p>
+<ul>
+<li>flexDirection：row,row-reverse,column,column-reverse</li>
+<li>justifyContent：flex-start,center,flex-end,space-around,space-between</li>
+<li>alignItems：flex-start,center,flex-end,stretch</li>
+<li>flexWrap：wrap,nowrap</li>
+</ul>
+<h2 id="7-网络请求"><a href="#7-网络请求" class="headerlink" title="7. 网络请求"></a>7. 网络请求</h2><h4 id="ajax-方式："><a href="#ajax-方式：" class="headerlink" title="ajax 方式："></a>ajax 方式：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&quot;GET&quot;</span>, url);</span><br><span class="line">xhr.<span class="property">responseType</span> = <span class="string">&quot;json&quot;</span>;</span><br><span class="line">xhr.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(xhr.<span class="property">response</span>);</span><br><span class="line">&#125;;</span><br><span class="line">xhr.<span class="property">onerror</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Oops, error&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">xhr.<span class="title function_">send</span>();</span><br></pre></td></tr></table></figure>
+
+<h4 id="angularjs-方式："><a href="#angularjs-方式：" class="headerlink" title="angularjs 方式："></a>angularjs 方式：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$http</span><br><span class="line">  .<span class="title function_">get</span>(url)</span><br><span class="line">  .<span class="title function_">success</span>(<span class="keyword">function</span> (<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">error</span>(<span class="keyword">function</span> (<span class="params">err</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Fetch-方式"><a href="#Fetch-方式" class="headerlink" title="Fetch 方式"></a>Fetch 方式</h4><ul>
+<li>箭头函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(data))</span><br><span class="line">  .<span class="title function_">catch</span>(<span class="function"><span class="params">e</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Oops, error&quot;</span>, e));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>普通回调</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> response.<span class="title function_">json</span>();</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">catch</span>(<span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Oops, error&quot;</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>async&#x2F;await 终极优化</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url);</span><br><span class="line">  <span class="keyword">let</span> data = response.<span class="title function_">json</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Oops, error&quot;</span>, e);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 注：这段代码如果想运行，外面需要包一个 async function</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="8-react-native-基础知识"><a href="#8-react-native-基础知识" class="headerlink" title="8. react native 基础知识"></a>8. react native 基础知识</h2><h4 id="属性-props"><a href="#属性-props" class="headerlink" title="属性 props"></a>属性 props</h4><ul>
+<li>一般使用在自定义组件中,用来提高自定义组件的可复用性</li>
+<li>在父组件中指定，在组件的生命周期中不会改变</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">Component</span> &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AppRegistry</span>, <span class="title class_">Text</span>, <span class="title class_">View</span> &#125; <span class="keyword">from</span> <span class="string">&quot;react-native&quot;</span>;</span><br><span class="line"><span class="comment">//自定义组件</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Greeting</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Text</span>&gt;</span>Hello &#123;this.props.hh&#125;!<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LotsOfGreetings</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">alignItems:</span> &quot;<span class="attr">center</span>&quot; &#125;&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Greeting</span> <span class="attr">name</span>=<span class="string">&quot;Rexxar&quot;</span> <span class="attr">hh</span>=<span class="string">&quot;asd&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Greeting</span> <span class="attr">name</span>=<span class="string">&quot;Jaina&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Greeting</span> <span class="attr">name</span>=<span class="string">&quot;Valeera&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">AppRegistry</span>.<span class="title function_">registerComponent</span>(<span class="string">&quot;LotsOfGreetings&quot;</span>, <span class="function">() =&gt;</span> <span class="title class_">LotsOfGreetings</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="状态-state"><a href="#状态-state" class="headerlink" title="状态 state"></a>状态 state</h4><ul>
+<li>组件内部存在需要改变的数据，或者组件存在不同状态信息</li>
+<li>在 constructor()中初始化 state，改变状态时需要调用 setState 方法</li>
+</ul>
+<h4 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h4><ul>
+<li>图解</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20160703034722480" alt="http://img.blog.csdn.net/20160703034722480"></p>
+<h4 id="处理文本输入"><a href="#处理文本输入" class="headerlink" title="处理文本输入"></a>处理文本输入</h4><ul>
+<li><p>TextInput 组件 有一个 onChangeText 的属性。(状态)</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">Component</span> &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AppRegistry</span>, <span class="title class_">Text</span>, <span class="title class_">TextInput</span>, <span class="title class_">View</span> &#125; <span class="keyword">from</span> <span class="string">&quot;react-native&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PizzaTranslator</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(props);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">state</span> = &#123; <span class="attr">text</span>: <span class="string">&quot;&quot;</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">padding:</span> <span class="attr">10</span> &#125;&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">TextInput</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">height:</span> <span class="attr">40</span> &#125;&#125; <span class="attr">placeholder</span>=<span class="string">&quot;Type here to translate!&quot;</span> <span class="attr">onChangeText</span>=<span class="string">&#123;text</span> =&gt;</span> this.setState(&#123; text &#125;)&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Text</span>&gt;</span>&#123;this.state.text&#125;<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">AppRegistry</span>.<span class="title function_">registerComponent</span>(<span class="string">&quot;PizzaTranslator&quot;</span>, <span class="function">() =&gt;</span> <span class="title class_">PizzaTranslator</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="9-ionic-简单介绍"><a href="#9-ionic-简单介绍" class="headerlink" title="9. ionic 简单介绍"></a>9. ionic 简单介绍</h2><p>​ 官网介绍：**<em>The top open source framework for building amazing mobile apps.</em>**</p>
+<p>####1. 主要技术</p>
+<ul>
+<li>HTML5</li>
+<li>JavaScript</li>
+<li>Angularjs</li>
+<li>Cordova</li>
+<li>Sass</li>
+<li>Typescript（ionic2）</li>
+</ul>
+<p>####2. 特点</p>
+<ul>
+<li>使用 Javascript MVVM 框架和 Angularjs 来构建应用</li>
+<li>双向绑定</li>
+<li>web 思维</li>
+<li>跨平台</li>
+</ul>
+<h2 id="10-react-native-与-ionic-对比"><a href="#10-react-native-与-ionic-对比" class="headerlink" title="10.react native 与 ionic 对比"></a>10.react native 与 ionic 对比</h2><h4 id="1-跨平台特性"><a href="#1-跨平台特性" class="headerlink" title="1. 跨平台特性"></a>1. 跨平台特性</h4><p>​ ionic：write once，run anywhere</p>
+<p>​ react native：learn once, write anywhere</p>
+<h4 id="2-学习曲线"><a href="#2-学习曲线" class="headerlink" title="2. 学习曲线"></a>2. 学习曲线</h4><p>​ ionic: 只需要会 html css js 既可</p>
+<p>​ react native ：只需要 js 既可 😄，当然不是普通的 js</p>
+<h4 id="3-功能"><a href="#3-功能" class="headerlink" title="3. 功能"></a>3. 功能</h4><p>​ 两种方式都基本实现了所有的 native 原生 api，不过可能需要自己写代码。。。</p>
+<h4 id="4-性能"><a href="#4-性能" class="headerlink" title="4. 性能"></a>4. 性能</h4><p>​ ionic：在 ios 上基本无法区分是否原生 app</p>
+<p>​ android 上需要使用 ionic-native-transitions 插件调用原生组件，性能略差</p>
+<p>​ 对于配置低的 android，添加 crosswalk 插件后，体验有所提升，打包偏大</p>
+<p>​ react native： 基本接近原生 app</p>
+<h4 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h4><h5 id="ionic-："><a href="#ionic-：" class="headerlink" title="ionic ："></a>ionic ：</h5><p>优势： ios 和 android 基本上可以共用代码，纯 web 思维</p>
+<p>​ 文档很全，系统级支持封装较好，所有 UI 组件都是有 html 模拟，可以统一使用。</p>
+<p>​ 可实现在线更新 允许加载动态加载 web js</p>
+<p>​ 技术成熟</p>
+<p>劣势：</p>
+<p>​ 占用内存高一些，动画不自然，用户体验较差。</p>
+<h5 id="react-native-："><a href="#react-native-：" class="headerlink" title="react-native ："></a>react-native ：</h5><p>优势</p>
+<p>​ 1、使用 js 进行开发。用户体验，高于 html，开发效率较高</p>
+<p>​ 2、flexbox 布局 据说比 native 的自适应布局更加简单高效 可实现在线更新</p>
+<p>​ 3、允许运行于 JavascriptCore 的动态加载代码 更贴近原生开发</p>
+<p>劣势：</p>
+<p>​ 对开发人员要求较高，不是懂点 web 技术就行的，当官方封装的控件、api 无法满足需求时 就必然需要懂一些 native 的东西去扩展，扩展性仍然远远不如 web，也远远不如直接写 Native code。</p>
+<h2 id="11-写一个小应用"><a href="#11-写一个小应用" class="headerlink" title="11. 写一个小应用"></a>11. 写一个小应用</h2><h4 id="1-简单需求描述"><a href="#1-简单需求描述" class="headerlink" title="1. 简单需求描述"></a>1. 简单需求描述</h4><ul>
+<li><p>要有文章列表</p>
+<p><img src="http://i1.piimg.com/567571/04896860f59c4aca.png"></p>
+</li>
+<li><p>要有图片列表</p>
+<p><img src="http://p1.bpimg.com/567571/63adc06835b318cf.png"></p>
+</li>
+<li><p>要有地图</p>
+<p><img src="http://p1.bpimg.com/567571/135c6fb9e748fdcb.png"></p>
+</li>
+<li><p>三个功能，还需要 tab</p>
+</li>
+</ul>
+<h4 id="2-准备阶段"><a href="#2-准备阶段" class="headerlink" title="2. 准备阶段"></a>2. 准备阶段</h4><ul>
+<li><p>接口准备：</p>
+<p>分类数据: <a target="_blank" rel="noopener" href="http://gank.io/api/data/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E8%AF%B7%E6%B1%82%E4%B8%AA%E6%95%B0/%E7%AC%AC%E5%87%A0%E9%A1%B5">http://gank.io/api/data/数据类型/请求个数/第几页</a></p>
+<p>数据类型： 福利 | Android | iOS | 休息视频 | 拓展资源 | 前端 | all</p>
+<p>请求个数： 数字，大于 0</p>
+<p>第几页：数字，大于 0</p>
+</li>
+<li><p>功能所需插件准备：</p>
+<pre><code>&quot;react-native-maps&quot;: &quot;0.13.0&quot;,//地图
+&quot;react-native-router-flux&quot;: &quot;^3.37.0&quot;,//路由
+&quot;react-native-vector-icons&quot;: &quot;^4.0.0&quot;//字体图标
+</code></pre>
+</li>
+<li><p>应用框架图</p>
+<p><img src="http://p1.bpimg.com/567571/4428f3dd8b905115.png"></p>
+</li>
+</ul>
+<h4 id="3-开发"><a href="#3-开发" class="headerlink" title="3.开发"></a>3.开发</h4><ul>
+<li><p>新建项目 init</p>
+</li>
+<li><p>定义路由</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Router</span> onExitApp=&#123;<span class="variable language_">this</span>.<span class="property">_backAndroidHandler</span>&#125;&gt;</span><br><span class="line">                <span class="language-xml"><span class="tag">&lt;<span class="name">Scene</span> <span class="attr">key</span>=<span class="string">&quot;root&quot;</span> <span class="attr">hideNavBar</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;<span class="name">Scene</span> <span class="attr">key</span>=<span class="string">&quot;tabbar&quot;</span> <span class="attr">tabs</span> <span class="attr">tabBarStyle</span>=<span class="string">&#123;&#123;</span> <span class="attr">backgroundColor:</span> &#x27;#<span class="attr">FFF</span>&#x27;, <span class="attr">borderTopWidth:</span> <span class="attr">1</span>, <span class="attr">borderTopColor:</span> &#x27;#<span class="attr">BBB</span>&#x27; &#125;&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">Scene</span> <span class="attr">key</span>=<span class="string">&quot;tab1&quot;</span> <span class="attr">initial</span> <span class="attr">title</span>=<span class="string">&quot;前端&quot;</span> <span class="attr">icon</span>=<span class="string">&#123;TabIcon&#125;</span> <span class="attr">tabIcon</span>=<span class="string">&quot;home&quot;</span> <span class="attr">navigationBarStyle</span>=<span class="string">&#123;&#123;</span> <span class="attr">backgroundColor:</span> &#x27;#<span class="attr">ffdb42</span>&#x27; &#125;&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">                            <span class="tag">&lt;<span class="name">Scene</span> <span class="attr">key</span>=<span class="string">&#x27;article&#x27;</span> <span class="attr">component</span>=<span class="string">&#123;Article&#125;</span> <span class="attr">title</span>=<span class="string">&#x27;Web Front-end&#x27;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                            <span class="tag">&lt;<span class="name">Scene</span> <span class="attr">key</span>=<span class="string">&#x27;articlecontent&#x27;</span> <span class="attr">component</span>=<span class="string">&#123;ArticleContent&#125;</span> <span class="attr">title</span>=<span class="string">&quot;content&quot;</span> <span class="attr">hideTabBar</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;/<span class="name">Scene</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">Scene</span> <span class="attr">key</span>=<span class="string">&quot;tab2&quot;</span> <span class="attr">title</span>=<span class="string">&quot;妹纸&quot;</span> <span class="attr">icon</span>=<span class="string">&#123;TabIcon&#125;</span> <span class="attr">tabIcon</span>=<span class="string">&quot;venus&quot;</span> <span class="attr">navigationBarStyle</span>=<span class="string">&#123;&#123;</span> <span class="attr">backgroundColor:</span> &#x27;#<span class="attr">ffdb42</span>&#x27; &#125;&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">                            <span class="tag">&lt;<span class="name">Scene</span> <span class="attr">key</span>=<span class="string">&#x27;meizhi&#x27;</span> <span class="attr">component</span>=<span class="string">&#123;MeiZhi&#125;</span> <span class="attr">title</span>=<span class="string">&#x27;妹纸图&#x27;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;/<span class="name">Scene</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                         <span class="tag">&lt;<span class="name">Scene</span> <span class="attr">key</span>=<span class="string">&quot;tab3&quot;</span> <span class="attr">title</span>=<span class="string">&quot;地图&quot;</span> <span class="attr">icon</span>=<span class="string">&#123;TabIcon&#125;</span> <span class="attr">tabIcon</span>=<span class="string">&quot;map&quot;</span> <span class="attr">navigationBarStyle</span>=<span class="string">&#123;&#123;</span> <span class="attr">backgroundColor:</span> &#x27;#<span class="attr">ffdb42</span>&#x27; &#125;&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">                            <span class="tag">&lt;<span class="name">Scene</span> <span class="attr">key</span>=<span class="string">&#x27;maps&#x27;</span> <span class="attr">component</span>=<span class="string">&#123;Maps&#125;</span> <span class="attr">title</span>=<span class="string">&#x27;Maps&#x27;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;/<span class="name">Scene</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">Scene</span> <span class="attr">key</span>=<span class="string">&quot;tab4&quot;</span>  <span class="attr">title</span>=<span class="string">&quot;布局&quot;</span> <span class="attr">icon</span>=<span class="string">&#123;TabIcon&#125;</span> <span class="attr">tabIcon</span>=<span class="string">&quot;user-o&quot;</span> <span class="attr">navigationBarStyle</span>=<span class="string">&#123;&#123;</span> <span class="attr">backgroundColor:</span> &#x27;#<span class="attr">ffdb42</span>&#x27; &#125;&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">                            <span class="tag">&lt;<span class="name">Scene</span> <span class="attr">key</span>=<span class="string">&#x27;contacts&#x27;</span> <span class="attr">component</span>=<span class="string">&#123;Contacts&#125;</span> <span class="attr">title</span>=<span class="string">&#x27;flex布局&#x27;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;/<span class="name">Scene</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;/<span class="name">Scene</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">Scene</span>&gt;</span></span></span><br><span class="line">            &lt;/<span class="title class_">Router</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开发文章列表页面</p>
+</li>
+<li><p>开发文章详情页面</p>
+</li>
+<li><p>开发图片列表页面</p>
+</li>
+<li><p>开发地图显示页面</p>
+</li>
+</ul>
+<h4 id="4-优化"><a href="#4-优化" class="headerlink" title="4.优化"></a>4.优化</h4><ul>
+<li>文章列表和图片列表的下拉刷新和上拉加载</li>
+<li>点击图片显示大图</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/houxiaozhao">houxiaozhao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cdtools.click/2017/05/05/React Native 简介-reactnative简介/">https://cdtools.click/2017/05/05/React Native 简介-reactnative简介/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">此文章版权归houxiaozhao所有，如有转载，请注明来自原作者</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a><a class="post-meta__tags" href="/tags/Android/">Android</a><a class="post-meta__tags" href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a><a class="post-meta__tags" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91/">跨平台开发</a><a class="post-meta__tags" href="/tags/React-Native/">React Native</a><a class="post-meta__tags" href="/tags/Ionic/">Ionic</a><a class="post-meta__tags" href="/tags/iOS/">iOS</a><a class="post-meta__tags" href="/tags/Mobile-App-Development/">Mobile App Development</a><a class="post-meta__tags" href="/tags/Front-end-Technology/">Front-end Technology</a><a class="post-meta__tags" href="/tags/Cross-platform-Framework/">Cross-platform Framework</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-105.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2017/06/03/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%92%8Cangularjs-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%92%8Cangularjs/" title="现代前端技术栈与AngularJS开发实践"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-149.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">现代前端技术栈与AngularJS开发实践</div></div><div class="info-2"><div class="info-item-1">前端技术栈 浏览器&#x2F;渲染引擎  IE chrome firefox Safari QQ&#x2F;360???????   前端核心  HTML&#x2F;HTML5,   DOM 树 元素 属性   JavaScript  原型（prototype） Scope JSON https://baike.baidu.com/item/JSON/2462549?fr=aladdin AJAX Promise(解决回调函数嵌套过多的问题) http://callbackhell.com/ http://liubin.org/promises-book/     CSS  使用浏览器调试样式     编辑器  sublime text 3 WebStorm VSCode（推荐！！）   构建工具&#x2F;生成器   Yeoman http://yeoman.io/generators/ Grunt gulp&#x2F;&#x2F;在用 webpack&#x2F;&#x2F;在用   调试  Developer...</div></div></div></a><a class="pagination-related" href="/2017/01/18/angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%882%EF%BC%89-angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%962/" title="AngularJS和Ionic应用性能优化实践与技巧"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-535.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">AngularJS和Ionic应用性能优化实践与技巧</div></div><div class="info-2"><div class="info-item-1">angular 性能优化 使用$watchCollection(obj, listener)，不要使用$watch()或者$watchGroup();  使用 one-time binding 1&#123;&#123;::user.first_name&#125;&#125;    使用 Track by以前的用法ng-repeat=&quot;user in users&quot;修改后的用法ng-repeat=&quot;user in users track by user.id&quot;如果 users 有 id 的话或者ng-repeat=&quot;user in users track by $index&quot;如果没有 id  不要使用 console.log(),而是用$log The $log service has several log levels .info .debug and .error.  禁用...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2019/05/04/Hybrid%20App%20%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B(Vue+Android)%E5%9F%BA%E4%BA%8EJavaScript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8FAPP%E5%BC%80%E5%8F%91-hybridapp%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8Bvueandroid%E5%9F%BA%E4%BA%8Ejavascript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8Fapp%E5%BC%80%E5%8F%91/" title="Vue.js与Cordova构建混合应用：从环境搭建到插件集成"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-462.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-05-04</div><div class="info-item-2">Vue.js与Cordova构建混合应用：从环境搭建到插件集成</div></div><div class="info-2"><div class="info-item-1">准备开发环境 前端开发环境  Node.js LTS @vue&#x2F;cli cordova yarn 推荐   编辑器 VS code(墙裂推荐) 各种插件         Android 环境（需要编译 Android 软件） 安装 JDK 设置环境变量   安装 SDK?Android Studio - 设置环境变量https://blog.csdn.net/pupilxiaoming/article/details/77801398    ###项目搭建  使用脚手架生成基础项目  cordova 项目 cordova create demo cordova platform add android cordova run android 目录结构 www 存放网页代码 plugins 插件 platforms 平台 res 资源   调试chrome://inspect/#devices   vue 项目 vue create demo yarn npm run serve 目录结构 public 静态资源 src 源码   安装一个 UI 框架...</div></div></div></a><a class="pagination-related" href="/2017/01/18/angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%882%EF%BC%89-angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%962/" title="AngularJS和Ionic应用性能优化实践与技巧"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-535.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-01-18</div><div class="info-item-2">AngularJS和Ionic应用性能优化实践与技巧</div></div><div class="info-2"><div class="info-item-1">angular 性能优化 使用$watchCollection(obj, listener)，不要使用$watch()或者$watchGroup();  使用 one-time binding 1&#123;&#123;::user.first_name&#125;&#125;    使用 Track by以前的用法ng-repeat=&quot;user in users&quot;修改后的用法ng-repeat=&quot;user in users track by user.id&quot;如果 users 有 id 的话或者ng-repeat=&quot;user in users track by $index&quot;如果没有 id  不要使用 console.log(),而是用$log The $log service has several log levels .info .debug and .error.  禁用...</div></div></div></a><a class="pagination-related" href="/2023/09/26/uniapp%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E7%9A%84MD5/" title="uniapp 的 Android 端获取照片的MD5"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-572.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-26</div><div class="info-item-2">uniapp 的 Android 端获取照片的MD5</div></div><div class="info-2"><div class="info-item-1">使用spark-md5这个包计算文件的 md5 值，但是在 Uniapp 安卓端没有 FileReader 这个方法。 可以利用 plus.io.FileReader 读取照片 base64 内容，然后再计算 md5 代码12345678910111213141516171819202122232425/** * 获取照片 md5 */function getMD5(path) &#123;  return new Promise((resolve, reject) =&gt; &#123;    plus.io.resolveLocalFileSystemURL(path, entry =&gt; &#123;      var fileReader = new plus.io.FileReader();      fileReader.readAsDataURL(entry);      fileReader.onloadend = function (evt) &#123;        //...</div></div></div></a><a class="pagination-related" href="/2017/01/18/ionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-ionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="Ionic应用性能提升技巧：页面转场优化与缓存策略"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-182.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-01-18</div><div class="info-item-2">Ionic应用性能提升技巧：页面转场优化与缓存策略</div></div><div class="info-2"><div class="info-item-1">ionic-native-transitions 下载 npm install ionic-native-transitions –save  安装 cordova plugin add https://github.com/Telerik-Verified-Plugins/NativePageTransitions   引入   如果是 ios9，页面切换抖动，则安装 cordova plugin add cordova-plugin-wkwebvie  注入 1angular.module(&quot;yourApp&quot;, [&quot;ionic-native-transitions&quot;]);  配置 123456789101112131415161718192021.config(function($ionicNativeTransitionsProvider)&#123;    $ionicNativeTransitionsProvider.setDefaultOptions(&#123;        duration: 400, // in...</div></div></div></a><a class="pagination-related" href="/2022/03/09/API%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%AE%BE%E8%AE%A1%EF%BC%8C%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE-api%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%AE%BE%E8%AE%A1%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE/" title="API安全防护：接口签名验证与防重放攻击实现"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-463.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-09</div><div class="info-item-2">API安全防护：接口签名验证与防重放攻击实现</div></div><div class="info-2"><div class="info-item-1"> 为了保证 api 接口安全，防止数据被篡改，需要设计 api 签名机制。以下为签名过程  接口签名算法1. 获取参数 一共 4 部分的参数 path query body 时间戳 {timestamp} 随机字符串 {nocestr}  2. 合并参数，然后排序(body 中可能嵌套多层 json,需要递归对对象属性排序，数组的顺序不变)3. 对上一步对象转为字符串，然后 md5 加密4. 再用用户 token 为 key，对 md5 加密后的字符串用 hmacSHA512 加密得到 sign5. http 请求 header 中添加 sign、timestamp、nocestr前端签名实现如下12345678import hmacSHA512 from &quot;crypto-js/hmac-sha512&quot;;import md5 from &quot;crypto-js/md5&quot;;const timestamp = +new Date();const nocestr = generateNoceStr();const data =...</div></div></div></a><a class="pagination-related" href="/2021/04/07/Node%20js%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%20-nodejs%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="Node.js 错误处理实用指南：Promise与Async&#x2F;Await最佳实践"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-544.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-07</div><div class="info-item-2">Node.js 错误处理实用指南：Promise与Async&#x2F;Await最佳实践</div></div><div class="info-2"><div class="info-item-1">Node.js 错误处理最佳实践使用 Promise 捕获错误123456789101112131415161718192021222324let func = function (n) &#123;  return new Promise((resolve, reject) =&gt; &#123;    resolve(n * n);  &#125;);&#125;;func(2)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .then(res =&gt; &#123;    console.log(res);    throw new Error(&quot;Error&quot;);  &#125;)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .catch(err =&gt; &#123;    console.log(err);  &#125;) ...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#react-native-%E5%BC%80%E5%8F%91-IOS-%E6%89%8B%E6%9C%BA%E5%BA%94%E7%94%A8%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E4%B8%8E-IONIC-%E5%BC%80%E5%8F%91%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">1.</span> <span class="toc-text">react native 开发 IOS 手机应用基本方法及其与 IONIC 开发的对比</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-react-native-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1. react-native 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">1.2.</span> <span class="toc-text">2. 搭建开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Hello-World"><span class="toc-number">1.3.</span> <span class="toc-text">3. Hello World</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-ES6-%E8%AF%AD%E6%B3%95-ECMAScript6"><span class="toc-number">1.4.</span> <span class="toc-text">4. ES6 语法(ECMAScript6)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ES-%E4%B8%8E-JS-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">ES 与 JS 的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%EF%BC%9A"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">常用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-JSX-%E8%AF%AD%E6%B3%95"><span class="toc-number">1.5.</span> <span class="toc-text">5. JSX 语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Flex-%E5%B8%83%E5%B1%80"><span class="toc-number">1.6.</span> <span class="toc-text">6. Flex 布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82"><span class="toc-number">1.7.</span> <span class="toc-text">7. 网络请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ajax-%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="toc-number">1.7.0.1.</span> <span class="toc-text">ajax 方式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#angularjs-%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="toc-number">1.7.0.2.</span> <span class="toc-text">angularjs 方式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fetch-%E6%96%B9%E5%BC%8F"><span class="toc-number">1.7.0.3.</span> <span class="toc-text">Fetch 方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-react-native-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.8.</span> <span class="toc-text">8. react native 基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7-props"><span class="toc-number">1.8.0.1.</span> <span class="toc-text">属性 props</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8A%B6%E6%80%81-state"><span class="toc-number">1.8.0.2.</span> <span class="toc-text">状态 state</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.8.0.3.</span> <span class="toc-text">组件生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5"><span class="toc-number">1.8.0.4.</span> <span class="toc-text">处理文本输入</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-ionic-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.9.</span> <span class="toc-text">9. ionic 简单介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-react-native-%E4%B8%8E-ionic-%E5%AF%B9%E6%AF%94"><span class="toc-number">1.10.</span> <span class="toc-text">10.react native 与 ionic 对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%89%B9%E6%80%A7"><span class="toc-number">1.10.0.1.</span> <span class="toc-text">1. 跨平台特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AD%A6%E4%B9%A0%E6%9B%B2%E7%BA%BF"><span class="toc-number">1.10.0.2.</span> <span class="toc-text">2. 学习曲线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%8A%9F%E8%83%BD"><span class="toc-number">1.10.0.3.</span> <span class="toc-text">3. 功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%80%A7%E8%83%BD"><span class="toc-number">1.10.0.4.</span> <span class="toc-text">4. 性能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%80%BB%E7%BB%93"><span class="toc-number">1.10.0.5.</span> <span class="toc-text">5. 总结</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ionic-%EF%BC%9A"><span class="toc-number">1.10.0.5.1.</span> <span class="toc-text">ionic ：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#react-native-%EF%BC%9A"><span class="toc-number">1.10.0.5.2.</span> <span class="toc-text">react-native ：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%86%99%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%BA%94%E7%94%A8"><span class="toc-number">1.11.</span> <span class="toc-text">11. 写一个小应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%AE%80%E5%8D%95%E9%9C%80%E6%B1%82%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.11.0.1.</span> <span class="toc-text">1. 简单需求描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%87%86%E5%A4%87%E9%98%B6%E6%AE%B5"><span class="toc-number">1.11.0.2.</span> <span class="toc-text">2. 准备阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%BC%80%E5%8F%91"><span class="toc-number">1.11.0.3.</span> <span class="toc-text">3.开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E4%BC%98%E5%8C%96"><span class="toc-number">1.11.0.4.</span> <span class="toc-text">4.优化</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-456.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-560.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-343.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-429.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>
