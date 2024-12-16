@@ -36,6 +36,8 @@ tags:
 
 在线使用地址：[https://jpg2pdf.cdtools.click/](https://jpg2pdf.cdtools.click/)
 
+欢迎访问我的博客：[https://cdtools.click](https://cdtools.click/)，这里有更多实用的工具和技术分享。
+
 ![lBofRG](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/11/lBofRG.png)
 
 ## 🔍 使用场景

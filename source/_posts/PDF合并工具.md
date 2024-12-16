@@ -36,7 +36,9 @@ description: 这是一款强大的在线PDF合并工具，完全免费且无需�
 
 # PDF 合并工具 - 在线免费 PDF 合并
 
-[在线使用地址](https://merge-pdf.cdtools.click)
+在线体验：[https://merge-pdf.cdtools.click](https://merge-pdf.cdtools.click)
+
+欢迎访问我的博客：[https://cdtools.click](https://cdtools.click/)，这里有更多实用的工具和技术分享。
 
 ![jvOcKs](https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/06/jvOcKs.png)
 
@@ -81,7 +83,7 @@ PDF 合并工具是一个简单易用的在线 PDF 文件合并工具，可以�
 - 如果文件较大，合并时可能需要等待几秒钟
 - 所有文件都在本地处理，不会上传到服务器
 
-[开源地址] (https://github.com/houxiaozhao/pdfmerge)
+开源地址 [https://github.com/houxiaozhao/pdfmerge](https://github.com/houxiaozhao/pdfmerge)
 
 ## 问题反馈
 
