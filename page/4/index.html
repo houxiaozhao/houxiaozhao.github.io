@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>houxiaozhao部落格 - 我欲修仙，法力无边</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="houxiaozhao部落格">
+<meta property="og:url" content="https://cdtools.click/page/4/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/14978325">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="前端,Node.js,Web,JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/14978325"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/page/4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'houxiaozhao部落格',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/01/12/M0b0Vl.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">houxiaozhao部落格</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2022/07/21/%E5%AF%86%E9%92%A5%E4%BC%A0%E8%BE%93%E5%92%8C%E7%AD%BE%E5%90%8D%E5%8A%A0%E5%AF%86%E6%B5%81%E7%A8%8B%EF%BC%88%E5%9B%BD%E5%AF%86%EF%BC%89/" title="国密算法应用：前后端加密通信与数据签名实现"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-438.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="国密算法应用：前后端加密通信与数据签名实现"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/07/21/%E5%AF%86%E9%92%A5%E4%BC%A0%E8%BE%93%E5%92%8C%E7%AD%BE%E5%90%8D%E5%8A%A0%E5%AF%86%E6%B5%81%E7%A8%8B%EF%BC%88%E5%9B%BD%E5%AF%86%EF%BC%89/" title="国密算法应用：前后端加密通信与数据签名实现">国密算法应用：前后端加密通信与数据签名实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-21T15:47:31.000Z" title="发表于 2022-07-21 15:47:31">2022-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%8A%A0%E5%AF%86%E6%8A%80%E6%9C%AF/">加密技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%8A%A0%E5%AF%86%E6%8A%80%E6%9C%AF/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">系统开发</a></span></div><div class="content">密钥传输流程 系统内置一套公钥和私钥  打开前端时自动获取其中公钥(公钥不需要加密)  前端随机生成一个 sm4 的 key 和 iv，使用公钥对 key 和 iv 进行加密，传到后台 （已加密），后台使用私钥解密能拿到原始 key 和 iv,然后在生成一套公私钥，key、iv 和公钥存到 redis 中。每个用户的 key、iv 和公私钥都是不一样的，重新打开页面也会重新生成 key、iv 和公私钥。私钥使用 sm4 的 cbc 模式加密后传给前端已加密。  前端再使用刚才随机生成的 key 和 iv 解密拿到私钥。前端使用这个私钥对请求进行签名。     前端向后端加密传输 前端拦截请求，对请求中 body 使用 sm2 的公钥加密或使用 sm4 cbc 模式加密（目前使用的 sm2 加密）  后端收到请求后，在验签之前使用私钥把 body 数据解密，然后再验签。  前端拦截请求，对请求中 body 先使用 sm3 计算哈希，然后把哈希值和明文数据拼接后，使用 sm2 公钥加密或使用 sm4 cbc 模式加密（目前使用的 sm2...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/07/20/Vuetify%20%E8%87%AA%E5%AE%9A%E4%B9%89SVG%E5%9B%BE%E6%A0%87/" title="Vuetify 自定义SVG图标"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-492.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vuetify 自定义SVG图标"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/07/20/Vuetify%20%E8%87%AA%E5%AE%9A%E4%B9%89SVG%E5%9B%BE%E6%A0%87/" title="Vuetify 自定义SVG图标">Vuetify 自定义SVG图标</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-20T16:52:30.000Z" title="发表于 2022-07-20 16:52:30">2022-07-20</time></span></div><div class="content">Vuetify 自定义 SVG 图标 Vite Vuetify vite-plugin-svg-icons   首先配置 svg 插件https://github.com/vbenjs/vite-plugin-svg-icons/blob/main/README.zh_CN.md 12345678910111213141516171819202122232425262728293031323334353637383940414243// vite.config.jsimport &#123; defineConfig, loadEnv &#125; from &quot;vite&quot;;import legacy from &quot;@vitejs/plugin-legacy&quot;;import &#123; createVuePlugin &#125; from &quot;vite-plugin-vue2&quot;;import viteCompression from &quot;vite-plugin-compression&quot;;import...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/04/15/%E4%BD%BF%E7%94%A8PopClip%E8%B0%83%E8%B5%B7uTools-shi-yong-popclip-diao-qi-utools/" title="PopClip与uTools整合：提升Mac效率工具协同体验"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-171.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PopClip与uTools整合：提升Mac效率工具协同体验"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/15/%E4%BD%BF%E7%94%A8PopClip%E8%B0%83%E8%B5%B7uTools-shi-yong-popclip-diao-qi-utools/" title="PopClip与uTools整合：提升Mac效率工具协同体验">PopClip与uTools整合：提升Mac效率工具协同体验</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-15T12:20:14.332Z" title="发表于 2022-04-15 12:20:14">2022-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Mac%E5%BA%94%E7%94%A8/">Mac应用</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Mac%E5%BA%94%E7%94%A8/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B/">软件教程</a></span></div><div class="content">在我这里 PopClip 和 uTools 都是重要的生产工具，把两者关联到一起可以进一步提高效率 前提PopClip 更新到 2021.11 版本或以上，支持快速安装扩展 扩展如下 1234567# popclip jsname: Utoolsrequirements: [text]actions:  - title: 用Utools打开    icon: circle filled U    javascript: popclip.pressKey(util.constant.KEY_SPACE, util.constant.MODIFIER_OPTION);popclip.pasteText(popclip.input.text)  选择上边文字，然后点击install Extension &quot;Utools&quot;如果没有弹出 popclip 菜单，就把上边内容复制到其他位置再试。 如果打开 uTools 的快捷键不是 opt+空格，需要替换 popclip.pressKey...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/03/09/rsa%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86%E3%80%81node%E5%90%8E%E7%AB%AF%E8%A7%A3%E5%AF%86-rsa%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86node%E5%90%8E%E7%AB%AF%E8%A7%A3%E5%AF%86/" title="RSA加密实践：前端加密与Node.js后端解密的实现方法"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-446.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="RSA加密实践：前端加密与Node.js后端解密的实现方法"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/03/09/rsa%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86%E3%80%81node%E5%90%8E%E7%AB%AF%E8%A7%A3%E5%AF%86-rsa%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86node%E5%90%8E%E7%AB%AF%E8%A7%A3%E5%AF%86/" title="RSA加密实践：前端加密与Node.js后端解密的实现方法">RSA加密实践：前端加密与Node.js后端解密的实现方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-09T16:59:10.381Z" title="发表于 2022-03-09 16:59:10">2022-03-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Web%E5%AE%89%E5%85%A8/">Web安全</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Web%E5%AE%89%E5%85%A8/%E5%8A%A0%E5%AF%86%E6%8A%80%E6%9C%AF/">加密技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Web%E5%AE%89%E5%85%A8/%E5%8A%A0%E5%AF%86%E6%8A%80%E6%9C%AF/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/">全栈开发</a></span></div><div class="content"> 对用户敏感数据进行加密处理，后端再解密。比如登录时的密码  由后端生成公钥node 使用node-rsa 123456import NodeRSA = require(&#x27;node-rsa&#x27;);const RSA = new NodeRSA(&#123; b: 512 &#125;);RSA.setOptions(&#123; encryptionScheme: &#x27;pkcs1&#x27; &#125;);const pubkey = RSA.exportKey(&#x27;pkcs8-public-pem&#x27;); // 生成公钥，发给前端用于数据加密，不导出私钥信息this.app.pubkey = pubkey;this.app.RSA = RSA;// 把RSA对象保存在程序内存，随时调用  前端加密前端使用jsencrypt 1234import JSEncrypt from &quot;jsencrypt&quot;;const encryptor = new...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/03/09/API%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%AE%BE%E8%AE%A1%EF%BC%8C%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE-api%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%AE%BE%E8%AE%A1%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE/" title="API安全防护：接口签名验证与防重放攻击实现"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="API安全防护：接口签名验证与防重放攻击实现"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/03/09/API%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%AE%BE%E8%AE%A1%EF%BC%8C%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE-api%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%AE%BE%E8%AE%A1%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE/" title="API安全防护：接口签名验证与防重放攻击实现">API安全防护：接口签名验证与防重放攻击实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-09T15:04:07.111Z" title="发表于 2022-03-09 15:04:07">2022-03-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/API%E5%AE%89%E5%85%A8/">API安全</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/API%E5%AE%89%E5%85%A8/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/API%E5%AE%89%E5%85%A8/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/">系统架构</a></span></div><div class="content"> 为了保证 api 接口安全，防止数据被篡改，需要设计 api 签名机制。以下为签名过程  接口签名算法1. 获取参数 一共 4 部分的参数 path query body 时间戳 {timestamp} 随机字符串 {nocestr}  2. 合并参数，然后排序(body 中可能嵌套多层 json,需要递归对对象属性排序，数组的顺序不变)3. 对上一步对象转为字符串，然后 md5 加密4. 再用用户 token 为 key，对 md5 加密后的字符串用 hmacSHA512 加密得到 sign5. http 请求 header 中添加 sign、timestamp、nocestr前端签名实现如下12345678import hmacSHA512 from &quot;crypto-js/hmac-sha512&quot;;import md5 from &quot;crypto-js/md5&quot;;const timestamp = +new Date();const nocestr = generateNoceStr();const data =...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/02/17/emqx%20docker-compose%20%E6%96%B9%E5%BC%8F%E9%83%A8%E7%BD%B2-emqxdocker-composefang-shi-bu-shu/" title="EMQX MQTT服务器：使用Docker Compose快速部署及Nginx反向代理配置"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-155.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="EMQX MQTT服务器：使用Docker Compose快速部署及Nginx反向代理配置"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/02/17/emqx%20docker-compose%20%E6%96%B9%E5%BC%8F%E9%83%A8%E7%BD%B2-emqxdocker-composefang-shi-bu-shu/" title="EMQX MQTT服务器：使用Docker Compose快速部署及Nginx反向代理配置">EMQX MQTT服务器：使用Docker Compose快速部署及Nginx反向代理配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-17T18:50:53.944Z" title="发表于 2022-02-17 18:50:53">2022-02-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/">消息中间件</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/Docker%E5%AE%B9%E5%99%A8%E5%8C%96/">Docker容器化</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/Docker%E5%AE%B9%E5%99%A8%E5%8C%96/%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2/">系统部署</a></span></div><div class="content">docker-compose.yml 1234567891011121314151617version: &quot;3&quot;services:  mqtt:    image: emqx/emqx:4.2.14    container_name: mqtt    restart: always    ports:      - &quot;1883:1883&quot;      - &quot;8083:8083&quot;    volumes:      - /etc/timezone:/etc/timezone      - /etc/localtime:/etc/localtime    environment:      - EMQX_LOADED_PLUGINS=&quot;emqx_recon,emqx_retainer,emqx_management,emqx_auth_username&quot;      - EMQX_ALLOW_ANONYMOUS=false      -...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/02/17/vue%E4%B8%AD%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%9A%84%E6%96%87%E6%9C%AC%E4%B8%AD%E5%8A%A0%E5%85%A5%E8%B7%B3%E8%BD%AC%E9%93%BE%E6%8E%A5%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F-vue-zhong-dong-tai-bang-ding-de-wen-ben-zhong-jia-ru-tiao-zhuan-lian-jie-chu-li-fang-shi/" title="Vue.js 动态文本中实现可点击链接 | Interactive Links in Vue Dynamic Text"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-491.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue.js 动态文本中实现可点击链接 | Interactive Links in Vue Dynamic Text"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/02/17/vue%E4%B8%AD%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%9A%84%E6%96%87%E6%9C%AC%E4%B8%AD%E5%8A%A0%E5%85%A5%E8%B7%B3%E8%BD%AC%E9%93%BE%E6%8E%A5%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F-vue-zhong-dong-tai-bang-ding-de-wen-ben-zhong-jia-ru-tiao-zhuan-lian-jie-chu-li-fang-shi/" title="Vue.js 动态文本中实现可点击链接 | Interactive Links in Vue Dynamic Text">Vue.js 动态文本中实现可点击链接 | Interactive Links in Vue Dynamic Text</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-17T18:45:19.037Z" title="发表于 2022-02-17 18:45:19">2022-02-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Vue-js/">Vue.js</a></span></div><div class="content">业务中有一块是通知中心，其中的通知文本中有的文字是可以点击跳转到其他页面的。但是又不想使用富文本渲染。遂采用以下实现方式  v-html 渲染 a 标签标识可跳转链接 dataset 设置参数  12345678910111213141516171819202122232425262728293031&lt;template&gt;  &lt;div&gt;    &lt;div v-html=&quot;text&quot; @click=&quot;click&quot;&gt;&lt;/div&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default &#123;  name: &quot;About&quot;,  data() &#123;    return &#123;      text: `你好，这是&lt;a data-name=&#x27;Preview&#x27; data-id=&#x27;123&#x27;...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/02/14/%E5%88%9B%E5%BB%BA%E5%BE%AA%E7%8E%AF%E6%97%A5%E6%9C%9F%E7%9A%84node%E5%BA%93date-recur%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-%E5%88%9B%E5%BB%BA%E5%BE%AA%E7%8E%AF%E6%97%A5%E6%9C%9F%E7%9A%84node%E5%BA%93date-recur%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Node.js 日期循环库：使用 date-recur 实现周期性任务调度"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-526.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Node.js 日期循环库：使用 date-recur 实现周期性任务调度"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/02/14/%E5%88%9B%E5%BB%BA%E5%BE%AA%E7%8E%AF%E6%97%A5%E6%9C%9F%E7%9A%84node%E5%BA%93date-recur%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-%E5%88%9B%E5%BB%BA%E5%BE%AA%E7%8E%AF%E6%97%A5%E6%9C%9F%E7%9A%84node%E5%BA%93date-recur%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Node.js 日期循环库：使用 date-recur 实现周期性任务调度">Node.js 日期循环库：使用 date-recur 实现周期性任务调度</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-14T17:07:47.801Z" title="发表于 2022-02-14 17:07:47">2022-02-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Node-js/">Node.js</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Node-js/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">时间处理</a></span></div><div class="content"> 因为在业务中周期性的任务，用到的该 node 库，记录一下备忘。业务需求是创建周期性的任务。比如每天，每隔几天，每周的周几，每月的几号，每年几月几号，以这些描述生成一系列的日期。  效果按天循环 按周循环 按月循环 按年循环 介绍 date-recur创建一个循环日期并查询它以查看它是否落在特定日期。使用方法详见npm date-recur 这里举几个例子12345678910const r = recur(start, end); //限定开始和结束日期// r.setDailyInterval(1); // 每天// r.setDailyInterval(2); //每两天// r.setDaysOfWeek(1)//每周一// r.setDaysOfWeek([1, 2]); //每周一周二// r.setWeeklyInterval(2).setDaysOfWeek(1); //每隔一周周一// r.setWeeklyInterval(3).setDaysOfWeek([1, 3]); //每三周周一周三// r.setDaysOfMonth(1); //每月一号//...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01/20/%E7%AE%80%E5%8D%95%E7%9A%84flask%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%AE%9E%E6%97%B6%E8%BF%94%E5%9B%9E%E5%9B%BE%E7%89%87%E7%BC%A9%E7%95%A5%E5%9B%BE-%E7%AE%80%E5%8D%95%E7%9A%84flask%E7%A8%8B%E5%BA%8F%E5%AE%9E%E6%97%B6%E8%BF%94%E5%9B%9E%E5%9B%BE%E7%89%87%E7%BC%A9%E7%95%A5%E5%9B%BE/" title="Flask 图片处理：构建高性能实时缩略图服务"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-480.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Flask 图片处理：构建高性能实时缩略图服务"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/20/%E7%AE%80%E5%8D%95%E7%9A%84flask%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%AE%9E%E6%97%B6%E8%BF%94%E5%9B%9E%E5%9B%BE%E7%89%87%E7%BC%A9%E7%95%A5%E5%9B%BE-%E7%AE%80%E5%8D%95%E7%9A%84flask%E7%A8%8B%E5%BA%8F%E5%AE%9E%E6%97%B6%E8%BF%94%E5%9B%9E%E5%9B%BE%E7%89%87%E7%BC%A9%E7%95%A5%E5%9B%BE/" title="Flask 图片处理：构建高性能实时缩略图服务">Flask 图片处理：构建高性能实时缩略图服务</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-20T10:34:59.094Z" title="发表于 2022-01-20 10:34:59">2022-01-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python%E5%BC%80%E5%8F%91/">Python开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python%E5%BC%80%E5%8F%91/Web%E6%9C%8D%E5%8A%A1/">Web服务</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python%E5%BC%80%E5%8F%91/Web%E6%9C%8D%E5%8A%A1/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a></span></div><div class="content"> 因为网页上图片太大，现在要生成缩略图返回。使用 python 的 Pillow 库处理图片缩略图并返回。  以下是 flask 程序，调用方法 GET &#x2F;images&#x2F;&lt;path&gt;?resize&#x3D;&lt;width&gt;*&lt;height&gt; 实现功能： 根据参数返回不同大小的缩略图，目前只支持 jpg 图片处理 使用的正则匹配路由，支持在 images 下的多级路径 不产生中间图片，全部在内存中处理。  注意：内部调用的是 thumbnail 方法。返回的图片并不是严格安装 resize 的参数进行返回。图片不会有拉伸效果。具体查看 Pillow 文档。 app.py12345678910111213141516171819202122232425262728293031323334353637from io import BytesIOfrom PIL import Imagefrom flask import Flask, request, send_filefrom werkzeug.routing import...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/01/19/%E4%BD%BF%E7%94%A8nps%E8%BF%9E%E6%8E%A5%E5%86%85%E7%BD%91ssh%E5%92%8C%E8%AE%BF%E9%97%AE%E7%BD%91%E9%A1%B5-%E4%BD%BF%E7%94%A8nps%E8%BF%9E%E6%8E%A5%E5%86%85%E7%BD%91ssh%E5%92%8C%E8%AE%BF%E9%97%AE%E7%BD%91%E9%A1%B5/" title="NPS内网穿透：SSH远程连接与Web访问实践方案"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-242.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NPS内网穿透：SSH远程连接与Web访问实践方案"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/19/%E4%BD%BF%E7%94%A8nps%E8%BF%9E%E6%8E%A5%E5%86%85%E7%BD%91ssh%E5%92%8C%E8%AE%BF%E9%97%AE%E7%BD%91%E9%A1%B5-%E4%BD%BF%E7%94%A8nps%E8%BF%9E%E6%8E%A5%E5%86%85%E7%BD%91ssh%E5%92%8C%E8%AE%BF%E9%97%AE%E7%BD%91%E9%A1%B5/" title="NPS内网穿透：SSH远程连接与Web访问实践方案">NPS内网穿透：SSH远程连接与Web访问实践方案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-19T10:33:46.494Z" title="发表于 2022-01-19 10:33:46">2022-01-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/">网络技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/">系统运维</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/%E5%AE%89%E5%85%A8%E8%AE%BF%E9%97%AE/">安全访问</a></span></div><div class="content">安装 NPS NPS 是提供服务的一个程序，需要安装在有外网 IP 的服务器上。https://github.com/ehang-io/nps/releases  点击查看安装教程 123sudo ./nps installsudo chmod +x npssudo nps start  编辑配置文件 1vim /etc/nps/conf/nps.conf  运行成功后打开 nps 后台管理界面登录创建一个客户端，填个名字，其他默认，点击创建。点击加号＋，展开可以看到一个客户端命令，复制。 安装 NPC NPC 客户端，安装在需要被穿透的内网环境下https://github.com/ehang-io/nps/releases  客户端下载下来进入到下载的目录，把复制的客户端命令粘贴运行即可。 docker-compose 运行docker-compose.yml 123456789101112version: &quot;3&quot;services:  eapinpc:    image: $&#123;NPC_IMAGE&#125;    container_name:...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-208.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-547.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-436.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">3D开发</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/"><span class="card-category-list-name">WebGL</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">图形编程</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><span class="card-category-list-name">计算机图形学</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">API安全</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">后端开发</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"><span class="card-category-list-name">系统架构</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87/" style="font-size: 1.1em; color: #999">开发效率</a> <a href="/tags/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 1.1em; color: #999">Chrome浏览器</a> <a href="/tags/API%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">API测试</a> <a href="/tags/Egg-js/" style="font-size: 1.5em; color: #99a9bf">Egg.js</a> <a href="/tags/Web%E5%AE%89%E5%85%A8/" style="font-size: 1.1em; color: #999">Web安全</a> <a href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">状态管理</a> <a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/" style="font-size: 1.1em; color: #999">过滤器</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" style="font-size: 1.1em; color: #999">开发框架</a> <a href="/tags/%E7%9D%A1%E7%9C%A0%E6%94%B9%E5%96%84/" style="font-size: 1.1em; color: #999">睡眠改善</a> <a href="/tags/npm%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">npm包管理</a> <a href="/tags/Koa/" style="font-size: 1.1em; color: #999">Koa</a> <a href="/tags/3D-Tiles/" style="font-size: 1.1em; color: #999">3D Tiles</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">开发工具</a> <a href="/tags/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1.5em; color: #99a9bf">国密算法</a> <a href="/tags/Vector2/" style="font-size: 1.1em; color: #999">Vector2</a> <a href="/tags/%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/" style="font-size: 1.1em; color: #999">格式转换</a> <a href="/tags/API%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">API开发</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%9B%91%E6%8E%A7/" style="font-size: 1.1em; color: #999">数据监控</a> <a href="/tags/Vector3/" style="font-size: 1.1em; color: #999">Vector3</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">前端优化</a> <a href="/tags/%E8%A1%8C%E4%B8%9A%E5%BA%94%E7%94%A8/" style="font-size: 1.1em; color: #999">行业应用</a> <a href="/tags/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">严格模式</a> <a href="/tags/%E7%A1%AC%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">硬件开发</a> <a href="/tags/WeUI/" style="font-size: 1.1em; color: #999">WeUI</a> <a href="/tags/Vite/" style="font-size: 1.1em; color: #999">Vite</a> <a href="/tags/%E6%97%85%E8%A1%8C%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">旅行工具</a> <a href="/tags/IP%E4%BC%98%E9%80%89/" style="font-size: 1.1em; color: #999">IP优选</a> <a href="/tags/Swagger/" style="font-size: 1.5em; color: #99a9bf">Swagger</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">移动应用开发</a> <a href="/tags/%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2/" style="font-size: 1.1em; color: #999">坐标变换</a> <a href="/tags/frontend/" style="font-size: 1.1em; color: #999">frontend</a> <a href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">云平台</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 1.5em; color: #99a9bf">图像处理</a> <a href="/tags/WebSocket/" style="font-size: 1.5em; color: #99a9bf">WebSocket</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.5em; color: #99a9bf">后端</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">微服务</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">定时器优化</a> <a href="/tags/%E8%89%BA%E6%9C%AF%E5%88%9B%E4%BD%9C/" style="font-size: 1.1em; color: #999">艺术创作</a> <a href="/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/" style="font-size: 1.1em; color: #999">实时通信</a> <a href="/tags/%E5%BA%A7%E4%BD%8D%E9%A2%84%E8%AE%A2/" style="font-size: 1.1em; color: #999">座位预订</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/" title="查看更多"><i class="fas fa-angle-right"></i></a>
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/12/">
+          <span class="card-archive-list-date">十二月 2024</span>
+          <span class="card-archive-list-count">7</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">十一月 2024</span>
+          <span class="card-archive-list-count">8</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/10/">
+          <span class="card-archive-list-date">十月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/08/">
+          <span class="card-archive-list-date">八月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/05/">
+          <span class="card-archive-list-date">五月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/09/">
+          <span class="card-archive-list-date">九月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/07/">
+          <span class="card-archive-list-date">七月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/06/">
+          <span class="card-archive-list-date">六月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">75</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">51.6k</div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-17T09:55:34.038Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (false) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  btf.getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        typedJSFn.init(sub)
+      } else {
+        document.getElementById('subtitle').textContent = result.data.content
+      }
+    })
+  })
+}
+typedJSFn.run(subtitleType)
+</script></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>

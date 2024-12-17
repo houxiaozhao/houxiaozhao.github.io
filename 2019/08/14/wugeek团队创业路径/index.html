@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Wugeek物联网创业之路：从技术探索到行业应用的发展历程 | houxiaozhao部落格</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="本文详细记录了Wugeek（物集客）团队在物联网领域的创业历程，展现了从技术探索到行业应用的完整发展过程。团队立足于河北邯郸，专注于云计算、大数据和物联网技术的创新与应用。  文章重点介绍了团队在不同发展阶段的关键里程碑：从2016年初期的技术探索阶段，团队深入研究了国内外物联网平台，开发了完整的物联网云平台架构。期间成功实现了智能书柜项目，这是一个集成前端、后端、通信、树莓派和硬件的完整解决方案">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wugeek物联网创业之路：从技术探索到行业应用的发展历程">
+<meta property="og:url" content="https://cdtools.click/2019/08/14/wugeek%E5%9B%A2%E9%98%9F%E5%88%9B%E4%B8%9A%E8%B7%AF%E5%BE%84/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="本文详细记录了Wugeek（物集客）团队在物联网领域的创业历程，展现了从技术探索到行业应用的完整发展过程。团队立足于河北邯郸，专注于云计算、大数据和物联网技术的创新与应用。  文章重点介绍了团队在不同发展阶段的关键里程碑：从2016年初期的技术探索阶段，团队深入研究了国内外物联网平台，开发了完整的物联网云平台架构。期间成功实现了智能书柜项目，这是一个集成前端、后端、通信、树莓派和硬件的完整解决方案">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-111.jpg">
+<meta property="article:published_time" content="2019-08-14T12:23:24.000Z">
+<meta property="article:modified_time" content="2023-06-05T12:23:24.000Z">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="物联网平台">
+<meta property="article:tag" content="云计算">
+<meta property="article:tag" content="大数据">
+<meta property="article:tag" content="创业历程">
+<meta property="article:tag" content="IoT">
+<meta property="article:tag" content="智能硬件">
+<meta property="article:tag" content="技术创新">
+<meta property="article:tag" content="行业应用">
+<meta property="article:tag" content="团队建设">
+<meta property="article:tag" content="商业模式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-111.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/2019/08/14/wugeek%E5%9B%A2%E9%98%9F%E5%88%9B%E4%B8%9A%E8%B7%AF%E5%BE%84/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Wugeek物联网创业之路：从技术探索到行业应用的发展历程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-111.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a><a class="nav-page-title" href="/"><span class="site-name">Wugeek物联网创业之路：从技术探索到行业应用的发展历程</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Wugeek物联网创业之路：从技术探索到行业应用的发展历程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-08-14T12:23:24.000Z" title="发表于 2019-08-14 12:23:24">2019-08-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-05T12:23:24.000Z" title="更新于 2023-06-05 12:23:24">2023-06-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%88%9B%E4%B8%9A%E6%95%85%E4%BA%8B/">创业故事</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%88%9B%E4%B8%9A%E6%95%85%E4%BA%8B/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%88%9B%E4%B8%9A%E6%95%85%E4%BA%8B/%E7%89%A9%E8%81%94%E7%BD%91/%E6%8A%80%E6%9C%AF%E5%88%9B%E6%96%B0/">技术创新</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><ul>
+<li>名称：Wugeek(物集客)</li>
+<li>地点：河北邯郸</li>
+<li>域名：<a target="_blank" rel="noopener" href="http://www.wugeek.com/">http://www.wugeek.com/</a></li>
+<li>logo：云上的章鱼（技术寓意为云计算、物联网、大数据，章鱼保罗）<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/xFHqty.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+<h1 id="历程（大体方向：物联网云平台）"><a href="#历程（大体方向：物联网云平台）" class="headerlink" title="历程（大体方向：物联网云平台）"></a>历程（大体方向：物联网云平台）</h1><blockquote>
+<p>基于云计算、大数据、物联网等技术的平台及其相关软硬件产品</p>
+</blockquote>
+<h2 id="第一阶段：探索技术，探索方向（2016）"><a href="#第一阶段：探索技术，探索方向（2016）" class="headerlink" title="第一阶段：探索技术，探索方向（2016）"></a>第一阶段：探索技术，探索方向（2016）</h2><ul>
+<li><p>第一次团队合影（2016-7-1）</p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/H4i2uM.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>第二次团队合影（2016-12-1）</p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/ycwzTn.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>调研过国内国外物联网平台</p>
+<ul>
+<li>国内<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/PRERjM.jpg" alt="img"></li>
+</ul>
+</li>
+<li>国外<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/SCAXxK.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>成果</p>
+<ul>
+<li><p>物联网云平台架构图</p>
+</li>
+<li><p>智能书柜</p>
+<p>第一个完整的由上到下跑通的项目（前端、后端、通信、树莓派、硬件） 使用讯飞语音开发套件实现语音开门。 这个书柜项目完成了技术的的集成和检验技术可行性；奠定了团队后期创业几年的技术 S4T(stack for things)；</p>
+</li>
+<li><p>S4T-wifi 人员轨迹分析</p>
+<p>S4T 内部的具体应用 为了将整个 S4T 整个体系和各个模块与硬件结合验证平台功能性，决定使用 3 教现有的硬件设施 1 至 4 楼的无线 AP 设备采集的 wifi 上网信息，通过数据展示，分析并展示人员运动的轨迹信息；实现硬件采集，数据分析，后台业务逻辑控制，前端数据展示，集成各个功能模块(采集中心，管控中心呢，业务中心，认证中心，数据中心，分析重心，展示中心)</p>
+</li>
+</ul>
+</li>
+<li><p>最后结果：研发面向行业应用的基于云计算、大数据、物联网等技术的平台（简称“物联网云平台”）及其相关软硬件产品</p>
+</li>
+</ul>
+<h2 id="第二阶段：深入行业（2017）以外包的名义，了解行业需求"><a href="#第二阶段：深入行业（2017）以外包的名义，了解行业需求" class="headerlink" title="第二阶段：深入行业（2017）以外包的名义，了解行业需求"></a>第二阶段：深入行业（2017）以外包的名义，了解行业需求</h2><ul>
+<li><p>智慧安防</p>
+<p>河北安防合作</p>
+</li>
+<li><p>智慧灌区（漳滏河灌区项目）</p>
+</li>
+<li><p>天网检控电源检测</p>
+</li>
+<li><p>物联网通信协议</p>
+<ul>
+<li><p>2G&#x2F;4G&#x2F;5G</p>
+</li>
+<li><p>Wifi</p>
+</li>
+<li><p>NFC</p>
+</li>
+<li><p>UWB 室内定位</p>
+</li>
+<li><p>蓝牙 近距离无线连接</p>
+</li>
+<li><p>ZigBee 低速短距离传输的无线网上协议</p>
+</li>
+<li><p>NB-IOT</p>
+</li>
+<li><p>Lora 低功耗局域网无线标准 距离远</p>
+</li>
+<li><p>Lora 技术数据测试与积累</p>
+<p>为了测试 lora 通信能力，也同时将数据进行数据分析，我们对 lora 进行了近 1 个多月的通信能力测试，数据分析工作； 并能实现了 lora 远距离通信的基本功能； lora 无线传输技术在物联网传输中自主可用性较强，决定将其作为团队发展重点；</p>
+</li>
+</ul>
+</li>
+<li><p>开放实验室门禁系统（Lora 的第一次应用）</p>
+</li>
+<li><p>iTable(通用协同填表系统)</p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/0wjDvz.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>2017 夏</p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/7H57MT.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>2018 初 冬</p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/26NVQU.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+<h2 id="第三阶段：冲刺，两条腿走路（生存和发展）（2018）"><a href="#第三阶段：冲刺，两条腿走路（生存和发展）（2018）" class="headerlink" title="第三阶段：冲刺，两条腿走路（生存和发展）（2018）"></a>第三阶段：冲刺，两条腿走路（生存和发展）（2018）</h2><ul>
+<li><p>物联网云平台（自顶向下）</p>
+<p>继续承担团队资金来源，探索行业需求的使命</p>
+<ul>
+<li><p>大范围接触社会公司企业，寻找对接可行性</p>
+<p>神龙物流、石家庄贾总、双安科技、七一八所、北京泰格瑞德等等</p>
+</li>
+<li><p>与七一八所签订《峰峰华明环保项目》</p>
+<p>这也是 Lora 技术的第一次商业化应用。 无组织粉尘监控平台是一款完全私有化的工业级物联网在线环境监测解决方案，涵盖 PM2.5、PM10 等有害气体的监测。</p>
+</li>
+</ul>
+</li>
+<li><p>iTable 教育版（从下往上）</p>
+<p>2018 年 1 月到 2018 年 7 月，用了半年的时间进行高密度，大范围的辅导机构拜访、推广、试用； 推广辅导机构 100 家以上，大中小机构全面对接； 中小学校长老师对接； 团队的所有主力全部投入精力参与产品的开发与推广工作。</p>
+<ul>
+<li><p>私有化部署，软件+硬件离线注入方式，解决数据安全问题</p>
+</li>
+<li><p>iTable 是个神奇的东西</p>
+<p>报名流程、辅导班考勤流程、辅导班每日作业、微商城、物业通知报修、团队内部周报提交</p>
+</li>
+<li><p>推广失败</p>
+<p>需求调研不足（老人小孩不会使用手机的问题） 团队和辅导机构目标不一致。我们想做平台，他们却不想共享自己的资源。导致使用积极性欠缺。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第四阶段：放弃一切，最后一博（2019）"><a href="#第四阶段：放弃一切，最后一博（2019）" class="headerlink" title="第四阶段：放弃一切，最后一博（2019）"></a>第四阶段：放弃一切，最后一博（2019）</h2><ul>
+<li><p>智慧社区项目</p>
+</li>
+<li><p>团队核心人员转移到邯郸市国际会展中心浪潮大数据中心。</p>
+</li>
+<li><p>开始了团队全体陌拜。（开发人员必须接触真实用户）</p>
+<p>456 月共拜访小区、物业、业委会 69 次。基本上是上午拜访用户，中午开会总结、下午带着需求进行开发更新。</p>
+</li>
+<li><p>做了什么</p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/5HwPmi.jpg" alt="img"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/3V6T3j.jpg" alt="img"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/RpNneh.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><ul>
+<li><p>三线城市创业，是不是在胡闹</p>
+<p>做一件实事</p>
+</li>
+<li><p>创业成功与否取决于人的认识</p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/aGbk5u.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>团队使命</p>
+<p>十年磨一剑，研发面向行业应用的基于云计算、大数据、物联网等技术的平台(简称“物联网云平台”)及其相关软硬件产品 怀揣梦想，创新创业，营造一块“做人做事做学问” 的试验田，经历人生 中的一次“痛”，受益一生</p>
+</li>
+<li><p>团队文化</p>
+<p>营造“目标一致，分工合作，低调做事，坚持不懈”的价值观，杜绝负能 量，对于有不同意见的成员，允许其在一定时间内予以摸索，最终认可团 队价值观。每个人都要通过团队合作，分析自己的优缺点，找到自己在团 队中的定位，干好自己的工作。</p>
+</li>
+</ul>
+<h1 id="创业过程遇到的一些其他问题"><a href="#创业过程遇到的一些其他问题" class="headerlink" title="创业过程遇到的一些其他问题"></a>创业过程遇到的一些其他问题</h1><ul>
+<li><p>成员调整</p>
+<p>成员加入退出机制。！！</p>
+</li>
+<li><p>公司成立</p>
+<p>公司成立注销，股权分配、税务、发票等</p>
+</li>
+<li><p>技术调研报告</p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/05/LcsBtB.jpg" alt="img"></li>
+</ul>
+<p>每隔一段时间都要组织成员同学调研新技术、分享技术报告。</p>
+</li>
+</ul>
+<h1 id="用到的一些技术"><a href="#用到的一些技术" class="headerlink" title="用到的一些技术"></a>用到的一些技术</h1><ul>
+<li><p>前端</p>
+<p>经历了从 angular.js 到 Vuejs、ionic 到 uniapp 的转变 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/">https://cn.vuejs.org/</a> <a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/README">https://uniapp.dcloud.io/README</a></p>
+</li>
+<li><p>后端</p>
+<p>node 开发框架 Thinkjs +Egg.js <a target="_blank" rel="noopener" href="https://eggjs.org/zh-cn/intro/">https://eggjs.org/zh-cn/intro/</a></p>
+</li>
+<li><p>硬件</p>
+<p>lora STM32 4G 各传感器</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/houxiaozhao">houxiaozhao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cdtools.click/2019/08/14/wugeek团队创业路径/">https://cdtools.click/2019/08/14/wugeek团队创业路径/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">此文章版权归houxiaozhao所有，如有转载，请注明来自原作者</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%89%A9%E8%81%94%E7%BD%91%E5%B9%B3%E5%8F%B0/">物联网平台</a><a class="post-meta__tags" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><a class="post-meta__tags" href="/tags/%E5%88%9B%E4%B8%9A%E5%8E%86%E7%A8%8B/">创业历程</a><a class="post-meta__tags" href="/tags/IoT/">IoT</a><a class="post-meta__tags" href="/tags/%E6%99%BA%E8%83%BD%E7%A1%AC%E4%BB%B6/">智能硬件</a><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF%E5%88%9B%E6%96%B0/">技术创新</a><a class="post-meta__tags" href="/tags/%E8%A1%8C%E4%B8%9A%E5%BA%94%E7%94%A8/">行业应用</a><a class="post-meta__tags" href="/tags/%E5%9B%A2%E9%98%9F%E5%BB%BA%E8%AE%BE/">团队建设</a><a class="post-meta__tags" href="/tags/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/">商业模式</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-111.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2019/10/16/postman%E6%A8%A1%E6%8B%9Fqq%E7%99%BB%E5%BD%95/" title="使用Postman模拟QQ登录：步骤与技巧"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-137.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">使用Postman模拟QQ登录：步骤与技巧</div></div><div class="info-2"><div class="info-item-1"> 登录 pc 端的 QQ 客户端 使用 chrome 浏览器，打开 qq 空间，使用快速登陆方式。安装 postman 扩展 获取当前电脑登录用户信息 在 Network 总找到https://localhost.ptlogin2.qq.com:4301/pt_get_uins开头的地址。  请求本地 4301 服务，获取信息。 在 postman 中模拟这一请求  然后会保存大概 20 个 cookies，这些 cookies 好像有用。 这一部，好像没什么用~~~  获取用户头像信息network 中https://ssl.ptlogin2.qq.com/getface?开头的地址  获取 clientkey 在选中 network 中的 Preserve Log 清空所有请求 点击需要登录的用户头像，进行登录 |找到第一个请求，或者是 pt_get_st 在 postman 中模拟这一请求 可以看的 cookies 中多了两个，其中就有 clientkey |  跳转到已登陆状态 在 network 中 jump 开头的地址。 可以看的在响应头中 set 了很多的...</div></div></div></a><a class="pagination-related" href="/2019/05/04/Hybrid%20App%20%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B(Vue+Android)%E5%9F%BA%E4%BA%8EJavaScript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8FAPP%E5%BC%80%E5%8F%91-hybridapp%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8Bvueandroid%E5%9F%BA%E4%BA%8Ejavascript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8Fapp%E5%BC%80%E5%8F%91/" title="Vue.js与Cordova构建混合应用：从环境搭建到插件集成"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-181.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Vue.js与Cordova构建混合应用：从环境搭建到插件集成</div></div><div class="info-2"><div class="info-item-1">准备开发环境 前端开发环境  Node.js LTS @vue&#x2F;cli cordova yarn 推荐   编辑器 VS code(墙裂推荐) 各种插件         Android 环境（需要编译 Android 软件） 安装 JDK 设置环境变量   安装 SDK?Android Studio - 设置环境变量https://blog.csdn.net/pupilxiaoming/article/details/77801398    ###项目搭建  使用脚手架生成基础项目  cordova 项目 cordova create demo cordova platform add android cordova run android 目录结构 www 存放网页代码 plugins 插件 platforms 平台 res 资源   调试chrome://inspect/#devices   vue 项目 vue create demo yarn npm run serve 目录结构 public 静态资源 src 源码   安装一个 UI 框架...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%86%E7%A8%8B%EF%BC%88%E5%A4%A7%E4%BD%93%E6%96%B9%E5%90%91%EF%BC%9A%E7%89%A9%E8%81%94%E7%BD%91%E4%BA%91%E5%B9%B3%E5%8F%B0%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">历程（大体方向：物联网云平台）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9A%E6%8E%A2%E7%B4%A2%E6%8A%80%E6%9C%AF%EF%BC%8C%E6%8E%A2%E7%B4%A2%E6%96%B9%E5%90%91%EF%BC%882016%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">第一阶段：探索技术，探索方向（2016）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9A%E6%B7%B1%E5%85%A5%E8%A1%8C%E4%B8%9A%EF%BC%882017%EF%BC%89%E4%BB%A5%E5%A4%96%E5%8C%85%E7%9A%84%E5%90%8D%E4%B9%89%EF%BC%8C%E4%BA%86%E8%A7%A3%E8%A1%8C%E4%B8%9A%E9%9C%80%E6%B1%82"><span class="toc-number">2.2.</span> <span class="toc-text">第二阶段：深入行业（2017）以外包的名义，了解行业需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%EF%BC%9A%E5%86%B2%E5%88%BA%EF%BC%8C%E4%B8%A4%E6%9D%A1%E8%85%BF%E8%B5%B0%E8%B7%AF%EF%BC%88%E7%94%9F%E5%AD%98%E5%92%8C%E5%8F%91%E5%B1%95%EF%BC%89%EF%BC%882018%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">第三阶段：冲刺，两条腿走路（生存和发展）（2018）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%EF%BC%9A%E6%94%BE%E5%BC%83%E4%B8%80%E5%88%87%EF%BC%8C%E6%9C%80%E5%90%8E%E4%B8%80%E5%8D%9A%EF%BC%882019%EF%BC%89"><span class="toc-number">2.4.</span> <span class="toc-text">第四阶段：放弃一切，最后一博（2019）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">3.</span> <span class="toc-text">最后</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E4%B8%9A%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">创业过程遇到的一些其他问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%80%E6%9C%AF"><span class="toc-number">5.</span> <span class="toc-text">用到的一些技术</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-208.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-547.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-436.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>

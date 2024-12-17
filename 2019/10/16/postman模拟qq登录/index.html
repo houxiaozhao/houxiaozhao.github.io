@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>使用Postman模拟QQ登录：步骤与技巧 | houxiaozhao部落格</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="本文详细介绍了如何使用Postman工具模拟QQ登录过程，涵盖了从获取本地QQ客户端信息到成功模拟登录的全过程。文章深入分析了QQ登录的网络请求流程，包括获取用户信息、处理Cookies、获取头像信息以及客户端密钥的获取方法。通过逐步讲解每个关键步骤，读者可以深入理解网络协议分析、HTTP请求模拟和安全测试的实际应用。本教程不仅适用于网络安全爱好者和软件测试工程师，也为Web开发人员提供了宝贵的A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Postman模拟QQ登录：步骤与技巧">
+<meta property="og:url" content="https://cdtools.click/2019/10/16/postman%E6%A8%A1%E6%8B%9Fqq%E7%99%BB%E5%BD%95/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="本文详细介绍了如何使用Postman工具模拟QQ登录过程，涵盖了从获取本地QQ客户端信息到成功模拟登录的全过程。文章深入分析了QQ登录的网络请求流程，包括获取用户信息、处理Cookies、获取头像信息以及客户端密钥的获取方法。通过逐步讲解每个关键步骤，读者可以深入理解网络协议分析、HTTP请求模拟和安全测试的实际应用。本教程不仅适用于网络安全爱好者和软件测试工程师，也为Web开发人员提供了宝贵的A">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-137.jpg">
+<meta property="article:published_time" content="2019-10-16T10:07:26.000Z">
+<meta property="article:modified_time" content="2024-12-17T09:55:12.508Z">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="postman">
+<meta property="article:tag" content="qq">
+<meta property="article:tag" content="API测试">
+<meta property="article:tag" content="网络协议">
+<meta property="article:tag" content="安全测试">
+<meta property="article:tag" content="模拟登录">
+<meta property="article:tag" content="network analysis">
+<meta property="article:tag" content="cookies management">
+<meta property="article:tag" content="HTTP requests">
+<meta property="article:tag" content="authentication simulation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-137.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/2019/10/16/postman%E6%A8%A1%E6%8B%9Fqq%E7%99%BB%E5%BD%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '使用Postman模拟QQ登录：步骤与技巧',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-137.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a><a class="nav-page-title" href="/"><span class="site-name">使用Postman模拟QQ登录：步骤与技巧</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">使用Postman模拟QQ登录：步骤与技巧</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-10-16T10:07:26.000Z" title="发表于 2019-10-16 10:07:26">2019-10-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-17T09:55:12.508Z" title="更新于 2024-12-17 09:55:12">2024-12-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">软件测试</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/Web%E5%BC%80%E5%8F%91/">Web开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">388</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><ol>
+<li><p>登录 pc 端的 QQ 客户端 使用 chrome 浏览器，打开 qq 空间，使用快速登陆方式。安装 postman 扩展 获取当前电脑登录用户信息 在 Network 总找到<a target="_blank" rel="noopener" href="https://localhost.ptlogin2.qq.com:4301/pt_get_uins%E5%BC%80%E5%A4%B4%E7%9A%84%E5%9C%B0%E5%9D%80%E3%80%82">https://localhost.ptlogin2.qq.com:4301/pt_get_uins开头的地址。</a><br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/13/aa80WA.png" alt="aa80WA"></p>
+</li>
+<li><p>请求本地 4301 服务，获取信息。 在 postman 中模拟这一请求<br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/13/R9DImx.png" alt="R9DImx"></p>
+</li>
+<li><p>然后会保存大概 20 个 cookies，这些 cookies 好像有用。 这一部，好像没什么用~~~</p>
+</li>
+<li><p>获取用户头像信息<br>network 中<a target="_blank" rel="noopener" href="https://ssl.ptlogin2.qq.com/getface?%E5%BC%80%E5%A4%B4%E7%9A%84%E5%9C%B0%E5%9D%80">https://ssl.ptlogin2.qq.com/getface?开头的地址</a><br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/13/u5ue2k.png" alt="u5ue2k"><br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/13/3eQORw.png" alt="3eQORw"></p>
+</li>
+<li><p>获取 clientkey 在选中 network 中的 Preserve Log 清空所有请求 点击需要登录的用户头像，进行登录 |<br>找到第一个请求，或者是 pt_get_st<br> <img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/13/xOkAJP.png" alt="xOkAJP"><br>在 postman 中模拟这一请求<br> <img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/13/Yyqayv.png" alt="Yyqayv"><br>可以看的 cookies 中多了两个，其中就有 clientkey |<br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/13/2lqvEt.png" alt="2lqvEt"></p>
+</li>
+<li><p>跳转到已登陆状态 在 network 中 jump 开头的地址。<br> <img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/13/YokTM4.png" alt="YokTM4"><br>可以看的在响应头中 set 了很多的 cookie<br>在 postman 中模拟这一操作<br> <img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/13/zmJx9b.png" alt="zmJx9b"><br>返回了一个地址，并且 cookies 添加了很多个。 复制下来这个地址。在 postman 中 get 一下<br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/13/VfVOH5.png" alt="VfVOH5"><br>激动人心的时候来了 可以看到登录成功字样。登录成功其实就是一种状态，在浏览器中保存着 token 等信息。</p>
+</li>
+<li><p>最后一步，postman 中直接打开其他人空间<br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/06/13/wrI6S0.png" alt="wrI6S0"><br>这时候就已经进入到其他人的空间，可以看到空间内容。</p>
+</li>
+<li><p>总的来说，整个流程就是在 postman 中模拟浏览器行为。进行登录。其中还有很多重要的参数没有搞明白。</p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/houxiaozhao">houxiaozhao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cdtools.click/2019/10/16/postman模拟qq登录/">https://cdtools.click/2019/10/16/postman模拟qq登录/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">此文章版权归houxiaozhao所有，如有转载，请注明来自原作者</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/postman/">postman</a><a class="post-meta__tags" href="/tags/qq/">qq</a><a class="post-meta__tags" href="/tags/API%E6%B5%8B%E8%AF%95/">API测试</a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</a><a class="post-meta__tags" href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/">安全测试</a><a class="post-meta__tags" href="/tags/%E6%A8%A1%E6%8B%9F%E7%99%BB%E5%BD%95/">模拟登录</a><a class="post-meta__tags" href="/tags/network-analysis/">network analysis</a><a class="post-meta__tags" href="/tags/cookies-management/">cookies management</a><a class="post-meta__tags" href="/tags/HTTP-requests/">HTTP requests</a><a class="post-meta__tags" href="/tags/authentication-simulation/">authentication simulation</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-137.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2020/05/15/restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF-restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF/" title="RESTful风格的Vue.js前端表格CRUD模板实现"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-578.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">RESTful风格的Vue.js前端表格CRUD模板实现</div></div><div class="info-2"><div class="info-item-1">restful 风格前端表格增删改查模板restful 风格前端表格增删改查模板 基于 vue d2-admin element-ui 配合上篇文章 js 代码生成器,只需要简单的修改即可实现快速页面开发。  vue...</div></div></div></a><a class="pagination-related" href="/2019/08/14/wugeek%E5%9B%A2%E9%98%9F%E5%88%9B%E4%B8%9A%E8%B7%AF%E5%BE%84/" title="Wugeek物联网创业之路：从技术探索到行业应用的发展历程"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-111.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Wugeek物联网创业之路：从技术探索到行业应用的发展历程</div></div><div class="info-2"><div class="info-item-1">介绍 名称：Wugeek(物集客) 地点：河北邯郸 域名：http://www.wugeek.com/ logo：云上的章鱼（技术寓意为云计算、物联网、大数据，章鱼保罗）     历程（大体方向：物联网云平台） 基于云计算、大数据、物联网等技术的平台及其相关软硬件产品  第一阶段：探索技术，探索方向（2016） 第一次团队合影（2016-7-1）     第二次团队合影（2016-12-1）     调研过国内国外物联网平台  国内    国外      成果  物联网云平台架构图  智能书柜 第一个完整的由上到下跑通的项目（前端、后端、通信、树莓派、硬件） 使用讯飞语音开发套件实现语音开门。 这个书柜项目完成了技术的的集成和检验技术可行性；奠定了团队后期创业几年的技术 S4T(stack for things)；  S4T-wifi 人员轨迹分析 S4T 内部的具体应用 为了将整个 S4T 整个体系和各个模块与硬件结合验证平台功能性，决定使用 3 教现有的硬件设施 1 至 4 楼的无线 AP 设备采集的 wifi...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/08/26/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%B9%B6%E6%8B%86%E5%88%86%E8%BF%9E%E7%BB%AD%E6%B6%88%E6%81%AF%E5%8C%85/" title="Node.js TCP编程 消息包的拆分与重组实践"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-71.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-26</div><div class="info-item-2">Node.js TCP编程 消息包的拆分与重组实践</div></div><div class="info-2"><div class="info-item-1">使用 Node.js 开发 TCP 客户端并拆分连续消息包在网络编程中，TCP 是一种可靠的传输协议，它确保数据的完整性和顺序性。然而，在实际开发 TCP 客户端时，我们常常会遇到一个挑战：由于 TCP 是面向流的协议，接收到的数据可能并不总是按预期的消息边界到达，尤其是在高速数据传输时，多个消息包可能会连续到达。这时，我们需要自己处理数据的拆分和重组，以确保消息的完整性。 问题描述假设我们在开发一个 TCP...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-208.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-547.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-436.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>

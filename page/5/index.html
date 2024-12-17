@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>houxiaozhao部落格 - 我欲修仙，法力无边</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="houxiaozhao部落格">
+<meta property="og:url" content="https://cdtools.click/page/5/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/14978325">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="前端,Node.js,Web,JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/14978325"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/page/5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'houxiaozhao部落格',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/01/12/M0b0Vl.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">houxiaozhao部落格</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01/18/vue%20%E5%8F%AF%E7%BC%96%E8%BE%91%20div%20%E7%BB%84%E4%BB%B6-vue%E5%8F%AF%E7%BC%96%E8%BE%91div%E7%BB%84%E4%BB%B6/" title="vue 可编辑 div 组件"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-261.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue 可编辑 div 组件"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/18/vue%20%E5%8F%AF%E7%BC%96%E8%BE%91%20div%20%E7%BB%84%E4%BB%B6-vue%E5%8F%AF%E7%BC%96%E8%BE%91div%E7%BB%84%E4%BB%B6/" title="vue 可编辑 div 组件">vue 可编辑 div 组件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-18T18:35:41.623Z" title="发表于 2022-01-18 18:35:41">2022-01-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Vue-js%E7%BB%84%E4%BB%B6/">Vue.js组件</a></span></div><div class="content"> contenteditable属性可以指定元素内容是否可编辑。  vue 中使用这一属性后，编辑内容却不支持 v-model.不能使用一下方法绑定 1&lt;div contenteditable v-model=&quot;value&quot;&gt;&lt;/div&gt;  提取成组件后可以使用 v-model 123456789101112131415161718192021222324252627282930313233343536373839&lt;template&gt;  &lt;p class=&quot;editable&quot; ref=&quot;editable&quot; contenteditable :placeholder=&quot;placeholder&quot; v-on=&quot;listeners&quot;&gt;&lt;/p&gt;&lt;/template&gt;&lt;script&gt;export default &#123;  props: &#123;    value: &#123;      type:...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/01/18/cesium%203DTileset%E6%98%BE%E7%A4%BA-cesium3dtileset-xian-shi/" title="Cesium 3DTileset渲染优化：屏幕空间误差参数详解"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-398.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cesium 3DTileset渲染优化：屏幕空间误差参数详解"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/18/cesium%203DTileset%E6%98%BE%E7%A4%BA-cesium3dtileset-xian-shi/" title="Cesium 3DTileset渲染优化：屏幕空间误差参数详解">Cesium 3DTileset渲染优化：屏幕空间误差参数详解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-18T15:37:42.654Z" title="发表于 2022-01-18 15:37:42">2022-01-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/WebGIS%E5%BC%80%E5%8F%91/">WebGIS开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/WebGIS%E5%BC%80%E5%8F%91/%E4%B8%89%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96/">三维可视化</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/WebGIS%E5%BC%80%E5%8F%91/%E4%B8%89%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a></span></div><div class="content">maximumScreenSpaceError用于驱动细节细化级别的最大屏幕空间错误。默认是 16效果如下修改为 4 后该参数越小显示效果越好。 </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/08/20/Shadowsocks-shadowsocks/" title="Shadowsocks服务器搭建与客户端配置教程"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-442.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Shadowsocks服务器搭建与客户端配置教程"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/08/20/Shadowsocks-shadowsocks/" title="Shadowsocks服务器搭建与客户端配置教程">Shadowsocks服务器搭建与客户端配置教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-20T11:16:26.000Z" title="发表于 2021-08-20 11:16:26">2021-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/">网络工具</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/">服务器配置</a></span></div><div class="content">Shadowsocks123wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.shchmod +x shadowsocks-all.shsudo ./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log  最后一步输完，你应该会看到下图中内容 ── 是要你选择需要安装的 Shadowsocks 版本。这里选择 4) shadowsocks-libev  选择完成后会让你输入密码，默认为一个随机密码，你可以回车选择默认，或者自定义一个密码后回车  密码设置完成后会让你输入一个端口号，默认随机一个，你也可以自定义一个端口号后回车生成  端口号设置完成后，选择一个加密方式，我一般采用 chacha20...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/07/07/threejs%20%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E5%85%B6%E4%BB%96%E5%AF%B9%E8%B1%A1%E6%9C%AC%E5%9C%B0%E5%9D%90%E6%A0%87%E7%B3%BB%E6%96%B9%E6%B3%95-threejs%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E5%85%B6%E4%BB%96%E5%AF%B9%E8%B1%A1%E6%9C%AC%E5%9C%B0%E5%9D%90%E6%A0%87%E7%B3%BB%E6%96%B9%E6%B3%95/" title="threejs 世界坐标系转其他对象本地坐标系方法"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-533.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="threejs 世界坐标系转其他对象本地坐标系方法"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/07/threejs%20%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E5%85%B6%E4%BB%96%E5%AF%B9%E8%B1%A1%E6%9C%AC%E5%9C%B0%E5%9D%90%E6%A0%87%E7%B3%BB%E6%96%B9%E6%B3%95-threejs%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E5%85%B6%E4%BB%96%E5%AF%B9%E8%B1%A1%E6%9C%AC%E5%9C%B0%E5%9D%90%E6%A0%87%E7%B3%BB%E6%96%B9%E6%B3%95/" title="threejs 世界坐标系转其他对象本地坐标系方法">threejs 世界坐标系转其他对象本地坐标系方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T11:13:17.000Z" title="发表于 2021-07-07 11:13:17">2021-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/3D%E5%BC%80%E5%8F%91/">3D开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/">WebGL</a></span></div><div class="content">threejs 世界坐标系转其他对象本地坐标系方法12345678const v=new Vector3()// 世界坐标系下的坐标//obj 待转的对象const _m1 = new Matrix4()const position = v.clone()obj.updateWorldMatrix(true,false)_m1.copy(e.matrixWorld).invert()position.applyMatrix4(_m1)// position为相对与obj的本地坐标系的坐标 </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/07/07/threejs%20%E6%A3%80%E6%B5%8B%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%9C%86%E6%9F%B1%E4%BD%93%E5%86%85-threejs%E6%A3%80%E6%B5%8B%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%9C%86%E6%9F%B1%E4%BD%93%E5%86%85/" title="Three.js高效实现点与圆柱体碰撞检测的数学原理与实践"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-410.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Three.js高效实现点与圆柱体碰撞检测的数学原理与实践"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/07/threejs%20%E6%A3%80%E6%B5%8B%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%9C%86%E6%9F%B1%E4%BD%93%E5%86%85-threejs%E6%A3%80%E6%B5%8B%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E5%9C%86%E6%9F%B1%E4%BD%93%E5%86%85/" title="Three.js高效实现点与圆柱体碰撞检测的数学原理与实践">Three.js高效实现点与圆柱体碰撞检测的数学原理与实践</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T11:13:17.000Z" title="发表于 2021-07-07 11:13:17">2021-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/3D%E5%BC%80%E5%8F%91/">3D开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/">WebGL</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/">图形编程</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学</a></span></div><div class="content">threejs 检测点是否在圆柱体内 在 threejs 文档里没有找到相关方法  检测思路：  把全局坐标系下的点坐标转为圆柱体的相对坐标 判断点坐标(x,z)是否在(0,0)为中心圆柱的半径为半径的圆内 判断点坐标的 y 的绝对值是否大于圆柱高度的一半  1234567891011121314//v:待检测点//obj:圆柱const position = v.clone();obj.updateWorldMatrix(true, false);const _m1 = new Matrix4();_m1.copy(e.matrixWorld).invert();position.applyMatrix4(_m1);// console.log(position)const parameters = obj.geometry.parameters;// console.log(&#x27;待检测圆柱&#x27;, parameters)const v2Center = new Vector2(position.x, position.z).distanceTo(new...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/06/16/OpenGL%20-opengl/" title="OpenGL图形编程：顶点着色器与片元着色器详解"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-276.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OpenGL图形编程：顶点着色器与片元着色器详解"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/06/16/OpenGL%20-opengl/" title="OpenGL图形编程：顶点着色器与片元着色器详解">OpenGL图形编程：顶点着色器与片元着色器详解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-06-16T11:16:26.000Z" title="发表于 2021-06-16 11:16:26">2021-06-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/">图形编程</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学</a></span></div><div class="content">OpenGLhttp://zhangwenli.com/blog/2017/02/24/what-is-a-shader/ 顶点着色器（Vertex Shader）和片元着色器（Fragment Shader）。片元着色器是在顶点着色器之后被调用的，因而也可以从顶点着色器往片元着色器传递参数。  顶点着色器 比如你用 OpenGL...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/05/24/cesium%20entity%20%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%97%8B%E8%BD%AC%E7%9A%84%E6%96%B9%E6%B3%95-cesiumentity%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%97%8B%E8%BD%AC%E7%9A%84%E6%96%B9%E6%B3%95/" title="Cesium实体动画：基于事件驱动的Entity移动与旋转实现"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-48.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cesium实体动画：基于事件驱动的Entity移动与旋转实现"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/24/cesium%20entity%20%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%97%8B%E8%BD%AC%E7%9A%84%E6%96%B9%E6%B3%95-cesiumentity%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%97%8B%E8%BD%AC%E7%9A%84%E6%96%B9%E6%B3%95/" title="Cesium实体动画：基于事件驱动的Entity移动与旋转实现">Cesium实体动画：基于事件驱动的Entity移动与旋转实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-24T10:56:59.000Z" title="发表于 2021-05-24 10:56:59">2021-05-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/WebGIS%E5%BC%80%E5%8F%91/">WebGIS开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/WebGIS%E5%BC%80%E5%8F%91/%E4%B8%89%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96/">三维可视化</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/WebGIS%E5%BC%80%E5%8F%91/%E4%B8%89%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96/JavaScript%E7%BC%96%E7%A8%8B/">JavaScript编程</a></span></div><div class="content">cesium entity 移动和旋转的方法12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455const EventEmitter = require(&quot;events&quot;);export default class Air extends EventEmitter &#123;  constructor(viewer, uri, id, position, orientation) &#123;    super();    this.active = false;    this.air = viewer.entities.add(&#123;      id: id,      position: position,      orientation: orientation,      viewFrom: new Cesium.Cartesian3(0, -30, 30),      model:...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/04/27/cesium%20%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B0%8F%E4%BE%8B%E5%AD%90/" title="Cesium与Vue集成：WebGIS三维可视化开发实战案例"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-71.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cesium与Vue集成：WebGIS三维可视化开发实战案例"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/27/cesium%20%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B0%8F%E4%BE%8B%E5%AD%90/" title="Cesium与Vue集成：WebGIS三维可视化开发实战案例">Cesium与Vue集成：WebGIS三维可视化开发实战案例</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-27T10:56:59.000Z" title="发表于 2021-04-27 10:56:59">2021-04-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/WebGIS%E5%BC%80%E5%8F%91/">WebGIS开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/WebGIS%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/WebGIS%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E4%B8%89%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96/">三维可视化</a></span></div><div class="content">cesium 的几个小例子houxiaozhao&#x2F;cesium-demo 安装使用前先安装 cesium 1npm install cesium  其他依赖包括（非必要，为了方便和好看）不需要安装，已经包含在仓库内  vue echarts element  使用anywhere 或其他静态文件服务器 1anywhere  效果   </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/04/14/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3eggjs%E5%92%8Cswagger%E9%85%8D%E5%90%88-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3eggjs%E5%92%8Cswagger%E9%85%8D%E5%90%88/" title="Egg.js 与 Swagger 集成：构建自动化 API 文档系统"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-445.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Egg.js 与 Swagger 集成：构建自动化 API 文档系统"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/14/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3eggjs%E5%92%8Cswagger%E9%85%8D%E5%90%88-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3eggjs%E5%92%8Cswagger%E9%85%8D%E5%90%88/" title="Egg.js 与 Swagger 集成：构建自动化 API 文档系统">Egg.js 与 Swagger 集成：构建自动化 API 文档系统</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-14T10:56:56.000Z" title="发表于 2021-04-14 10:56:56">2021-04-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/API%E6%96%87%E6%A1%A3/">API文档</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/API%E6%96%87%E6%A1%A3/Node-js/">Node.js</a></span></div><div class="content">接口文档 eggjs 和 swagger 配合 好运盈后台接口文档管理采用 Swagger 自动化生成发布。使用 egg-swagger 插件配合 egg 开发框架使用 https://github.com/Yanshijie-EL/egg-swagger-doc  Swagger 介绍Swagger 是一款 RESTFUL 接口的文档在线自动生成+功能测试功能软件。Swagger 是一个规范和完整的框架,用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。目标是使客户端和文件系统作为服务器以同样的速度来更新文件的方法,参数和模型紧密集成到服务器。 使用方法 安装 egg-swagger-doc 1npm i egg-swagger-doc --save  在 app&#x2F;文件夹下新建 contract 文件夹  添加配置 1config.swaggerdoc = &#123;    dirScanner: &#x27;./app/controller&#x27;,    apiInfo: &#123;      title:...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/04/07/Node%20js%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%20-nodejs%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="Node.js 错误处理实用指南：Promise与Async/Await最佳实践"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-253.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Node.js 错误处理实用指南：Promise与Async/Await最佳实践"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/07/Node%20js%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%20-nodejs%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="Node.js 错误处理实用指南：Promise与Async/Await最佳实践">Node.js 错误处理实用指南：Promise与Async/Await最佳实践</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-07T11:22:18.000Z" title="发表于 2021-04-07 11:22:18">2021-04-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/Node-js/">Node.js</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/Node-js/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a></span></div><div class="content">Node.js 错误处理最佳实践使用 Promise 捕获错误123456789101112131415161718192021222324let func = function (n) &#123;  return new Promise((resolve, reject) =&gt; &#123;    resolve(n * n);  &#125;);&#125;;func(2)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .then(res =&gt; &#123;    console.log(res);    throw new Error(&quot;Error&quot;);  &#125;)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .catch(err =&gt; &#123;    console.log(err);  &#125;) ...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#content-inner">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><a class="extend next" rel="next" href="/page/6/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-208.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-547.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-436.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">3D开发</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/"><span class="card-category-list-name">WebGL</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">图形编程</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><span class="card-category-list-name">计算机图形学</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">API安全</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">后端开发</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"><span class="card-category-list-name">系统架构</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87/" style="font-size: 1.1em; color: #999">开发效率</a> <a href="/tags/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 1.1em; color: #999">Chrome浏览器</a> <a href="/tags/API%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">API测试</a> <a href="/tags/Egg-js/" style="font-size: 1.5em; color: #99a9bf">Egg.js</a> <a href="/tags/Web%E5%AE%89%E5%85%A8/" style="font-size: 1.1em; color: #999">Web安全</a> <a href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">状态管理</a> <a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/" style="font-size: 1.1em; color: #999">过滤器</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" style="font-size: 1.1em; color: #999">开发框架</a> <a href="/tags/%E7%9D%A1%E7%9C%A0%E6%94%B9%E5%96%84/" style="font-size: 1.1em; color: #999">睡眠改善</a> <a href="/tags/npm%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">npm包管理</a> <a href="/tags/Koa/" style="font-size: 1.1em; color: #999">Koa</a> <a href="/tags/3D-Tiles/" style="font-size: 1.1em; color: #999">3D Tiles</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">开发工具</a> <a href="/tags/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1.5em; color: #99a9bf">国密算法</a> <a href="/tags/Vector2/" style="font-size: 1.1em; color: #999">Vector2</a> <a href="/tags/%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/" style="font-size: 1.1em; color: #999">格式转换</a> <a href="/tags/API%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">API开发</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%9B%91%E6%8E%A7/" style="font-size: 1.1em; color: #999">数据监控</a> <a href="/tags/Vector3/" style="font-size: 1.1em; color: #999">Vector3</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">前端优化</a> <a href="/tags/%E8%A1%8C%E4%B8%9A%E5%BA%94%E7%94%A8/" style="font-size: 1.1em; color: #999">行业应用</a> <a href="/tags/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">严格模式</a> <a href="/tags/%E7%A1%AC%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">硬件开发</a> <a href="/tags/WeUI/" style="font-size: 1.1em; color: #999">WeUI</a> <a href="/tags/Vite/" style="font-size: 1.1em; color: #999">Vite</a> <a href="/tags/%E6%97%85%E8%A1%8C%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">旅行工具</a> <a href="/tags/IP%E4%BC%98%E9%80%89/" style="font-size: 1.1em; color: #999">IP优选</a> <a href="/tags/Swagger/" style="font-size: 1.5em; color: #99a9bf">Swagger</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">移动应用开发</a> <a href="/tags/%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2/" style="font-size: 1.1em; color: #999">坐标变换</a> <a href="/tags/frontend/" style="font-size: 1.1em; color: #999">frontend</a> <a href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">云平台</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 1.5em; color: #99a9bf">图像处理</a> <a href="/tags/WebSocket/" style="font-size: 1.5em; color: #99a9bf">WebSocket</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.5em; color: #99a9bf">后端</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">微服务</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">定时器优化</a> <a href="/tags/%E8%89%BA%E6%9C%AF%E5%88%9B%E4%BD%9C/" style="font-size: 1.1em; color: #999">艺术创作</a> <a href="/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/" style="font-size: 1.1em; color: #999">实时通信</a> <a href="/tags/%E5%BA%A7%E4%BD%8D%E9%A2%84%E8%AE%A2/" style="font-size: 1.1em; color: #999">座位预订</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/" title="查看更多"><i class="fas fa-angle-right"></i></a>
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/12/">
+          <span class="card-archive-list-date">十二月 2024</span>
+          <span class="card-archive-list-count">7</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">十一月 2024</span>
+          <span class="card-archive-list-count">8</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/10/">
+          <span class="card-archive-list-date">十月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/08/">
+          <span class="card-archive-list-date">八月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/05/">
+          <span class="card-archive-list-date">五月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/09/">
+          <span class="card-archive-list-date">九月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/07/">
+          <span class="card-archive-list-date">七月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/06/">
+          <span class="card-archive-list-date">六月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">75</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">51.6k</div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-17T09:55:34.038Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (false) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  btf.getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        typedJSFn.init(sub)
+      } else {
+        document.getElementById('subtitle').textContent = result.data.content
+      }
+    })
+  })
+}
+typedJSFn.run(subtitleType)
+</script></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>

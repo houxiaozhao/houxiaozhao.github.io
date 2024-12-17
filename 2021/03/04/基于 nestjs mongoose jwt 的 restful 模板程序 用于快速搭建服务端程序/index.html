@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>NestJS 企业级应用开发：基于 MongoDB 和 JWT 的 RESTful API 模板 | houxiaozhao部落格</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="本文详细介绍了一个基于NestJS框架的企业级后端开发模板，集成了MongoDB、JWT认证、Swagger文档等现代化技术栈。该模板提供了完整的用户认证、权限管理、API文档生成等核心功能，并实现了统一的异常处理和响应格式。主要特性包括：基于TypeScript的强类型开发、MongoDB数据库集成（使用Typegoose实现类型安全的模型定义）、JWT身份验证、Swagger API文档自动生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NestJS 企业级应用开发：基于 MongoDB 和 JWT 的 RESTful API 模板">
+<meta property="og:url" content="https://cdtools.click/2021/03/04/%E5%9F%BA%E4%BA%8E%20nestjs%20mongoose%20jwt%20%E7%9A%84%20restful%20%E6%A8%A1%E6%9D%BF%E7%A8%8B%E5%BA%8F%20%E7%94%A8%E4%BA%8E%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%A8%8B%E5%BA%8F/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="本文详细介绍了一个基于NestJS框架的企业级后端开发模板，集成了MongoDB、JWT认证、Swagger文档等现代化技术栈。该模板提供了完整的用户认证、权限管理、API文档生成等核心功能，并实现了统一的异常处理和响应格式。主要特性包括：基于TypeScript的强类型开发、MongoDB数据库集成（使用Typegoose实现类型安全的模型定义）、JWT身份验证、Swagger API文档自动生">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-161.jpg">
+<meta property="article:published_time" content="2021-03-04T10:48:14.000Z">
+<meta property="article:modified_time" content="2024-12-17T09:55:12.508Z">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="RESTful API">
+<meta property="article:tag" content="NestJS">
+<meta property="article:tag" content="MongoDB">
+<meta property="article:tag" content="JWT认证">
+<meta property="article:tag" content="TypeScript">
+<meta property="article:tag" content="Swagger">
+<meta property="article:tag" content="Redis缓存">
+<meta property="article:tag" content="权限管理">
+<meta property="article:tag" content="代码生成">
+<meta property="article:tag" content="微服务">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-161.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/2021/03/04/%E5%9F%BA%E4%BA%8E%20nestjs%20mongoose%20jwt%20%E7%9A%84%20restful%20%E6%A8%A1%E6%9D%BF%E7%A8%8B%E5%BA%8F%20%E7%94%A8%E4%BA%8E%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%A8%8B%E5%BA%8F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'NestJS 企业级应用开发：基于 MongoDB 和 JWT 的 RESTful API 模板',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-161.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a><a class="nav-page-title" href="/"><span class="site-name">NestJS 企业级应用开发：基于 MongoDB 和 JWT 的 RESTful API 模板</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">NestJS 企业级应用开发：基于 MongoDB 和 JWT 的 RESTful API 模板</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-03-04T10:48:14.000Z" title="发表于 2021-03-04 10:48:14">2021-03-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-17T09:55:12.508Z" title="更新于 2024-12-17 09:55:12">2024-12-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/Node-js/">Node.js</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/Node-js/%E4%BC%81%E4%B8%9A%E5%BA%94%E7%94%A8/">企业应用</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="基于-nestjs-mongoose-jwt-的-restful-模板程序-用于快速搭建服务端程序"><a href="#基于-nestjs-mongoose-jwt-的-restful-模板程序-用于快速搭建服务端程序" class="headerlink" title="基于 nestjs mongoose jwt 的 restful 模板程序 用于快速搭建服务端程序"></a>基于 nestjs mongoose jwt 的 restful 模板程序 用于快速搭建服务端程序</h1><p><a target="_blank" rel="noopener" href="https://github.com/houxiaozhao/template">houxiaozhao&#x2F;template</a></p>
+<h2 id="涉及技术框架"><a href="#涉及技术框架" class="headerlink" title="涉及技术框架"></a><strong>涉及技术框架</strong></h2><ul>
+<li>nestjs 服务框架</li>
+<li>mongoose 操作数据库的库<ul>
+<li>typegoose 使用类定义数据模型</li>
+<li>nestjs-typegoose</li>
+<li>mongoose-paginate 分页插件</li>
+</ul>
+</li>
+<li>jwt 生成验证 token</li>
+<li>swagger 文档生成</li>
+</ul>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a><strong>配置文件</strong></h2><p>nestjs-config 管理配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/env/</span><br><span class="line">/src/config/</span><br></pre></td></tr></table></figure>
+
+<h2 id="Redis-缓存基本用法"><a href="#Redis-缓存基本用法" class="headerlink" title="Redis 缓存基本用法"></a><strong>Redis 缓存基本用法</strong></h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// controller</span></span><br><span class="line">@<span class="title class_">HttpCache</span>(<span class="variable constant_">ARTICLE</span>, <span class="number">60</span>)</span><br><span class="line">@<span class="title class_">UseInterceptors</span>(<span class="title class_">HttpCacheInterceptor</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// module</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">CacheModule</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;src/common/processors/cache/cache.module&#x27;</span>;</span><br><span class="line">@<span class="title class_">Module</span>(&#123;</span><br><span class="line">  <span class="attr">imports</span>: [<span class="title class_">CacheModule</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a><strong>功能</strong></h2><ul>
+<li><input checked="" disabled="" type="checkbox"> 用户登陆注册</li>
+<li><input checked="" disabled="" type="checkbox"> jwt 验证</li>
+<li><input checked="" disabled="" type="checkbox"> 增删改查，分页查询</li>
+<li><input checked="" disabled="" type="checkbox"> 统一异常处理（使用业务状态码）</li>
+<li><input checked="" disabled="" type="checkbox"> 统一返回结构</li>
+<li><input checked="" disabled="" type="checkbox"> 自定义 user 装饰器 src&#x2F;common&#x2F;decorator&#x2F;user.decorator</li>
+<li><input checked="" disabled="" type="checkbox"> mongo objectid 示例管道</li>
+<li><input checked="" disabled="" type="checkbox"> 跨域处理</li>
+<li><input checked="" disabled="" type="checkbox"> 文件上传示例(转存到云服务)</li>
+<li><input checked="" disabled="" type="checkbox"> redis 缓存</li>
+<li><input disabled="" type="checkbox"> 异常发送邮件提醒</li>
+<li><input checked="" disabled="" type="checkbox"> 权限角色管理</li>
+<li><input checked="" disabled="" type="checkbox"> 自动生成代码</li>
+</ul>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a><strong>Installation</strong></h2><p><code>$ npm install</code></p>
+<h2 id="Running-the-app"><a href="#Running-the-app" class="headerlink" title="Running the app"></a><strong>Running the app</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># development</span></span><br><span class="line">$ npm run start</span><br><span class="line"></span><br><span class="line"><span class="comment"># watch mode</span></span><br><span class="line">$ npm run start:dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># production mode</span></span><br><span class="line">$ npm run start:prod</span><br></pre></td></tr></table></figure>
+
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a><strong>Test</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># unit tests</span></span><br><span class="line">$ npm run <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># e2e tests</span></span><br><span class="line">$ npm run <span class="built_in">test</span>:e2e</span><br><span class="line"></span><br><span class="line"><span class="comment"># test coverage</span></span><br><span class="line">$ npm run <span class="built_in">test</span>:cov</span><br></pre></td></tr></table></figure>
+
+<h2 id="文档地址"><a href="#文档地址" class="headerlink" title="文档地址"></a><strong>文档地址</strong></h2><p><a target="_blank" rel="noopener" href="http://127.0.0.1:3001/doc">http://127.0.0.1:3001/doc</a></p>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a><strong>异常处理</strong></h2><p>异常过滤器</p>
+<ul>
+<li>src\common\filters\http-exception.filter.ts</li>
+</ul>
+<p>自定义 api 异常</p>
+<ul>
+<li>src\common\exceptions\api.exception.ts</li>
+</ul>
+<p>拦截器</p>
+<ul>
+<li>src\common\interceptor\exception.interceptor.ts</li>
+<li>src\common\interceptor\transform.interceptor.ts</li>
+</ul>
+<h3 id="异常使用方式"><a href="#异常使用方式" class="headerlink" title="异常使用方式"></a><strong>异常使用方式</strong></h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ApiException</span>(<span class="string">&quot;ID无效&quot;</span>, <span class="title class_">ApiErrorCode</span>.<span class="property">ID_INVALID</span>, <span class="title class_">HttpStatus</span>.<span class="property">BAD_REQUEST</span>);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   &quot;status&quot;: 400,</span></span><br><span class="line"><span class="comment">//   &quot;timestamp&quot;: &quot;2020-10-26T01:20:18.452Z&quot;,</span></span><br><span class="line"><span class="comment">//   &quot;path&quot;: &quot;/article/5f93df3b03ac4483c069b0092&quot;,</span></span><br><span class="line"><span class="comment">//   &quot;errorCode&quot;: 10001,</span></span><br><span class="line"><span class="comment">//   &quot;message&quot;: &quot;ID无效&quot;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">HttpException</span>(</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">message</span>: <span class="string">&quot;请求参数id 必传&quot;</span>,</span><br><span class="line">    <span class="attr">errorCode</span>: <span class="string">&quot;10000&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title class_">HttpStatus</span>.<span class="property">BAD_REQUEST</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="接口文档-（yapi）"><a href="#接口文档-（yapi）" class="headerlink" title="接口文档 （yapi）"></a><strong>接口文档 （yapi）</strong></h3><p>使用 yapi import 工具 导入 swagger 文档到 yapi 中 配置<code>yapi-import.json</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run yapi</span><br></pre></td></tr></table></figure>
+
+<h3 id="api-代码生成-yapi-gen-js-code"><a href="#api-代码生成-yapi-gen-js-code" class="headerlink" title="api 代码生成(yapi-gen-js-code)"></a><strong>api 代码生成(yapi-gen-js-code)</strong></h3><p>使用 yapi-gen-js-code 进行 yapi 的代码生成 进行了一些调整修改，以适配当前前端代码 使用配置<code>yapi-import.json</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run gapi</span><br></pre></td></tr></table></figure>
+
+<p>生成的代码只需要把需要的部分复制到前端相应的文件中</p>
+<h3 id="权限角色思路"><a href="#权限角色思路" class="headerlink" title="权限角色思路"></a><strong>权限角色思路</strong></h3><p>使用<code>putApi2DB.js</code>把 ypi 上的接口全都插入到数据库中。单独修改里面的配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node .\putApi2DB.js</span><br></pre></td></tr></table></figure>
+
+<h3 id="Getting-started"><a href="#Getting-started" class="headerlink" title="Getting started"></a><strong>Getting started</strong></h3><p>需要先创建公司，分配公司管理员权限（务必把角色和用户管理权限分配给管理员，否则公司管理员无法自行管理用户角色）。使用 db.js 已配置</p>
+<ol>
+<li>先把 db.js 导入到数据库 后台管理用户名密码 houxiaozhao&#x2F;houxiaozhao</li>
+<li>测试公司用户名密码 18300000000&#x2F;18300000000</li>
+</ol>
+<h3 id="rest-接口使用方式"><a href="#rest-接口使用方式" class="headerlink" title="rest 接口使用方式"></a><strong>rest 接口使用方式</strong></h3><ol>
+<li><p>CRUD 生成器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nest g resource modules/device --no-spec</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Model Service Controller DTO 修改</p>
+</li>
+<li><p>yapi(可选)</p>
+<ul>
+<li>接口文档同步到 yapi</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run yapi</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生成前端代码</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run gapi</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把 api 接口加到数据库中（可选）</p>
+<ul>
+<li>添加 api（设置为需要验证）</li>
+<li>设置权限</li>
+<li>设置角色</li>
+<li>添加菜单</li>
+<li>添加按钮（可选，权限设置）</li>
+</ul>
+</li>
+<li><p>登录管理后台，创建 api，创建菜单，创建设备管理权限</p>
+</li>
+<li><p>登录用户前端，角色管理，创建设备管理角色，为用户分配设备管理角色，然后刷新即可显示出设备管理菜单（现在点击菜单显示 404）</p>
+</li>
+<li><p>切换到前端代码 web</p>
+<ul>
+<li><p>创建页面设备管理页面(device&#x2F;index.vue)</p>
+</li>
+<li><p>创建路由（和第 5 步创建菜单的路径一致）</p>
+</li>
+<li><p>复制 views&#x2F;demo&#x2F;page1&#x2F;index.vue 的代码到 device&#x2F;index.vue,修改 name 和路由一致</p>
+</li>
+<li><p>在&#x2F;src&#x2F;api&#x2F;modules 文件夹创建 device.api.js</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="title function_">default</span> (&#123; service, request, serviceForMock, requestForMock, mock, faker, tools &#125;) =&gt; (&#123;</span><br><span class="line">  <span class="comment">// 自动生成代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制自动生成的关于设备管理代码到&#x2F;src&#x2F;api&#x2F;modules&#x2F;device.api.js</p>
+</li>
+<li><p>修改&#x2F;device&#x2F;index.vue 里的增删改查函数名称</p>
+</li>
+<li><p>根据需要修改字段</p>
+<ul>
+<li>addDataForm</li>
+<li>editDataForm</li>
+<li>addRules</li>
+<li>editRules</li>
+<li>addData 函数定义添加字段</li>
+<li>editData 函数定义编辑字段</li>
+<li>表格显示字段</li>
+<li>添加表单</li>
+<li>编辑表单</li>
+</ul>
+</li>
+<li><p>如果配置了按钮权限（能不能添加、编辑、删除等），需要使用<code>buttonid</code>指令 xxx 为数据库按钮的 id</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v-buttonid=&quot;&#x27;xxx&#x27;&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/houxiaozhao">houxiaozhao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cdtools.click/2021/03/04/基于 nestjs mongoose jwt 的 restful 模板程序 用于快速搭建服务端程序/">https://cdtools.click/2021/03/04/基于 nestjs mongoose jwt 的 restful 模板程序 用于快速搭建服务端程序/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">此文章版权归houxiaozhao所有，如有转载，请注明来自原作者</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/RESTful-API/">RESTful API</a><a class="post-meta__tags" href="/tags/NestJS/">NestJS</a><a class="post-meta__tags" href="/tags/MongoDB/">MongoDB</a><a class="post-meta__tags" href="/tags/JWT%E8%AE%A4%E8%AF%81/">JWT认证</a><a class="post-meta__tags" href="/tags/TypeScript/">TypeScript</a><a class="post-meta__tags" href="/tags/Swagger/">Swagger</a><a class="post-meta__tags" href="/tags/Redis%E7%BC%93%E5%AD%98/">Redis缓存</a><a class="post-meta__tags" href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">权限管理</a><a class="post-meta__tags" href="/tags/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/">代码生成</a><a class="post-meta__tags" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-161.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2021/04/07/Node%20js%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%20-nodejs%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="Node.js 错误处理实用指南：Promise与Async/Await最佳实践"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-253.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Node.js 错误处理实用指南：Promise与Async/Await最佳实践</div></div><div class="info-2"><div class="info-item-1">Node.js 错误处理最佳实践使用 Promise 捕获错误123456789101112131415161718192021222324let func = function (n) &#123;  return new Promise((resolve, reject) =&gt; &#123;    resolve(n * n);  &#125;);&#125;;func(2)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .then(res =&gt; &#123;    console.log(res);    throw new Error(&quot;Error&quot;);  &#125;)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .catch(err =&gt; &#123;    console.log(err);  &#125;) ...</div></div></div></a><a class="pagination-related" href="/2020/05/15/restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF-restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF/" title="RESTful风格的Vue.js前端表格CRUD模板实现"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-578.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">RESTful风格的Vue.js前端表格CRUD模板实现</div></div><div class="info-2"><div class="info-item-1">restful 风格前端表格增删改查模板restful 风格前端表格增删改查模板 基于 vue d2-admin element-ui 配合上篇文章 js 代码生成器,只需要简单的修改即可实现快速页面开发。  vue...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2021/04/14/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3eggjs%E5%92%8Cswagger%E9%85%8D%E5%90%88-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3eggjs%E5%92%8Cswagger%E9%85%8D%E5%90%88/" title="Egg.js 与 Swagger 集成：构建自动化 API 文档系统"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-445.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-14</div><div class="info-item-2">Egg.js 与 Swagger 集成：构建自动化 API 文档系统</div></div><div class="info-2"><div class="info-item-1">接口文档 eggjs 和 swagger 配合 好运盈后台接口文档管理采用 Swagger 自动化生成发布。使用 egg-swagger 插件配合 egg 开发框架使用 https://github.com/Yanshijie-EL/egg-swagger-doc  Swagger 介绍Swagger 是一款 RESTFUL 接口的文档在线自动生成+功能测试功能软件。Swagger 是一个规范和完整的框架,用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。目标是使客户端和文件系统作为服务器以同样的速度来更新文件的方法,参数和模型紧密集成到服务器。 使用方法 安装 egg-swagger-doc 1npm i egg-swagger-doc --save  在 app&#x2F;文件夹下新建 contract 文件夹  添加配置 1config.swaggerdoc = &#123;    dirScanner: &#x27;./app/controller&#x27;,    apiInfo: &#123;      title:...</div></div></div></a><a class="pagination-related" href="/2018/08/25/python3%20flask%20%E4%BD%BF%E7%94%A8Mysql%E6%95%B0%E6%8D%AE%E5%BA%93-python3flask%E4%BD%BF%E7%94%A8mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" title="Flask与MySQL集成：构建Python Web应用数据库"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-251.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-08-25</div><div class="info-item-2">Flask与MySQL集成：构建Python Web应用数据库</div></div><div class="info-2"><div class="info-item-1">python3 flask 使用 Mysql 数据库 创建 flask 基本项目结构 12from flask import Flaskapp = Flask(__name__)    安装flask-sqlalchemy 1pip install flask-sqlalchemy  导入配置 123456from flask_sqlalchemy import SQLAlchemyapp.config[&#x27;SQLALCHEMY_DATABASE_URI&#x27;] = &#x27;mysql+pymysql://root:root@localhost/hhh&#x27;app.config[&#x27;SQLALCHEMY_COMMIT_ON_TEARDOWN&#x27;] = Trueapp.config[&#x27;SQLALCHEMY_TRACK_MODIFICATIONS&#x27;] = Truedb = SQLAlchemy(app)  python3 不再支持 MySQKdb,连接 mysql 数据库需要使用 pymysql 安装...</div></div></div></a><a class="pagination-related" href="/2019/03/07/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" title="InfluxDB实践：从MongoDB迁移到时序数据库的开发体验"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-513.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-07</div><div class="info-item-2">InfluxDB实践：从MongoDB迁移到时序数据库的开发体验</div></div><div class="info-2"><div class="info-item-1">前言我之前的节点数据是全都存到 mongoDB 中的。偶然的机会，发现了 InfluxDB 这种时序数据库。于是花了点时间简单使用一些，看看是否能替换 mongoDB 存储历史数据。 InfluxDB 简介InfluxDB 是一个开源时序数据库。适合处理分析资源数据监控相关数据。 https://docs.influxdata.com/influxdb/v1.6/     安装目前最新版本为 v1.6。 安装 InfluxDB 的方式很简单(Ubuntu) $ curl -sL &lt;https://repos.influxdata.com/influxdb.key&gt; | sudo apt-key add - $ source /etc/lsb-release $ echo &quot;deb &lt;https://repos.influxdata.com/$&#123;DISTRIB_ID,,&#125;&gt; $&#123;DISTRIB_CODENAME&#125; stable&quot; | sudo tee...</div></div></div></a><a class="pagination-related" href="/2024/08/26/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%B9%B6%E6%8B%86%E5%88%86%E8%BF%9E%E7%BB%AD%E6%B6%88%E6%81%AF%E5%8C%85/" title="Node.js TCP编程 消息包的拆分与重组实践"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-71.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-26</div><div class="info-item-2">Node.js TCP编程 消息包的拆分与重组实践</div></div><div class="info-2"><div class="info-item-1">使用 Node.js 开发 TCP 客户端并拆分连续消息包在网络编程中，TCP 是一种可靠的传输协议，它确保数据的完整性和顺序性。然而，在实际开发 TCP 客户端时，我们常常会遇到一个挑战：由于 TCP 是面向流的协议，接收到的数据可能并不总是按预期的消息边界到达，尤其是在高速数据传输时，多个消息包可能会连续到达。这时，我们需要自己处理数据的拆分和重组，以确保消息的完整性。 问题描述假设我们在开发一个 TCP...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E-nestjs-mongoose-jwt-%E7%9A%84-restful-%E6%A8%A1%E6%9D%BF%E7%A8%8B%E5%BA%8F-%E7%94%A8%E4%BA%8E%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.</span> <span class="toc-text">基于 nestjs mongoose jwt 的 restful 模板程序 用于快速搭建服务端程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%89%E5%8F%8A%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.</span> <span class="toc-text">涉及技术框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-%E7%BC%93%E5%AD%98%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">Redis 缓存基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">1.4.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-number">1.5.</span> <span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Running-the-app"><span class="toc-number">1.6.</span> <span class="toc-text">Running the app</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test"><span class="toc-number">1.7.</span> <span class="toc-text">Test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E5%9C%B0%E5%9D%80"><span class="toc-number">1.8.</span> <span class="toc-text">文档地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">1.9.</span> <span class="toc-text">异常处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.9.1.</span> <span class="toc-text">异常使用方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3-%EF%BC%88yapi%EF%BC%89"><span class="toc-number">1.9.2.</span> <span class="toc-text">接口文档 （yapi）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#api-%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90-yapi-gen-js-code"><span class="toc-number">1.9.3.</span> <span class="toc-text">api 代码生成(yapi-gen-js-code)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E8%A7%92%E8%89%B2%E6%80%9D%E8%B7%AF"><span class="toc-number">1.9.4.</span> <span class="toc-text">权限角色思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Getting-started"><span class="toc-number">1.9.5.</span> <span class="toc-text">Getting started</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rest-%E6%8E%A5%E5%8F%A3%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.9.6.</span> <span class="toc-text">rest 接口使用方式</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-208.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-547.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-436.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>houxiaozhao部落格 - 我欲修仙，法力无边</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="houxiaozhao部落格">
+<meta property="og:url" content="https://cdtools.click/page/2/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/14978325">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="前端,Node.js,Web,JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/14978325"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'houxiaozhao部落格',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/01/12/M0b0Vl.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">houxiaozhao部落格</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2024/11/22/Cron%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/" title="Cron表达式在线工具：专业的定时任务表达式生成与解析平台"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-142.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cron表达式在线工具：专业的定时任务表达式生成与解析平台"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/22/Cron%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/" title="Cron表达式在线工具：专业的定时任务表达式生成与解析平台">Cron表达式在线工具：专业的定时任务表达式生成与解析平台</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-22T14:03:58.000Z" title="发表于 2024-11-22 14:03:58">2024-11-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/">系统运维</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/">在线工具</a></span></div><div class="content">Cron 表达式在线工具：轻松创建和解析定时任务 在线体验地址：https://cron.cdtools.click   在日常工作中，我们经常需要设置定时任务，而 Cron 表达式就是定义这些任务执行时间的关键。但是，Cron 表达式的语法较为复杂，不同平台的格式也略有差异。为了解决这个问题，我们推出了这款在线 Cron 表达式工具，帮助您轻松创建和理解 Cron 表达式。 核心功能1. 多格式支持工具支持目前主流的三种 Cron 格式：  Crontab 格式（Linux 系统默认格式） Quartz 格式（Java Quartz 调度器使用的格式） Spring 格式（Spring Framework 中使用的格式）  2. 可视化配置无需记忆复杂的语法规则，通过直观的界面即可配置：  分钟选择（0-59） 小时选择（0-23） 日期选择（1-31） 月份选择（1-12） 星期选择（0-7）  3. 人性化解释工具会自动将 Cron 表达式转换为人类易读的文字说明，让您一目了然表达式的含义。例如：  “每周一至周五的上午 9 点执行” “每月 1 日和 15 日的凌晨 0...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/11/18/%E5%AD%A6%E7%94%9F%E8%AF%81%E7%85%A7%E7%89%87%E7%94%9F%E6%88%90%E5%99%A8/" title="在线学生证照片生成器：专业的证件照制作与编辑工具"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-542.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线学生证照片生成器：专业的证件照制作与编辑工具"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/18/%E5%AD%A6%E7%94%9F%E8%AF%81%E7%85%A7%E7%89%87%E7%94%9F%E6%88%90%E5%99%A8/" title="在线学生证照片生成器：专业的证件照制作与编辑工具">在线学生证照片生成器：专业的证件照制作与编辑工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-18T17:06:48.000Z" title="发表于 2024-11-18 17:06:48">2024-11-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/">在线工具</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E6%95%99%E8%82%B2%E5%B7%A5%E5%85%B7/">教育工具</a></span></div><div class="content">学生证照片生成器 在线体验：https://studentid.cdtools.click  一款简单易用的在线学生证照片生成工具，支持自定义学生信息、照片上传、实时预览和高清导出。无需安装任何软件，打开网页即可使用。 ✨ 主要功能1. 多样化的卡片模板提供三种精美的卡片模板供选择：  经典模板：传统简约风格 科技感模板：现代动感设计 简约风格：清新淡雅布局  2. 完全自定义的信息填写支持自定义以下信息：  姓名 学号 学校名称 院系 专业 有效期 个人照片 学校校徽（可选）  3. 丰富的背景选择内置多种背景供选择：  木纹背景 大理石背景 白色背景 深色木纹背景 支持上传自定义背景图  4. 实时预览 支持 3D 旋转预览 实时渲染效果 所见即所得的编辑体验  📝 使用说明 选择模板  打开网页后，首先在顶部选择喜欢的卡片模板 可以随时切换不同模板查看效果   填写信息  在左侧表单中填写个人信息 所有带星号(*)的字段为必填项 填写完一项后会自动更新预览效果   上传照片  点击”照片”栏的上传按钮 选择本地照片文件（支持 jpg、png...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/11/15/%E5%9B%BE%E7%89%87%E8%BD%ACExcel%E8%89%BA%E6%9C%AF%E8%BD%BB%E6%9D%BE%E5%88%9B%E5%BB%BA%E5%83%8F%E7%B4%A0%E9%A3%8E%E6%A0%BC%E8%A1%A8%E6%A0%BC%E8%89%BA%E6%9C%AF/" title="图片转Excel像素艺术：专业的在线表格艺术创作工具"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-198.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图片转Excel像素艺术：专业的在线表格艺术创作工具"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/15/%E5%9B%BE%E7%89%87%E8%BD%ACExcel%E8%89%BA%E6%9C%AF%E8%BD%BB%E6%9D%BE%E5%88%9B%E5%BB%BA%E5%83%8F%E7%B4%A0%E9%A3%8E%E6%A0%BC%E8%A1%A8%E6%A0%BC%E8%89%BA%E6%9C%AF/" title="图片转Excel像素艺术：专业的在线表格艺术创作工具">图片转Excel像素艺术：专业的在线表格艺术创作工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-15T12:14:39.000Z" title="发表于 2024-11-15 12:14:39">2024-11-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%9B%E6%84%8F%E5%B7%A5%E5%85%B7/">创意工具</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%9B%E6%84%8F%E5%B7%A5%E5%85%B7/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%9B%E6%84%8F%E5%B7%A5%E5%85%B7/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/Excel%E5%BA%94%E7%94%A8/">Excel应用</a></span></div><div class="content">图片转 Excel 艺术：轻松创建像素风格表格艺术在线体验地址：https://img2excel.cdtools.click  一款免费的在线工具，可以将任意图片转换成 Excel 像素艺术作品，支持多种图片调整参数，让你轻松创作独特的表格艺术。  功能特色1. 简单易用的操作界面  清晰的拖拽上传区域 实时预览功能 直观的参数调整面板  2. 强大的图片调整功能  亮度调整：-100 到 100 的范围调节，让图片更明亮或更暗淡 对比度：-100 到 100 的范围调节，增强或减弱图片的层次感 饱和度：-100 到 100 的范围调节，调整色彩的鲜艳程度 色调：-180 到 180 度的范围调节，改变图片的整体色相  3. 灵活的 Excel 输出设置  像素密度控制：最大像素数可在 10-200 之间自由设置 单元格样式定制： 自定义单元格大小 多种边框样式选择 边框颜色自定义 工作表背景色设置 Excel...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/11/14/CloudflareIP%E4%BC%98%E9%80%89%E5%B7%A5%E5%85%B7%E8%BD%BB%E6%9D%BE%E6%89%BE%E5%88%B0%E6%9C%80%E5%BF%AB%E7%9A%84CDN%E8%8A%82%E7%82%B9/" title="CloudflareIP优选工具轻松找到最快的CDN节点"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-178.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CloudflareIP优选工具轻松找到最快的CDN节点"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/14/CloudflareIP%E4%BC%98%E9%80%89%E5%B7%A5%E5%85%B7%E8%BD%BB%E6%9D%BE%E6%89%BE%E5%88%B0%E6%9C%80%E5%BF%AB%E7%9A%84CDN%E8%8A%82%E7%82%B9/" title="CloudflareIP优选工具轻松找到最快的CDN节点">CloudflareIP优选工具轻松找到最快的CDN节点</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-14T11:43:32.000Z" title="发表于 2024-11-14 11:43:32">2024-11-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96/">网络优化</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96/CDN%E5%8A%A0%E9%80%9F/">CDN加速</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96/CDN%E5%8A%A0%E9%80%9F/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">性能测试</a></span></div><div class="content">Cloudflare IP 优选工具：轻松找到最快的 CDN 节点 在线体验地址：https://cf-ip.cdtools.click   功能介绍Cloudflare IP 优选工具是一个专门用于测试和筛选 Cloudflare CDN 节点的在线服务。它能够帮助用户找到最适合自己的 Cloudflare IP 地址，从而获得更好的网络访问体验。 核心功能 全自动 IP 测速  自动测试多个 Cloudflare CDN 节点 每小时自动更新测试结果 按照延迟时间从低到高排序展示   全面的性能指标  IP 地址信息 数据包发送和接收统计 丢包率分析 网络延迟数据 实际下载速度测试   便捷的数据展示  清晰的表格形式展示测试结果 直观的性能指标对比 简洁的界面设计    使用说明 打开工具网站 https://cf-ip.cdtools.click  查看最新的测速结果表格，其中包含：  IP 地址列：显示具体的 Cloudflare CDN 节点...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/11/12/WGS-84%E8%87%B3CGCS2000%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%99%A8/" title="WGS-84至CGCS2000坐标转换器"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-378.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WGS-84至CGCS2000坐标转换器"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/12/WGS-84%E8%87%B3CGCS2000%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%99%A8/" title="WGS-84至CGCS2000坐标转换器">WGS-84至CGCS2000坐标转换器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-12T11:22:18.000Z" title="发表于 2024-11-12 11:22:18">2024-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9C%B0%E7%90%86%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F/">地理信息系统</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9C%B0%E7%90%86%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F/%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2/">坐标转换</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9C%B0%E7%90%86%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F/%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2/%E6%B5%8B%E7%BB%98%E5%B7%A5%E5%85%B7/">测绘工具</a></span></div><div class="content">WGS-84 与 CGCS2000 在线坐标转换工具简介这是一个在线的坐标转换工具，可以实现 WGS-84 与 CGCS2000 坐标系统之间的相互转换。该工具支持批量转换，提供了友好的用户界面，并且完全免费使用。 在线使用地址：https://cgcs2000.cdtools.click 功能特点 双向转换  WGS-84 转 CGCS2000 CGCS2000 转 WGS-84   自动分带  根据输入的经度自动计算 3 度带号 支持从 75°E 到 135°E 的范围（25-45 带）   灵活的输入格式  支持多种分隔符： 逗号 (,) 空格 ( ) 分号 (;) 制表符 (Tab)   支持批量转换，每行一组坐标   高精度转换  采用 proj4.js 库进行投影转换 输出精度保留到小数点后 6 位    使用说明1. WGS-84 转 CGCS2000 在左侧文本框中输入 WGS-84...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/10/24/openeuler%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-docker%E5%AE%89%E8%A3%85-docker%E6%98%BE%E5%8D%A1%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" title="OpenEuler系统配置指南：Docker安装与GPU环境搭建"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-411.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OpenEuler系统配置指南：Docker安装与GPU环境搭建"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/10/24/openeuler%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-docker%E5%AE%89%E8%A3%85-docker%E6%98%BE%E5%8D%A1%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" title="OpenEuler系统配置指南：Docker安装与GPU环境搭建">OpenEuler系统配置指南：Docker安装与GPU环境搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-24T10:00:00.000Z" title="发表于 2024-10-24 10:00:00">2024-10-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/">容器技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/GPU%E8%AE%A1%E7%AE%97/">GPU计算</a></span></div><div class="content">系统安装制作启动盘https://www.iplaysoft.com/ventoy.html安装系统1.启动待安装的电脑&#x2F;服务器。修改启动选项，进入 U 盘启动 2.选择要安装的系统。选择通用安装 3.然后从https://docs.openeuler.org/zh/docs/22.03_LTS_SP3/docs/Installation/%E5%AE%89%E8%A3%85%E6%8C%87%E5%AF%BC.html 的“安装引导界面”开始来进行安装配置 配置网络 参考 https://docs.openeuler.org/zh/docs/22.03_LTS_SP3/docs/Administration/%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C.html  1.查看可用设备nmcli dev status 2.配置动态 IPnmcli connection add type ethernet con-name 连接名称 ifname 接口名称 3.激活配置nmcli con up 连接名称 配置软件源1.编辑 vi...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/08/26/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%B9%B6%E6%8B%86%E5%88%86%E8%BF%9E%E7%BB%AD%E6%B6%88%E6%81%AF%E5%8C%85/" title="Node.js TCP编程 消息包的拆分与重组实践"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-71.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Node.js TCP编程 消息包的拆分与重组实践"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/26/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%B9%B6%E6%8B%86%E5%88%86%E8%BF%9E%E7%BB%AD%E6%B6%88%E6%81%AF%E5%8C%85/" title="Node.js TCP编程 消息包的拆分与重组实践">Node.js TCP编程 消息包的拆分与重组实践</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-26T10:53:56.000Z" title="发表于 2024-08-26 10:53:56">2024-08-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/Node-js/">Node.js</a></span></div><div class="content">使用 Node.js 开发 TCP 客户端并拆分连续消息包在网络编程中，TCP 是一种可靠的传输协议，它确保数据的完整性和顺序性。然而，在实际开发 TCP 客户端时，我们常常会遇到一个挑战：由于 TCP 是面向流的协议，接收到的数据可能并不总是按预期的消息边界到达，尤其是在高速数据传输时，多个消息包可能会连续到达。这时，我们需要自己处理数据的拆分和重组，以确保消息的完整性。 问题描述假设我们在开发一个 TCP...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/05/10/%E7%B3%BB%E7%BB%9F%E7%A6%BB%E7%BA%BFlicense%E9%AA%8C%E8%AF%81%E7%9A%84%E6%96%B9%E6%B3%95/" title="基于RSA和AES的系统离线License验证方案实现"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-103.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于RSA和AES的系统离线License验证方案实现"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/05/10/%E7%B3%BB%E7%BB%9F%E7%A6%BB%E7%BA%BFlicense%E9%AA%8C%E8%AF%81%E7%9A%84%E6%96%B9%E6%B3%95/" title="基于RSA和AES的系统离线License验证方案实现">基于RSA和AES的系统离线License验证方案实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-10T10:12:17.000Z" title="发表于 2024-05-10 10:12:17">2024-05-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">系统开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/%E5%AE%89%E5%85%A8%E8%AE%A4%E8%AF%81/">安全认证</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/%E5%AE%89%E5%85%A8%E8%AE%A4%E8%AF%81/Node-js%E5%BC%80%E5%8F%91/">Node.js开发</a></span></div><div class="content"> 为了解决系统私有化部署，完全离线的情况下，如何验证 license 的问题。 需要考虑以下几个方面：    系统需要支持离线验证，即在没有网络连接的情况下也能进行 license 验证。 需要保证 license 验证的准确性，防止被篡改或伪造。 需要考虑 license 的过期时间、使用次数等限制条件，并确保在离线情况下也能进行验证。 需要确保系统绑定在一台设备上，防止 license 被盗用。   1. 实现原理使用私钥签名，公钥验签的方式进行验证。在系统部署时，生成一个密钥对，使用私钥对信息签名。同时将公钥提供给用户，用于验证签名。用户在购买 license 时，使用私钥对 license 进行签名，并将签名后的 license 发送给用户。用户在安装 license 时，使用公钥对 license 进行验签，验证其有效性。签名的过程  对自定义信息+随机字符串(密钥)进行加密 使用私钥对加密后的信息进行签名 将密钥+加密信息长度+加密信息+签名作为 license  2. 具体实现 Nodejs 代码2.1 生成密钥对1234const NodeRSA =...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/09/26/uniapp%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E7%9A%84MD5/" title="uniapp 的 Android 端获取照片的MD5"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-471.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="uniapp 的 Android 端获取照片的MD5"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/09/26/uniapp%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E7%9A%84MD5/" title="uniapp 的 Android 端获取照片的MD5">uniapp 的 Android 端获取照片的MD5</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-26T18:22:05.000Z" title="发表于 2023-09-26 18:22:05">2023-09-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">移动应用开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91/">跨平台开发</a></span></div><div class="content">使用spark-md5这个包计算文件的 md5 值，但是在 Uniapp 安卓端没有 FileReader 这个方法。 可以利用 plus.io.FileReader 读取照片 base64 内容，然后再计算 md5 代码12345678910111213141516171819202122232425/** * 获取照片 md5 */function getMD5(path) &#123;  return new Promise((resolve, reject) =&gt; &#123;    plus.io.resolveLocalFileSystemURL(path, entry =&gt; &#123;      var fileReader = new plus.io.FileReader();      fileReader.readAsDataURL(entry);      fileReader.onloadend = function (evt) &#123;        //...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/07/06/strapi%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BB%8Econtroll%E4%B8%AD/" title="Strapi文件上传指南：从控制器实现服务器端上传"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-423.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Strapi文件上传指南：从控制器实现服务器端上传"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/06/strapi%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BB%8Econtroll%E4%B8%AD/" title="Strapi文件上传指南：从控制器实现服务器端上传">Strapi文件上传指南：从控制器实现服务器端上传</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-06T18:22:05.000Z" title="发表于 2023-07-06 18:22:05">2023-07-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">内容管理系统</a></span></div><div class="content">官网中关于上传文件的介绍只介绍了如何在前端上传文件，但是在后端上传文件的需求也是很常见的，比如在 controller 中上传文件。 上传文件在 controller 或 service 中上传文件，需要使用 strapi 的 service 中的 upload 方法，具体使用方法如下： 123456789101112131415161718192021import fse from &quot;fs-extra&quot;;import path from &quot;path&quot;;import os from &quot;os&quot;;//需要把文件放到临时文件夹中const tmpWorkingDirectory = await fse.mkdtemp(path.join(os.tmpdir(), &quot;strapi-upload-&quot;));const fileName = Date.now() + &quot;.jpg&quot;; // 根据实际情况修改文件名const tmpFilePath =...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-208.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-547.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-436.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">3D开发</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/"><span class="card-category-list-name">WebGL</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">图形编程</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><span class="card-category-list-name">计算机图形学</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">API安全</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">后端开发</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"><span class="card-category-list-name">系统架构</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87/" style="font-size: 1.1em; color: #999">开发效率</a> <a href="/tags/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 1.1em; color: #999">Chrome浏览器</a> <a href="/tags/API%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">API测试</a> <a href="/tags/Egg-js/" style="font-size: 1.5em; color: #99a9bf">Egg.js</a> <a href="/tags/Web%E5%AE%89%E5%85%A8/" style="font-size: 1.1em; color: #999">Web安全</a> <a href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">状态管理</a> <a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/" style="font-size: 1.1em; color: #999">过滤器</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" style="font-size: 1.1em; color: #999">开发框架</a> <a href="/tags/%E7%9D%A1%E7%9C%A0%E6%94%B9%E5%96%84/" style="font-size: 1.1em; color: #999">睡眠改善</a> <a href="/tags/npm%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">npm包管理</a> <a href="/tags/Koa/" style="font-size: 1.1em; color: #999">Koa</a> <a href="/tags/3D-Tiles/" style="font-size: 1.1em; color: #999">3D Tiles</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">开发工具</a> <a href="/tags/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1.5em; color: #99a9bf">国密算法</a> <a href="/tags/Vector2/" style="font-size: 1.1em; color: #999">Vector2</a> <a href="/tags/%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/" style="font-size: 1.1em; color: #999">格式转换</a> <a href="/tags/API%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">API开发</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%9B%91%E6%8E%A7/" style="font-size: 1.1em; color: #999">数据监控</a> <a href="/tags/Vector3/" style="font-size: 1.1em; color: #999">Vector3</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">前端优化</a> <a href="/tags/%E8%A1%8C%E4%B8%9A%E5%BA%94%E7%94%A8/" style="font-size: 1.1em; color: #999">行业应用</a> <a href="/tags/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">严格模式</a> <a href="/tags/%E7%A1%AC%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">硬件开发</a> <a href="/tags/WeUI/" style="font-size: 1.1em; color: #999">WeUI</a> <a href="/tags/Vite/" style="font-size: 1.1em; color: #999">Vite</a> <a href="/tags/%E6%97%85%E8%A1%8C%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">旅行工具</a> <a href="/tags/IP%E4%BC%98%E9%80%89/" style="font-size: 1.1em; color: #999">IP优选</a> <a href="/tags/Swagger/" style="font-size: 1.5em; color: #99a9bf">Swagger</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">移动应用开发</a> <a href="/tags/%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2/" style="font-size: 1.1em; color: #999">坐标变换</a> <a href="/tags/frontend/" style="font-size: 1.1em; color: #999">frontend</a> <a href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">云平台</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 1.5em; color: #99a9bf">图像处理</a> <a href="/tags/WebSocket/" style="font-size: 1.5em; color: #99a9bf">WebSocket</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.5em; color: #99a9bf">后端</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">微服务</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">定时器优化</a> <a href="/tags/%E8%89%BA%E6%9C%AF%E5%88%9B%E4%BD%9C/" style="font-size: 1.1em; color: #999">艺术创作</a> <a href="/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/" style="font-size: 1.1em; color: #999">实时通信</a> <a href="/tags/%E5%BA%A7%E4%BD%8D%E9%A2%84%E8%AE%A2/" style="font-size: 1.1em; color: #999">座位预订</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/" title="查看更多"><i class="fas fa-angle-right"></i></a>
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/12/">
+          <span class="card-archive-list-date">十二月 2024</span>
+          <span class="card-archive-list-count">7</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">十一月 2024</span>
+          <span class="card-archive-list-count">8</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/10/">
+          <span class="card-archive-list-date">十月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/08/">
+          <span class="card-archive-list-date">八月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/05/">
+          <span class="card-archive-list-date">五月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/09/">
+          <span class="card-archive-list-date">九月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/07/">
+          <span class="card-archive-list-date">七月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/06/">
+          <span class="card-archive-list-date">六月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">75</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">51.6k</div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-17T09:55:34.038Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (false) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  btf.getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        typedJSFn.init(sub)
+      } else {
+        document.getElementById('subtitle').textContent = result.data.content
+      }
+    })
+  })
+}
+typedJSFn.run(subtitleType)
+</script></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>浏览器后台定时器优化：使用 Momentum.js 解决降频问题 | houxiaozhao部落格</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="本文介绍了一个常见的浏览器性能问题：当页面处于后台标签页时，浏览器会自动降低定时器（setInterval 和 setTimeout）的执行频率，这可能会影响依赖精确计时的 Web 应用程序的正常运行。文章详细说明了如何使用 Momentum.js 库来解决这个问题，该库提供了对原生 setInterval、clearInterval、setTimeout 和 clearTimeout 方法的优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器后台定时器优化：使用 Momentum.js 解决降频问题">
+<meta property="og:url" content="https://cdtools.click/2022/08/17/%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%A8%E5%90%8E%E5%8F%B0%E6%97%B6%E5%AE%9A%E6%97%B6%E5%99%A8%E9%99%8D%E9%A2%91%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="本文介绍了一个常见的浏览器性能问题：当页面处于后台标签页时，浏览器会自动降低定时器（setInterval 和 setTimeout）的执行频率，这可能会影响依赖精确计时的 Web 应用程序的正常运行。文章详细说明了如何使用 Momentum.js 库来解决这个问题，该库提供了对原生 setInterval、clearInterval、setTimeout 和 clearTimeout 方法的优化">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-541.jpg">
+<meta property="article:published_time" content="2022-08-17T13:05:23.000Z">
+<meta property="article:modified_time" content="2024-12-17T09:55:12.508Z">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="性能优化">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="定时器优化">
+<meta property="article:tag" content="JavaScript 性能">
+<meta property="article:tag" content="浏览器后台">
+<meta property="article:tag" content="Momentum.js">
+<meta property="article:tag" content="setInterval">
+<meta property="article:tag" content="setTimeout">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-541.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/2022/08/17/%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%A8%E5%90%8E%E5%8F%B0%E6%97%B6%E5%AE%9A%E6%97%B6%E5%99%A8%E9%99%8D%E9%A2%91%E9%97%AE%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '浏览器后台定时器优化：使用 Momentum.js 解决降频问题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-541.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a><a class="nav-page-title" href="/"><span class="site-name">浏览器后台定时器优化：使用 Momentum.js 解决降频问题</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">浏览器后台定时器优化：使用 Momentum.js 解决降频问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-17T13:05:23.000Z" title="发表于 2022-08-17 13:05:23">2022-08-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-17T09:55:12.508Z" title="更新于 2024-12-17 09:55:12">2024-12-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BC%98%E5%8C%96/">浏览器优化</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BC%98%E5%8C%96/JavaScript/">JavaScript</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">19</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/myonov/momentum">https://github.com/myonov/momentum</a></p>
+</blockquote>
+<p>引入 momentum.js,正常使用 setInterval, clearInterval, setTimeout, clearTimeout 方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2022/08/17/FQzazg.png" alt="FQzazg"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/houxiaozhao">houxiaozhao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cdtools.click/2022/08/17/解决浏览器在后台时定时器降频问题/">https://cdtools.click/2022/08/17/解决浏览器在后台时定时器降频问题/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">此文章版权归houxiaozhao所有，如有转载，请注明来自原作者</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="post-meta__tags" href="/tags/%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BC%98%E5%8C%96/">定时器优化</a><a class="post-meta__tags" href="/tags/JavaScript-%E6%80%A7%E8%83%BD/">JavaScript 性能</a><a class="post-meta__tags" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8E%E5%8F%B0/">浏览器后台</a><a class="post-meta__tags" href="/tags/Momentum-js/">Momentum.js</a><a class="post-meta__tags" href="/tags/setInterval/">setInterval</a><a class="post-meta__tags" href="/tags/setTimeout/">setTimeout</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-541.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2022/09/07/%E6%A3%80%E6%9F%A5%E7%82%B9%E6%98%AF%E5%90%A6%E5%9C%A8%E4%BB%BB%E6%84%8F%E5%9C%86%E6%9F%B1%E4%BD%93%E5%86%85/" title="JavaScript 3D空间计算：实现点到圆柱体的碰撞检测算法"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-55.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">JavaScript 3D空间计算：实现点到圆柱体的碰撞检测算法</div></div><div class="info-2"><div class="info-item-1"> https://www.flipcode.com/archives/Fast_Point-In-Cylinder_Test.shtml  123456789101112131415161718192021222324252627282930313233343536373839404142434445function cylTest(pt1, pt2, radius, testpt) &#123;  let dx, dy, dz; // vector d  from line segment point 1 to point 2  let pdx, pdy, pdz; // vector pd from point 1 to test point  let dot, dsq;  let length_sq = Math.pow(pt1.x - pt2.x, 2) + Math.pow(pt1.y - pt2.y, 2) + Math.pow(pt1.z - pt2.z, 2);  let radius_sq = Math.pow(radius, 2);  dx = pt2.x...</div></div></div></a><a class="pagination-related" href="/2022/07/21/%E5%AF%86%E9%92%A5%E4%BC%A0%E8%BE%93%E5%92%8C%E7%AD%BE%E5%90%8D%E5%8A%A0%E5%AF%86%E6%B5%81%E7%A8%8B%EF%BC%88%E5%9B%BD%E5%AF%86%EF%BC%89/" title="国密算法应用：前后端加密通信与数据签名实现"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-438.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">国密算法应用：前后端加密通信与数据签名实现</div></div><div class="info-2"><div class="info-item-1">密钥传输流程 系统内置一套公钥和私钥  打开前端时自动获取其中公钥(公钥不需要加密)  前端随机生成一个 sm4 的 key 和 iv，使用公钥对 key 和 iv 进行加密，传到后台 （已加密），后台使用私钥解密能拿到原始 key 和 iv,然后在生成一套公私钥，key、iv 和公钥存到 redis 中。每个用户的 key、iv 和公私钥都是不一样的，重新打开页面也会重新生成 key、iv 和公私钥。私钥使用 sm4 的 cbc 模式加密后传给前端已加密。  前端再使用刚才随机生成的 key 和 iv 解密拿到私钥。前端使用这个私钥对请求进行签名。     前端向后端加密传输 前端拦截请求，对请求中 body 使用 sm2 的公钥加密或使用 sm4 cbc 模式加密（目前使用的 sm2 加密）  后端收到请求后，在验签之前使用私钥把 body 数据解密，然后再验签。  前端拦截请求，对请求中 body 先使用 sm3 计算哈希，然后把哈希值和明文数据拼接后，使用 sm2 公钥加密或使用 sm4 cbc 模式加密（目前使用的 sm2...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2018/10/09/Egg.js%20VS%20Thinkjs%20%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E4%BD%BF%E7%94%A8-eggjsvsthinkjs%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E4%BD%BF%E7%94%A8/" title="Egg.js与ThinkJS框架对比：Node.js企业级开发实践分析"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-373.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-10-09</div><div class="info-item-2">Egg.js与ThinkJS框架对比：Node.js企业级开发实践分析</div></div><div class="info-2"><div class="info-item-1">@[toc](Egg.js VS Thinkjs 简单分析使用) 命令行脚手架Egg.js12345$ npm i egg-init -g$ egg-init egg-example --type=simple$ cd egg-example$ npm i$ npm run dev  打开浏览器访问 http://127.0.0.1:7001/     Thinkjs12345$ npm install -g think-cli$ thinkjs new demo;$ cd demo;$ npm install;$ npm start;  打开浏览器访问 http://127.0.0.1:8360/ 从创建项目的脚手架来看两者基本一致，但是 think-cli 支持 使用命令行创建 controller、service、model 等 123$ thinkjs controller &lt;controller-name&gt; [module-name]$ thinkjs service &lt;service-name&gt; [module-name]$ thinkjs...</div></div></div></a><a class="pagination-related" href="/2023/02/03/Minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" title="基于Node.js实现Minio对象存储的图片自动压缩服务"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-292.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-03</div><div class="info-item-2">基于Node.js实现Minio对象存储的图片自动压缩服务</div></div><div class="info-2"><div class="info-item-1"> 利用 Minio 的通知功能，在有图片上传后，通知到 Nodejs 服务，压缩图片再上传  项目地址https://github.com/houxiaozhao/minio-compresses-images 主要使用的库 minio - Minio 的 Nodejs 客户端 sharp - 图片压缩库 koa - Nodejs 的 web 框架 bull - Nodejs 的队列库  流程 因为 sharp 的处理图片速度比较慢，所以使用了队列，将图片压缩的任务放到队列中，然后再从队列中取出任务，进行压缩。 主要压缩的代码1234567const minioClient = new minio.Client(config.minio);console.time(job.id + &quot;流处理时间&quot;);const readable = await minioClient.getObject(bucket, key);const pipeline = sharp(&#123; unlimited: true, sequentialRead: true...</div></div></div></a><a class="pagination-related" href="/2021/04/07/Node%20js%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%20-nodejs%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="Node.js 错误处理实用指南：Promise与Async&#x2F;Await最佳实践"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-253.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-07</div><div class="info-item-2">Node.js 错误处理实用指南：Promise与Async&#x2F;Await最佳实践</div></div><div class="info-2"><div class="info-item-1">Node.js 错误处理最佳实践使用 Promise 捕获错误123456789101112131415161718192021222324let func = function (n) &#123;  return new Promise((resolve, reject) =&gt; &#123;    resolve(n * n);  &#125;);&#125;;func(2)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .then(res =&gt; &#123;    console.log(res);    throw new Error(&quot;Error&quot;);  &#125;)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .catch(err =&gt; &#123;    console.log(err);  &#125;) ...</div></div></div></a><a class="pagination-related" href="/2023/02/02/Nodejs%E4%B8%ADBuffer%E5%92%8CStream%E4%BA%92%E8%BD%AC/" title="Node.js中Buffer和Stream的高效转换：提升数据处理性能"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-18.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-02</div><div class="info-item-2">Node.js中Buffer和Stream的高效转换：提升数据处理性能</div></div><div class="info-2"><div class="info-item-1">Stream to Buffer12345678function streamToBuffer(stream) &#123;  return new Promise((resolve, reject) =&gt; &#123;    let buffers = [];    stream.on(&quot;error&quot;, reject);    stream.on(&quot;data&quot;, data =&gt; buffers.push(data));    stream.on(&quot;end&quot;, () =&gt; resolve(Buffer.concat(buffers)));  &#125;);&#125;  Buffer to Stream1234567let Duplex = require(&quot;stream&quot;).Duplex;function bufferToStream(buffer) &#123;  let stream = new Duplex();  stream.push(buffer); ...</div></div></div></a><a class="pagination-related" href="/2017/01/18/angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%882%EF%BC%89-angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%962/" title="AngularJS和Ionic应用性能优化实践与技巧"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-418.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-01-18</div><div class="info-item-2">AngularJS和Ionic应用性能优化实践与技巧</div></div><div class="info-2"><div class="info-item-1">angular 性能优化 使用$watchCollection(obj, listener)，不要使用$watch()或者$watchGroup();  使用 one-time binding 1&#123;&#123;::user.first_name&#125;&#125;    使用 Track by以前的用法ng-repeat=&quot;user in users&quot;修改后的用法ng-repeat=&quot;user in users track by user.id&quot;如果 users 有 id 的话或者ng-repeat=&quot;user in users track by $index&quot;如果没有 id  不要使用 console.log(),而是用$log The $log service has several log levels .info .debug and .error.  禁用...</div></div></div></a><a class="pagination-related" href="/2017/01/18/ionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-ionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="Ionic应用性能提升技巧：页面转场优化与缓存策略"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-392.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-01-18</div><div class="info-item-2">Ionic应用性能提升技巧：页面转场优化与缓存策略</div></div><div class="info-2"><div class="info-item-1">ionic-native-transitions 下载 npm install ionic-native-transitions –save  安装 cordova plugin add https://github.com/Telerik-Verified-Plugins/NativePageTransitions   引入   如果是 ios9，页面切换抖动，则安装 cordova plugin add cordova-plugin-wkwebvie  注入 1angular.module(&quot;yourApp&quot;, [&quot;ionic-native-transitions&quot;]);  配置 123456789101112131415161718192021.config(function($ionicNativeTransitionsProvider)&#123;    $ionicNativeTransitionsProvider.setDefaultOptions(&#123;        duration: 400, // in...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-208.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-547.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-436.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>

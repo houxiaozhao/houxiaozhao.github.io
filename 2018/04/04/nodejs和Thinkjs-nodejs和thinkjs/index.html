@@ -1,0 +1,476 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Node.js与ThinkJS框架开发指南：构建高效Web应用 | houxiaozhao部落格</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="本文深入探讨Node.js和ThinkJS框架的核心特性与实践应用。从Node.js的基础概念、事件驱动模型到npm包管理，再到ThinkJS框架的项目结构、路由配置和中间件机制，为开发者提供全面的技术指南。文章详细介绍了基于Chrome V8引擎的JavaScript运行环境，非阻塞式I&#x2F;O模型的实现原理，以及如何利用ThinkJS框架快速构建高效的Web应用。通过实例讲解和最佳实践，帮助开发者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js与ThinkJS框架开发指南：构建高效Web应用">
+<meta property="og:url" content="https://cdtools.click/2018/04/04/nodejs%E5%92%8CThinkjs-nodejs%E5%92%8Cthinkjs/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="本文深入探讨Node.js和ThinkJS框架的核心特性与实践应用。从Node.js的基础概念、事件驱动模型到npm包管理，再到ThinkJS框架的项目结构、路由配置和中间件机制，为开发者提供全面的技术指南。文章详细介绍了基于Chrome V8引擎的JavaScript运行环境，非阻塞式I&#x2F;O模型的实现原理，以及如何利用ThinkJS框架快速构建高效的Web应用。通过实例讲解和最佳实践，帮助开发者">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-392.jpg">
+<meta property="article:published_time" content="2018-04-04T12:50:34.000Z">
+<meta property="article:modified_time" content="2024-12-17T09:55:12.508Z">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="ThinkJS">
+<meta property="article:tag" content="Web开发">
+<meta property="article:tag" content="事件驱动">
+<meta property="article:tag" content="服务器端编程">
+<meta property="article:tag" content="npm">
+<meta property="article:tag" content="非阻塞IO">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-392.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/2018/04/04/nodejs%E5%92%8CThinkjs-nodejs%E5%92%8Cthinkjs/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Node.js与ThinkJS框架开发指南：构建高效Web应用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-392.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a><a class="nav-page-title" href="/"><span class="site-name">Node.js与ThinkJS框架开发指南：构建高效Web应用</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Node.js与ThinkJS框架开发指南：构建高效Web应用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-04-04T12:50:34.000Z" title="发表于 2018-04-04 12:50:34">2018-04-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-17T09:55:12.508Z" title="更新于 2024-12-17 09:55:12">2024-12-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/">JavaScript</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">6.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>23分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><h4 id="Node-js-简述"><a href="#Node-js-简述" class="headerlink" title="Node.js 简述"></a>Node.js 简述</h4><p><strong>Node.js</strong>：简单的说 Node.js 就是运行在服务端的 JavaScript。</p>
+<p><a href="https:://github.com/younghz/Markdown" title="Markdown">Node.js 安装配置</a> （介绍在 window 和 Linux 上的安装 Node.js 的方法）</p>
+<p><a target="_blank" rel="noopener" href="http://nodejs.cn/" title="Markdown">Node.js 官方文档</a></p>
+  <span id="more"></span>
+
+<p>官方文档介绍：</p>
+<ul>
+<li><p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。</p>
+</li>
+<li><p>Node.js 使用了一个<strong>事件驱动、非阻塞式 I&#x2F;O 的模型</strong>，使其轻量又高效。<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37886429/article/details/78292300" title="Markdown">事件驱动与异步 IO 的讲解</a></p>
+</li>
+<li><p>Node.js 的<strong>包管理器 npm</strong>，是全球最大的开源库生态系统。</p>
+<p>​</p>
+</li>
+</ul>
+<p><strong>认识包管理器 npm</strong>（npm 已经在安装 Node.js 的时候安装好了）</p>
+<p>当我们在 Node.js 上开发时，会用到很多别人写的 JavaScript 代码。如果我们需要使用别人写的某个包，每次都根据名称搜索一下官方文档，下载代码，解压，再使用，非常繁琐。于是一个集中管理的工具应运而生：大家都把自己开发的模块打包后放到<a target="_blank" rel="noopener" href="https://www.npmjs.com/browse/depended" title="Markdown">npm</a>官网上，如果要使用，直接通过 npm 安装就可以直接使用，不管代码存在哪，应该从哪下载。</p>
+<p>更重要的是，如果我们要使用模块 A，而模块 A 又依赖于模块 B，模块 B 又依赖于其他的模块，那么 npm 可以根据依赖关系，把所有依赖的包都下载下来并管理起来。否则，靠我们自己手动管理，肯定是麻烦又容易出错。</p>
+<h4 id="第一个-Node-程序"><a href="#第一个-Node-程序" class="headerlink" title="第一个 Node 程序"></a>第一个 Node 程序</h4><p>了解 Node.js 应用的几个组成部分：</p>
+<ol>
+<li><strong>引入 required 模块</strong> ：我们可以使用 require 指令来载入 Node.js 模块。</li>
+<li><strong>创建服务器</strong> ：服务器可以监听客户端的请求，类似于 Apache，Nginx 等服务器。</li>
+<li><strong>接收请求和响应请求</strong> ：服务器很容易创建，客户端可以使用浏览器或终端发送 http 请求，服务器接收请求后返回相应数据。</li>
+</ol>
+<p>创建 Node.js 应用：</p>
+<p>步骤一：引入 required 模块</p>
+<p>使用 require 指令载入 http 模块，并将实例化的 HTTP 赋值给变量 http，实例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&#x27;http&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>步骤二：创建服务器</p>
+<p>接下来我们使用 <code>http.createServer()</code> 方法创建服务器，并使用<code>listen</code>方法绑定 8888 端口。函数通过<code>request</code>，<code>response</code>参数来接收和响应数据。实例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&#x27;http&#x27;);  //请求Node.js自带的http模块，并且把它赋值给http变量</span><br><span class="line">http.createServer(function (request, response) &#123;  //调用http模块提供的模块</span><br><span class="line">    // 发送 HTTP 头部</span><br><span class="line">    // HTTP 状态值: 200 : OK</span><br><span class="line">    // 内容类型: text/plain</span><br><span class="line">    response.writeHead(200, &#123;&#x27;Content-Type&#x27;: &#x27;text/plain&#x27;&#125;);</span><br><span class="line"></span><br><span class="line">    // 发送响应数据 &quot;Hello World&quot;</span><br><span class="line">    response.end(&#x27;Hello World\n&#x27;);</span><br><span class="line">&#125;).listen(8888);</span><br><span class="line"></span><br><span class="line">// 终端打印如下信息</span><br><span class="line">console.log(&#x27;Server running at http://127.0.0.1:8888/&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="Node-js-后端框架"><a href="#Node-js-后端框架" class="headerlink" title="Node.js 后端框架"></a>Node.js 后端框架</h1><p><strong>Express 和 Koa（典型框架）</strong></p>
+<p>Express：轻量灵活的的 node.js 框架，可以快速的搭建应用，使用广泛。<a target="_blank" rel="noopener" href="http://expressjs.jser.us/" title="Markdown">Express 官方文档</a></p>
+<p>Koa：由 Express 原版人马打造，致力于成为 web 应用和 API 开发领域中的一个更小、更富有表现力、更健壮的基石。通过利用 async 函数，koa 帮你丢弃回调函数，并有力的增强错误处理。<a target="_blank" rel="noopener" href="https://koa.bootcss.com/" title="Markdown">koa 官方文档</a></p>
+<p>Express 和 Koa 是 node.js 最基础的两个后端框架。因为构建一个 app 仍需要些很多脚手架代码，于是在他们基础上出现了很多其他框架来减少编写这类代码。（例如：ThinkJS，egg.js 等）</p>
+<h1 id="ThinkJS"><a href="#ThinkJS" class="headerlink" title="ThinkJS"></a>ThinkJS</h1><p>介绍：ThinkJS 是一款面向未来开发的 Node.js 框架，整合了大量的项目最佳实践，让企业级开发变得简单、高效。从 3.0 开始，框架底层基于 Koa2.x 实现，兼容 Koa 的所有功能。</p>
+<p>特性：</p>
+<ul>
+<li>基于 Koa2.x，兼容<code>middleware</code></li>
+<li>内核小巧，支持<code>Extend</code>、<code>Adapter</code>等插件方式</li>
+<li>性能优异，单元测试覆盖程度高</li>
+<li>内置自动编译、自动更新机制、方便快速开发</li>
+<li>使用更优雅的<code>async/await</code>处理异步问题、不再支持<code>*/yield</code>方式</li>
+</ul>
+<h4 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h4><p>借助 ThinkJS 提供的脚手架，可以快速的创建一个项目。为了可以使用更多的 ES6 特性，框架要求 node.js 的版本至少是 6.x，建议使用 LTS 版本。</p>
+<h4 id="安装-ThinkJS-命令"><a href="#安装-ThinkJS-命令" class="headerlink" title="安装 ThinkJS 命令"></a>安装 ThinkJS 命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g think-cli</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，系统中会有 thinkjs 命令（可以通过<code>thinkjs-v</code>查看 think-cli 版本号）</p>
+<h4 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thinkjs new demo  //创建名为demo的项目</span><br><span class="line">npm install   //安装依赖</span><br><span class="line">npm start  //运行项目</span><br></pre></td></tr></table></figure>
+
+<h4 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h4><p>默认创建的项目结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">|--- development.js   //开发环境下的入口文件</span><br><span class="line">|--- nginx.conf  //nginx 配置文件</span><br><span class="line">|--- package.json</span><br><span class="line">|--- pm2.json //pm2 配置文件</span><br><span class="line">|--- production.js //生产环境下的入口文件</span><br><span class="line">|--- README.md</span><br><span class="line">|--- src</span><br><span class="line">| |--- bootstrap  //启动自动执行目录</span><br><span class="line">| | |--- master.js //Master 进程下自动执行</span><br><span class="line">| | |--- worker.js //Worker 进程下自动执行</span><br><span class="line">| |--- config  //配置文件目录</span><br><span class="line">| | |--- adapter.js  // adapter 配置文件</span><br><span class="line">| | |--- config.js  // 默认配置文件</span><br><span class="line">| | |--- config.production.js  //生产环境下的默认配置文件，和 config.js 合并</span><br><span class="line">| | |--- extend.js  //extend 配置文件</span><br><span class="line">| | |--- middleware.js //middleware 配置文件</span><br><span class="line">| | |--- router.js //自定义路由配置文件</span><br><span class="line">| |--- controller  //控制器目录</span><br><span class="line">| | |--- base.js</span><br><span class="line">| | |--- index.js</span><br><span class="line">| |--- logic //logic 目录</span><br><span class="line">| | |--- index.js</span><br><span class="line">| |--- model //模型目录</span><br><span class="line">| | |--- index.js</span><br><span class="line">|--- view  //模板目录</span><br><span class="line">| |--- index_index.html</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="基础功能"><a href="#基础功能" class="headerlink" title="基础功能"></a>基础功能</h4><h5 id="Config（配置）"><a href="#Config（配置）" class="headerlink" title="Config（配置）"></a>Config（配置）</h5><p>实际项目中，肯定需要各种配置，包括：框架需要的配置以及项目自定义的配置。ThinkJS 将所有的配置都统一管理，文件都放在<code>src/config/</code>目录下，并根据不同的功能划分为不同的配置文件。</p>
+<ul>
+<li><code>config.js</code> 通用的一些配置</li>
+<li><code>adapter.js</code> adapter 配置 （数据库的配置）</li>
+<li><code>router.js</code>自定义路由配置</li>
+<li><code>middleware.js</code> middleware 配置</li>
+<li><code>validator.js</code> 数据校验配置</li>
+<li><code>extend.js</code> extend 配置</li>
+</ul>
+<p><strong>配置格式</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// src/config.js</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  port: 1234,</span><br><span class="line">  redis: &#123;</span><br><span class="line">    host: &#x27;192.168.1.2&#x27;,</span><br><span class="line">    port: 2456,</span><br><span class="line">    password: &#x27;&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置值即可以是一个简单的字符串，也可以是一个复杂的对象，具体是什么类型根据具体的需求来决定。</p>
+<p><strong>使用配置</strong></p>
+<p>框架提供了在不同环境下不同的方式快速获取配置：</p>
+<ul>
+<li>在 ctx（上下文）中，可以通过<code>ctx.config(key)</code>来获取配置</li>
+<li>在 controller 中，可以通过<code>controller.config(key)</code>来获取配置</li>
+<li>其他情况下，可以通过<code>think.config(key)</code>来获取配置</li>
+</ul>
+<p>实际上，<code>ctx.config</code>和<code>controller.config</code>是基于<code>think.config</code>包装的一种更方便的获取配置的方式。</p>
+<h5 id="Adapter（适配器）"><a href="#Adapter（适配器）" class="headerlink" title="Adapter（适配器）"></a>Adapter（适配器）</h5><p>Adapter 是用来解决一类功能的多种实现，这些实现提供一套相同的接口，类似设计模式里的工厂模式。如：<strong>支持多种数据库</strong>，支持多种模板引擎等。通过这种方式，可以很方便地在不同的类型中进行切换。Adapter 一般配合 Extend 一起使用。</p>
+<p>框架默认提供了很多 Adapter，如：View、Model、Cache、Session、Websocket，项目中也可以根据需要进行扩展，也可以引入第三方的 Adapter。</p>
+<p><strong>Adapter 配置</strong></p>
+<p>Adapter 的配置文件为<code>src/config/adapter.js</code>，格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const nunjucks = require(&#x27;think-view-nunjucks&#x27;);</span><br><span class="line">const ejs = require(&#x27;think-view-ejs&#x27;);</span><br><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line"></span><br><span class="line">exports.view = &#123;</span><br><span class="line">  type: &#x27;nunjucks&#x27;, // 默认的模板引擎为 nunjucks</span><br><span class="line">  common: &#123; //通用配置</span><br><span class="line">    viewPath: path.join(think.ROOT_PATH, &#x27;view&#x27;),</span><br><span class="line">    sep: &#x27;_&#x27;,</span><br><span class="line">    extname: &#x27;.html&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">  nunjucks: &#123; // nunjucks 的具体配置</span><br><span class="line">    handle: nunjucks</span><br><span class="line">  &#125;,</span><br><span class="line">  ejs: &#123; // ejs 的具体配置</span><br><span class="line">    handle: ejs,</span><br><span class="line">    viewPath: path.join(think.ROOT_PATH, &#x27;view/ejs/&#x27;),</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.cache = &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Adapter 配置支持运行环境，可以根据不同的运行环境设置不同的配置，如：在开发环境和生产环境的数据库一般都是不一样的，这时候可以通过 <code>adapter.development.js</code> 和 <code>adapter.production.js</code> 存放有差异的配置，系统启动后会读取对应的运行环境配置和默认配置进行合并。</p>
+<p><strong>Adapter 配置解析</strong></p>
+<p>Adapter 配置存储了所有类型下的详细配置，具体使用时需要对其解析，选择对应的一种进行使用。比如上面的配置文件中，配置了 nunjucks 和 ejs 二种模板引擎的详细配置，但具体使用时一种场景下肯定只会用其一种模板引擎。当然，配置解析并不需要使用者在项目中具体调用，一般都是在插件对应的方法里已经处理。</p>
+<p><strong>Adapter 使用</strong></p>
+<p>Adapter 都是一类功能的不同实现，一般是不能独立使用的，而是配合对应的扩展一起使用。如：view Adapter（think-view-nunjucks、think-view-ejs）配合 <a target="_blank" rel="noopener" href="https://github.com/thinkjs/think-view">think-view</a> 扩展进行使用。</p>
+<p><strong>数据库</strong>：(model Adapter 配合 think-mongo 扩展进行使用)</p>
+<p>model adapter</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * model adapter config</span><br><span class="line"> * @type &#123;Object&#125;</span><br><span class="line"> */</span><br><span class="line">exports.model = &#123;</span><br><span class="line">  type: &#x27;mongo&#x27;, // 默认使用的类型，调用时可以指定参数切换</span><br><span class="line">  common: &#123; // 通用配置</span><br><span class="line">    logConnect: true, // 是否打印数据库连接信息</span><br><span class="line">    logger: msg =&gt; think.logger.info(msg) // 打印信息的 logger</span><br><span class="line">  &#125;,</span><br><span class="line">  mongo: &#123;</span><br><span class="line">    host: &#x27;127.0.0.1&#x27;,</span><br><span class="line">    port: 27017,</span><br><span class="line">    user: &#x27;&#x27;,</span><br><span class="line">    password: &#x27;&#x27;,</span><br><span class="line">    database: &#x27;&#x27;, // 数据库名称</span><br><span class="line">    options: &#x27;&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>extend</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const view = require(&#x27;think-view&#x27;);</span><br><span class="line">const model = require(&#x27;think-model&#x27;);</span><br><span class="line">const cache = require(&#x27;think-cache&#x27;);</span><br><span class="line">const session = require(&#x27;think-session&#x27;);</span><br><span class="line">const mongo = require(&#x27;think-mongo&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports = [</span><br><span class="line">  view, // make application support view</span><br><span class="line">  model(think.app),  ////将 think.app 传递给 model 扩展</span><br><span class="line">  mongo(think.app),</span><br><span class="line">  cache,</span><br><span class="line">  session</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<h5 id="Extend（扩展）"><a href="#Extend（扩展）" class="headerlink" title="Extend（扩展）"></a>Extend（扩展）</h5><p>虽然框架内置了很多功能，但在实际项目开发中，提供的功能还是远远不够的。3.0 里引入了扩展机制，方便对框架进行扩展。支持的扩展类型为：<code>think</code>、<code>application</code>、<code>context</code>、<code>request</code>、<code>response</code>、<code>controller</code>、<code>logic</code> 和 <code>service</code>。</p>
+<p>框架内置的很多功能也是扩展来实现的，如：<code>Session</code>、<code>Cache</code>。</p>
+<h5 id="Context（上下文）"><a href="#Context（上下文）" class="headerlink" title="Context（上下文）"></a>Context（上下文）</h5><p>Context 是 Koa 中处理用户请求中的一个对象，贯穿整个请求生命周期。一般在<code>middleware、controller、logic</code>中使用，简称 ctx。</p>
+<p>框架里继承了该对象，并通过 Extend 机制扩展了很多非常有用的属性和方法。</p>
+<p>例如：</p>
+<p><strong>ctx.state</strong></p>
+<p>在中间件之间传递信息以及将信息发送给模板时，推荐的命名空间。避免直接在 ctx 上加属性，这样可能会覆盖掉已有的属性，导致出现奇怪的问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.state.user = await User.find(id);</span><br></pre></td></tr></table></figure>
+
+<p>这样后续在 controller 里可以通过 <code>this.ctx.state.user</code> 来获取对应的值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = class extends think.Controller &#123;</span><br><span class="line">  indexAction() &#123;</span><br><span class="line">    const user = this.ctx.state.user;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>ctx.header</strong></p>
+<p>获取所有的 header 信息，等同于 <code>ctx.request.header</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const headers = ctx.headers;</span><br></pre></td></tr></table></figure>
+
+<p><strong>ctx.headers</strong></p>
+<p>获取所有的 header 信息，等同于 <code>ctx.header</code>。</p>
+<p><strong>ctx.url</strong></p>
+<p>获取请求地址。</p>
+<h5 id="Middleware（中间件）"><a href="#Middleware（中间件）" class="headerlink" title="Middleware（中间件）"></a>Middleware（中间件）</h5><p>Middleware 称之为中间件，是 Koa 中一个非常重要的概念，利用中间件，可以很方便的处理用户的请求。</p>
+<p>中间件格式为一个高阶函数，外部的函数接收一个 <code>options</code> 参数，这样方便中间件提供一些配置信息，用来开启&#x2F;关闭一些功能。执行后返回另一个函数，这个函数接收 <code>ctx</code>, <code>next</code> 参数，其中 <code>ctx</code> 为 <code>context</code> 的简写，是当前请求生命周期的一个对象，存储了当前请求的一些相关信息，<code>next</code> 为调用后续的中间件，返回值是 Promise，这样可以很方便的处理后置逻辑。（执行过程是个洋葱模型）</p>
+<p><strong>配置格式</strong></p>
+<p>为了方便管理和使用中间件，框架使用的配置文件来管理中间件，配置文件为<code>src/config/middleware.js</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&#x27;path&#x27;)</span><br><span class="line">const isDev = think.env === &#x27;development&#x27;</span><br><span class="line"></span><br><span class="line">module.exports = [</span><br><span class="line">  &#123;</span><br><span class="line">    handle: &#x27;meta&#x27;, // 中间件处理函数</span><br><span class="line">    options: &#123;   // 当前中间件需要的配置</span><br><span class="line">      logRequest: isDev,</span><br><span class="line">      sendResponseTime: isDev,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    handle: &#x27;resource&#x27;,</span><br><span class="line">    enable: isDev, // 是否开启当前中间件</span><br><span class="line">    options: &#123;</span><br><span class="line">      root: path.join(think.ROOT_PATH, &#x27;www&#x27;),</span><br><span class="line">      publicPath: /^\/(static|favicon\.ico)/,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>配置项为项目中要使用的中间件列表，每一项支持<code>handle</code>，<code>enable</code>，<code>options</code>，<code>match</code>等属性。</p>
+<p><code>handle</code></p>
+<p>中间件的处理函数，可以使用系统内置的，也可以是外部导入的，也可以是项目里的中间件。</p>
+<p><code>enable</code></p>
+<p>是否开启当前的中间件。</p>
+<p><code>options</code></p>
+<p>传递给中间件的配置项，格式为一个对象，中间件里获取到这个配置。</p>
+<p><code>match</code></p>
+<p>匹配特定的规则后才执行该中间件，支持两种方式，一种是路径匹配，一种是自定义函数匹配。</p>
+<p><strong>框架内置的中间件</strong></p>
+<p>框架内置了几个中间件，可以通过字符串的方式直接引用。</p>
+<ul>
+<li><code>meta</code> 显示一些 meta 信息。如：发送 ThinkJS 版本号，接口的处理时间等</li>
+<li><code>resource</code> 处理静态资源，生产环境建议关闭，直接用 webserver 处理即可</li>
+<li><code>trace</code> 处理报错，开发环境将详细的报错信息显示处理，也可以自定义显示错误页面</li>
+<li><code>payload</code> 处理表单提交和文件上传，类似于<code>koa-bodyparser</code>等 middleware</li>
+<li><code>router</code> 路由解析，包含自定义路由解析</li>
+<li><code>logic</code> logic 调用，数据校验</li>
+<li><code>controller</code> controller 和 action</li>
+</ul>
+<p><strong>项目中自定义的中间件</strong></p>
+<p>有时候项目中根据一些特定需要添加中间件，那么可以放在<code>src/middleware</code>目录下，然后就可以直接通过字符串的方式引用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// middleware/log.js</span><br><span class="line"></span><br><span class="line">const defaultOptions = &#123;</span><br><span class="line">  consoleExecTime: true // 是否打印执行时间的配置</span><br><span class="line">&#125;</span><br><span class="line">module.exports = (options = &#123;&#125;) =&gt; &#123;</span><br><span class="line">  // 合并传递进来的配置</span><br><span class="line">  options = Object.assign(&#123;&#125;, defaultOptions, options);</span><br><span class="line">  return (ctx, next) =&gt; &#123;</span><br><span class="line">    if(!options.consoleExecTime) &#123;</span><br><span class="line">      return next(); // 如果不需要打印执行时间，直接调用后续执行逻辑</span><br><span class="line">    &#125;</span><br><span class="line">    const startTime = Date.now();</span><br><span class="line">    let err = null;</span><br><span class="line">    // 调用 next 统计后续执行逻辑的所有时间</span><br><span class="line">    return next().catch(e =&gt; &#123;</span><br><span class="line">      err = e; // 这里先将错误保存在一个错误对象上，方便统计出错情况下的执行时间</span><br><span class="line">    &#125;).then(() =&gt; &#123;</span><br><span class="line">      const endTime = Date.now();</span><br><span class="line">      console.log(`request exec time: $&#123;endTime - startTime&#125;ms`);</span><br><span class="line">      if(err) return Promise.reject(err); // 如果后续执行逻辑有错误，则将错误返回</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用法：在<code>/src/config/middleware.js</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module.exports = [</span><br><span class="line">  &#123;</span><br><span class="line">    handle: &#x27;log&#x27;, // 中间件处理函数</span><br><span class="line">    options: &#123;   // 当前中间件需要的配置</span><br><span class="line">      consoleExecTime: true,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p><strong>引入外部的中间件</strong></p>
+<p>引入外部的中间件非常简单，只需要<code>require</code>进来即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const cors = require(&#x27;koa2-cors&#x27;);</span><br><span class="line">module.exports = [</span><br><span class="line">  ...,</span><br><span class="line">  &#123;</span><br><span class="line">    handle: cors,</span><br><span class="line">    option: &#123;</span><br><span class="line">      origin: &#x27;*&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="Controller（控制器）"><a href="#Controller（控制器）" class="headerlink" title="Controller（控制器）"></a>Controller（控制器）</h5><p>MVC 模型中，控制器是用户请求的逻辑处理部分。比如：将用户相关的操作都放在<code>user.js</code>里，每一个操作就是里面的一个 Action。</p>
+<p><strong>创建 controller</strong></p>
+<p>项目里的 controller 需要继承<code>think.Controller</code>类，这样能使用一些内置的方法。当然项目中可以创建一些通用的基类，然后实际的 controller 都继承自这个基类。</p>
+<p>项目创建时会自动创建一个名为<code>base.js</code>的基类，其他的<code>controller</code>继承该类即可。</p>
+<p><strong>Action 执行</strong></p>
+<p>Action 执行是通过中间件<code>think-controller</code>来完成的，通过<code>ctx.action</code>值在 controller 寻找 xxxAction 的方法名并调用，且调用相关的魔术方法，具体顺序为：</p>
+<ul>
+<li>实例化 Controller 类，传入 <code>ctx</code> 对象</li>
+<li>如果方法 <a target="_blank" rel="noopener" href="https://thinkjs.org/doc/3.0/controller.html#toc-083">__before</a> 存在则调用，如果返回值为 <code>false</code>，则停止继续执行</li>
+<li>如果方法 <code>xxxAction</code> 存在则执行，如果返回值为 <code>false</code>，则停止继续执行</li>
+<li>如果方法 <code>xxxAction</code> 不存在但 <a target="_blank" rel="noopener" href="https://thinkjs.org/doc/3.0/controller.html#toc-fcb">__call</a> 方法存在，则调用 __call，如果返回值为 <code>false</code>，则停止继续执行</li>
+<li>如果方法 <a target="_blank" rel="noopener" href="https://thinkjs.org/doc/3.0/controller.html#toc-e16">__after</a> 存在则执行前置操作__before</li>
+</ul>
+<ul>
+<li>如果方法 <a target="_blank" rel="noopener" href="https://thinkjs.org/doc/3.0/controller.html#toc-e16">__after</a> 存在则执行</li>
+</ul>
+<p><strong>前置操作 __before</strong></p>
+<p>项目中，有时候需要在一个统一的地方做一些操作，如：判断是否已经登录，如果没有登录就不能继续后面行为。此种情况下，可以通过内置的 <code>__before</code> 来实现。</p>
+<p><code>__before</code> 是在调用具体的 Action 之前调用的，这样就可以在其中做一些处理。</p>
+<p>如果类继承需要调用父级的 <code>__before</code> 方法的话，可以通过 <code>super.__before</code> 来完成。</p>
+<p><strong>后置操作 __after</strong></p>
+<p>后置操作 <code>__after</code> 与 <code>__before</code> 对应，只是在具体的 Action 执行之后执行，如果具体的 Action 执行返回了 <code>false</code>，那么 <code>__after</code> 不再执行。</p>
+<h5 id="Logic"><a href="#Logic" class="headerlink" title="Logic"></a>Logic</h5><p>当在 Action 里处理用户的请求时，经常要先获取用户提交过来的数据，然后对其校验，如果校验没问题后才能进行后续的操作；当参数校验完成后，有时候还需要进行权限判断等，这些都判断无误后才能进行真正的逻辑处理。如果将这些代码都放在一个 Action 里，势必让 Action 的代码非常复杂且冗长。</p>
+<p>为了解决这个问题，ThinkJS 在控制器前面增加了一层 Logic，Logic 里的 Action 和控制器里的 Action 一一对应，系统在调用控制器里的 Action 之前会自动调用 Logic 里的 Action。</p>
+<h5 id="Router（路由）"><a href="#Router（路由）" class="headerlink" title="Router（路由）"></a>Router（路由）</h5><p>当用户访问一个地址时，需要有一个对应的逻辑进行处理。传统的处理方式下，一个请求对应的文件，如访问是<code>/user/about.php</code>,那么就会在项目对应的目录下有<code>/user/about.php</code>这个实体文件。这种方式虽然能解决问题，但会导致文件很多，同时可能很多文件逻辑功能其实比较简单。</p>
+<p>在现在的 MVC 开发模型里，一般都是通过路由来解决此类问题。解决方式为：先将用户的所有请求映射到一个入口文件（如：<code>index.php</code>），然后框架解析当前请求的地址，根据配置或者约定解析出对应要执行的功能，最后去调用然后响应用户的请求。</p>
+<p>由于 Node.js 是自己启动 HTTP（S）服务的，所以已经将用户的请求汇总到一个入口文件了，这样处理路由映射就更简单了。</p>
+<p>在 ThinkJS 中，当用户访问一个 URL 时，最后是通过 controller 里具体的 action 来响应的。所以就需要解析出 URL 对应的 controller 和 action，这个解析工作是通过<code>think-router</code>模块来实现的。</p>
+<p><strong>路由配置</strong></p>
+<p><code>think-router</code>是一个 middleware，项目创建时已经默认加到配置文件<code>src/config/middleware.js</code>里了。</p>
+<p><strong>路径预处理</strong></p>
+<p>当用户访问服务时，通过<code>ctx.url</code>属性，可以得到初始的<code>pathname</code>，但是为了方便后续通过<code>pathname</code>解析出 controller 和 action，需要对 pathname 进行预处理。比如去除 URL 中<code>.html</code>后缀等操作，最后得到真正后续所需解析的<code>pathname</code>。默认的路由解析规则为<code>/controller/action</code>.</p>
+<p>对于 ThinkJS 中的 controller，可以不用写 router，也可以自定义 router。</p>
+<table>
+<thead>
+<tr>
+<th>pathname</th>
+<th>子集控制器</th>
+<th>controller</th>
+<th>action</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;</td>
+<td>无</td>
+<td>index</td>
+<td>index</td>
+<td>controller、action 为配置的默认值</td>
+</tr>
+<tr>
+<td>&#x2F;user</td>
+<td>无</td>
+<td>user</td>
+<td>index</td>
+<td>action 为配置的默认值</td>
+</tr>
+<tr>
+<td>&#x2F;user&#x2F;login</td>
+<td>无</td>
+<td>user</td>
+<td>login</td>
+<td></td>
+</tr>
+<tr>
+<td>&#x2F;console&#x2F;user&#x2F;login</td>
+<td>有</td>
+<td>console&#x2F;user</td>
+<td>login</td>
+<td>有子集控制器 console&#x2F;user</td>
+</tr>
+<tr>
+<td>&#x2F;console&#x2F;user&#x2F;login&#x2F;aaa&#x2F;b</td>
+<td>有</td>
+<td>console&#x2F;user</td>
+<td>login</td>
+<td>剩余的 aaa&#x2F;b 不在解析</td>
+</tr>
+</tbody></table>
+<p><strong>自定义路由规则</strong></p>
+<p>虽然默认的路由解析方式能够满足需求，但有时候会导致 URL 看起来不够优雅，我们更希望 URL 比较简短，这样会更利于记忆和传播。框架提供了自定义路由来处理这种需求。</p>
+<p>自定义路由规则配置文件为<code>src/config/router.js</code>,路由规则为二维数组。</p>
+<h5 id="异步处理"><a href="#异步处理" class="headerlink" title="异步处理"></a>异步处理</h5><p>Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，很多接口都是异步的，如：文件操作、网络请求。虽然提供了文件操作的同步接口，但这些接口是阻塞式的，非特殊情况下不要使用它。</p>
+<p>对于异步接口，官方的 API 都是 callback 形式的，但是这种方式在业务逻辑复杂后，很容易出现<a target="_blank" rel="noopener" href="http://callbackhell.com/%22Markdown%22">callback hell</a> 的问题，为了解决这个问题相继出现了 event、Promise、Generator function、Async function 等解决方案，ThinkJS 使用 async function 方案来解决异步问题。</p>
+<p><strong>Async functions</strong></p>
+<p>Async functions 使用 <code>async/await</code> 语法定义函数，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">async function fn() &#123;</span><br><span class="line">  const value = await getFromApi();</span><br><span class="line">  doSomethimgWithValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>有 await 时必须要有 async，但有 async 不一定非要有 await</li>
+<li>Async functions 可以是普通函数的方式，也可以是 Arrow functions 的方式</li>
+<li>await 后面需要接 Promise，如果不是 Promise，则不会等待处理</li>
+<li>返回值肯定为 Promise</li>
+</ul>
+<p>返回值和 await 后面接的表达式均为 Promise，也就是说 Async functions 以 Promise 为基础。如果 await 后面的表达式返回值不是 Promise，那么需要通过一些方式将其包装为 Promise。</p>
+<h4 id="模型-x2F-数据库"><a href="#模型-x2F-数据库" class="headerlink" title="模型&#x2F;数据库"></a>模型&#x2F;数据库</h4><h5 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h5><p>在项目开发中，经常需要操作数据库（如：增删改查等功能），手工拼写 SQL 语句非常麻烦，同时还要注意 SQL 注入等安全问题。为此框架提供了模型功能，方便操作数据库。</p>
+<p><strong>扩展模型功能</strong></p>
+<p>框架默认没有提供模型的功能，需要加载对应的扩展才能支持，对应的模块为 <a target="_blank" rel="noopener" href="https://github.com/thinkjs/think-model">think-model</a>。修改扩展的配置文件 <code>src/config/extend.js</code>，添加如下的配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const model = require(&#x27;think-model&#x27;);</span><br><span class="line">module.exports = [</span><br><span class="line">  model(think.app) // 让框架支持模型的功能</span><br><span class="line">]；</span><br></pre></td></tr></table></figure>
+
+<p><strong>配置数据库</strong></p>
+<p>模型由于要支持多种数据库，所以配置文件的格式为 Adapter 的方式，文件路径为 <code>src/config/adapter.js</code></p>
+<p><strong>Mysql</strong></p>
+<p>Mysql 的 Adapter 为 <a target="_blank" rel="noopener" href="https://github.com/thinkjs/think-model-mysql">think-model-mysql</a>，底层基于 <a target="_blank" rel="noopener" href="https://github.com/mysqljs/mysql">mysql</a> 库实现，使用连接池的方式连接数据库，默认连接数为 1。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const mysql = require(&#x27;think-model-mysql&#x27;);</span><br><span class="line">exports.model = &#123;</span><br><span class="line">  type: &#x27;mysql&#x27;,</span><br><span class="line">  mysql: &#123;</span><br><span class="line">    handle: mysql, // Adapter handle</span><br><span class="line">    user: &#x27;root&#x27;, // 用户名</span><br><span class="line">    password: &#x27;&#x27;, // 密码</span><br><span class="line">    database: &#x27;&#x27;, // 数据库</span><br><span class="line">    host: &#x27;127.0.0.1&#x27;, // host</span><br><span class="line">    port: 3306, // 端口</span><br><span class="line">    connectionLimit: 1, // 连接池的连接个数，默认为 1</span><br><span class="line">    prefix: &#x27;&#x27;, // 数据表前缀，如果一个数据库里有多个项目，那项目之间的数据表可以通过前缀来区分</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建模型文件</strong></p>
+<p>模型文件放在 <code>src/model/</code> 目录下，继承模型基类 <code>think.Model</code>，文件格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// src/model/user.js</span><br><span class="line">module.exports = class extends think.Model &#123;</span><br><span class="line">  getList() &#123;</span><br><span class="line">    return this.field(&#x27;name&#x27;).select();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>实例化模型</strong></p>
+<p>项目启动时，会扫描项目下的所有模型文件，扫描后会将所有的模型类存放在 <code>think.app.models</code> 对象上，实例化时会从这个对象上查找，如果找不到则实例化模型基类 <code>think.Model</code>。</p>
+<p><strong>CRUD 操作</strong></p>
+<p><code>think.Model</code> 基类提供了丰富的方法进行 CRUD 操作，下面来一一介绍。</p>
+<p><a target="_blank" rel="noopener" href="https://thinkjs.org/zh-cn/doc/3.0/relation_model.html">https://thinkjs.org/zh-cn/doc/3.0/relation_model.html</a></p>
+<h5 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h5><p>有时候关系数据库并不能满足项目的需求，需要 MongoDB 来存储数据。框架提供了 <a target="_blank" rel="noopener" href="https://github.com/thinkjs/think-mongo">think-mongo</a> 扩展来支持 MongoDB，该模块是基于 <a target="_blank" rel="noopener" href="https://github.com/mongodb/node-mongodb-native">mongodb</a> 实现的。</p>
+<p><strong>配置 MongoDB 数据库</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">MongoDB 的数据库配置复用了关系数据库模型的配置，为 adapter 配置，放在 model 下。文件路径为 `src/config/adapter.js`</span><br><span class="line"></span><br><span class="line">exports.model = &#123;</span><br><span class="line">  type: &#x27;mongo&#x27;, // 默认使用的类型，调用时可以指定参数切换</span><br><span class="line">  common: &#123; // 通用配置</span><br><span class="line">    logConnect: true, // 是否打印数据库连接信息</span><br><span class="line">    logger: msg =&gt; think.logger.info(msg) // 打印信息的 logger</span><br><span class="line">  &#125;,</span><br><span class="line">  mongo: &#123;</span><br><span class="line">    host: &#x27;127.0.0.1&#x27;,</span><br><span class="line">    port: 27017,</span><br><span class="line">    user: &#x27;&#x27;,</span><br><span class="line">    password: &#x27;&#x27;,</span><br><span class="line">    database: &#x27;&#x27;, // 数据库名称</span><br><span class="line">    options: &#123;</span><br><span class="line">      replicaSet: &#x27;mgset-3074013&#x27;,</span><br><span class="line">      authSource: &#x27;admin&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>扩展 MongoDB 功能</strong></p>
+<p>修改扩展的配置文件 <code>src/config/extend.js</code>，添加如下的配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const mongo = require(&#x27;think-mongo&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports = [</span><br><span class="line">  mongo(think.app) // 让框架支持模型的功能</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>添加完扩展后，会注入 <code>think.Mongo</code>、<code>think.mongo</code>、<code>ctx.mongo</code> 和 <code>controller.mongo</code> 方法，其中 think.Mongo 为 Mongo 模型的基类文件，其他为实例化 Mongo 模型的方法，ctx.mongo 和 controller.mongo 是 think.mongo 方法的包装。</p>
+<p><strong>创建模型文件</strong></p>
+<p>模型文件放在 <code>src/model/</code> 目录下（多模块项目为 <code>src/common/model</code> 以及 <code>src/[module]/model</code>），继承模型基类 <code>think.Mongo</code>，文件格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// src/model/user.js</span><br><span class="line">module.exports = class extends think.Mongo &#123;</span><br><span class="line">  getList() &#123;</span><br><span class="line">    return this.field(&#x27;name&#x27;).select();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>实例化模型</strong></p>
+<p>项目启动时，会扫描项目下的所有模型文件（目录为 <code>src/model/</code>），扫描后会将所有的模型类存放在 <code>think.app.models</code> 对象上，实例化时会从这个对象上查找，如果找不到则实例化模型基类 <code>think.Mongo</code>。</p>
+<p><strong>API</strong></p>
+<p><a target="_blank" rel="noopener" href="https://thinkjs.org/zh-cn/doc/3.0/mongo.html">https://thinkjs.org/zh-cn/doc/3.0/mongo.html</a></p>
+<h4 id="think-对象"><a href="#think-对象" class="headerlink" title="think 对象"></a>think 对象</h4><p>框架中内置 <code>think</code> 全局对象，方便在项目中随时随地使用。</p>
+<p><strong>API</strong></p>
+<p><a target="_blank" rel="noopener" href="https://thinkjs.org/zh-cn/doc/3.0/think.html">https://thinkjs.org/zh-cn/doc/3.0/think.html</a></p>
+<h4 id="启动自定义"><a href="#启动自定义" class="headerlink" title="启动自定义"></a>启动自定义</h4><p>当通过 <code>npm start</code> 或者 <code>node production.js</code> 来启动项目时，虽然可以在这些入口文件里添加其他的逻辑代码，但并不推荐这么做。系统给出了其他启动自定义的入口。</p>
+<p><strong>bootstrap</strong></p>
+<p>系统启动时会加载 <code>src/boostrap/</code> 目录下的文件，具体为：</p>
+<ul>
+<li>Master 进程下时加载 <code>src/bootstrap/master.js</code></li>
+<li>Worker 进程下时加载 <code>src/bootstrap/worker.js</code></li>
+</ul>
+<p>所以可以将一些需要在系统启动时就需要执行的逻辑放在对应的文件里执行。</p>
+<h4 id="Service-x2F-服务"><a href="#Service-x2F-服务" class="headerlink" title="Service &#x2F; 服务"></a>Service &#x2F; 服务</h4><p>项目中，有时候除了查询数据库等操作外，也需要调用远程的一些接口，如：调用 GitHub 的接口、调用发送短信的接口等等。</p>
+<p>这种功能放在 Model 下是不太合适的，为此，框架提供了 Service 来解决此类问题。</p>
+<p><strong>创建 Service 文件</strong></p>
+<p>Service 文件存放在 <code>src/service/</code> 目录下，文件内容格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//  src/service/user.js</span><br><span class="line">module.exports = class extends think.Service &#123;</span><br><span class="line">  find(id)&#123;</span><br><span class="line">     return &#123;username:&#x27;123&#x27;,id:id&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Service 都继承 <code>think.Service</code> 基类，但该基类不提供任何方法，可以通过 Extend 进行扩展。</p>
+<p><strong>实例化 Service 类</strong></p>
+<p>可以通过 <code>think.service</code> 方法实例化 Service 类，在控制器、ctx 也有对应的 <code>service</code> 方法，如：<code>ctx.service</code>、<code>controller.service</code>，这些方法都是 think.service 的快捷方式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//controller</span><br><span class="line"></span><br><span class="line">think.service(&#x27;user&#x27;).find(111)</span><br></pre></td></tr></table></figure>
+
+<p>项目启动时，会扫描项目下所有的 services 文件，并存放到 <code>think.app.services</code> 对象下，实例化时会从该对象上查找对应的类文件，如果找不到则报错。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/houxiaozhao">houxiaozhao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cdtools.click/2018/04/04/nodejs和Thinkjs-nodejs和thinkjs/">https://cdtools.click/2018/04/04/nodejs和Thinkjs-nodejs和thinkjs/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">此文章版权归houxiaozhao所有，如有转载，请注明来自原作者</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a><a class="post-meta__tags" href="/tags/Node-js/">Node.js</a><a class="post-meta__tags" href="/tags/ThinkJS/">ThinkJS</a><a class="post-meta__tags" href="/tags/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="post-meta__tags" href="/tags/%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8/">事件驱动</a><a class="post-meta__tags" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%BC%96%E7%A8%8B/">服务器端编程</a><a class="post-meta__tags" href="/tags/npm/">npm</a><a class="post-meta__tags" href="/tags/%E9%9D%9E%E9%98%BB%E5%A1%9EIO/">非阻塞IO</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-392.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2018/08/11/vue-cli3%E4%BD%BF%E7%94%A8%E5%92%8CCordova%E9%9B%86%E6%88%90%E8%AE%B0%E5%BD%95-vue-cli3%E4%BD%BF%E7%94%A8%E5%92%8Ccordova%E9%9B%86%E6%88%90%E8%AE%B0%E5%BD%95/" title="vue-cli3使用和Cordova集成记录"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-56.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">vue-cli3使用和Cordova集成记录</div></div><div class="info-2"><div class="info-item-1">1. 安装安装过程很简单 123npm install -g @vue/cli# ORyarn global add @vue/cli      安装后使用vue --version查看是否安装成功 2. 创建项目123vue create demo# ORvue ui #使用ui界面进行创建  选项  默认 手动选择  我们选择手动选择功能，具体选择如下 1234567? Please pick a preset: Manually select features? Check the features needed for your project: Babel, Router, Vuex, CSS Pre-processors, Linter? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): LESS? Pick a linter / formatter config: Prettier? Pick additional lint...</div></div></div></a><a class="pagination-related" href="/2018/03/25/angular%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E3%80%81%E6%8C%87%E4%BB%A4%E3%80%81%E6%9C%8D%E5%8A%A1%E3%80%81%E8%BF%87%E6%BB%A4%E5%99%A8-angular%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%8C%87%E4%BB%A4%E6%9C%8D%E5%8A%A1%E8%BF%87%E6%BB%A4%E5%99%A8/" title="Angular核心功能详解：方法、指令、服务与过滤器"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-182.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Angular核心功能详解：方法、指令、服务与过滤器</div></div><div class="info-2"><div class="info-item-1">angular 方法1. 拷贝数组或对象1angular.copy(source, [destination]);  2. 选择一个元素1angular.element(element); //jqLite      3. 比较值是否相等1angular.equals(o1, o2); //返回值：boolean  4. 迭代对象1angular.forEach(obj, iterator, [context]); //iteeator是一个方法function(value,key,[obj])&#123;处理代码&#125;  5. 把 json 字符串转换为对象1angular.fromJson(json);  6.把对象转换为 json 字符串1angular.toJson(obj, pretty); //pretty为ture时，输出字符串有换行符和空格。如果设置为一个整数，JSON输出将包含许多空间每缩进（默认为2）  7. 判断是否为数组、时间、DOM...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2022/03/09/API%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%AE%BE%E8%AE%A1%EF%BC%8C%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE-api%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%AE%BE%E8%AE%A1%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE/" title="API安全防护：接口签名验证与防重放攻击实现"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-4.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-09</div><div class="info-item-2">API安全防护：接口签名验证与防重放攻击实现</div></div><div class="info-2"><div class="info-item-1"> 为了保证 api 接口安全，防止数据被篡改，需要设计 api 签名机制。以下为签名过程  接口签名算法1. 获取参数 一共 4 部分的参数 path query body 时间戳 {timestamp} 随机字符串 {nocestr}  2. 合并参数，然后排序(body 中可能嵌套多层 json,需要递归对对象属性排序，数组的顺序不变)3. 对上一步对象转为字符串，然后 md5 加密4. 再用用户 token 为 key，对 md5 加密后的字符串用 hmacSHA512 加密得到 sign5. http 请求 header 中添加 sign、timestamp、nocestr前端签名实现如下12345678import hmacSHA512 from &quot;crypto-js/hmac-sha512&quot;;import md5 from &quot;crypto-js/md5&quot;;const timestamp = +new Date();const nocestr = generateNoceStr();const data =...</div></div></div></a><a class="pagination-related" href="/2021/04/07/Node%20js%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%20-nodejs%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="Node.js 错误处理实用指南：Promise与Async&#x2F;Await最佳实践"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-253.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-07</div><div class="info-item-2">Node.js 错误处理实用指南：Promise与Async&#x2F;Await最佳实践</div></div><div class="info-2"><div class="info-item-1">Node.js 错误处理最佳实践使用 Promise 捕获错误123456789101112131415161718192021222324let func = function (n) &#123;  return new Promise((resolve, reject) =&gt; &#123;    resolve(n * n);  &#125;);&#125;;func(2)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .then(res =&gt; &#123;    console.log(res);    throw new Error(&quot;Error&quot;);  &#125;)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .catch(err =&gt; &#123;    console.log(err);  &#125;) ...</div></div></div></a><a class="pagination-related" href="/2023/02/02/Nodejs%E4%B8%ADBuffer%E5%92%8CStream%E4%BA%92%E8%BD%AC/" title="Node.js中Buffer和Stream的高效转换：提升数据处理性能"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-18.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-02</div><div class="info-item-2">Node.js中Buffer和Stream的高效转换：提升数据处理性能</div></div><div class="info-2"><div class="info-item-1">Stream to Buffer12345678function streamToBuffer(stream) &#123;  return new Promise((resolve, reject) =&gt; &#123;    let buffers = [];    stream.on(&quot;error&quot;, reject);    stream.on(&quot;data&quot;, data =&gt; buffers.push(data));    stream.on(&quot;end&quot;, () =&gt; resolve(Buffer.concat(buffers)));  &#125;);&#125;  Buffer to Stream1234567let Duplex = require(&quot;stream&quot;).Duplex;function bufferToStream(buffer) &#123;  let stream = new Duplex();  stream.push(buffer); ...</div></div></div></a><a class="pagination-related" href="/2018/03/25/angular%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E3%80%81%E6%8C%87%E4%BB%A4%E3%80%81%E6%9C%8D%E5%8A%A1%E3%80%81%E8%BF%87%E6%BB%A4%E5%99%A8-angular%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%8C%87%E4%BB%A4%E6%9C%8D%E5%8A%A1%E8%BF%87%E6%BB%A4%E5%99%A8/" title="Angular核心功能详解：方法、指令、服务与过滤器"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-182.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-25</div><div class="info-item-2">Angular核心功能详解：方法、指令、服务与过滤器</div></div><div class="info-2"><div class="info-item-1">angular 方法1. 拷贝数组或对象1angular.copy(source, [destination]);  2. 选择一个元素1angular.element(element); //jqLite      3. 比较值是否相等1angular.equals(o1, o2); //返回值：boolean  4. 迭代对象1angular.forEach(obj, iterator, [context]); //iteeator是一个方法function(value,key,[obj])&#123;处理代码&#125;  5. 把 json 字符串转换为对象1angular.fromJson(json);  6.把对象转换为 json 字符串1angular.toJson(obj, pretty); //pretty为ture时，输出字符串有换行符和空格。如果设置为一个整数，JSON输出将包含许多空间每缩进（默认为2）  7. 判断是否为数组、时间、DOM...</div></div></div></a><a class="pagination-related" href="/2021/05/24/cesium%20entity%20%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%97%8B%E8%BD%AC%E7%9A%84%E6%96%B9%E6%B3%95-cesiumentity%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%97%8B%E8%BD%AC%E7%9A%84%E6%96%B9%E6%B3%95/" title="Cesium实体动画：基于事件驱动的Entity移动与旋转实现"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-48.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-24</div><div class="info-item-2">Cesium实体动画：基于事件驱动的Entity移动与旋转实现</div></div><div class="info-2"><div class="info-item-1">cesium entity 移动和旋转的方法12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455const EventEmitter = require(&quot;events&quot;);export default class Air extends EventEmitter &#123;  constructor(viewer, uri, id, position, orientation) &#123;    super();    this.active = false;    this.air = viewer.entities.add(&#123;      id: id,      position: position,      orientation: orientation,      viewFrom: new Cesium.Cartesian3(0, -30, 30),      model:...</div></div></div></a><a class="pagination-related" href="/2018/03/07/vuex%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-vuex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="vuex 学习笔记"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-571.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-07</div><div class="info-item-2">vuex 学习笔记</div></div><div class="info-2"><div class="info-item-1"> state 记录所有数据和状态的，跨页面使用的  getters store 里的计算属性 12345678910111213141516&#123;    state:&#123;        aaa:2    &#125;,    getters:&#123;        // 通过$store.getters.aaacheng2访问        aaacheng2:state=&gt;&#123;            return state.aaa*2        &#125;,		// 通过$store.getters.aaacheng(6)访问        aaacheng:(state)=&gt;(n)=&gt;&#123;			return state.aaa*n        &#125;    &#125;&#125;// mapGetters 辅助函数 将 store 中的 getter 映射到局部计算属性  mutation 用于修改 state 状态 1234increment (state, n) &#123;	state.count...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js"><span class="toc-number">1.</span> <span class="toc-text">Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Node-js-%E7%AE%80%E8%BF%B0"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Node.js 简述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA-Node-%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">第一个 Node 程序</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js-%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6"><span class="toc-number">2.</span> <span class="toc-text">Node.js 后端框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ThinkJS"><span class="toc-number">3.</span> <span class="toc-text">ThinkJS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">快速入门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-ThinkJS-%E5%91%BD%E4%BB%A4"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">安装 ThinkJS 命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.0.0.3.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">3.0.0.4.</span> <span class="toc-text">项目结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD"><span class="toc-number">3.0.0.5.</span> <span class="toc-text">基础功能</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Config%EF%BC%88%E9%85%8D%E7%BD%AE%EF%BC%89"><span class="toc-number">3.0.0.5.1.</span> <span class="toc-text">Config（配置）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Adapter%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%EF%BC%89"><span class="toc-number">3.0.0.5.2.</span> <span class="toc-text">Adapter（适配器）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Extend%EF%BC%88%E6%89%A9%E5%B1%95%EF%BC%89"><span class="toc-number">3.0.0.5.3.</span> <span class="toc-text">Extend（扩展）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Context%EF%BC%88%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%89"><span class="toc-number">3.0.0.5.4.</span> <span class="toc-text">Context（上下文）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Middleware%EF%BC%88%E4%B8%AD%E9%97%B4%E4%BB%B6%EF%BC%89"><span class="toc-number">3.0.0.5.5.</span> <span class="toc-text">Middleware（中间件）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Controller%EF%BC%88%E6%8E%A7%E5%88%B6%E5%99%A8%EF%BC%89"><span class="toc-number">3.0.0.5.6.</span> <span class="toc-text">Controller（控制器）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Logic"><span class="toc-number">3.0.0.5.7.</span> <span class="toc-text">Logic</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Router%EF%BC%88%E8%B7%AF%E7%94%B1%EF%BC%89"><span class="toc-number">3.0.0.5.8.</span> <span class="toc-text">Router（路由）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86"><span class="toc-number">3.0.0.5.9.</span> <span class="toc-text">异步处理</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B-x2F-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.0.0.6.</span> <span class="toc-text">模型&#x2F;数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.0.0.6.1.</span> <span class="toc-text">关系型数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MongoDB"><span class="toc-number">3.0.0.6.2.</span> <span class="toc-text">MongoDB</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#think-%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.0.0.7.</span> <span class="toc-text">think 对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E8%87%AA%E5%AE%9A%E4%B9%89"><span class="toc-number">3.0.0.8.</span> <span class="toc-text">启动自定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Service-x2F-%E6%9C%8D%E5%8A%A1"><span class="toc-number">3.0.0.9.</span> <span class="toc-text">Service &#x2F; 服务</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-208.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-547.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-436.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>

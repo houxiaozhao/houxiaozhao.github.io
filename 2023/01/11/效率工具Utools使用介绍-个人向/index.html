@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Utools效率工具：多功能插件平台使用指南 | houxiaozhao部落格</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="本文详细介绍了新一代效率工具平台Utools的核心功能和实用插件。重点讲解了最常用的剪贴板管理功能，包括历史记录查看和快捷键设置（ctrl+&#96;）。深入介绍了面向程序开发的Ctool工具集，其中包含了丰富的开发辅助功能。文章还详细说明了易翻翻译插件的使用方法，包括多平台翻译服务配置和专业的Coding模式，可直接生成驼峰、下划线等不同风格的变量名。此外，文章还介绍了多个实用插件：局域网文件共享功能、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Utools效率工具：多功能插件平台使用指南">
+<meta property="og:url" content="https://cdtools.click/2023/01/11/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7Utools%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D-%E4%B8%AA%E4%BA%BA%E5%90%91/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="本文详细介绍了新一代效率工具平台Utools的核心功能和实用插件。重点讲解了最常用的剪贴板管理功能，包括历史记录查看和快捷键设置（ctrl+&#96;）。深入介绍了面向程序开发的Ctool工具集，其中包含了丰富的开发辅助功能。文章还详细说明了易翻翻译插件的使用方法，包括多平台翻译服务配置和专业的Coding模式，可直接生成驼峰、下划线等不同风格的变量名。此外，文章还介绍了多个实用插件：局域网文件共享功能、">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-370.jpg">
+<meta property="article:published_time" content="2023-01-11T18:12:33.000Z">
+<meta property="article:modified_time" content="2024-12-17T09:55:12.508Z">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="效率工具">
+<meta property="article:tag" content="生产力工具">
+<meta property="article:tag" content="Utools">
+<meta property="article:tag" content="开发工具">
+<meta property="article:tag" content="工具插件">
+<meta property="article:tag" content="软件教程">
+<meta property="article:tag" content="工作效率">
+<meta property="article:tag" content="程序开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-370.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/2023/01/11/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7Utools%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D-%E4%B8%AA%E4%BA%BA%E5%90%91/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Utools效率工具：多功能插件平台使用指南',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-370.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a><a class="nav-page-title" href="/"><span class="site-name">Utools效率工具：多功能插件平台使用指南</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Utools效率工具：多功能插件平台使用指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-11T18:12:33.000Z" title="发表于 2023-01-11 18:12:33">2023-01-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-17T09:55:12.508Z" title="更新于 2024-12-17 09:55:12">2024-12-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/">软件应用</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">280</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p>官网上介绍的是：新一代效率工具平台</p>
+</blockquote>
+<blockquote>
+<p>自由组合插件应用，打造专属你的趁手工具集</p>
+</blockquote>
+<p>我就介绍一下我的使用经验</p>
+<p>软件有很多插件，可以自由组合安装。</p>
+<ol>
+<li><p>剪贴板，使用频率最高的工具。其实世面上有不少的历史剪贴板的软件，但是 all in one 总是好的 ​ 提示：不要使用官方提供的剪贴板插件（收费）使用第三方的一个<img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/uEiHtA.png" alt="uEiHtA"> ​ 因为使用频率高，可以设置全局快捷键 ctrl+`</p>
+</li>
+<li><p>Ctool   包含程序开发的常用工具。内置工具非常丰富<br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/P2NWIf.png" alt="P2NWIf"><br>![image]<img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/sgfUkR.png" alt="sgfUkR"><br>这些工具都可以直接在 Utools 窗口进入<br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/q7siLf.png" alt="q7siLf"></p>
+</li>
+<li><p>翻译（易翻翻译）<br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/jtX3Ro.png" alt="jtX3Ro"><br>直接在 Utools 窗口输入内容，然后选择翻译即可。<br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/Yq2HoA.png" alt="Yq2HoA"><br>可以配置不同的翻译服务（需要去不用平台申请 key）<br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/hQ62Rh.png" alt="hQ62Rh"><br>甚至还有 Coding 模式，直接翻译成驼峰，下划线等风格的变量名<br><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/JiBgGp.png" alt="JiBgGp"></p>
+</li>
+<li><p>其他常用的简单介绍</p>
+<ol>
+<li>局域网共享文件<img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/A9GKFC.png" alt="A9GKFC"></li>
+<li>备忘快贴<img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/L5EWpy.png" alt="L5EWpy"></li>
+<li>计算稿纸<img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/amJRzV.png" alt="amJRzV"></li>
+<li>网页快开<img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/onJBcC.png" alt="onJBcC"></li>
+<li>颜色助手<img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/09/04/UZuxD0.png" alt="UZuxD0"></li>
+</ol>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/houxiaozhao">houxiaozhao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cdtools.click/2023/01/11/效率工具Utools使用介绍-个人向/">https://cdtools.click/2023/01/11/效率工具Utools使用介绍-个人向/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">此文章版权归houxiaozhao所有，如有转载，请注明来自原作者</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a><a class="post-meta__tags" href="/tags/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/">生产力工具</a><a class="post-meta__tags" href="/tags/Utools/">Utools</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7%E6%8F%92%E4%BB%B6/">工具插件</a><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B/">软件教程</a><a class="post-meta__tags" href="/tags/%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87/">工作效率</a><a class="post-meta__tags" href="/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">程序开发</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-370.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2023/01/12/strapi%E4%BB%8B%E7%BB%8D/" title="Strapi构建灵活高效的Headless CMS系统"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-450.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Strapi构建灵活高效的Headless CMS系统</div></div><div class="info-2"><div class="info-item-1"> 官网介绍：开源的 Headless CMS，100%  的 javascript  和完全可定制化   CMS：内容管理系统，比如 WordPress   Headless CMS :无头   内容管理系统。内容仅通过 API 进行访问，而不需要内置前端。  可以用来创建网站，APP，API 等，可以用作后端系统管理内容，也可以配合 Vue、React 等前端技术结合使用。 即使不了解后端开发技术，也可以创建 API 接口 特点 使用一个命令就可以生成后端 restfull api 服务，除了 rest，甚至还支持 graphQL API yarn create strapi-app my-project –quickstart  可以在内置的后端管理界面对数据库进行管理。添加表后自动生成对应增删改查接口  内置的权限系统，全部数据都由权限系统控制  插件化，内置基本插件：内容管理器，api 文档，媒体库，角色权限等  自定义 API，可以使用 JavaScript 自定义 API  支持多种数据库   快速开始安装需要有 node 环境，一句命令即可安装, yarn...</div></div></div></a><a class="pagination-related" href="/2022/11/09/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AF%86%E9%92%A5%E4%BC%A0%E8%BE%93%E5%92%8C%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86(%E5%9B%BD%E5%AF%86SM2%E3%80%81SM3%E3%80%81SM4)%E6%B5%81%E7%A8%8B%E5%AE%9E%E8%B7%B5/" title="国密算法实践：基于SM2/SM3/SM4的前后端加密通信方案"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-420.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">国密算法实践：基于SM2/SM3/SM4的前后端加密通信方案</div></div><div class="info-2"><div class="info-item-1">加密算法介绍非对称密码算法 SM2SM2 椭圆曲线公钥密码算法是我国自主设计的公钥密码算法，包括 SM2-1 椭圆曲线数字签名算法，SM2-2 椭圆曲线密钥交换协议，SM2-3 椭圆曲线公钥加密算法，分别用于实现数字签名密钥协商和数据加密等功能。 对称密码算法 SM4SM3 杂凑算法是我国自主设计的密码杂凑算法，适用于商用密码应用中的数字签名和验证消息认证码的生成与验证以及随机数的生成，可满足多种密码应用的安全需求。 杂凑算法 SM3SM4 分组密码算法是我国自主设计的分组对称密码算法，用于实现数据的加密&#x2F;解密运算，以保证数据和信息的机密性。 密钥传输流程 前端到后端加密传输前端加密拦截前端请求，对请求中的 body 使用 SM3 计算哈希，然后把哈希值和明文数据拼接，再使用 SM2 公钥对数据进行加密传输。公式如下：SM2(SM3(明文)+明文) 123456&#123;  method: payload.method,    url: url,    data: &#123;    data:...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-11</div><div class="info-item-2">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</div></div><div class="info-2"><div class="info-item-1">JPG 转 PDF：免费好用的在线图片转 PDF 工具在日常工作和生活中，我们经常需要将图片转换为 PDF 格式。无论是制作电子文档、准备演示材料，还是整理照片集，将图片转换为 PDF 都是一个常见的需求。今天为大家介绍一款完全免费、无需下载的在线工具：JPG 转 PDF。 🔗 立即体验在线使用地址：https://jpg2pdf.cdtools.click/ 欢迎访问我的博客：https://cdtools.click，这里有更多实用的工具和技术分享。  🔍 使用场景 📑 制作电子简历：将证书照片整合成 PDF 文档 📊 准备商务文档：把产品图片、数据截图等转换为专业的 PDF 报告 📸 整理照片集：将多张旅行照片合并为一个 PDF 相册 📋 文档归档：把各类图片文件统一转换为 PDF 格式存档 🖼️ 作品集制作：设计师将作品图片整合为 PDF 作品集  ✨ 核心功能1. 批量转换 支持同时上传多张图片 支持拖拽调整图片顺序 一键生成 PDF 文档  2. 图片调整 支持图片旋转 自由调整页面大小 灵活设置页面边距  3....</div></div></div></a><a class="pagination-related" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-06</div><div class="info-item-2">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</div></div><div class="info-2"><div class="info-item-1">PDF 合并工具 - 在线免费 PDF 合并在线体验：https://merge-pdf.cdtools.click 欢迎访问我的博客：https://cdtools.click，这里有更多实用的工具和技术分享。  功能介绍PDF 合并工具是一个简单易用的在线 PDF 文件合并工具，可以帮助您快速将多个 PDF 文件合并成一个文档。无需下载安装任何软件，完全免费使用，并且所有操作都在浏览器本地完成，确保文件安全。 主要特点 完全免费：无需付费，无需注册 本地处理：所有文件在您的浏览器本地处理，保护文件安全 支持批量：可同时上传多个 PDF 文件进行合并 灵活排序：支持拖拽调整文件顺序 文件限制：单个文件最大支持 50MB 多语言支持：支持中文和英文界面 深色模式：支持明亮&#x2F;暗黑两种显示模式  使用说明 上传文件  点击上传区域或直接将 PDF 文件拖拽到上传区域 支持一次性选择多个 PDF 文件 每个文件大小不能超过...</div></div></div></a><a class="pagination-related" href="/2022/04/15/%E4%BD%BF%E7%94%A8PopClip%E8%B0%83%E8%B5%B7uTools-shi-yong-popclip-diao-qi-utools/" title="PopClip与uTools整合：提升Mac效率工具协同体验"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-171.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-15</div><div class="info-item-2">PopClip与uTools整合：提升Mac效率工具协同体验</div></div><div class="info-2"><div class="info-item-1">在我这里 PopClip 和 uTools 都是重要的生产工具，把两者关联到一起可以进一步提高效率 前提PopClip 更新到 2021.11 版本或以上，支持快速安装扩展 扩展如下 1234567# popclip jsname: Utoolsrequirements: [text]actions:  - title: 用Utools打开    icon: circle filled U    javascript: popclip.pressKey(util.constant.KEY_SPACE, util.constant.MODIFIER_OPTION);popclip.pasteText(popclip.input.text)  选择上边文字，然后点击install Extension &quot;Utools&quot;如果没有弹出 popclip 菜单，就把上边内容复制到其他位置再试。 如果打开 uTools 的快捷键不是 opt+空格，需要替换 popclip.pressKey...</div></div></div></a><a class="pagination-related" href="/2024/12/04/%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7-%E5%A4%9A%E6%A0%BC%E5%BC%8F%E4%BA%92%E8%BD%AC%E7%9A%84%E5%9C%A8%E7%BA%BF%E5%88%A9%E5%99%A8/" title="在线文本格式转换工具：JSON、XML、YAML等多格式一键转换"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-82.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-04</div><div class="info-item-2">在线文本格式转换工具：JSON、XML、YAML等多格式一键转换</div></div><div class="info-2"><div class="info-item-1">文本格式转换工具：多格式互转的在线利器在线体验地址：https://textformat.cdtools.click  在开发过程中，我们经常需要处理不同格式的数据文件，比如 JSON、XML、YAML 等。手动转换这些格式不仅耗时，还容易出错。为此，我们开发了这款在线文本格式转换工具，它能够帮助开发者快速、准确地在不同格式之间进行转换。 功能特点1. 多格式支持 JSON：最常用的数据交换格式 XML：广泛应用于配置文件和 Web 服务 YAML：易读性强，常用于配置文件 CSV：表格数据格式 TOML：简单易读的配置文件格式 Properties：Java 属性文件格式 INI：传统的配置文件格式  2. 智能格式检测工具会自动检测输入文本的格式，无需手动指定源格式，让转换过程更加便捷。 3. 实时转换 输入文本后自动检测格式 选择目标格式后即时转换 转换结果实时显示  4. 便捷操作 一键格式化：规范化输入文本的格式 一键复制：快速复制转换结果 一键清空：清除输入区域内容  5....</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-208.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-547.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-436.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>

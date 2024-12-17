@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>houxiaozhao部落格 - 我欲修仙，法力无边</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="houxiaozhao部落格">
+<meta property="og:url" content="https://cdtools.click/page/6/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/14978325">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="前端,Node.js,Web,JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/14978325"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/page/6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'houxiaozhao部落格',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2023/01/12/M0b0Vl.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">houxiaozhao部落格</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2021/03/04/%E5%9F%BA%E4%BA%8E%20nestjs%20mongoose%20jwt%20%E7%9A%84%20restful%20%E6%A8%A1%E6%9D%BF%E7%A8%8B%E5%BA%8F%20%E7%94%A8%E4%BA%8E%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%A8%8B%E5%BA%8F/" title="NestJS 企业级应用开发：基于 MongoDB 和 JWT 的 RESTful API 模板"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-161.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NestJS 企业级应用开发：基于 MongoDB 和 JWT 的 RESTful API 模板"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/04/%E5%9F%BA%E4%BA%8E%20nestjs%20mongoose%20jwt%20%E7%9A%84%20restful%20%E6%A8%A1%E6%9D%BF%E7%A8%8B%E5%BA%8F%20%E7%94%A8%E4%BA%8E%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%A8%8B%E5%BA%8F/" title="NestJS 企业级应用开发：基于 MongoDB 和 JWT 的 RESTful API 模板">NestJS 企业级应用开发：基于 MongoDB 和 JWT 的 RESTful API 模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-04T10:48:14.000Z" title="发表于 2021-03-04 10:48:14">2021-03-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/Node-js/">Node.js</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/Node-js/%E4%BC%81%E4%B8%9A%E5%BA%94%E7%94%A8/">企业应用</a></span></div><div class="content">基于 nestjs mongoose jwt 的 restful 模板程序 用于快速搭建服务端程序houxiaozhao&#x2F;template 涉及技术框架 nestjs 服务框架 mongoose 操作数据库的库 typegoose 使用类定义数据模型 nestjs-typegoose mongoose-paginate 分页插件   jwt 生成验证 token swagger 文档生成  配置文件nestjs-config 管理配置文件 12/env//src/config/  Redis 缓存基本用法12345678910// controller@HttpCache(ARTICLE, 60)@UseInterceptors(HttpCacheInterceptor)// moduleimport &#123; CacheModule &#125; from &#x27;src/common/processors/cache/cache.module&#x27;;@Module(&#123;  imports: [CacheModule]&#125;)  功能 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/05/15/restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF-restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF/" title="RESTful风格的Vue.js前端表格CRUD模板实现"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-578.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="RESTful风格的Vue.js前端表格CRUD模板实现"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/15/restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF-restful%E9%A3%8E%E6%A0%BC%E5%89%8D%E7%AB%AF%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%A8%A1%E6%9D%BF/" title="RESTful风格的Vue.js前端表格CRUD模板实现">RESTful风格的Vue.js前端表格CRUD模板实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-15T11:16:26.000Z" title="发表于 2020-05-15 11:16:26">2020-05-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Vue-js/">Vue.js</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Vue-js/UI%E7%BB%84%E4%BB%B6/">UI组件</a></span></div><div class="content">restful 风格前端表格增删改查模板restful 风格前端表格增删改查模板 基于 vue d2-admin element-ui 配合上篇文章 js 代码生成器,只需要简单的修改即可实现快速页面开发。  vue...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2019/10/16/postman%E6%A8%A1%E6%8B%9Fqq%E7%99%BB%E5%BD%95/" title="使用Postman模拟QQ登录：步骤与技巧"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-137.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用Postman模拟QQ登录：步骤与技巧"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/10/16/postman%E6%A8%A1%E6%8B%9Fqq%E7%99%BB%E5%BD%95/" title="使用Postman模拟QQ登录：步骤与技巧">使用Postman模拟QQ登录：步骤与技巧</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-16T10:07:26.000Z" title="发表于 2019-10-16 10:07:26">2019-10-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">软件测试</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/Web%E5%BC%80%E5%8F%91/">Web开发</a></span></div><div class="content"> 登录 pc 端的 QQ 客户端 使用 chrome 浏览器，打开 qq 空间，使用快速登陆方式。安装 postman 扩展 获取当前电脑登录用户信息 在 Network 总找到https://localhost.ptlogin2.qq.com:4301/pt_get_uins开头的地址。  请求本地 4301 服务，获取信息。 在 postman 中模拟这一请求  然后会保存大概 20 个 cookies，这些 cookies 好像有用。 这一部，好像没什么用~~~  获取用户头像信息network 中https://ssl.ptlogin2.qq.com/getface?开头的地址  获取 clientkey 在选中 network 中的 Preserve Log 清空所有请求 点击需要登录的用户头像，进行登录 |找到第一个请求，或者是 pt_get_st 在 postman 中模拟这一请求 可以看的 cookies 中多了两个，其中就有 clientkey |  跳转到已登陆状态 在 network 中 jump 开头的地址。 可以看的在响应头中 set 了很多的...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2019/08/14/wugeek%E5%9B%A2%E9%98%9F%E5%88%9B%E4%B8%9A%E8%B7%AF%E5%BE%84/" title="Wugeek物联网创业之路：从技术探索到行业应用的发展历程"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-111.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Wugeek物联网创业之路：从技术探索到行业应用的发展历程"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/08/14/wugeek%E5%9B%A2%E9%98%9F%E5%88%9B%E4%B8%9A%E8%B7%AF%E5%BE%84/" title="Wugeek物联网创业之路：从技术探索到行业应用的发展历程">Wugeek物联网创业之路：从技术探索到行业应用的发展历程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-14T12:23:24.000Z" title="发表于 2019-08-14 12:23:24">2019-08-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%9B%E4%B8%9A%E6%95%85%E4%BA%8B/">创业故事</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%9B%E4%B8%9A%E6%95%85%E4%BA%8B/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%9B%E4%B8%9A%E6%95%85%E4%BA%8B/%E7%89%A9%E8%81%94%E7%BD%91/%E6%8A%80%E6%9C%AF%E5%88%9B%E6%96%B0/">技术创新</a></span></div><div class="content">介绍 名称：Wugeek(物集客) 地点：河北邯郸 域名：http://www.wugeek.com/ logo：云上的章鱼（技术寓意为云计算、物联网、大数据，章鱼保罗）     历程（大体方向：物联网云平台） 基于云计算、大数据、物联网等技术的平台及其相关软硬件产品  第一阶段：探索技术，探索方向（2016） 第一次团队合影（2016-7-1）     第二次团队合影（2016-12-1）     调研过国内国外物联网平台  国内    国外      成果  物联网云平台架构图  智能书柜 第一个完整的由上到下跑通的项目（前端、后端、通信、树莓派、硬件） 使用讯飞语音开发套件实现语音开门。 这个书柜项目完成了技术的的集成和检验技术可行性；奠定了团队后期创业几年的技术 S4T(stack for things)；  S4T-wifi 人员轨迹分析 S4T 内部的具体应用 为了将整个 S4T 整个体系和各个模块与硬件结合验证平台功能性，决定使用 3 教现有的硬件设施 1 至 4 楼的无线 AP 设备采集的 wifi...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2019/05/04/Hybrid%20App%20%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B(Vue+Android)%E5%9F%BA%E4%BA%8EJavaScript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8FAPP%E5%BC%80%E5%8F%91-hybridapp%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8Bvueandroid%E5%9F%BA%E4%BA%8Ejavascript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8Fapp%E5%BC%80%E5%8F%91/" title="Vue.js与Cordova构建混合应用：从环境搭建到插件集成"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-181.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue.js与Cordova构建混合应用：从环境搭建到插件集成"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/05/04/Hybrid%20App%20%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B(Vue+Android)%E5%9F%BA%E4%BA%8EJavaScript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8FAPP%E5%BC%80%E5%8F%91-hybridapp%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8Bvueandroid%E5%9F%BA%E4%BA%8Ejavascript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8Fapp%E5%BC%80%E5%8F%91/" title="Vue.js与Cordova构建混合应用：从环境搭建到插件集成">Vue.js与Cordova构建混合应用：从环境搭建到插件集成</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-05-04T12:54:10.000Z" title="发表于 2019-05-04 12:54:10">2019-05-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">移动应用开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/%E6%B7%B7%E5%90%88%E5%BA%94%E7%94%A8/">混合应用</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/%E6%B7%B7%E5%90%88%E5%BA%94%E7%94%A8/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span></div><div class="content">准备开发环境 前端开发环境  Node.js LTS @vue&#x2F;cli cordova yarn 推荐   编辑器 VS code(墙裂推荐) 各种插件         Android 环境（需要编译 Android 软件） 安装 JDK 设置环境变量   安装 SDK?Android Studio - 设置环境变量https://blog.csdn.net/pupilxiaoming/article/details/77801398    ###项目搭建  使用脚手架生成基础项目  cordova 项目 cordova create demo cordova platform add android cordova run android 目录结构 www 存放网页代码 plugins 插件 platforms 平台 res 资源   调试chrome://inspect/#devices   vue 项目 vue create demo yarn npm run serve 目录结构 public 静态资源 src 源码   安装一个 UI 框架...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2019/03/07/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" title="InfluxDB实践：从MongoDB迁移到时序数据库的开发体验"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-513.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InfluxDB实践：从MongoDB迁移到时序数据库的开发体验"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/03/07/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" title="InfluxDB实践：从MongoDB迁移到时序数据库的开发体验">InfluxDB实践：从MongoDB迁移到时序数据库的开发体验</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-03-07T15:00:01.000Z" title="发表于 2019-03-07 15:00:01">2019-03-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/Node-js%E5%BC%80%E5%8F%91/">Node.js开发</a></span></div><div class="content">前言我之前的节点数据是全都存到 mongoDB 中的。偶然的机会，发现了 InfluxDB 这种时序数据库。于是花了点时间简单使用一些，看看是否能替换 mongoDB 存储历史数据。 InfluxDB 简介InfluxDB 是一个开源时序数据库。适合处理分析资源数据监控相关数据。 https://docs.influxdata.com/influxdb/v1.6/     安装目前最新版本为 v1.6。 安装 InfluxDB 的方式很简单(Ubuntu) $ curl -sL &lt;https://repos.influxdata.com/influxdb.key&gt; | sudo apt-key add - $ source /etc/lsb-release $ echo &quot;deb &lt;https://repos.influxdata.com/$&#123;DISTRIB_ID,,&#125;&gt; $&#123;DISTRIB_CODENAME&#125; stable&quot; | sudo tee...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2018/10/09/Egg.js%20VS%20Thinkjs%20%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E4%BD%BF%E7%94%A8-eggjsvsthinkjs%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E4%BD%BF%E7%94%A8/" title="Egg.js与ThinkJS框架对比：Node.js企业级开发实践分析"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-373.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Egg.js与ThinkJS框架对比：Node.js企业级开发实践分析"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/10/09/Egg.js%20VS%20Thinkjs%20%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E4%BD%BF%E7%94%A8-eggjsvsthinkjs%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%E4%BD%BF%E7%94%A8/" title="Egg.js与ThinkJS框架对比：Node.js企业级开发实践分析">Egg.js与ThinkJS框架对比：Node.js企业级开发实践分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-10-09T19:00:22.000Z" title="发表于 2018-10-09 19:00:22">2018-10-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Node-js%E5%BC%80%E5%8F%91/">Node.js开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Node-js%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/">后端框架</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Node-js%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/">技术选型</a></span></div><div class="content">@[toc](Egg.js VS Thinkjs 简单分析使用) 命令行脚手架Egg.js12345$ npm i egg-init -g$ egg-init egg-example --type=simple$ cd egg-example$ npm i$ npm run dev  打开浏览器访问 http://127.0.0.1:7001/     Thinkjs12345$ npm install -g think-cli$ thinkjs new demo;$ cd demo;$ npm install;$ npm start;  打开浏览器访问 http://127.0.0.1:8360/ 从创建项目的脚手架来看两者基本一致，但是 think-cli 支持 使用命令行创建 controller、service、model 等 123$ thinkjs controller &lt;controller-name&gt; [module-name]$ thinkjs service &lt;service-name&gt; [module-name]$ thinkjs...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2018/09/22/mpvue%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97-mpvue%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97/" title="mpvue微信小程序开发入门：从环境搭建到实战应用"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-421.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mpvue微信小程序开发入门：从环境搭建到实战应用"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/09/22/mpvue%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97-mpvue%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97/" title="mpvue微信小程序开发入门：从环境搭建到实战应用">mpvue微信小程序开发入门：从环境搭建到实战应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-09-22T11:58:59.000Z" title="发表于 2018-09-22 11:58:59">2018-09-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">小程序开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/Vue-js/">Vue.js</a></span></div><div class="content"> 需要了解一些原生小程序开发流程，主要是接口调用方式和目录结构。  安装1234567891011# 全局安装 vue-cli$ npm install --global vue-cli# 创建一个基于 mpvue-quickstart 模板的新项目$ vue init mpvue/mpvue-quickstart my-project# 安装依赖$ cd my-project$ npm install# 启动构建$ npm run dev      设置底部导航栏 添加一个页面 1234mkdir democd demotouch index.vuetouch main.js  main.js 1234import Vue from &quot;vue&quot;;import App from &quot;./index&quot;;const app = new Vue(App);app.$mount();  index.vue 12345678910111213&lt;template&gt; ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2018/08/25/python3%20flask%20%E4%BD%BF%E7%94%A8Mysql%E6%95%B0%E6%8D%AE%E5%BA%93-python3flask%E4%BD%BF%E7%94%A8mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" title="Flask与MySQL集成：构建Python Web应用数据库"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-251.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Flask与MySQL集成：构建Python Web应用数据库"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/08/25/python3%20flask%20%E4%BD%BF%E7%94%A8Mysql%E6%95%B0%E6%8D%AE%E5%BA%93-python3flask%E4%BD%BF%E7%94%A8mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" title="Flask与MySQL集成：构建Python Web应用数据库">Flask与MySQL集成：构建Python Web应用数据库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-08-25T11:52:27.000Z" title="发表于 2018-08-25 11:52:27">2018-08-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python%E5%BC%80%E5%8F%91/">Python开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python%E5%BC%80%E5%8F%91/Web%E5%90%8E%E7%AB%AF/">Web后端</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python%E5%BC%80%E5%8F%91/Web%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python%E5%BC%80%E5%8F%91/Web%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/API%E5%BC%80%E5%8F%91/">API开发</a></span></div><div class="content">python3 flask 使用 Mysql 数据库 创建 flask 基本项目结构 12from flask import Flaskapp = Flask(__name__)    安装flask-sqlalchemy 1pip install flask-sqlalchemy  导入配置 123456from flask_sqlalchemy import SQLAlchemyapp.config[&#x27;SQLALCHEMY_DATABASE_URI&#x27;] = &#x27;mysql+pymysql://root:root@localhost/hhh&#x27;app.config[&#x27;SQLALCHEMY_COMMIT_ON_TEARDOWN&#x27;] = Trueapp.config[&#x27;SQLALCHEMY_TRACK_MODIFICATIONS&#x27;] = Truedb = SQLAlchemy(app)  python3 不再支持 MySQKdb,连接 mysql 数据库需要使用 pymysql 安装...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2018/08/11/vue-cli3%E4%BD%BF%E7%94%A8%E5%92%8CCordova%E9%9B%86%E6%88%90%E8%AE%B0%E5%BD%95-vue-cli3%E4%BD%BF%E7%94%A8%E5%92%8Ccordova%E9%9B%86%E6%88%90%E8%AE%B0%E5%BD%95/" title="vue-cli3使用和Cordova集成记录"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-56.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue-cli3使用和Cordova集成记录"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/08/11/vue-cli3%E4%BD%BF%E7%94%A8%E5%92%8CCordova%E9%9B%86%E6%88%90%E8%AE%B0%E5%BD%95-vue-cli3%E4%BD%BF%E7%94%A8%E5%92%8Ccordova%E9%9B%86%E6%88%90%E8%AE%B0%E5%BD%95/" title="vue-cli3使用和Cordova集成记录">vue-cli3使用和Cordova集成记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-08-11T15:38:56.000Z" title="发表于 2018-08-11 15:38:56">2018-08-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E6%B7%B7%E5%90%88%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">混合应用开发</a></span></div><div class="content">1. 安装安装过程很简单 123npm install -g @vue/cli# ORyarn global add @vue/cli      安装后使用vue --version查看是否安装成功 2. 创建项目123vue create demo# ORvue ui #使用ui界面进行创建  选项  默认 手动选择  我们选择手动选择功能，具体选择如下 1234567? Please pick a preset: Manually select features? Check the features needed for your project: Babel, Router, Vuex, CSS Pre-processors, Linter? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): LESS? Pick a linter / formatter config: Prettier? Pick additional lint...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="page-number" href="/page/8/#content-inner">8</a><a class="extend next" rel="next" href="/page/7/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-208.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-547.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-436.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">3D开发</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/"><span class="card-category-list-name">WebGL</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">图形编程</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3D%E5%BC%80%E5%8F%91/WebGL/%E5%9B%BE%E5%BD%A2%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><span class="card-category-list-name">计算机图形学</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">API安全</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">后端开发</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API%E5%AE%89%E5%85%A8/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"><span class="card-category-list-name">系统架构</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87/" style="font-size: 1.1em; color: #999">开发效率</a> <a href="/tags/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 1.1em; color: #999">Chrome浏览器</a> <a href="/tags/API%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">API测试</a> <a href="/tags/Egg-js/" style="font-size: 1.5em; color: #99a9bf">Egg.js</a> <a href="/tags/Web%E5%AE%89%E5%85%A8/" style="font-size: 1.1em; color: #999">Web安全</a> <a href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">状态管理</a> <a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/" style="font-size: 1.1em; color: #999">过滤器</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" style="font-size: 1.1em; color: #999">开发框架</a> <a href="/tags/%E7%9D%A1%E7%9C%A0%E6%94%B9%E5%96%84/" style="font-size: 1.1em; color: #999">睡眠改善</a> <a href="/tags/npm%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">npm包管理</a> <a href="/tags/Koa/" style="font-size: 1.1em; color: #999">Koa</a> <a href="/tags/3D-Tiles/" style="font-size: 1.1em; color: #999">3D Tiles</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">开发工具</a> <a href="/tags/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1.5em; color: #99a9bf">国密算法</a> <a href="/tags/Vector2/" style="font-size: 1.1em; color: #999">Vector2</a> <a href="/tags/%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/" style="font-size: 1.1em; color: #999">格式转换</a> <a href="/tags/API%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">API开发</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%9B%91%E6%8E%A7/" style="font-size: 1.1em; color: #999">数据监控</a> <a href="/tags/Vector3/" style="font-size: 1.1em; color: #999">Vector3</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">前端优化</a> <a href="/tags/%E8%A1%8C%E4%B8%9A%E5%BA%94%E7%94%A8/" style="font-size: 1.1em; color: #999">行业应用</a> <a href="/tags/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">严格模式</a> <a href="/tags/%E7%A1%AC%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">硬件开发</a> <a href="/tags/WeUI/" style="font-size: 1.1em; color: #999">WeUI</a> <a href="/tags/Vite/" style="font-size: 1.1em; color: #999">Vite</a> <a href="/tags/%E6%97%85%E8%A1%8C%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">旅行工具</a> <a href="/tags/IP%E4%BC%98%E9%80%89/" style="font-size: 1.1em; color: #999">IP优选</a> <a href="/tags/Swagger/" style="font-size: 1.5em; color: #99a9bf">Swagger</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">移动应用开发</a> <a href="/tags/%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2/" style="font-size: 1.1em; color: #999">坐标变换</a> <a href="/tags/frontend/" style="font-size: 1.1em; color: #999">frontend</a> <a href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">云平台</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 1.5em; color: #99a9bf">图像处理</a> <a href="/tags/WebSocket/" style="font-size: 1.5em; color: #99a9bf">WebSocket</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.5em; color: #99a9bf">后端</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">微服务</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">定时器优化</a> <a href="/tags/%E8%89%BA%E6%9C%AF%E5%88%9B%E4%BD%9C/" style="font-size: 1.1em; color: #999">艺术创作</a> <a href="/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/" style="font-size: 1.1em; color: #999">实时通信</a> <a href="/tags/%E5%BA%A7%E4%BD%8D%E9%A2%84%E8%AE%A2/" style="font-size: 1.1em; color: #999">座位预订</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/" title="查看更多"><i class="fas fa-angle-right"></i></a>
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/12/">
+          <span class="card-archive-list-date">十二月 2024</span>
+          <span class="card-archive-list-count">7</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">十一月 2024</span>
+          <span class="card-archive-list-count">8</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/10/">
+          <span class="card-archive-list-date">十月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/08/">
+          <span class="card-archive-list-date">八月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/05/">
+          <span class="card-archive-list-date">五月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/09/">
+          <span class="card-archive-list-date">九月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/07/">
+          <span class="card-archive-list-date">七月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/06/">
+          <span class="card-archive-list-date">六月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">75</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">51.6k</div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-17T09:55:34.038Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (false) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  btf.getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        typedJSFn.init(sub)
+      } else {
+        document.getElementById('subtitle').textContent = result.data.content
+      }
+    })
+  })
+}
+typedJSFn.run(subtitleType)
+</script></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>

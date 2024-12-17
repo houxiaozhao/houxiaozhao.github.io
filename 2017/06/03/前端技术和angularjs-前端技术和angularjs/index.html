@@ -1,0 +1,366 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>现代前端技术栈与AngularJS开发实践 | houxiaozhao部落格</title><meta name="author" content="houxiaozhao"><meta name="copyright" content="houxiaozhao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="本文全面介绍了现代前端开发技术栈和AngularJS框架的实践应用。首先梳理了前端开发的核心技术，包括主流浏览器和渲染引擎、HTML5&#x2F;DOM&#x2F;JavaScript&#x2F;CSS等基础知识。重点讲解了开发工具链，涵盖了VSCode、WebStorm等编辑器，Webpack、Gulp等构建工具，以及npm、Bower等包管理工具。在框架选择方面，详细对比了jQuery、AngularJS、React、Vu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="现代前端技术栈与AngularJS开发实践">
+<meta property="og:url" content="https://cdtools.click/2017/06/03/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%92%8Cangularjs-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%92%8Cangularjs/index.html">
+<meta property="og:site_name" content="houxiaozhao部落格">
+<meta property="og:description" content="本文全面介绍了现代前端开发技术栈和AngularJS框架的实践应用。首先梳理了前端开发的核心技术，包括主流浏览器和渲染引擎、HTML5&#x2F;DOM&#x2F;JavaScript&#x2F;CSS等基础知识。重点讲解了开发工具链，涵盖了VSCode、WebStorm等编辑器，Webpack、Gulp等构建工具，以及npm、Bower等包管理工具。在框架选择方面，详细对比了jQuery、AngularJS、React、Vu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-466.jpg">
+<meta property="article:published_time" content="2017-06-03T12:02:10.000Z">
+<meta property="article:modified_time" content="2024-12-17T09:55:12.508Z">
+<meta property="article:author" content="houxiaozhao">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="CSS3">
+<meta property="article:tag" content="AngularJS">
+<meta property="article:tag" content="前端技术栈">
+<meta property="article:tag" content="HTML5">
+<meta property="article:tag" content="构建工具">
+<meta property="article:tag" content="开发框架">
+<meta property="article:tag" content="调试工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-466.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://cdtools.click/2017/06/03/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%92%8Cangularjs-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%92%8Cangularjs/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="360-site-verification" content="a6c492636fc82ec828a619d6198ef6cb"/><meta name="sogou_site_verification" content="cngArbvZHn"/><meta name="monetag" content="1f0c8201f94b377bdc5a2c427929f666"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3594081485685271',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '现代前端技术栈与AngularJS开发实践',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="houxiaozhao部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-466.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/uPic/2024/12/05/FFaAQP.png" alt="Logo"><span class="site-name">houxiaozhao部落格</span></a><a class="nav-page-title" href="/"><span class="site-name">现代前端技术栈与AngularJS开发实践</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-file"></i><span> 页面</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-tags"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">现代前端技术栈与AngularJS开发实践</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-06-03T12:02:10.000Z" title="发表于 2017-06-03 12:02:10">2017-06-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-17T09:55:12.508Z" title="更新于 2024-12-17 09:55:12">2024-12-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript%E6%A1%86%E6%9E%B6/">JavaScript框架</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript%E6%A1%86%E6%9E%B6/Web%E6%8A%80%E6%9C%AF/">Web技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">586</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h3 id="前端技术栈"><a href="#前端技术栈" class="headerlink" title="前端技术栈"></a>前端技术栈</h3><ul>
+<li><p>浏览器&#x2F;渲染引擎</p>
+<ul>
+<li>IE</li>
+<li>chrome</li>
+<li>firefox</li>
+<li>Safari</li>
+<li>QQ&#x2F;360???????<span id="more"></span></li>
+</ul>
+</li>
+<li><p>前端核心</p>
+<ul>
+<li><p>HTML&#x2F;HTML5,</p>
+<p><img src="https://img.mubu.com/document_image/09890fbd-d90f-4a86-83a6-9a9190baeeea.jpg" alt="img"></p>
+<ul>
+<li>DOM 树</li>
+<li>元素</li>
+<li>属性</li>
+</ul>
+</li>
+<li><p>JavaScript</p>
+<ul>
+<li>原型（prototype）</li>
+<li>Scope</li>
+<li>JSON <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/JSON/2462549?fr=aladdin">https://baike.baidu.com/item/JSON/2462549?fr=aladdin</a></li>
+<li>AJAX</li>
+<li>Promise(解决回调函数嵌套过多的问题)<ul>
+<li><a target="_blank" rel="noopener" href="http://callbackhell.com/">http://callbackhell.com/</a></li>
+<li><a target="_blank" rel="noopener" href="http://liubin.org/promises-book/">http://liubin.org/promises-book/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>CSS</p>
+<ul>
+<li>使用浏览器调试样式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>编辑器</p>
+<ul>
+<li>sublime text 3</li>
+<li>WebStorm</li>
+<li>VSCode（推荐！！）</li>
+</ul>
+</li>
+<li><p>构建工具&#x2F;生成器</p>
+<p><img src="https://img.mubu.com/document_image/4c09e92d-1472-4bd1-983a-c8f076c85d5a.jpg" alt="img"></p>
+<ul>
+<li>Yeoman <a target="_blank" rel="noopener" href="http://yeoman.io/generators/">http://yeoman.io/generators/</a></li>
+<li>Grunt</li>
+<li>gulp&#x2F;&#x2F;在用</li>
+<li>webpack&#x2F;&#x2F;在用</li>
+</ul>
+</li>
+<li><p>调试</p>
+<ul>
+<li>Developer Tools</li>
+<li>Firebug</li>
+</ul>
+</li>
+<li><p>包管理</p>
+<ul>
+<li>npm</li>
+<li>bower</li>
+</ul>
+</li>
+<li><p>框架和库</p>
+<ul>
+<li>JavaScript 基本库<ul>
+<li>Jquery</li>
+</ul>
+</li>
+<li>JavaScript 框架<ul>
+<li>angularjs&#x2F;Angular</li>
+<li>react</li>
+<li>vue</li>
+</ul>
+</li>
+<li>UI 框架<ul>
+<li>BootStrap</li>
+<li>ionic</li>
+<li>Material</li>
+</ul>
+</li>
+<li>数据可视化<ul>
+<li>Echarts</li>
+<li>G2</li>
+</ul>
+</li>
+<li>CSS3 动画<ul>
+<li>Animate.css</li>
+</ul>
+</li>
+<li>实用工具<ul>
+<li>lodash <a target="_blank" rel="noopener" href="https://lodash.com/">https://lodash.com/</a><a target="_blank" rel="noopener" href="https://www.kancloud.cn/wizardforcel/lodash-doc-45/144108">https://www.kancloud.cn/wizardforcel/lodash-doc-45/144108</a></li>
+<li>Moment <a target="_blank" rel="noopener" href="http://momentjs.cn/">http://momentjs.cn/</a></li>
+</ul>
+</li>
+<li>编译器<ul>
+<li>babel <a target="_blank" rel="noopener" href="http://babeljs.cn/repl/#">http://babeljs.cn/repl/#</a></li>
+</ul>
+</li>
+<li>模板引擎<ul>
+<li>Jade-express</li>
+<li>Ejs-thinkjs</li>
+</ul>
+</li>
+<li>中间语言<ul>
+<li>Typescript</li>
+<li>JSX</li>
+</ul>
+</li>
+<li>手机应用<ul>
+<li>Cordova</li>
+<li>React Native</li>
+</ul>
+</li>
+<li>桌面应用<ul>
+<li>Electron</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="angularjs"><a href="#angularjs" class="headerlink" title="angularjs"></a>angularjs</h3><ul>
+<li><p>搭建一个最简单的 angular 项目</p>
+</li>
+<li><p>$scope、$rootScope、var</p>
+<ul>
+<li>$scope 是一个 js 对象，包含属性和方法，可以在视图中使用。作用域范围当前的 controller</li>
+<li>$rootScope 根作用域，范围是被 ng-app 包含的所有 controller</li>
+<li>var 定义变量关键词。var 的作用域取决于定义变量的位置。在 controller 里面用 var 定义的变量只在这个 controller 里面有效</li>
+</ul>
+</li>
+<li><p><code>&amp;#123;&amp;#123;&amp;#125;&amp;#125;</code></p>
+<ul>
+<li>在<code>&amp;#123;&amp;#123;&amp;#125;&amp;#125;</code>里面是可以写 js 表达式的，而不仅仅是写一个变量。</li>
+</ul>
+</li>
+<li><p>页面传参</p>
+<ul>
+<li>利用 ui-router 传参（常用）</li>
+<li>$cacheFactory、service 或 factory、本地存储、全局变量</li>
+</ul>
+</li>
+<li><p>错误（ReferenceError,SyntaxError,TypeError）</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError</a></p>
+<ul>
+<li><p>HelloCtrl 没有注册</p>
+<p><img src="https://img.mubu.com/document_image/f6f78e2a-edaf-4717-8cb3-5bd81a451b55.jpg" alt="img"></p>
+</li>
+<li><p>a 没有被定义</p>
+<p><img src="https://img.mubu.com/document_image/362a3d98-b926-40cc-9b75-9363791ecf59.jpg" alt="img"></p>
+</li>
+<li><p>不能读取 undefined 的属性 d</p>
+<p><img src="https://img.mubu.com/document_image/d25df15e-d055-44c5-ab2a-39afd68e472a.jpg" alt="img"></p>
+</li>
+<li><p>myApp.contoller 不是一个函数</p>
+<p><img src="https://img.mubu.com/document_image/5798992a-432e-4eea-8423-05b64fd39778.jpg" alt="img"></p>
+</li>
+<li><p>语法错误</p>
+<p><img src="https://img.mubu.com/document_image/90f7b0eb-21a0-44d6-b724-e4adaaf25b64.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>angular 自带过滤器</p>
+<ul>
+<li>时间格式化<code>&amp;#123;&amp;#123;1502099966443| date:&quot;yyyy-MM-dd HH:mm:ss&quot;&amp;#125;&amp;#125;</code></li>
+</ul>
+</li>
+<li><p>angular 常用的一些方法，指令等</p>
+</li>
+<li><p>http 请求的两种写法<a target="_blank" rel="noopener" href="https://docs.angularjs.org/api/ng/service/$http">https://docs.angularjs.org/api/ng/service/$http</a><a target="_blank" rel="noopener" href="https://code.angularjs.org/1.4.3/docs/api/ng/service/$http">https://code.angularjs.org/1.4.3/docs/api/ng/service/$http</a></p>
+</li>
+<li><p>angular select</p>
+</li>
+<li><p>常用插件</p>
+<ul>
+<li>smart-table <a target="_blank" rel="noopener" href="https://github.com/lorenzofox3/Smart-Table">https://github.com/lorenzofox3/Smart-Table</a></li>
+<li>ngDialog <a target="_blank" rel="noopener" href="https://github.com/likeastore/ngDialog">https://github.com/likeastore/ngDialog</a></li>
+<li>ui.bootstrap <a target="_blank" rel="noopener" href="http://angular-ui.github.io/bootstrap/">http://angular-ui.github.io/bootstrap/</a></li>
+<li>ngMaterial <a target="_blank" rel="noopener" href="https://github.com/angular/material">https://github.com/angular/material</a></li>
+<li>ng-file-upload <a target="_blank" rel="noopener" href="https://github.com/danialfarid/ng-file-upload">https://github.com/danialfarid/ng-file-upload</a></li>
+<li>toastr <a target="_blank" rel="noopener" href="https://github.com/Foxandxss/angular-toastr">https://github.com/Foxandxss/angular-toastr</a></li>
+<li>oc.lazyLoad <a target="_blank" rel="noopener" href="https://oclazyload.readme.io/">https://oclazyload.readme.io/</a></li>
+<li>satellizer <a target="_blank" rel="noopener" href="https://github.com/sahat/satellizer">https://github.com/sahat/satellizer</a></li>
+<li>vxWamp <a target="_blank" rel="noopener" href="https://github.com/voryx/angular-wamp">https://github.com/voryx/angular-wamp</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="我经常逛的网站"><a href="#我经常逛的网站" class="headerlink" title="我经常逛的网站"></a>我经常逛的网站</h3><ul>
+<li>掘金 <a target="_blank" rel="noopener" href="https://juejin.im/">https://juejin.im/</a></li>
+<li>awesomes <a target="_blank" rel="noopener" href="https://www.awesomes.cn/">https://www.awesomes.cn/</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/houxiaozhao">houxiaozhao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cdtools.click/2017/06/03/前端技术和angularjs-前端技术和angularjs/">https://cdtools.click/2017/06/03/前端技术和angularjs-前端技术和angularjs/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">此文章版权归houxiaozhao所有，如有转载，请注明来自原作者</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a><a class="post-meta__tags" href="/tags/CSS3/">CSS3</a><a class="post-meta__tags" href="/tags/AngularJS/">AngularJS</a><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/">前端技术栈</a><a class="post-meta__tags" href="/tags/HTML5/">HTML5</a><a class="post-meta__tags" href="/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/">构建工具</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/">开发框架</a><a class="post-meta__tags" href="/tags/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/">调试工具</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-466.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2017/10/23/%E7%89%A9%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AEMQTT%E5%92%8CWAMP/" title="MQTT和WAMP协议：物联网通信技术对比与实践应用"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-17.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">MQTT和WAMP协议：物联网通信技术对比与实践应用</div></div><div class="info-2"><div class="info-item-1">物联网通信协议 MQTT&amp;WAMP一、物联网层次结构1.百度云架构     2.技术层架构 百度云、腾讯云、阿里云和其他物联网云厂商等，基本完全支持：MQTT+HTTP+WEBSOCKET+CoAP 二、MQTT：http://mqtt.org/ MQTT 是什么  应用场景  如何实现 MQTT 应用实例：安装 mqtt 服务：常用的 Rabbitmq 开启 mqtt 服务；安装 emqtt； 使用 MQTT 测试客户端进行简单测试 自己动手编程，实现 mqtt 收发 1234567recv1:mosquitto_sub -h localhost -u wugeek -P 111111 -t &quot;xingtai&quot;recv2:mosquitto_sub -h localhost -u wugeek -P 111111 -t &quot;handan&quot;send:mosquitto_pub -h localhost -u wugeek -P 111111 -t &quot;xingtai&quot; -m...</div></div></div></a><a class="pagination-related" href="/2017/05/05/React%20Native%20%E7%AE%80%E4%BB%8B-reactnative%E7%AE%80%E4%BB%8B/" title="React Native vs Ionic 移动应用开发对比与实践"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-504.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">React Native vs Ionic 移动应用开发对比与实践</div></div><div class="info-2"><div class="info-item-1">react native 开发 IOS 手机应用基本方法及其与 IONIC 开发的对比1. react-native 介绍react-native 是一款基于 js 框架 React.js 来开发 IOS 和 Android 原生 App 的开源框架， Learn once,write anywhere      NR 和 react.js 关系 RN 和 react.js 公用一些抽象层，比如语法标签等，但还是有许多差异，而且目标平台不同。  案例：http://reactnative.cn/cases.html  ionic 与 RN：ionic 是 webview，NR 是以 js 方式开发的原生应用   2. 搭建开发环境macOS &#x3D;&gt;iOS  安装 Homebrew&#x3D;&#x3D;dpkg 1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;  安装 node 1brew...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2017/01/18/angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%882%EF%BC%89-angularjs%E5%92%8Cionic%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%962/" title="AngularJS和Ionic应用性能优化实践与技巧"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-418.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-01-18</div><div class="info-item-2">AngularJS和Ionic应用性能优化实践与技巧</div></div><div class="info-2"><div class="info-item-1">angular 性能优化 使用$watchCollection(obj, listener)，不要使用$watch()或者$watchGroup();  使用 one-time binding 1&#123;&#123;::user.first_name&#125;&#125;    使用 Track by以前的用法ng-repeat=&quot;user in users&quot;修改后的用法ng-repeat=&quot;user in users track by user.id&quot;如果 users 有 id 的话或者ng-repeat=&quot;user in users track by $index&quot;如果没有 id  不要使用 console.log(),而是用$log The $log service has several log levels .info .debug and .error.  禁用...</div></div></div></a><a class="pagination-related" href="/2022/03/09/API%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%AE%BE%E8%AE%A1%EF%BC%8C%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE-api%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%AE%BE%E8%AE%A1%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE/" title="API安全防护：接口签名验证与防重放攻击实现"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-4.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-09</div><div class="info-item-2">API安全防护：接口签名验证与防重放攻击实现</div></div><div class="info-2"><div class="info-item-1"> 为了保证 api 接口安全，防止数据被篡改，需要设计 api 签名机制。以下为签名过程  接口签名算法1. 获取参数 一共 4 部分的参数 path query body 时间戳 {timestamp} 随机字符串 {nocestr}  2. 合并参数，然后排序(body 中可能嵌套多层 json,需要递归对对象属性排序，数组的顺序不变)3. 对上一步对象转为字符串，然后 md5 加密4. 再用用户 token 为 key，对 md5 加密后的字符串用 hmacSHA512 加密得到 sign5. http 请求 header 中添加 sign、timestamp、nocestr前端签名实现如下12345678import hmacSHA512 from &quot;crypto-js/hmac-sha512&quot;;import md5 from &quot;crypto-js/md5&quot;;const timestamp = +new Date();const nocestr = generateNoceStr();const data =...</div></div></div></a><a class="pagination-related" href="/2019/05/04/Hybrid%20App%20%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B(Vue+Android)%E5%9F%BA%E4%BA%8EJavaScript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8FAPP%E5%BC%80%E5%8F%91-hybridapp%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8Bvueandroid%E5%9F%BA%E4%BA%8Ejavascript%E7%9A%84%E6%B7%B7%E5%90%88%E5%BC%8Fapp%E5%BC%80%E5%8F%91/" title="Vue.js与Cordova构建混合应用：从环境搭建到插件集成"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-181.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-05-04</div><div class="info-item-2">Vue.js与Cordova构建混合应用：从环境搭建到插件集成</div></div><div class="info-2"><div class="info-item-1">准备开发环境 前端开发环境  Node.js LTS @vue&#x2F;cli cordova yarn 推荐   编辑器 VS code(墙裂推荐) 各种插件         Android 环境（需要编译 Android 软件） 安装 JDK 设置环境变量   安装 SDK?Android Studio - 设置环境变量https://blog.csdn.net/pupilxiaoming/article/details/77801398    ###项目搭建  使用脚手架生成基础项目  cordova 项目 cordova create demo cordova platform add android cordova run android 目录结构 www 存放网页代码 plugins 插件 platforms 平台 res 资源   调试chrome://inspect/#devices   vue 项目 vue create demo yarn npm run serve 目录结构 public 静态资源 src 源码   安装一个 UI 框架...</div></div></div></a><a class="pagination-related" href="/2021/04/07/Node%20js%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%20-nodejs%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="Node.js 错误处理实用指南：Promise与Async&#x2F;Await最佳实践"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-253.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-07</div><div class="info-item-2">Node.js 错误处理实用指南：Promise与Async&#x2F;Await最佳实践</div></div><div class="info-2"><div class="info-item-1">Node.js 错误处理最佳实践使用 Promise 捕获错误123456789101112131415161718192021222324let func = function (n) &#123;  return new Promise((resolve, reject) =&gt; &#123;    resolve(n * n);  &#125;);&#125;;func(2)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .then(res =&gt; &#123;    console.log(res);    throw new Error(&quot;Error&quot;);  &#125;)  .then(res =&gt; &#123;    console.log(res);    return func(res);  &#125;)  .catch(err =&gt; &#123;    console.log(err);  &#125;) ...</div></div></div></a><a class="pagination-related" href="/2023/02/02/Nodejs%E4%B8%ADBuffer%E5%92%8CStream%E4%BA%92%E8%BD%AC/" title="Node.js中Buffer和Stream的高效转换：提升数据处理性能"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-18.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-02</div><div class="info-item-2">Node.js中Buffer和Stream的高效转换：提升数据处理性能</div></div><div class="info-2"><div class="info-item-1">Stream to Buffer12345678function streamToBuffer(stream) &#123;  return new Promise((resolve, reject) =&gt; &#123;    let buffers = [];    stream.on(&quot;error&quot;, reject);    stream.on(&quot;data&quot;, data =&gt; buffers.push(data));    stream.on(&quot;end&quot;, () =&gt; resolve(Buffer.concat(buffers)));  &#125;);&#125;  Buffer to Stream1234567let Duplex = require(&quot;stream&quot;).Duplex;function bufferToStream(buffer) &#123;  let stream = new Duplex();  stream.push(buffer); ...</div></div></div></a><a class="pagination-related" href="/2017/05/05/React%20Native%20%E7%AE%80%E4%BB%8B-reactnative%E7%AE%80%E4%BB%8B/" title="React Native vs Ionic 移动应用开发对比与实践"><img class="cover" src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-504.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-05-05</div><div class="info-item-2">React Native vs Ionic 移动应用开发对比与实践</div></div><div class="info-2"><div class="info-item-1">react native 开发 IOS 手机应用基本方法及其与 IONIC 开发的对比1. react-native 介绍react-native 是一款基于 js 框架 React.js 来开发 IOS 和 Android 原生 App 的开源框架， Learn once,write anywhere      NR 和 react.js 关系 RN 和 react.js 公用一些抽象层，比如语法标签等，但还是有许多差异，而且目标平台不同。  案例：http://reactnative.cn/cases.html  ionic 与 RN：ionic 是 webview，NR 是以 js 方式开发的原生应用   2. 搭建开发环境macOS &#x3D;&gt;iOS  安装 Homebrew&#x3D;&#x3D;dpkg 1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;  安装 node 1brew...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/14978325" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">houxiaozhao</div><div class="author-info-description">houxiaozhao的技术博客，专注于前端开发、Node.js、Web技术和JavaScript编程。分享技术心得，探讨开发经验，致力于提供高质量的技术文章和解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">502</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">136</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/houxiaozhao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/houxiaozhao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我欲修仙，法力无边</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">1.</span> <span class="toc-text">前端技术栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#angularjs"><span class="toc-number">2.</span> <span class="toc-text">angularjs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%BB%8F%E5%B8%B8%E9%80%9B%E7%9A%84%E7%BD%91%E7%AB%99"><span class="toc-number">3.</span> <span class="toc-text">我经常逛的网站</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-516.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持"/></a><div class="content"><a class="title" href="/2024/12/11/JPG%E8%BD%ACPDF/" title="JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持">JPG转PDF工具：免费在线将图片转换为PDF文档 | 批量转换支持</a><time datetime="2024-12-11T11:22:19.000Z" title="发表于 2024-12-11 11:22:19">2024-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-208.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案"/></a><div class="content"><a class="title" href="/2024/12/10/UTM-WGS84%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" title="UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案">UTM和WGS84坐标转换工具-专业地理坐标系统转换解决方案</a><time datetime="2024-12-10T09:48:22.000Z" title="发表于 2024-12-10 09:48:22">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-547.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI智能图片背景移除工具：快速、免费、本地处理"/></a><div class="content"><a class="title" href="/2024/12/09/AI%E5%9B%BE%E7%89%87%E8%83%8C%E6%99%AF%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B7/" title="AI智能图片背景移除工具：快速、免费、本地处理">AI智能图片背景移除工具：快速、免费、本地处理</a><time datetime="2024-12-09T12:16:20.000Z" title="发表于 2024-12-09 12:16:20">2024-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-575.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool"/></a><div class="content"><a class="title" href="/2024/12/06/PDF%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7/" title="在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool">在线PDF合并工具 - 快速、免费、安全的文档处理解决方案 | Online PDF Merger Tool</a><time datetime="2024-12-06T19:54:11.000Z" title="发表于 2024-12-06 19:54:11">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容"><img src="https://cdn.jsdelivr.net/gh/houxiaozhao/imageLibrary@master/pixiv/image-436.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="豆瓣小组爬虫：轻松获取小组讨论内容"/></a><div class="content"><a class="title" href="/2024/12/06/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%BB%84%E7%88%AC%E8%99%AB/" title="豆瓣小组爬虫：轻松获取小组讨论内容">豆瓣小组爬虫：轻松获取小组讨论内容</a><time datetime="2024-12-06T14:59:23.000Z" title="发表于 2024-12-06 14:59:23">2024-12-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By houxiaozhao</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://link.cdtools.click/link.js"></script></div></body></html>
